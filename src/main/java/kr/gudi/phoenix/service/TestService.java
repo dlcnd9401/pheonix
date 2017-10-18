@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.gudi.phoenix.dao.TestdaoInterface;
-
+//test
 @Service
 public class TestService implements TestServiceInterface {
 

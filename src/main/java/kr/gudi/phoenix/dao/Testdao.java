@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
+//test
 @Repository
 public class Testdao implements TestdaoInterface {
 	@Resource(name="sqlSession")
