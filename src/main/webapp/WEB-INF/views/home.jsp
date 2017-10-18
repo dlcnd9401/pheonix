@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>
-	Hello world! 12123
+	Hello world!
 </h1>
 <P>  한승준올림 </P>
 <P>  The time on the server is ${serverTime}. </P>
