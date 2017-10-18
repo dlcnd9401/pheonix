@@ -5,14 +5,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import kr.gudi.phoenix.service.TestServiceInterface;
 
 @Controller
 public class TestController {
 	
 	
+	@Autowired
+	TestServiceInterface tsi;
+	
 	@RequestMapping("/test")
-	public String Test(){
-	return "test";
+	public ModelAndView test(ModelAndView mav){
+		mav.setViewName("test");
+		mav.addObject("data", tsi.test());
+		return mav;
 	}
 }
