@@ -1,0 +1,416 @@
+body{ 
+    width:1903px;
+    max-width:1903px;
+    min-width: 300px;
+    margin : 0px;
+    position: relative;
+}
+
+header{
+    width: 100%;
+    height: 98px;    
+    background-color: black;
+}
+
+.put{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+}
+.put2{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+    width: 5%;
+}
+.box50 {
+    width:calc(100% - 50%);
+    height: 70%;
+    float:left;
+    margin : 0px 0px 0px 25%;
+    padding-top : 25px;
+    display:inline-block;
+    
+    
+}
+
+.box50 img{
+    float:left;
+    margin-right : 5%;
+}
+
+
+.box50 a {
+    text-decoration: none;
+    float:left;
+    margin : 25px 15px;
+    color :white;
+    
+}
+
+.in_box30{
+    width: 25%;
+    float:left;
+    margin-right : 5%;
+}
+.in_box30 img{
+    width :100%;
+    margin-right:10%;
+}
+.in_box70{
+    width: 100%;
+}
+
+footer {
+    width : 1903px;
+    height: 720px;
+    background-color : black;
+}
+.ft_box{
+    width: 100%;
+    height: 677px;  
+    background-color : rgb(20,20,20);
+    color : rgb(170,170,156);
+}
+
+.ft_box_in{
+    width: 50%;
+    height: 627px;
+    margin : 0% 25%;
+    padding : 25px 0px;
+    background-color : rgb(20,20,20);
+}
+
+
+.ft_box1{
+    width: 100%;
+    height: 43px;
+    background-color : black;
+}
+
+
+.ft_box1_in{
+    width:50%;
+    height: 50%;
+    margin : 0% 25%;
+    color:white;
+    transform: translateY(calc(50% + 5.5px));
+    text-align: center;
+    font-size: 11px;
+}
+
+.ft_box_in a{
+            color : rgb(170,170,156);
+    font-size: 11px;
+}
+
+
+
+
+section{
+    width: 1903px;
+    height: calc(100% - 818px);
+    background-color :azure;
+}
+
+
+a {
+    text-decoration: none;
+}
+.white { 
+color:white;
+}
+
+.cent{
+    width: 50%;
+    padding : 30px 0px;
+    margin : 0% 25%;
+
+}
+
+.col {
+    width : 159px;
+    height: 370px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+.m_head{
+    margin: 10px 0%;
+    width: 100%;
+    
+}
+
+
+.news {
+    width: 173px;
+    height: 218px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+/*기본틀--------------------------------------------*/
+
+body,html {
+    margin: 0px;
+    padding: 0px;
+    width: 1903px;
+}
+
+.MasterPage1 {
+    background-color:#f5f5f5;
+    height: 850px;
+    width: 1903px;
+}
+
+.top {
+    background-color: #f5f5f5;
+    width: 1903px;
+    height: 120px;
+}
+
+#pf {
+    margin: 0px;
+    font-family: 'Lobster', cursive;
+    font-size: 80px;
+    margin-left: 150px;
+}
+
+.mid {
+    background-color: #f5f5f5;
+    width: 1809px;
+    height: 670px;
+    margin: 0;  
+    margin-left: 150px;
+}
+
+/*옆에 사용자 페이지*/
+#smallmypage {
+    height: 610px;
+    width: 180px;
+    background-color: #d1d1d1;
+    float: left;  
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    
+}
+
+/*사용자 +사진 + 이름 + 아이디*/
+#smallmypage .my {
+    height: 200px;
+    width: 180px;    
+    text-align: center;
+    background-color: #fafafa;
+    border-bottom: 1px solid;
+}
+/*기본 프로필사진*/
+#smallmypage .profile{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 100px;
+    width: 90px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+/*다른페이지이동*/
+#smallmypage .otherpage {
+    height: 409px;
+    width: 180px;
+    text-align: center;
+    line-height: 120px;
+    font-size: 20px;
+    font-weight: bolder;     
+}
+#smallmypage .pagemove {
+    color: black;
+}
+#smallmypage .pagemove:hover {
+    color: #b47704;
+}
+
+.col-1 {
+    background-color: gainsboro;
+    width: 1140px;
+    height: 608px;
+    float: left;
+    border: 3px solid;       
+}
+
+.title {
+    background-color: darkgray;    
+    height: calc(650px / 12);
+    float: left;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+    border-bottom: 3px solid;    
+}
+.no {
+    width: 40px;    
+}
+.id {
+    width: 150px;    
+}
+.name {
+    width: 90px;    
+}
+.email{
+    width: 240px;    
+}
+.tel {
+    width: 150px;    
+}
+.address{
+    width: 470px;    
+}
+.title1 {    
+    height: calc(650px / 12);
+    float: left;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+    border-bottom: 1px solid;    
+}
+
+.col-2 {
+    background-color: #f5f5f5;
+    width: 250px;
+    height: 600px;
+    float: left;    
+}
+
+.col-3 {
+    background-color: #f5f5f5;
+    width: 110px;
+    height: 600px;
+    float: left;
+}
+/*드롭다운박스--------------------------------------------*/
+
+.dropbtn {
+    background : rgb(109,109,109);
+    color: white;
+    width: 200px;
+    padding: 16px;
+    margin-left: 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background: rgb(71,71,71);
+    color:#FFFFFF;
+    text-decoration:none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    margin-left: 25px;
+    width: 200px;
+    height: 1912x;
+    text-align: center;
+    display: none;
+    position: absolute;
+    background-color: #cccccc;    
+    overflow: auto;    
+    font-weight: bold;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    height: 25px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background: rgb(109,109,109)}
+.show {display:block;}
+
+
+
+/*인풋박스------------------------------------------------*/
+
+.inputbox {
+    margin-left: 25px;
+    margin-top: 60px;
+    width: 200px;
+    font-size: 18px;
+    border: 1px solid #bcbcbc;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*버튼---------------------------------------------------*/
+
+.myButton {
+    margin-top: 60px;    
+    height: 50px;
+    width: 80px;
+    font: inherit; 
+    padding: 2px 4px; 
+    background-color: #eaeaea; 
+    border-width: 2px; border-style: solid; 
+    border-color: #f4f4f4 #a3a3a3 #a3a3a3 #f4f4f4; 
+
+    -webkit-border-radius: 3px; 
+       -moz-border-radius: 3px; 
+            border-radius: 3px;
+} 
+.myButton:hover {  background-color: #d2e3f4;  }
+.myButton:active {  border-color: #a3a3a3 #efefef #efefef #A3A3A3; } 
+
+.myButton:focus { 
+    outline: 2px solid #c1d6ef;
+    outline-offset: 1px;
+} 
+
+/*바닥--------------------------------------------------*/
+
+.btm {
+    background-color: #f5f5f5;
+    width: 1803px;
+    height: 20px;
+    float: left;
+}
+
+/*페이지넘기기-------------------------------------------*/
+
+.ulb {
+    margin-top: 20px;
+    margin-left: 450px;
+    width: 500px;
+    height: 30px;
+    list-style: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+.ulb .lib {
+    float: left;
+    margin: 0px 20px;
+}
+.ulb a {text-decoration: none; color: black;}
+.ulb a:hover {color: sandybrown;}
+
+
+/*푸터--------------------------------------------------*/
+
+
+/*푸터--------------------------------------------------*/

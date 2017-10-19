@@ -1,3 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/webapp/WEB-INF/html/MasterPage.html=UTF-8
+encoding//src/main/webapp/WEB-INF/html/buylist.html=UTF-8
+encoding//src/main/webapp/WEB-INF/html/cart.html=UTF-8
+encoding//src/main/webapp/WEB-INF/html/clockmanage.html=UTF-8
+encoding//src/main/webapp/WEB-INF/html/clockupdate.html=UTF-8
+encoding//src/main/webapp/WEB-INF/html/revise.html=UTF-8
+encoding//src/main/webapp/WEB-INF/html/usermanage.html=UTF-8
 encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8

@@ -1,0 +1,308 @@
+body{ 
+    width:1903px;
+    max-width:1903px;
+    min-width: 300px;
+    margin : 0px;
+    position: relative;
+}
+
+header{
+    width: 100%;
+    height: 98px;    
+    background-color: black;
+}
+
+.put{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+}
+.put2{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+    width: 5%;
+}
+.box50 {
+    width:calc(100% - 50%);
+    height: 70%;
+    float:left;
+    margin : 0px 0px 0px 25%;
+    padding-top : 25px;
+    display:inline-block;
+    
+    
+}
+
+.box50 img{
+    float:left;
+    margin-right : 5%;
+}
+
+
+.box50 a {
+    text-decoration: none;
+    float:left;
+    margin : 25px 15px;
+    color :white;
+    
+}
+
+.in_box30{
+    width: 25%;
+    float:left;
+    margin-right : 5%;
+}
+.in_box30 img{
+    width :100%;
+    margin-right:10%;
+}
+.in_box70{
+    width: 100%;
+}
+
+footer {
+    width : 1903px;
+    height: 720px;
+    background-color : black;
+}
+.ft_box{
+    width: 100%;
+    height: 677px;  
+    background-color : rgb(20,20,20);
+    color : rgb(170,170,156);
+}
+
+.ft_box_in{
+    width: 50%;
+    height: 627px;
+    margin : 0% 25%;
+    padding : 25px 0px;
+    background-color : rgb(20,20,20);
+}
+
+
+.ft_box1{
+    width: 100%;
+    height: 43px;
+    background-color : black;
+}
+
+
+.ft_box1_in{
+    width:50%;
+    height: 50%;
+    margin : 0% 25%;
+    color:white;
+    transform: translateY(calc(50% + 5.5px));
+    text-align: center;
+    font-size: 11px;
+}
+
+.ft_box_in a{
+            color : rgb(170,170,156);
+    font-size: 11px;
+}
+
+
+
+
+section{
+    width: 1903px;
+    height: calc(100% - 818px);
+    background-color :azure;
+}
+
+
+a {
+    text-decoration: none;
+}
+.white { 
+color:white;
+}
+
+.cent{
+    width: 50%;
+    padding : 30px 0px;
+    margin : 0% 25%;
+
+}
+
+.col {
+    width : 159px;
+    height: 370px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+.m_head{
+    margin: 10px 0%;
+    width: 100%;    
+}
+
+
+.news {
+    width: 173px;
+    height: 218px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+/*내 코딩 부분*/
+/*마이페이지 기본섹션크기*/
+#mymain {
+    width: 1903px;
+    height: 1000px;
+    background-color: white;
+}
+
+/*아이콘 + 장바구니*/
+#mymain .titlebox {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-left: 150px;
+}
+/*구매목록 제목*/
+.title {    
+    font-size: 50px; 
+}
+
+/*큰틀*/
+#bigtle {
+    margin-left: 150px;
+    width: 1603px;
+    height: 800px;
+}
+
+/*옆에 사용자 페이지*/
+#smallmypage {
+    height: 800px;
+    width: 200px;
+    background-color: #d1d1d1;
+    float: left;    
+    border-right: 1px solid;
+}
+
+/*사용자 +사진 + 이름 + 아이디*/
+#smallmypage .my {
+    height: 200px;
+    width: 200px;    
+    text-align: center;
+    background-color: #fafafa;
+    border-bottom: 1px solid;
+    float: left;
+}
+/*기본 프로필사진*/
+#smallmypage .profile{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+/*다른페이지이동*/
+#smallmypage .otherpage {
+    height: 449px;
+    width: 200px;
+    text-align: center;
+    line-height: 120px;
+    font-size: 20px;
+    font-weight: bolder; 
+    color: black;
+}
+#smallmypage .pagemove {
+    color: black;
+}
+#smallmypage .pagemove:hover {
+    color: #b47704;
+}
+
+/*수정칸*/
+#midtle {
+    width: 1402px;
+    height: 720px; 
+    padding-top: 80px;
+    float: left;
+    background-color: gainsboro;
+}
+
+/*회원정보수정 왼쪽글자*/
+.sujungtext {
+    float: left;
+    width: 250px;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 300px;
+    font-size: 30px;
+    font-weight: 600;
+    float: left;
+    line-height: 100px;
+}
+
+/*수정입력창 전체틀 크기, 위치*/
+.sujunginput {
+    margin-top: 55px;
+    width: 450px;
+    height: 664px;    
+    float: left;
+    line-height: 100px;    
+}
+
+/*수정입력창 위치, 크기 조정*/
+.inputtle {
+    float: left;
+    width: 400px;
+    height: 30px;
+    font-size: 20px;
+}
+
+/*버튼위치*/
+.button {
+    margin-top: 55px;
+    float: left;
+    width: 248px;
+    height: 664px;    
+}
+.ID {
+    width: 90px;
+    height: 35px;
+    font-size: 18px;
+    float: inherit;
+}
+.sucess {
+    margin-top: 560px;
+    width: 90px;
+    height: 35px;
+    font-size: 18px;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

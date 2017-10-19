@@ -1,0 +1,400 @@
+body{ 
+    width:1903px;
+    max-width:1903px;
+    min-width: 300px;
+    margin : 0px;
+    position: relative;
+}
+
+header{
+    width: 100%;
+    height: 98px;    
+    background-color: black;
+}
+
+.put{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+}
+.put2{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+    width: 5%;
+}
+.box50 {
+    width:calc(100% - 50%);
+    height: 70%;
+    float:left;
+    margin : 0px 0px 0px 25%;
+    padding-top : 25px;
+    display:inline-block;
+    
+    
+}
+
+.box50 img{
+    float:left;
+    margin-right : 5%;
+}
+
+
+.box50 a {
+    text-decoration: none;
+    float:left;
+    margin : 25px 15px;
+    color :white;
+    
+}
+
+.in_box30{
+    width: 25%;
+    float:left;
+    margin-right : 5%;
+}
+.in_box30 img{
+    width :100%;
+    margin-right:10%;
+}
+.in_box70{
+    width: 100%;
+}
+
+footer {
+    width : 1903px;
+    height: 720px;
+    background-color : black;
+}
+.ft_box{
+    width: 100%;
+    height: 677px;  
+    background-color : rgb(20,20,20);
+    color : rgb(170,170,156);
+}
+
+.ft_box_in{
+    width: 50%;
+    height: 627px;
+    margin : 0% 25%;
+    padding : 25px 0px;
+    background-color : rgb(20,20,20);
+}
+
+
+.ft_box1{
+    width: 100%;
+    height: 43px;
+    background-color : black;
+}
+
+
+.ft_box1_in{
+    width:50%;
+    height: 50%;
+    margin : 0% 25%;
+    color:white;
+    transform: translateY(calc(50% + 5.5px));
+    text-align: center;
+    font-size: 11px;
+}
+
+.ft_box_in a{
+            color : rgb(170,170,156);
+    font-size: 11px;
+}
+
+
+
+
+section{
+    width: 1903px;
+    height: calc(100% - 818px);
+    background-color :azure;
+}
+
+
+a {
+    text-decoration: none;
+}
+.white { 
+color:white;
+}
+
+.cent{
+    width: 50%;
+    padding : 30px 0px;
+    margin : 0% 25%;
+
+}
+
+.col {
+    width : 159px;
+    height: 370px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+.m_head{
+    margin: 10px 0%;
+    width: 100%;    
+}
+
+
+.news {
+    width: 173px;
+    height: 218px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+/*내 코딩 부분*/
+/*마이페이지 기본섹션크기*/
+#mymain {
+    width: 1903px;
+    height: 1000px;
+    background-color: white;
+}
+
+/*아이콘 + 장바구니*/
+#mymain .titlebox {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-left: 150px;
+}
+/*쇼핑백 아이콘*/
+#mymain .shoppingbackicon {
+    height: 50px;
+    width: 100px;    
+    padding-left: 180px;
+}
+/*구매목록 제목*/
+.title {    
+    font-size: 50px; 
+}
+/*사용자페이지 + 장바구니페이지*/
+#shoppingbagpage {
+    margin-left: 150px;
+    width: 1603px;
+    height: 800px; 
+    border: 2px solid;
+}
+
+/*옆에 사용자 페이지*/
+#smallmypage {
+    height: 800px;
+    width: 200px;
+    background-color: #d1d1d1;
+    float: left;    
+    border-right: 1px solid;
+}
+
+/*사용자 +사진 + 이름 + 아이디*/
+#smallmypage .my {
+    height: 200px;
+    width: 200px;    
+    text-align: center;
+    background-color: #fafafa;
+    border-bottom: 1px solid;
+}
+/*기본 프로필사진*/
+#smallmypage .profile{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+/*다른페이지이동*/
+#smallmypage .otherpage {
+    height: 449px;
+    width: 200px;
+    text-align: center;
+    line-height: 120px;
+    font-size: 20px;
+    font-weight: bolder; 
+    color: black;
+}
+#smallmypage .pagemove {
+    color: black;
+}
+#smallmypage .pagemove:hover {
+    color: #b47704;
+}
+
+/* 장바구니 큰공간*/
+#shoppingbag {
+    width: 1402px;
+    height: 800px; 
+    float: left;
+    background-color: #dbd8d6;
+}
+
+
+/*구매목록 중간공간에 상단메뉴*/
+#shoppingbag .listtop {
+    background-color: #d4d4d4;     
+    width: 1402px;
+    height: 80px;    
+}
+/*상단메뉴 글자별 너비*/
+#shoppingbag .sbt1 {
+    width: 68px;
+}
+#shoppingbag .sbt2 {
+    width: 80px;
+    height: 0px; 
+}
+#shoppingbag .sbt3{
+    width: 210px;
+    height: 0px;
+}
+#shoppingbag .sbt4 {
+    width: 270px;
+    height: 0px
+}
+#shoppingbag .sbt5 {
+    width: 250px;
+    height: 0px;
+}
+#shoppingbag .sbt6 {
+    width: 354px;
+    height: 0px;   
+}
+#shoppingbag .sbt7 {
+    width: 170px;
+    height: 0px;   
+}
+/*사진 클릭*/
+#shoppingbag .img {
+    width: 60px;
+    height: 72px;    
+}
+
+
+/*상단메뉴 텍스트 조정*/
+#shoppingbag .listtoptext {
+    height: 77px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 30px;
+    font-weight: 700;    
+    float: left;
+}
+
+
+/*구매목록 중간공간에 하단구매목록*/
+#shoppingbag .list-tle { 
+    width: 1402px;
+    height: 720px; 
+}
+/*구매목록 리스트한줄크기*/
+#shoppingbag .list {       
+    width: 1402px;
+    height: 72px;
+    float: left; 
+}
+
+
+/*체크박스 공간틀*/
+#shoppingbag .listcheckbox {
+    width: 68px;
+    height: 70px;
+    float: left;    
+    line-height: 75px;
+    border-top: 1px solid;
+}
+/*체크박스크기+위치*/
+.checkbox {
+    width: 61px;
+    height: 20px;
+}
+/*장바구니 리스트글자 조정(크기+굵기+위치)*/
+#shoppingbag .listtext {
+    font-size: 20px;
+    text-align: center;
+    float: left;
+    line-height: 60px;
+    border-top: 1px solid;
+}
+
+
+/*하단버튼 틀 (버튼라인)*/
+#btntle {
+    float: left;
+    width: 1603px;
+    height: 47px;
+    line-height: 50px;    
+    border-top: 1px solid;    
+}
+
+/*페이지이동버튼 틀*/
+.pagebtns {
+    width: 500px;
+    height: 48px; 
+    float: left;
+    padding-left: 600px;
+}
+/*페이지이동버튼 크기+글자크기*/
+.btn {
+    height: 30px;
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white; 
+    border-radius: 10%;
+    color: dimgrey;
+    border: 1px solid;
+}
+.btn:hover { 
+    color: black;
+}
+/*구매, 삭제버튼 틀*/
+.buydelbtns {
+    height: 46px;
+    width: 300px;
+    float: left;
+    padding-left: 70px;
+    text-align: center;
+}
+/*구매, 삭제버튼 크기+글자*/
+.btn1 {    
+    width: 85px;
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    background-color: #f6fafc;   
+    line-height: 30px;
+    border: px solid;
+}
+.btn1:hover {
+    background-color: #716c6c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
