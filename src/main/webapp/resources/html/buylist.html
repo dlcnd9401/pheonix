@@ -1,102 +1,149 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
-<html lang="kr">
+<!doctype html>
+<html>
 <head>
-  <title>Bootstrap Example</title>
-  <link rel="stylesheet" href="resources/css/Model.css">
-    <link rel = "stylesheet" href = "resources/css/layout.css">
+    <link rel = "stylesheet" href = "/phoenix/resources/css/buylist.css">
     <script  src="https://code.jquery.com/jquery-2.2.4.js"
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/phoenix/resources/css/index.js"></script>
+
 <script type="text/javascript">
    // 팝업을 띄우기, width 300, height 400, 스크롤바, 툴바, 메뉴바를 모두 숨기는 경우
    window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');return false; target = "_blank";
 </script>
+<script language="javascript">
+ function Confirmbuy() {
+ if (confirm("구매하시겠습니까?"))
+  {
+   alert("구매하셨습니다.");
+  } else {
+   alert("취소하셨습니다.");
+  }
+ }
+    function Confirmdel() {
+ if (confirm("삭제하시겠습니까?"))
+  {
+   alert("삭제하셨습니다.");
+  } else {
+   alert("취소하셨습니다.");
+  }
+ }
+    </script>
+    <script>
+        
+    </script>
 </head>
 <body><div class = "main">
     <header>
         <div><input type = "text" placeholder = "국적" class = "put2">  <input type = "text" placeholder = "검색" class = "put"></div>
     <div class = "box50">
         <div>
-        <img src = "/img/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <img src = "/team/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
         <div><a href =""> 컬렉션</a></div>
                 
-        <div class = ""><a href =""> <div class ="in_box30"><img src = "/img/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <div class = ""><a href =""> <div class ="in_box30"><img src = "/team/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
             <div class ="in_box70">문의하기</div>
             </a></div>
         <div><a href =""> 마이페이지</a></div>
         </div> </header>
     <section>
-    <div class="submenu">
-    <div class="wapper">
-        <!--컬랙션 종류-->
-        <nav class="subcollection">
-            <!--사진과 컬랙션 이름. 링크이동-->
-            <div class="subcollect">
-                <a href="#">
-                <div class="in_mainimg">  
-       
-                 </div>
-                    <span>PATRIMONY</span>
-                    </a>
-                
-                <a href="#">
-                <div class="in_mainimg"> 
+    
+    
+    
+    
+    
+    <!--몸통 -->    
+<div id="mymain">
+ <div class="titlebox">
   
-                 </div>
-                    <span>HARMONY</span>
-                    </a>
-               <a href="#">
-                <div class="in_mainimg">
- 
-                 </div>
-                   <span>MALTE</span>
-                    </a>
-                <a href="#">
-                <div class="in_mainimg">
-                   
-                 </div>
-                    <span>OVERSEAS</span>
-                    </a>
-                <a href="#">
-                <div class="in_mainimg">                 
-                 </div>
-                    <span>QUALDEI'ILE</span>
-                    </a>
-               <a href="#">
-                <div class="in_mainimg">
-                 </div>
-                   <span>TRADITIONNELLE</span>
-                    </a>
-               <a href="#">
-                <div class="in_mainimg">                    
-                 </div>
-                   <span>1972</span>
-                    </a>
-                <a href="#">
-                <div class="in_mainimg">                  
-                 </div>
-                    <span>HEURES CREATIVES</span>
-                    </a>
-                <a href="#">
-                <div class="in_mainimg">                  
-                 </div>
-                    <span>HISTORIQUES</span>
-                    </a>
-                <a href="#">
-                <div class="in_mainimg">                   
-                 </div>
-                    <span>METIERS DART</span>
-                    </a>
-            </div>
-        </nav>
-        <!--신제품 및 무브먼트, 검색기능으로 이동-->
+   <a class="title">구매목록</a>
+   </div>
+   
+   <!-- -->
+   <div id="shoppingbagpage">
+   <div id="smallmypage"> 
+      <!-- 페이지부분 글자정렬-->
+       <div class="">
+       <!-- 회원정보 -->
+       <div class="my">
+       <div><img src="commonprofile.png" class="profile"></div>
+       <div><a>님</a></div>
+        <div><a>ID</a></div>
+        </div>
+        <div class="otherpage">
+        <a href="layout.html"><div class="pagemove">회원정보수정</div></a>
+        <a href="layout.html"><div class="pagemove">구매목록</div></a>
+         <a href="index.html"><div class="pagemove">장바구니</div></a>  
+          </div>
+       </div>
+   </div>
+   
+   <!-- 장바구니 -->
+    <div id="shoppingbag"> 
+    <div class="listtop">
+     
+     <div class="sbt2 listtoptext">No</div>
+     <div class="sbt3 listtoptext">상품명</div>
+     <div class="sbt4 listtoptext">시리즈</div>
+     <div class="sbt5 listtoptext">가격</div>
+     <div class="sbt6 listtoptext">구입날짜</div>
+     <div class="sbt7 listtoptext">판매처</div> 
+          
+    </div><!-- 상단(가격, 시리즈, 숫자...) -->
+    
+    <div class="list-tle">
+        <div class="list">
+            
+             <div class="sbt2 listtext">1</div>
+             <div class="sbt3 listtext">000R-9708</div>
+             <div class="sbt4 listtext">HARMONY</div>
+             <div class="sbt5 listtext">7,308,000</div>
+             <div class="sbt6 listtext">2017년 9월 22일</div>
+             <div class="sbt7 listtext">서울</div>  
+        </div><!-- 기본틀(가격, 시리즈, 숫자...) -->
+            
+             
         
+                    
     </div>
+      </div>
+      
+      <div id="btntle"><!-- 하단버튼(페이지이동, 구매, 삭제) -->
+     <div class="pagebtns">
+        <button type="button" class="btn leftmove">←</button>
+        <button type="button" class="btn page">1</button>
+        <button type="button" class="btn page">2</button>
+        <button type="button" class="btn page">3</button>
+        <button type="button" class="btn page">4</button>
+        <button type="button" class="btn page">5</button>
+        <button type="button" class="btn rightmove">→</button>
+    </div><!-- 페이지숫자, 이동버튼 -->
+      </div>
     </div>
-        </section>
+</div>      
+  
+    
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--
+    </section>
     <footer> 
     <div class = "ft_box">
         <div class ="ft_box_in">
@@ -154,6 +201,7 @@
         
         
         </div>
+        -->
     <div class = "ft_box1">
         <div class ="ft_box1_in">
             <a href = "#" class ="white">Copyright Vacheron Constantin |</a>
@@ -165,7 +213,10 @@
             <a href = "#" class ="white">SIHH 2016</a>
         </div>
         </div>
-    </footer>
+     </footer> 
+
     </div>
-</body>
+    
+    </body>
+    
 </html>

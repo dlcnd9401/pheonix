@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+    <link rel = "stylesheet" href = "/phoenix/resources/css/usermanage.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+   // 팝업을 띄우기, width 300, height 400, 스크롤바, 툴바, 메뉴바를 모두 숨기는 경우
+   window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');return false; target = "_blank";
+</script>
+
+<script>
+        function myFunction() {
+               document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+    </script>
+
+</head>
+<body>
+   <div class = "main">
+    <header>
+        <div><input type = "text" placeholder = "국적" class = "put2">  <input type = "text" placeholder = "검색" class = "put"></div>
+    <div class = "box50">
+        <div>
+        <img src = "/team/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <div><a href =""> 컬렉션</a></div>
+                
+        <div class = ""><a href =""> <div class ="in_box30"><img src = "/team/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+            <div class ="in_box70">문의하기</div>
+            </a></div>
+        <div><a href =""> 마이페이지</a></div>
+        </div> </header>
+
+       
+<!-- --------------------------------------------------  -->    
+    <section>
+        <div class="MasterPage1">
+           <div class="top"><p id="pf">Master page</p></div>
+            <div class="mid">
+              <!-- 관리자페이지이동 -->          
+          <div id="smallmypage"> 
+      <!-- 페이지부분 글자정렬-->
+       <div class="">
+       <!-- 회원정보 -->
+       <div class="my">
+       <div><img src="commonprofile.png" class="profile"></div>
+       <div><a>관리자님</a></div>        
+        </div>
+        <div class="otherpage">
+        <a href="layout.html"><div class="pagemove">상품등록</div></a>
+        <a href="layout.html"><div class="pagemove">재고관리</div></a>
+         <a href="index.html"><div class="pagemove">회원관리</div></a>  
+          </div>
+       </div>
+   </div>
+              <!--회원정보-->
+               <div class="col-1">
+                   <div class="title no">No.</div>
+                   <div class="title id">ID</div>
+                   <div class="title name">Name</div>
+                   <div class="title email">e-mail</div>
+                   <div class="title tel">Tel</div>
+                   <div class="title address">Address</div>
+                   
+                   <div>
+                       <div class="title1 no">1</div>
+                       <div class="title1 id">joo79100</div>
+                       <div class="title1 name">박종윤</div>
+                       <div class="title1 email">joo79100@naver.com</div>
+                       <div class="title1 tel">010-9724-6624</div>
+                       <div class="title1 address">경기도부천시원미구약대동169-21삼화월드빌라501호</div>
+                   </div> 
+                   <!-- 10개 가능 -->
+               </div>
+               <div class="col-2">
+                   <input type="text" placeholder="Search"  class="inputbox">
+                   
+                   <div class="dropdown">
+                      <button onclick="myFunction()" class="dropbtn">항목</button>
+                       <div id="myDropdown" class="dropdown-content">
+                                <a href="#id">ID</a>
+                                <a href="#name">Name</a>
+                                <a href="#tel">Tel</a>
+                                <a href="#address">Address</a>
+                        </div>
+                    </div>
+               </div>
+               <div class="col-3">
+                   <input class="myButton" type="submit" value="검색" />
+               </div>
+                
+               <div class="btm">
+                <ul class="ulb">
+                    <li class="lib"><a href="#">이전페이지</a></li>
+                    <li class="lib"><a href="#">1</a></li>
+                    <li class="lib"><a href="#">2</a></li>
+                    <li class="lib"><a href="#">3</a></li>
+                    <li class="lib"><a href="#">4</a></li>
+                    <li class="lib"><a href="#">다음페이지</a></li>
+                </ul> 
+               </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+<!-- --------------------------------------------------  -->
+   <footer> 
+    <div class = "ft_box">
+        <div class ="ft_box_in">
+        <div class = "cent"><img src = "/team/vacheron-constantin-logo.png"></div>
+        <div class ="col">
+            <div class ="m_head">컬렉션</div>
+            <div><a href = "#"  >Patrimony</a></div>
+            <div><a href = "#" >Traditionnelle</a></div>
+            <div><a href = "#" >Harmony</a></div>
+            <div><a href = "#" >1972</a></div>
+            <div><a href = "#" >Malte</a></div>
+            <div><a href = "#" >Historiques</a></div>
+            <div><a href = "#" >Métiers d'Art</a></div>
+            <div><a href = "#" >Quai de L’ile</a></div>
+            <div><a href = "#" ><br>수동 무브먼트</a></div>
+            <div><a href = "#" >자동 무브먼트</a></div>
+            </div>
+        <div class ="col"><div class ="m_head">시계 제조사</div>
+            <div><a href = "#">아틀리에 캐비노티에</a></div>
+            <div><a href = "#">우리의 약속</a></div>
+            <div><a href = "#">액티비티 사이트</a></div>
+            <div><a href = "#">뉴스</a></div>
+            <div><a href = "#" >제네바 홀마크 인증</a></div>
+           <br><br><br>
+            <div class ="m_head"> 서비스</div>
+            <div><a href = "#">시계 수리,복원,관리</a></div>
+            <div><a href = "#">일상생활 중 시계 관리법</a></div>
+            <div><a href = "#" >증명서 발급</a></div>
+            </div>
+        <div class ="col"><div class ="m_head">판매처</div>
+            <div><a href = "#">한국</a></div>
+            <div><a href = "#">서울</a></div>
+            <div><a href = "#">여의도</a></div>
+            <div><a href = "#">강남</a></div>
+            <div><a href = "#">부산</a></div>
+            <div><a href = "#" >제주</a></div>
+           <br><br>
+            <div class ="m_head">연락처</div>
+            <div><a href = "#">바쉐론 콘스탄틴 카탈로그 받아보기</a></div>
+            <div><a href = "#">부티크 방문 예약하기</a></div>
+            <div><a href = "#" >기타 문의</a></div>
+            <div><a href = "#" >리크루팅</a></div>
+            </div>
+        <div class ="news">
+            <div class ="m_head">바쉐론 콘스탄틴 소식</div>
+            <div><a href = "#">facebook</a></div>
+            <div><a href = "#">twitter</a></div>
+            <div><a href = "#">youtube</a></div>
+            <div><a href = "#">instagram</a></div>
+            <a href = "#"></a>
+            <a href = "#"></a>
+            </div>    
+            
+            </div>
+        
+        
+        </div>
+        
+        
+    <div class = "ft_box1">
+        <div class ="ft_box1_in">
+            <a href = "#" class ="white">Copyright Vacheron Constantin |</a>
+            <a href = "#" class ="white">이용약관 |</a>
+            <a href = "#" class ="white">개인정보취급방침 |</a>
+            <a href = "#" class ="white">사이트맵 |</a>
+            <a href = "#" class ="white">프레스 라운지 |</a>
+            <a href = "#" class ="white">watches & Wonders 2015 |</a>
+            <a href = "#" class ="white">SIHH 2016</a>
+        </div>
+        </div>
+    </footer>
+    </div>
+    </body>
+</html>

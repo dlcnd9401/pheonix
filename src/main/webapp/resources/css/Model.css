@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+body,head  {
+    margin: 0;
+    padding: 0;
+
+}
+a {
+    text-decoration: none;
+}
+div {
+    display: block;
+}
+.submenu {
+    width : 1920px;
+    height: 615px;
+
+}
+.wapper {
+    width : 994px;
+    height : 615px;
+    margin: 0 458px;
+    background-color: white;
+    padding-left: 90px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.subcollection {
+    width: 945px;
+    height: 530px;
+    float: left;
+}
+.in_mainimg {
+    width: 160px;
+    height: 215px;
+    margin-bottom: 3px; 
+    float: left;
+    
+}
+
+.subcollect a {
+
+    height: 265px;
+    width: 160px;
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 8px;
+    width: 160px;
+    text-align: center;
+}
+.subcollect a span{
+
+    letter-spacing: 1px;
+    padding : 0 11px;
+    
+    
+}
+
