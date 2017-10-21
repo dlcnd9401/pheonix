@@ -1,0 +1,175 @@
+@CHARSET "UTF-8";
+body head {
+    margin: 0;
+    padding: 0;
+}
+
+/*상품이미지와 소개틀*/
+
+.collectBox {
+    width: 1853px;
+    height: 700px;
+    padding: 10px 450px 0 450px;
+
+}
+
+
+/*상품이미지*/
+
+.clockAndselect {
+    width: 1000px;
+    height: 450px;
+
+}
+
+.clock {
+    margin-top: 10px;
+    margin-left: 62.1px;
+    width: auto;
+    height: 100%;
+    background: cover;
+    float: left;
+}
+
+/*판매점선택, 수량 부품추가*/
+
+.select {
+    text-align: center;
+    width: 400px;
+    height: 190px;
+    float: right;
+    margin: 30px 55px 0 55px;
+}
+.select div {
+    transform: translateX(47%);
+     width: 200px;
+}
+
+.select select {
+    width: 200px;
+    height: 40px;
+    margin-top: 15px;
+}
+
+/*구매 장바구니 div버튼 틀박스*/
+
+.btnBox {
+    width: calc(100%-360px);
+    height: 70px;
+    margin-top: 20px;
+}
+/* 버튼박스 */
+.collbtn {
+    width: 200px;
+    height: 50px;
+    border border-style: dashed 1px;
+    background-color: rgb(20, 20, 20);
+    color: #c3a07d;
+    margin: 5px;
+    float: left;
+    transform: translateX(425%);
+    margin-right: 50px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px #c3a07d solid;
+    border-style: ridge;
+}
+
+.collbtn:hover {
+    color: black;
+    background-color: #c3a07d;
+}
+.collbtn span {
+    position: absolute;
+    top: 11px;
+    left: 62px;
+    font-size: 20px;
+
+} 
+.addr {
+    height: 250px;
+    width: 400px;
+    margin: 0 100px;
+    margin-left: 210px;
+    text-align: center;
+    float: left;
+}
+
+/*주소 입력 체크박스*/
+
+.chcb {
+    width: 100px;
+    height: 250px;
+}
+
+.chcb input[type="checkbox"] {
+    margin-left: 80px;
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+}
+.addrtxt {
+    width: 300px;
+    height: 250px;
+    float: right;
+    transform: translateY(-100%);
+
+}
+
+/*주소지*/
+
+.addrtxt-1 {
+    width: 280px;
+    height: 20px;
+    margin: 3px 10px;
+    font-size: 16px;
+}
+
+/*직접 주소입력*/
+
+.addrtxt-2 {
+    width: 280px;
+    height: 20px;
+    margin: 3px 10px;
+    font-size: 16px;
+}
+
+/*세부사항*/
+
+.addrtxt-3 {
+    width: 280px;
+    height: 90px;
+    margin: 3px 10px;
+    font-size: 16px;
+}
+/* 가격 */
+.money span {
+    font-size: 35px;
+    font-weight: 600;
+    font-style: italic;
+}
+/*소개큰틀*/
+
+.meet {
+    padding-top: 20px;
+    margin-top: 10px;
+    width: 1000px;
+    height: 350px;
+    background-color: white;
+}
+
+/*제품설명*/
+
+.b1 {
+    width: 500px;
+    height: 150px;
+    float: left;
+}
+
+.meet span {
+    font-size: 2rem;
+    text-align: center;
+    font-style: italic;
+    color: #c3a07d;
+
+}
