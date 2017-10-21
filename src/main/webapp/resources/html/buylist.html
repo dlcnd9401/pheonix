@@ -53,63 +53,51 @@
     
     
     
-    <!--몸통 -->    
+<!--몸통 -->    
 <div id="mymain">
- <div class="titlebox">
-  
-   <a class="title">구매목록</a>
+ <div class="titlebox">  
+   <a class="title">구매내역</a>
    </div>
    
    <!-- -->
-   <div id="shoppingbagpage">
-   <div id="smallmypage"> 
-      <!-- 페이지부분 글자정렬-->
-       <div class="">
-       <!-- 회원정보 -->
-       <div class="my">
-       <div><img src="commonprofile.png" class="profile"></div>
-       <div><a>님</a></div>
-        <div><a>ID</a></div>
-        </div>
-        <div class="otherpage">
-        <a href="layout.html"><div class="pagemove">회원정보수정</div></a>
-        <a href="layout.html"><div class="pagemove">구매목록</div></a>
-         <a href="index.html"><div class="pagemove">장바구니</div></a>  
-          </div>
-       </div>
-   </div>
+   <div id="shoppingbagpage">  
    
    <!-- 장바구니 -->
-    <div id="shoppingbag"> 
-    <div class="listtop">
-     
-     <div class="sbt2 listtoptext">No</div>
-     <div class="sbt3 listtoptext">상품명</div>
-     <div class="sbt4 listtoptext">시리즈</div>
-     <div class="sbt5 listtoptext">가격</div>
-     <div class="sbt6 listtoptext">구입날짜</div>
-     <div class="sbt7 listtoptext">판매처</div> 
-          
-    </div><!-- 상단(가격, 시리즈, 숫자...) -->
+    <div id="shoppingbag">        
+    <table id="shoppingbaglist">
+    <thead class="listtop-text">
+    <tr>        
+      <!-- 전체선택하기 + 체크박스부분을 크기를 줄이기 -->
+     <!-- 10(체크박스 + 숫자, 시리즈, 상품명, 제품번호, 가격) 6개 -->
+     <!--     1=67         2     4     4         6     3    20-->
+     <th width="100">No</th>
+     <th width="268">상품명</th>
+     <th width="300">시리즈</th>
+     <th width="300">가격</th>
+     <th width="360">구입날짜</th>
+     <th width="250">판매처</th> 
+      </tr>
+       </thead>  
+    <!-- 상단(가격, 시리즈, 숫자...) -->
     
-    <div class="list-tle">
-        <div class="list">
-            
-             <div class="sbt2 listtext">1</div>
-             <div class="sbt3 listtext">000R-9708</div>
-             <div class="sbt4 listtext">HARMONY</div>
-             <div class="sbt5 listtext">7,308,000</div>
-             <div class="sbt6 listtext">2017년 9월 22일</div>
-             <div class="sbt7 listtext">서울</div>  
-        </div><!-- 기본틀(가격, 시리즈, 숫자...) -->
-            
+    
+       <tbody width="1402">
+           <tr class="list-text"> 
+             <td width="100">1</td>
+             <td width="268">000R-9708</td>
+             <td width="300">HARMONY</td>
+             <td width="300">7,308,000</td>
+             <td width="360">2017년 9월 22일</td>
+             <td width="250">서울</td> 
+             </tr><!-- 기본틀(가격, 시리즈, 숫자...) -->              
              
-        
-                    
+             <!--10개-->
+        </tbody>                    
+         
+        </table>          
     </div>
-      </div>
-      
-      <div id="btntle"><!-- 하단버튼(페이지이동, 구매, 삭제) -->
+    
+     <div id="btntle"><!-- 하단버튼(페이지이동) -->
      <div class="pagebtns">
         <button type="button" class="btn leftmove">←</button>
         <button type="button" class="btn page">1</button>
@@ -118,11 +106,13 @@
         <button type="button" class="btn page">4</button>
         <button type="button" class="btn page">5</button>
         <button type="button" class="btn rightmove">→</button>
-    </div><!-- 페이지숫자, 이동버튼 -->
-      </div>
     </div>
-</div>      
-  
+     
+      </div> 
+      </div>
+            
+         
+</div>
     
  
     

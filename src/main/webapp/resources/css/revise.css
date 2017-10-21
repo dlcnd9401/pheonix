@@ -178,53 +178,9 @@ color:white;
     height: 800px;
 }
 
-/*옆에 사용자 페이지*/
-#smallmypage {
-    height: 800px;
-    width: 200px;
-    background-color: #d1d1d1;
-    float: left;    
-    border-right: 1px solid;
-}
-
-/*사용자 +사진 + 이름 + 아이디*/
-#smallmypage .my {
-    height: 200px;
-    width: 200px;    
-    text-align: center;
-    background-color: #fafafa;
-    border-bottom: 1px solid;
-    float: left;
-}
-/*기본 프로필사진*/
-#smallmypage .profile{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    height: 100px;
-    width: 100px;
-    border: 1px solid;
-    border-radius: 50%;
-}
-/*다른페이지이동*/
-#smallmypage .otherpage {
-    height: 449px;
-    width: 200px;
-    text-align: center;
-    line-height: 120px;
-    font-size: 20px;
-    font-weight: bolder; 
-    color: black;
-}
-#smallmypage .pagemove {
-    color: black;
-}
-#smallmypage .pagemove:hover {
-    color: #b47704;
-}
-
 /*수정칸*/
 #midtle {
-    width: 1402px;
+    width: 1603px;
     height: 720px; 
     padding-top: 80px;
     float: left;
@@ -237,7 +193,7 @@ color:white;
     width: 250px;
     text-align: left;
     margin-top: 20px;
-    margin-left: 300px;
+    margin-left: 450px;
     font-size: 30px;
     font-weight: 600;
     float: left;

@@ -153,6 +153,7 @@ color:white;
 }
 
 
+
 /*기본틀--------------------------------------------*/
 
 body,html {
@@ -174,10 +175,22 @@ body,html {
 }
 
 #pf {
-    margin: 0px;
-    font-family: 'Lobster', cursive;
+    margin: 0px;    
     font-size: 80px;
     margin-left: 150px;
+}
+
+/*마스터페이지*/
+#titlebox {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-left: 150px;
+}
+
+/*마스터페이지 제목*/
+#titlebox .jemuk {    
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .mid {
@@ -188,105 +201,57 @@ body,html {
     margin-left: 150px;
 }
 
-/*옆에 사용자 페이지*/
-#smallmypage {
-    height: 610px;
-    width: 180px;
-    background-color: #d1d1d1;
-    float: left;  
-    border-top: 2px solid;
-    border-left: 2px solid;
-    border-bottom: 2px solid;
-    
+.col-1 {    
+    width: 1300px;    
+    float: left;          
 }
-
-/*사용자 +사진 + 이름 + 아이디*/
-#smallmypage .my {
-    height: 200px;
-    width: 180px;    
-    text-align: center;
-    background-color: #fafafa;
-    border-bottom: 1px solid;
-}
-/*기본 프로필사진*/
-#smallmypage .profile{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    height: 100px;
-    width: 90px;
-    border: 1px solid;
-    border-radius: 50%;
-}
-/*다른페이지이동*/
-#smallmypage .otherpage {
-    height: 409px;
-    width: 180px;
-    text-align: center;
-    line-height: 120px;
-    font-size: 20px;
-    font-weight: bolder;     
-}
-#smallmypage .pagemove {
-    color: black;
-}
-#smallmypage .pagemove:hover {
-    color: #b47704;
-}
-
-.col-1 {
-    background-color: gainsboro;
-    width: 1140px;
-    height: 608px;
-    float: left;
-    border: 3px solid;       
-}
-
+/*상단*/
 .title {
     background-color: darkgray;    
-    height: calc(650px / 12);
+    height: 40px;
     float: left;
     font-size: 18px;
     text-align: center;
-    line-height: 50px;
-    border-bottom: 3px solid;    
+    line-height: 35px;       
 }
+/*th+td너비*/
 .no {
     width: 40px;    
 }
 .id {
-    width: 150px;    
+    width: 170px;    
 }
 .name {
-    width: 90px;    
+    width:100px;    
 }
 .email{
-    width: 240px;    
+    width: 264px;    
 }
 .tel {
-    width: 150px;    
+    width: 160px;    
 }
 .address{
-    width: 470px;    
+    width: 550px;    
 }
 .title1 {    
-    height: calc(650px / 12);
+    height: 40px;
     float: left;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
-    line-height: 50px;
-    border-bottom: 1px solid;    
+    line-height: 35px;
+    border-top: 1px solid;    
 }
 
 .col-2 {
     background-color: #f5f5f5;
-    width: 250px;
+    width: 230px;
     height: 600px;
     float: left;    
 }
 
 .col-3 {
     background-color: #f5f5f5;
-    width: 110px;
+    width: 100px;
     height: 600px;
     float: left;
 }
@@ -295,7 +260,7 @@ body,html {
 .dropbtn {
     background : rgb(109,109,109);
     color: white;
-    width: 200px;
+    width: 180px;
     padding: 16px;
     margin-left: 25px;
     font-size: 16px;
@@ -318,8 +283,7 @@ body,html {
 
 .dropdown-content {
     margin-left: 25px;
-    width: 200px;
-    height: 1912x;
+    width: 180px;    
     text-align: center;
     display: none;
     position: absolute;
@@ -345,9 +309,8 @@ body,html {
 /*인풋박스------------------------------------------------*/
 
 .inputbox {
-    margin-left: 25px;
-    margin-top: 60px;
-    width: 200px;
+    margin-left: 25px;    
+    width: 180px;
     font-size: 18px;
     border: 1px solid #bcbcbc;
     border-radius: 0px;
@@ -360,8 +323,7 @@ body,html {
 
 /*버튼---------------------------------------------------*/
 
-.myButton {
-    margin-top: 60px;    
+.myButton {    
     height: 50px;
     width: 80px;
     font: inherit; 
@@ -382,32 +344,74 @@ body,html {
     outline-offset: 1px;
 } 
 
-/*바닥--------------------------------------------------*/
-
-.btm {
-    background-color: #f5f5f5;
-    width: 1803px;
-    height: 20px;
-    float: left;
-}
 
 /*페이지넘기기-------------------------------------------*/
+/*하단버튼 틀 (버튼라인)*/
+#btntle {    
+    width: 1300px;
+    height: 47px;
+    float: left;    
+    line-height: 50px; 
+    border-top: 1px solid;
+}
 
-.ulb {
-    margin-top: 20px;
-    margin-left: 450px;
-    width: 500px;
-    height: 30px;
-    list-style: none;
-    font-weight: bold;
-    font-size: 15px;
-}
-.ulb .lib {
+/*페이지이동버튼 틀*/
+.pagebtns {    
+    height: 48px; 
     float: left;
-    margin: 0px 20px;
+    margin-left: 450px;
 }
-.ulb a {text-decoration: none; color: black;}
-.ulb a:hover {color: sandybrown;}
+/*페이지이동버튼 크기+글자크기*/
+.btn {
+    height: 30px;
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white; 
+    border-radius: 10%;
+    color: dimgrey;
+    border: 1px solid;
+}
+.btn:hover { 
+    color: black;
+}
+/*구매, 삭제버튼 틀*/
+.buydelbtns {
+    height: 46px;
+    width: 300px;
+    float: left;
+    padding-left: 150px;
+    text-align: center;
+}
+/*구매, 삭제버튼 크기+글자*/
+.btn1 {    
+    width: 85px;
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    background-color: #f6fafc;   
+    line-height: 30px;
+    border: px solid;
+}
+.btn1:hover {
+    background-color: #716c6c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*푸터--------------------------------------------------*/
