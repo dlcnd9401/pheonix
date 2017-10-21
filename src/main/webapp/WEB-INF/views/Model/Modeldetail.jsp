@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel = "stylesheet" href = "/views/css/layout.css">
-     <link rel = "stylesheet" href = "/views/css/ModelList.css">
+    <link rel = "stylesheet" href = "resources/css/layout.css">
+     <link rel = "stylesheet" href = "resources/css/ModelList.css">
     <script  src="https://code.jquery.com/jquery-2.2.4.js"
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
