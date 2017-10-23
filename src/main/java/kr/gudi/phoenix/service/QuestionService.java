@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.java.test.dao.QuestionDaoInterface;
+import kr.gudi.phoenix.dao.QuestionDaoInterface;
 
 @Service
 public class QuestionService implements QuestionServiceInterface {

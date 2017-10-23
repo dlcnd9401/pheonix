@@ -10,28 +10,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.java.test.service.QuestionService;
-import com.java.test.service.QuestionServiceInterface;
-import com.java.util.HttpUtil;
+
+import kr.gudi.phoenix.service.QuestionService;
+import kr.gudi.phoenix.service.QuestionServiceInterface;
+import kr.gudi.util.HttpUtil;
 
 @Controller
 public class QuestionController {
 
 	@RequestMapping("/MasterPage1")
 	public ModelAndView masterPage1(ModelAndView mav){
-		mav.setViewName("MasterPage1");
+		mav.setViewName("Question/MasterPage1");
 		return mav;
 	}
 	
 	@RequestMapping("/Write")
 	public ModelAndView write(ModelAndView mav){
-		mav.setViewName("Write");
+		mav.setViewName("Question/Write");
 		return mav;
 	}
 
 	@RequestMapping("/Detail")
 	public ModelAndView detail(ModelAndView mav){
-		mav.setViewName("Detail");
+		mav.setViewName("Question/Detail");
 		return mav;
 	}
 	

@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Question/Write.jsp=UTF-8
 encoding//src/main/webapp/resources/html/buylist.html=UTF-8
 encoding//src/main/webapp/resources/html/cart.html=UTF-8
 encoding//src/main/webapp/resources/html/clockmanage.html=UTF-8

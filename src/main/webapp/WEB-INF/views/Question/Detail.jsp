@@ -7,16 +7,13 @@
 <html>
 <meta charset = "UTF-8">
 <head>
-    <link rel="stylesheet" href="resources/html/Team4/css/MasterPage1.css">
-    <link rel = "stylesheet" href = "resources/html/Team4/css/layout.css">
+    <link rel="stylesheet" href="resources/css/MasterPage1.css">
+    <link rel = "stylesheet" href = "resources/css/layout.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script type="text/javascript">
-        // 팝업을 띄우기, width 300, height 400, 스크롤바, 툴바, 메뉴바를 모두 숨기는 경우
-        window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');
-//         return false;
-        target = "_blank";
+
         var Qno = <%=Qno%>;
         
         $(document).ready(function(){

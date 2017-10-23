@@ -2,20 +2,20 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="resources/html/Team4/css/write.css">
-    <link rel = "stylesheet" href = "resources/html/Team4/css/layout.css">
+    <link rel="stylesheet" href="resources/html/css/write.css">
+    <link rel = "stylesheet" href = "resources/html/css/layout.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
    <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script type="text/javascript">
-        // 팝업을 띄우기, width 300, height 400, 스크롤바, ㄴ툴바, 메뉴바를 모두 숨기는 경우
+        // íìì ëì°ê¸°, width 300, height 400, ì¤í¬ë¡¤ë°, ã´í´ë°, ë©ë´ë°ë¥¼ ëª¨ë ì¨ê¸°ë ê²½ì°
     /*     window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');
         return false;
         target = "_blank"; */
   
-        //여기서부터 작성
+        //ì¬ê¸°ìë¶í° ìì±
         
-    </script>
+</script>
 </head>
 
 <body>
