@@ -6,4 +6,8 @@
 	<select id="test" resultType="hashmap">
 		select '테스트' as data
 	</select>
+	<select id="model" resultType="hashmap">
+		select path,sname from Kategorie
+	</select>
+
 </mapper>
