@@ -8,12 +8,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
    <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script type="text/javascript">
-        // íìì ëì°ê¸°, width 300, height 400, ì¤í¬ë¡¤ë°, ã´í´ë°, ë©ë´ë°ë¥¼ ëª¨ë ì¨ê¸°ë ê²½ì°
-    /*     window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');
-        return false;
-        target = "_blank"; */
-  
-        //ì¬ê¸°ìë¶í° ìì±
+
         
 </script>
 </head>

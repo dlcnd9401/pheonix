@@ -47,13 +47,13 @@ public class QuestionController {
 		return HttpUtil.makeHashToJsonModelAndView(map);
 	}
 
-/*	@RequestMapping("/DetailData") //게시판안에 있는 글 상세보기 
+	@RequestMapping("/DetailData") //게시판안에 있는 글 상세보기 
 	public ModelAndView detailData(ModelAndView mav, HttpServletRequest req){
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("Qno", req.getParameter("Qno"));
 		HashMap<String, Object> map = tsi.getDetailData(param);
 		return HttpUtil.makeHashToJsonModelAndView(map);
-	}*/
+	}
 	
 
 }
