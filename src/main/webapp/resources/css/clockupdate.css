@@ -181,48 +181,6 @@ color:white;
     background-color: #ced0d0;
     margin-left: 250px;
 }
-/*옆에 사용자 페이지*/
-#smallmypage {
-    height: 700px;
-    width: 200px;
-    background-color: #d1d1d1;
-    float: left;    
-    border-right: 1px solid;
-}
-
-/*사용자 +사진 + 이름 + 아이디*/
-#smallmypage .my {
-    height: 200px;
-    width: 200px;    
-    text-align: center;
-    background-color: #fafafa;
-    border-bottom: 1px solid;
-}
-/*기본 프로필사진*/
-#smallmypage .profile{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    height: 100px;
-    width: 100px;
-    border: 1px solid;
-    border-radius: 50%;
-}
-/*다른페이지이동*/
-#smallmypage .otherpage {
-    height: 449px;
-    width: 200px;
-    text-align: center;
-    line-height: 120px;
-    font-size: 20px;
-    font-weight: bolder; 
-    color: black;
-}
-#smallmypage .pagemove {
-    color: black;
-}
-#smallmypage .pagemove:hover {
-    color: #b47704;
-}
 
 p{
     margin: 0;
@@ -231,15 +189,16 @@ p{
 
 #midtle .smalltle {
     width: 1000px;
-    height: 600px; 
+    height: 680px; 
     float: left;
-    padding-top: 50px;
-    padding-left: 70px;
+    padding-top: 20px;
+    padding-left: 300px;
 }
 #midtle .text {
     width: 200px;
-    height: 600px;
+    height: 680px;
     float: left;
+    margin-left:50px;
 }
 #midtle .input {
     width: 550px;
@@ -255,7 +214,7 @@ p{
     height: 55px;
 }
 #midtle .upjul2 {
-    height: 350px;
+    height: 180px;
 }
 #midtle .check {
     height: 40px;
@@ -264,12 +223,12 @@ p{
 }
 #midtle .uptext {
     font-size: 30px;
-    float: left;
+    float: left;   
 }
 #midtle .upjul1 .ground {
     float: left;
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: bold;
     line-height: 42px;
 }
 #midtle .uptext1 {
@@ -278,9 +237,14 @@ p{
     font-size: 15px;
 }
 #midtle .uptext2 {
-    height: 300px;
+    height: 150px;
     width: 400px;
     font-size: 15px;
+}
+#midtle .select {
+    width: 200px;
+    height: 30px;
+    font-size: 15px;    
 }
 #midtle .imgfile {
     width: 100px;
@@ -295,7 +259,8 @@ p{
     width: 120px;
     font-size: 25px;
     font-weight: 500;
-    margin-top: 550px;
+    margin-top: 600px;
+    margin-left: 50px;
 }
 
 /*---판매점틀---------------------------------------------------------------*/
