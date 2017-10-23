@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="question">
+	<select id="getData" resultType="hashmap">
+		select * from Question
+	</select>
+	<select id="getDetailData" parameterType="hashmap" resultType="hashmap">
+		select * from Question where Qno = ${Qno}
+	</select>
+</mapper>
