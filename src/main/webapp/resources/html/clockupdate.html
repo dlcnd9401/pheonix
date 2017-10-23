@@ -2,21 +2,15 @@
 <html>
 <meta charset = "UTF-8">
 <head>
-   <link rel="stylesheet" href="main.css">
-    <link rel = "stylesheet" href = "MasterPage2.css">
+    <link rel = "stylesheet" href = "/phoenix/resources/css/clockupdate.css">
     <script  src="https://code.jquery.com/jquery-2.2.4.js"
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
 <script type="text/javascript">
    // 팝업을 띄우기, width 300, height 400, 스크롤바, 툴바, 메뉴바를 모두 숨기는 경우
-   window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');return false; target = "_blank";
+   /*window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');return false; target = "_blank";*/
 </script>
-    <style>
-        tbody {
-            text-align: center;
-            font-size: 20px;
-        }
-    </style>
+
 
 </head>
 <body><div class = "main">
@@ -32,85 +26,93 @@
             </a></div>
         <div><a href =""> 마이페이지</a></div>
         </div> </header>
-        
-        
-    <section>
-       <div class="main2">
-        <div class="page2">
-                    <p class="table_name2">관리자 제품 재고관리</p>
-                </div>
-                <!-- 판매처 -->
-                <div class="select">
-                    <form name="store" method="post">
-                        <select name="contact_select">
-                       <option value="1">강남점</option>
-                       <option value="2">여의도점</option>
-                       <option value="3">이태원점</option>
-                       <option value="4">광주점</option>
-                       <option value="5">부산점</option>
-                        <option value="6">제주점</option>                        
-                    </select>
-                        <input class="selectbtn" type="submit" value="확인">
-                    </form>
-                </div>
-                
-                <!-- 테이블, 제품 -->
-                <div class="mid">
-                    <table class="sub_news" cellspacing="0" width="1540px">                         
-                        <thead>
-                            <tr>
-                               <th width="50"></th>
-                                <th width="170">NO.</th>
-                                <th width="220">판매처</th>
-                                <th width="320">제품명</th>
-                                <th width="420">제품번호</th>
-                                <th width="170">수량</th>
-                                <th width="170"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                              <tr>
-                               <td><input type="checkbox"></td>
-                                <td>1</td>                                
-                                <td>서울-신라면세점</td>
-                                <td>시계이름</td>                                
-                                <td>b1234-5678-798d</td>
-                                <td>10</td>                                
-                                <td><button class="deletbtn" type="submit">등록</button></td>
-                            </tr>
-                            
-                            <!--tr이 제목 1줄입니다. 보일 list 갯수만큼 li반복-->
-                        </tbody>
-                    </table>
-                    
-                </div>
-                
-                <div id="btntle"><!-- 하단버튼(페이지이동, 구매, 삭제) -->
-                 <div class="pagebtns">
-                    <button type="button" class="btn leftmove">←</button>
-                    <button type="button" class="btn page">1</button>
-                    <button type="button" class="btn page">2</button>
-                    <button type="button" class="btn page">3</button>
-                    <button type="button" class="btn page">4</button>
-                    <button type="button" class="btn page">5</button>
-                    <button type="button" class="btn rightmove">→</button>
-                </div>
-                  </div>
-            </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <section id="tle">
+      <!-- 제목 -->
+       <div><p class="title">상품등록</p></div>
+       <!-- 상품등록내용(크기, 배경색) -->
+          <div id="midtle">          
+          
+          <!-- 등록내용 -->
+          <div class="smalltle">          
+          <!--text부분-->
+          <div class="text">
+              <div class="upjul1"> <p class="uptext">*판매점</p></div>
+              <div class="upjul1"> <p class="uptext">*시리즈</p></div>
+              <div class="upjul1"> <p class="uptext">*시리즈이름</p></div>
+              <div class="upjul1"> <p class="uptext">*시계이름</p></div>
+              <div class="upjul1"> <p class="uptext">*모양</p></div>
+              <div class="upjul1"> <p class="uptext">*제품번호</p></div>
+              <div class="upjul1"> <p class="uptext">*가격</p></div>
+              <div class="upjul1"> <p class="uptext">*성별</p></div> 
+              <div class="upjul2"> <p class="uptext">*설명</p></div>
+              <div class="upjul1"> <p class="uptext">*시계이미지</p></div>
+          </div>
+          <!-- input부분 -->
+          <div class="input">
+             <!--판매점-->
+              <div class="upjul1">               
+               <div>
+                   <input type="checkbox" class="check"><p class="ground" name="check">강남</p>
+                   <input type="checkbox" class="check"><p class="ground" name="check">광주</p>
+                   <input type="checkbox" class="check"><p class="ground" name="check">부산</p>
+                   <input type="checkbox" class="check"><p class="ground" name="check">여의도</p>
+                   <input type="checkbox" class="check"><p class="ground" name="check">이태원</p>
+                   <input type="checkbox" class="check"><p class="ground" name="check">제주도</p>
+               </div>
+           </div>
+           <!--시리즈-->
+           <div class="upjul1">              
+               <input type="text" placeholder="시리즈을 입력해주세요" class="uptext1">
+           </div>
+           <!--제품번호-->
+           <div class="upjul1">               
+               <input type="text" placeholder="시리즈 이름을 입력해주세요" class="uptext1">
+           </div>
+           <div class="upjul1">               
+               <input type="text" placeholder="시계이름을 입력해주세요" class="uptext1">
+           </div>
+           <div class="upjul1">               
+               <input type="text" placeholder="시계모양을 입력해주세요" class="uptext1">
+           </div>
+           <div class="upjul1">               
+               <input type="text" placeholder="제품번호를 입력해주세요" class="uptext1">
+           </div>
+           <div class="upjul1">               
+               <input type="text" placeholder="가격을 입력해주세요" class="uptext1">
+           </div>
+           <div class="upjul1">               
+               <select name="contact_select" class="select">
+               		   <option value="1">공용</option>
+                       <option value="2">남자</option>
+                       <option value="3">여자</option>  
+                </select>
+           </div>
+           <!--간략소개-->
+           <div class="upjul2">               
+               <input type="text" placeholder="시계에 대한 설명을 입력해주세요" class="uptext2">
+           </div>
+           <!--시계이미지+버튼-->
+           <div class="upjul1">               
+               <input type="text" placeholder="시계 이미지파일을 넣어주세요" class="uptext1">
+               <button type="button" class="imgfile">첨부파일</button>
+           </div>
+          </div>
+          <!--제품등록버튼-->
+           <div class="upbtn"><button type="button" class="upsucess">제품등록</button></div>           
+           </div>           
+       </div>
     </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -181,8 +183,6 @@
         
         
         </div>
-        
-        
     <div class = "ft_box1">
         <div class ="ft_box1_in">
             <a href = "#" class ="white">Copyright Vacheron Constantin |</a>
