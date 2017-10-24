@@ -21,7 +21,6 @@
 				for(var i = 0; i < data.length; i++){
 					html = "<tr>"
 					html += '<td><a href="#num">' + (i + 1) + '</a></td>';
-					html += '<td>' + data[i].Qno + '</td>';
 					html += '<td class="title">';
 					html += '<a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qtitle + '</a>';          
 					html += '</td>';
@@ -73,9 +72,8 @@
             <div class="select">
                 <form name="contact" method="post">
                     <select name="contact_select">
-                   <option value="1">글쓴이</option>
-                   <option value="2">제목</option>
-                   <option value="2">문의종류</option>
+              		   <option value="1">번호</option>
+                       <option value="2">제목</option>
                 </select>
                     <input type="text">
                     <input type="submit" value="확인">
@@ -94,7 +92,6 @@
                     <thead>
                         <tr>
                             <th scope="col">번호</th>
-                            <th scope="col">문의종류</th>
                             <th scope="col">제목</th>
                             <th scope="col">글쓴이</th>
 
