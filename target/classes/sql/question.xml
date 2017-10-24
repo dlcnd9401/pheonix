@@ -9,4 +9,15 @@
 	<select id="getDetailData" parameterType="hashmap" resultType="hashmap">
 		select * from Question where Qno = ${Qno}
 	</select>
+	<insert id="getWriteData" parameterType="hashmap">
+		insert into Question 
+		(Qtitle,
+		 QContents,
+		 UserId)
+		values
+		(#{Qtitle},
+		 #{QContents},
+		 #{UserId})
+	</insert>
+	
 </mapper>
