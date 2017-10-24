@@ -4,7 +4,7 @@
 <html>
 <meta charset = "UTF-8">
 <head>
-    <link rel="stylesheet" href="resources/css/write.css">
+    <link rel="stylesheet" href="resources/css/Write.css">
     <link rel = "stylesheet" href = "resources/css/layout.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
