@@ -182,25 +182,14 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
     border-bottom: 1px;
     border-bottom-style:dotted;
 }
-.Qbtn1 {
+.Qbtn {
     position:relative;
-    margin-left: 700px;
-    float: left;
-    bottom:-320px;
-    width: 95px;
-    height: 30px;
-}
-.Qbtn2 {
-    position:relative;
-    margin-left: 807px;
-    float: left;
-    bottom:-290px;
+        bottom:-320px;
+        right: -42vw;
     width: 95px;
     height: 30px;
 }
 .Qtext {
-    margin: 0;
-    width: 896px;
-    height: 295px;
-     word-break: break-all;
+    width: 895px;
+    height: 275px;
 }
