@@ -20,20 +20,20 @@ public class QuestionController {
 
 	@RequestMapping("/MasterPage1") //List 보여주기 
 	public ModelAndView masterPage1(ModelAndView mav){
-		mav.setViewName("MasterPage1");
+		mav.setViewName("/Question/MasterPage1");
 		return mav;
 	}
 	
 	@RequestMapping("/Detail") //게시판안에 있는 글 상세보기 
 	public ModelAndView detail(ModelAndView mav){
-		mav.setViewName("Detail");
+		mav.setViewName("/Question/Detail"); //경로설정 확인
 		return mav;
 	}
 	
 	
 	@RequestMapping("/Write") //글작성하기
 	public ModelAndView write(ModelAndView mav){
-		mav.setViewName("Write");
+		mav.setViewName("/Question/Write");
 		return mav;
 	}
 	
@@ -66,7 +66,6 @@ public class QuestionController {
 		param = tsi.setWriteData(param);
 		return HttpUtil.makeHashToJsonModelAndView(param);
 	}
-
 }
 	
 	
