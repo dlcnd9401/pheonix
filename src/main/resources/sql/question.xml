@@ -3,12 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="question">
-	<select id="getData" resultType="hashmap">
+	<select id="qestionListData" resultType="hashmap">
 		select * from Question
 	</select>
-	<select id="getDetailData" parameterType="hashmap" resultType="hashmap">
+	<select id="questionDetailData" parameterType="hashmap" resultType="hashmap">
 		select * from Question where Qno = ${Qno}
 	</select>
+<<<<<<< HEAD
+	<insert id="questionWriteData" parameterType="hashmap">
+		insert into Question 
+		(Qtitle,
+		 QContents,
+		 UserId)
+		values
+		(#{Qtitle},
+		 #{QContents},
+		 #{UserId})
+	</insert>
+=======
 	<insert id="getWriteData" parameterType="hashmap">
 		insert into Question 
 		(Qtitle,
@@ -19,4 +31,6 @@
 		 #{QContents},
 		 #{UserId})
 	</insert>
+	
+>>>>>>> branch 'master' of https://github.com/dlcnd9401/phoenix.git
 </mapper>

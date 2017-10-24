@@ -35,5 +35,9 @@ public class QuestionService implements QuestionServiceInterface {
        map.put("status", tdi.setWriteData(param)); //상태값 ㄹㅇㄴㄹㄹㅇㄴㅇ
        return map;
    }
+<<<<<<< HEAD
+=======
+     
+>>>>>>> branch 'master' of https://github.com/dlcnd9401/phoenix.git
 
 }

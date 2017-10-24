@@ -9,7 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript">
+=======
+   <script type="text/javascript">
+
+>>>>>>> branch 'master' of https://github.com/dlcnd9401/phoenix.git
         //여기서부터 작성
          $(document).ready(function(){
            $("form").on("submit", function( event ) {
