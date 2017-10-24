@@ -9,6 +9,7 @@
 	<select id="questionDetailData" parameterType="hashmap" resultType="hashmap">
 		select * from Question where Qno = ${Qno}
 	</select>
+<<<<<<< HEAD
 	<insert id="questionWriteData" parameterType="hashmap">
 		insert into Question 
 		(Qtitle,
@@ -19,4 +20,17 @@
 		 #{QContents},
 		 #{UserId})
 	</insert>
+=======
+	<insert id="getWriteData" parameterType="hashmap">
+		insert into Question 
+		(Qtitle,
+		 QContents,
+		 UserId)
+		values
+		(#{Qtitle},
+		 #{QContents},
+		 #{UserId})
+	</insert>
+	
+>>>>>>> branch 'master' of https://github.com/dlcnd9401/phoenix.git
 </mapper>
