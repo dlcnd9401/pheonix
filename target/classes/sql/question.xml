@@ -19,4 +19,15 @@
 		 #{QContents},
 		 #{UserId})
 	</insert>
+
+	<insert id="getWriteData" parameterType="hashmap">
+		insert into Question 
+		(Qtitle,
+		 QContents,
+		 UserId)
+		values
+		(#{Qtitle},
+		 #{QContents},
+		 #{UserId})
+	</insert>
 </mapper>

@@ -3,7 +3,7 @@ package kr.gudi.phoenix.controller;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
-/*import javax.servlet.http.HttpServletResponse;*/
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,30 +18,33 @@ import kr.gudi.util.HttpUtil;
 @Controller
 public class QuestionController {
 
-	@RequestMapping("/MasterPage1")
+	@RequestMapping("/MasterPage1") //List 보여주기 
 	public ModelAndView masterPage1(ModelAndView mav){
-		mav.setViewName("Question/MasterPage1");
+		mav.setViewName("MasterPage1");
 		return mav;
 	}
 	
-	@RequestMapping("/Write")
-	public ModelAndView write(ModelAndView mav){
-		mav.setViewName("Question/Write");
-		return mav;
-	}
-
-	@RequestMapping("/Detail")
+	@RequestMapping("/Detail") //게시판안에 있는 글 상세보기 
 	public ModelAndView detail(ModelAndView mav){
-		mav.setViewName("Question/Detail");
+		mav.setViewName("Detail");
 		return mav;
 	}
+	
+	
+	@RequestMapping("/Write") //글작성하기
+	public ModelAndView write(ModelAndView mav){
+		mav.setViewName("Write");
+		return mav;
+	}
+	
+	
 	
 	@Autowired
 	QuestionServiceInterface tsi;
 
 	@RequestMapping("/MasterPageData") //List 보여주기 
-	public ModelAndView masterPageData(ModelAndView mav){
-		HashMap<String, Object> map = new HashMap<String, Object>();
+	public ModelAndView masterPageData(ModelAndView mav){ 
+		HashMap<String, Object> map = new HashMap<String, Object>();  //데이터를 요청하는게 필요없으면 안적어줌 req 
 		map = tsi.getData();
 		/*map = tsi.getData();*/
 		return HttpUtil.makeHashToJsonModelAndView(map);
@@ -49,7 +52,7 @@ public class QuestionController {
 
 	@RequestMapping("/DetailData") //게시판안에 있는 글 상세보기 
 	public ModelAndView detailData(ModelAndView mav, HttpServletRequest req){
-		HashMap<String, Object> param = new HashMap<String, Object>();
+		HashMap<String, Object> param = new HashMap<String, Object>(); // 요청하는 데이터면 담는 그릇은 parameter 
 		param.put("Qno", req.getParameter("Qno"));
 		HashMap<String, Object> map = tsi.getDetailData(param);
 		return HttpUtil.makeHashToJsonModelAndView(map);
@@ -64,6 +67,7 @@ public class QuestionController {
 		return HttpUtil.makeHashToJsonModelAndView(param);
 	}
 }
+	
 	
 	
 
