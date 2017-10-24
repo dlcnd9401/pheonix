@@ -35,5 +35,4 @@ public class QuestionService implements QuestionServiceInterface {
        map.put("status", tdi.setWriteData(param)); //상태값 ㄹㅇㄴㄹㄹㅇㄴㅇ
        return map;
    }
-
-}dsfdsfdsfdㅇㅇ
+}

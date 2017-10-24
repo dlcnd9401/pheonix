@@ -63,8 +63,6 @@ public class QuestionController {
 		param = tsi.setWriteData(param);
 		return HttpUtil.makeHashToJsonModelAndView(param);
 	}
-	
-sdfdssfd
 }
 	
 	

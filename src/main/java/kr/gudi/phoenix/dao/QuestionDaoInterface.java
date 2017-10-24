@@ -8,4 +8,3 @@ public interface QuestionDaoInterface {
 	public HashMap<String, Object> getDetailData(HashMap<String, Object> param);
 	public int setWriteData(HashMap<String, Object> param); //값을 넣는거니까 ->set 
 }
-dsdsfds
