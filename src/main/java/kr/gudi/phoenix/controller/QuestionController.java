@@ -66,10 +66,7 @@ public class QuestionController {
 		param = tsi.setWriteData(param);
 		return HttpUtil.makeHashToJsonModelAndView(param);
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/dlcnd9401/phoenix.git
+
 
 }
 	
