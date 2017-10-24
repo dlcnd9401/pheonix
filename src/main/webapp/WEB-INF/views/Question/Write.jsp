@@ -10,7 +10,27 @@
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-</script>
+        //여기서부터 작성
+         $(document).ready(function(){
+           $("form").on("submit", function( event ) {
+              console.log("------------------");
+             event.preventDefault();
+             $.ajax({
+                    url:"WriteData", 
+                    data: $( this ).serialize()
+              }).done(function(result){
+                 data = JSON.parse(result);
+                 if(data.status == 1){
+                    alert("성공하셨습니다.");
+                 }else {
+                    alert("실수 했수다.");
+                 }
+                 location.href = "MasterPage1"; //예외처리
+              });
+        });
+      });
+
+    </script>
 </head>
 
 <body>
@@ -35,6 +55,7 @@
         <!-- --------------------------------------------------  -->
         <section>
             <div class="writeBox">
+            <form>
                <select autofocus required>
                        <option>배송문의</option>
                        <option>환불문의</option>
@@ -43,17 +64,17 @@
                    </select>
                 <div class="writeTop">
                    
-                    <span><b>제 목</b> : <input type="text"></span>
+                    <span><b>제 목</b> : <input type="text" name="Qtitle"></span>
                 </div>
                 <div class="writeMiddle">
                     <p><b>문의 내용</b></p>
-                    <textarea rows="35" cols="98" maxlength="98">
-                    </textarea>
+                    <textarea rows="35" cols="98" maxlength="98" name="QContents"></textarea>
                 </div>
                 <div class="writeBottom">
-                   <button type="button" class="writebtn">작 성</button>
+                   <button type="submit" class="writebtn">작 성</button>
                    <button type="button" class="writeback">취 소</button>
                 </div>
+              </form>
             </div>
         </section>
         <!-- --------------------------------------------------  -->

@@ -55,6 +55,15 @@ public class QuestionController {
 		return HttpUtil.makeHashToJsonModelAndView(map);
 	}
 	
+	@RequestMapping("/WriteData") //글 작성하기
+	public ModelAndView writeData(ModelAndView mav, HttpServletRequest req){ 
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		param = HttpUtil.getParameterMap(req);
+		param.put("UserId", "admin");
+		param = tsi.setWriteData(param);
+		return HttpUtil.makeHashToJsonModelAndView(param);
+	}
+	
 
 }
 	

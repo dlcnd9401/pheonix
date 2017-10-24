@@ -28,5 +28,12 @@ public class QuestionService implements QuestionServiceInterface {
       map.put("data", tdi.getDetailData(param));
       return map;
    }
+   
+   @Override
+   public HashMap<String, Object> setWriteData(HashMap<String, Object> param) {
+   	map = new HashMap<String, Object>();
+       map.put("status", tdi.setWriteData(param)); //상태값 ㄹㅇㄴㄹㄹㅇㄴㅇ
+       return map;
+   }
 
 }

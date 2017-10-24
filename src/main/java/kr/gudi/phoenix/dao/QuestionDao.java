@@ -24,4 +24,9 @@ public class QuestionDao implements QuestionDaoInterface {
 		return session.selectOne("question.getDetailData", param);
 	}
 	
+	@Override
+	public int setWriteData(HashMap<String, Object> param) {
+		return session.insert("question.getWriteData", param); //값 넣는 화면구현 --> insert
+	}
+	
 }
