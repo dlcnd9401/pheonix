@@ -1,3 +1,11 @@
+/**** 많이 사용하는 것들 ****/
+.disnone {
+    display: none;
+}
+.disblock {
+    display: block;
+}
+
 /******************* Question *******************/
 .main2 {
     width: 100%;
@@ -52,7 +60,7 @@
     font-size: 15px;
     font-weight: bold;
     line-height: 20px;
-    vertical-align: :top;
+    vertical-align :top;
 }
 
 .sub_news td {
@@ -112,6 +120,28 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
     color: #f8edde;
 }
 
+
+.writebtn { 
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    color: #000000;
+    background-color: #b2b2b2;
+    font-size: 12px;
+    margin-left: 30px; 
+    cursor: pointer;
+} 
+
+.writebtn :hover { /* 호버이벤트 삽입*/
+    background-color: #656565;
+    color: #f8edde;
+}
+
+
+
+
 /********************* Detail **************************/
 .detailBox {
     margin: 10px 500px 5px 500px;
@@ -148,17 +178,29 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 .datailbotton {
     width: 100%;
     height: 55px;
+    height: 55px;
     border-bottom: 1px;
     border-bottom-style:dotted;
 }
-.Qbtn {
+.Qbtn1 {
     position:relative;
-        bottom:-320px;
-        right: -42vw;
+    margin-left: 700px;
+    float: left;
+    bottom:-320px;
+    width: 95px;
+    height: 30px;
+}
+.Qbtn2 {
+    position:relative;
+    margin-left: 807px;
+    float: left;
+    bottom:-290px;
     width: 95px;
     height: 30px;
 }
 .Qtext {
-    width: 895px;
-    height: 300px;
+    margin: 0;
+    width: 896px;
+    height: 295px;
+     word-break: break-all;
 }
