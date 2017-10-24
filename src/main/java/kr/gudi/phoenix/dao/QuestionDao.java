@@ -16,17 +16,17 @@ public class QuestionDao implements QuestionDaoInterface {
 	
 	@Override
 	public List<HashMap<String, Object>> getData() {
-		return session.selectList("question.getData");
+		return session.selectList("question.qestionListData");
 	}
 
 	@Override
 	public HashMap<String, Object> getDetailData(HashMap<String, Object> param) {
-		return session.selectOne("question.getDetailData", param);
+		return session.selectOne("question.questionDetailData", param);
 	}
 	
 	@Override
 	public int setWriteData(HashMap<String, Object> param) {
-		return session.insert("question.getWriteData", param); //값 넣는 화면구현 --> insert
+		return session.insert("question.questionWriteData", param); //값 넣는 화면구현 --> insert
 	}
 	
 }
