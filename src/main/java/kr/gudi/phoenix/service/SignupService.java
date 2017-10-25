@@ -28,6 +28,14 @@ import kr.gudi.phoenix.dao.SignupDaoInterface;
 	      map.put("data", tdi.getLoginData(param));
 	      return map;
 	   }
+	 
+	 @Override
+	   public HashMap<String, Object> checkid(HashMap<String, Object> param){
+	      map = new HashMap<String, Object>();
+	      map.put("checkid", tdi.checkid(param));
+	      return map;
+	   }
+	 
 	@Override
 	public HashMap<String, Object> setSignupData(HashMap<String, Object> param) {
 	    map = new HashMap<String, Object>();

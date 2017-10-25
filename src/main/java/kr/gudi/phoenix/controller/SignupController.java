@@ -3,6 +3,7 @@ package kr.gudi.phoenix.controller;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,6 @@ import kr.gudi.util.HttpUtil;
 @Controller
 public class SignupController {
 	
-	
-	@RequestMapping("/Login") // 로그인
-	public ModelAndView login(ModelAndView mav){
-		mav.setViewName("Login");
-		return mav;
-	}
 	
    @RequestMapping("/Signup") // 회원가입페이지
    public ModelAndView signup(ModelAndView mav){
@@ -44,29 +39,26 @@ public class SignupController {
    
    @RequestMapping(value="/LoginData", method=RequestMethod.POST)
    public ModelAndView loginData(ModelAndView mav, HttpServletRequest req, HttpSession session){
-      String id = req.getParameter("id");
-      String pwd = req.getParameter("pw");
-      HashMap<String, Object> loginData = new HashMap<String, Object>();
-      loginData.put("id", id);
-      loginData.put("pw", pwd);
-      HashMap<String, Object> Logindata = (HashMap<String, Object>) tsi.getLoginData(loginData);
-      session.setAttribute("UserId", Logindata.get("UserId")); //다른 페이지에서 로그인 데이터를 가져오기 위해  세팅한것 건들면 팀장님한테 뒤짐
-      mav.addObject("LoginData", loginData);
-      System.out.println(loginData);
-      return mav;
+		 String id = req.getParameter("id");
+	     String pwd = req.getParameter("pw");
+	     HashMap<String, Object> loginData = new HashMap<String, Object>();
+	     loginData.put("id", id);
+	     loginData.put("pw", pwd);
+	     System.out.println(loginData);
+	     HashMap<String, Object> Logindata = (HashMap<String, Object>) tsi.getLoginData(loginData);
+	     session.setAttribute("id", Logindata.get("id"));
+	     mav.addObject("loginuser", loginData);
+	     System.out.println(loginData);
+	     return mav;
    }
    
-//   @RequestMapping(value="/Userlogin", method=RequestMethod.POST)
-//   public ModelAndView Userlogin(ModelAndView mav, HttpServletRequest req, HttpSession session){
-//      String id = req.getParameter("id");
-//      String pwd = req.getParameter("pwd");
-//      HashMap<String, Object> userlogin = new HashMap<String, Object>();
-//      userlogin.put("id", id);
-//      userlogin.put("pwd", pwd);
-//      System.out.println(userlogin);
-//      HashMap<String, Object> Logindata = (HashMap<String, Object>) usi.login(userlogin);
-//      session.setAttribute("id", Logindata.get("id")); //다른 페이지에서 로그인 데이터를 가져오기 위해  세팅한것 건들면 팀장님한테 뒤짐
-//      mav.addObject("loginuser", userlogin);
-//      return mav;
-//   }
+   @RequestMapping(value="/checkid", method = RequestMethod.POST)
+   public void checkid(HttpServletRequest req, HttpServletResponse resp){
+      HashMap<String, Object> checkid = HttpUtil.getParameterMap(req);
+      System.out.println(checkid);
+      HashMap<String, Object> checkiddata = (HashMap<String, Object>) tsi.checkid(checkid);
+      HttpUtil.sendResponceToJson(resp, checkiddata);
+   }
+   
+
 }

@@ -2,12 +2,15 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="sjsj">
+<mapper namespace="login">
    <select id="getData" resultType="hashmap">
       select * from userinfo
    </select>
-   <select id="getLoginData" resultType="hashmap">
-      select * from userinfo where UserId = #{UserId} and UserPw = #{UserPw}
+   <select id="getLoginData" resultType="hashmap" parameterType="hashmap">
+      select * from userinfo where UserId = #{id} and UserPw = #{pw}
+   </select>
+   <select id="checkid" resultType="hashmap">
+      select * from userinfo where UserId = #{id}
    </select>
    <insert id="getSignupData" parameterType="hashmap">
       insert into userinfo

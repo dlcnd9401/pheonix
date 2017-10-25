@@ -6,6 +6,8 @@
 	<title>회원가입</title>
 </head>
 	<link rel = "stylesheet" href = "resources/css/Signup.css">
+    <link rel="stylesheet" href="resources/css/Model.css">
+    <!-- <link rel="stylesheet" href="resources/js/main.js"> -->
     <link rel = "stylesheet" href = "resources/css/layout.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
@@ -17,6 +19,7 @@
           console.log("------------------");
           event.preventDefault();
           $.ajax({
+        	  	 type:"post",
         	  	 url:"SignupData", 
                  data: $(this).serialize()
            }).done(function(result){
@@ -26,15 +29,41 @@
               }else {
                  alert("실패하였습니다.");
               }
-              location.href = "Login"; //예외처리
+              location.href = "model"; //예외처리
            });
      	});
      
     
 	$("#btnP1").off().on("click", function(){
-		location.replace("Login");
+		location.replace("model");
+	});
+	
+	$("#checkid").off().on("click", function(){
+		btnOverlap();
 	});
 });
+    
+    function btnOverlap(){
+        var id = $("#userId").val();
+        
+        if(id == ""){
+           alert("아이디를 입력하세요!!");
+           return false;
+        }
+        
+        $.ajax({
+           type : "post",
+           url : "checkid",
+           data:{"id" : id}
+        }).done(function(result){
+           console.log(result.checkid);
+           if(result.checkid == null){
+              alert("사용 가능한 아이디 입니다.");
+           }else{
+              alert("사용 불가능한 아이디 입니다.")
+           }
+        });
+     }
     
     
 	</script>
@@ -43,26 +72,23 @@
 
 
 <body>
-<div class = "main"></div>
+<div class = "main">
     <header>
-        <div><input type = "text" placeholder = "국적" class = "put2"><input type = "text" placeholder = "검색" class = "put"></div>
+       <div class ="m_bt">
+            <div class= "m_btbox"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+            <div class= "m_btbox"><button type="button" class="sgbtn">회원가입</button></div>
+            </div>
     <div class = "box50">
         <div>
-        <img src = "vacheron-constantin-logo.png.resource.1427891127632.png"></div>
-        <div><a href =""> 컬렉션</a></div>
+        <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <div class ="collection"><a href =""> 컬렉션</a></div>
                 
-        <div class = ""><a href =""> <div class ="in_box30"><img src = "vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <div class = ""><a href =""> <div class ="in_box30"><img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
             <div class ="in_box70">문의하기</div>
             </a></div>
         <div><a href =""> 마이페이지</a></div>
-        <div class="loginBottom">
-            <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </div>
-        <div class="signupBottom">
-            <button type="button" class="sgbtn">회원가입</button>
-        </div>
-        </div>
-        </header>
+        <div><a href =""> 관리자 페이지</a></div>
+        </div> </header>
         
      <div class ="hsection">
 		<form>
@@ -73,7 +99,7 @@
                 <input type="text" placeholder="아이디" class="inputbox" id="userId" name="UserId" maxLength="20"> 
             </div>
             <div class="btn1"> 
-                <button type="button" class="btnP">중복확인</button> 
+                <button type="button" class="btnP" id="checkid">중복확인</button> 
             </div>
             <div class="pwd"> 
                 <input type="password" placeholder="비밀번호" class="inputbox" id="UserPw" name="UserPw" maxLength="20"> 
@@ -103,13 +129,13 @@
     
     
     
-    <footer> 
+   <footer> 
     <div class = "ft_box">
         <div class ="ft_box_in">
-        <div class = "cent"><img src = "/team/vacheron-constantin-logo.png"></div>
+        <div class = "cent"><img src = "resources/img/main/vacheron-constantin-logo.png"></div>
         <div class ="col">
             <div class ="m_head">컬렉션</div>
-            <div><a href = "#" >Patrimony</a></div>
+            <div><a href = "#"  >Patrimony</a></div>
             <div><a href = "#" >Traditionnelle</a></div>
             <div><a href = "#" >Harmony</a></div>
             <div><a href = "#" >1972</a></div>
@@ -164,15 +190,15 @@
             <div class = "paper">
             <div class ="m_head m_mar">포럼
                 <div class = "m_img2">
-                <img src = "MainPage13.jpeg"></div>
+                <img src = "/phoenix/resources/img/main/MainPage13.jpeg"></div>
                 </div>
             <div class ="m_head">프레스 라운지
                 <div class = "m_img">
-                <img src = "MainPage14.jpeg"></div>
+                <img src = "/phoenix/resources/img/main/MainPage14.jpeg"></div>
                 </div>
             <div class ="m_head">가입하기
             <div class = "m_img">
-                <img src = "MainPage15.png"></div>
+                <img src = "/phoenix/resources/img/main/MainPage15.png"></div>
                 </div>
             </div>
             
