@@ -7,15 +7,15 @@ body,head  {
 a {
     text-decoration: none;
 }
-div {
+.div2 {
     display: block;
 }
-.submenu {
-    width : 1920px;
+#m_submenu {
+    width : 1903px;
     height: 615px;
 
 }
-.wapper {
+.m_wapper {
     width : 994px;
     height : 615px;
     margin: 0 458px;
@@ -24,12 +24,12 @@ div {
     padding-top: 10px;
     padding-bottom: 30px;
 }
-.subcollection {
+.m_subcollection {
     width: 945px;
     height: 530px;
     float: left;
 }
-.in_mainimg {
+.m_in_mainimg {
     width: 160px;
     height: 215px;
     margin-bottom: 3px; 
@@ -37,7 +37,7 @@ div {
     
 }
 
-.subcollect a {
+.m_subcollect a {
 
     height: 265px;
     width: 160px;
@@ -47,7 +47,7 @@ div {
     width: 160px;
     text-align: center;
 }
-.subcollect a span{
+.m_subcollect a span{
 
     letter-spacing: 1px;
     padding : 0 11px;
@@ -55,3 +55,260 @@ div {
     
 }
 
+/*JS 그림 전환 */
+.bg { 
+background-size: cover;
+background-image: url(/phoenixex/resources/img/main/backimage.scale.1920.800.1507211353369.jpeg);
+width:100%;
+height: 100%;
+    
+}
+.bg2 { 
+background-size: cover;
+background-image: url(/phoenixex/resources/img/main/backimage.scale.1920.800.1507211353392.jpeg);
+width:100%;
+height: 100%;
+}
+.disnone {
+    display: none;
+    
+}
+
+/*그림 전환 칸 ~ */
+.sec{
+    width: 100%;
+    height: 803px;
+    background-color: black;
+}
+.sec_in2{
+    width: 100%;
+    height: 60px;
+    background-color : rgba(0,0,0,0.8);
+    
+}
+.sec_in2_box{
+    
+    padding: 0% 25%;
+    width: calc(100% - 50%);
+    height: calc(100% - 2%);
+}
+.sec_in2_box_in{
+    width:50%;
+    text-align: center;
+    height: calc(100% - 30%);
+    float: left;
+    padding: 1% 0%;
+}
+.sec_in2_box_in2{
+    width:50%;
+    text-align: center;
+    height: calc(100% - 30%);
+    float: left;
+    padding: 1% 0%;
+}
+
+.sec_in2_box a{
+    color:white;
+}
+.sec_in2_box a:hover{
+    color:#b49f2f;
+}
+/* ~ 그림 전환 칸 */
+
+/* 2번째 칸  */
+
+.m_sec{
+    width: 100%;
+    background-color: #3e3c3c;
+    height: 700px;
+}
+/* 2번칸 안의 박스 */
+.m_sec_in{
+    width:calc(100%/3);
+    margin: 0 calc(100%/3);
+    height: 80%;
+    background-color:#5d5d5d;
+    transform:translateY(70px);
+}
+/* 머리 말 */
+.m_sec_in_hd{
+    width:50%;
+    margin: 0 25%;
+    font-size:25px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.m_sec_in_hd p{
+    color: #9d8a22;
+    margin: 0;
+    padding :0;
+}
+/* 컬렉션 이동 박스 - 사진 */
+
+.m_sec_in_box{
+    width:46%;
+    height: 400px;
+    background-image:url(/phoenixex/resources/img/main/1.png);
+    background-size:cover;
+    margin: 0% 2%;
+    float:left;
+}
+.m_sec_in_box2{
+    width:46%;
+    height: 400px;
+    background-image:url(/phoenixex/resources/img/main/2.jpeg);
+    background-size:cover;
+    margin: 0% 2%;
+    float:left;
+}
+/* 컬렉션 이동 박스 - 텍스트 */
+.m_sec_in_box150{
+    transform:translateY(250px);
+    width:80%;
+    height: 120px;
+    padding-top:30px;
+    margin: 0 10%;
+    text-align: center;
+    font-size:10px;
+}
+
+.m_sec_in_box150 a{
+    text-decoration: none;
+    color:#b49f2f;
+}
+/* 컬렉션 이동 박스 - 버튼 */
+.m_sec_in_btbox{
+    width:40%;
+    margin: 10% 30%;
+    height: 20px;
+    border:1px dashed;
+    line-height: 20px;
+    
+}
+
+/*바쉐론 콘스탄틴 뉴스 박스 */
+/*총높이 660, pad top,bot 20(40px)*/
+.m_sec2{
+    width:100%;
+    height: 600px;
+    padding: 30px 0px;
+    background-color:rgb(245,245,245);
+    color:#b49f2f;
+}
+/*뉴스박스 헤더*/
+.m_sec2_in_hd{
+width:20%;
+    margin: 0 40%;
+    font-size:35px;
+    height: 50px;
+    line-height: 35px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+hr{
+padding: 0px;
+}
+/*뉴스 박스 */
+.m_sec2_in_box{
+    width:55%;
+    height: 400px;
+    margin : 20px calc(45%/2);
+}
+
+/* 사진+링크 큰 박스*/
+.m_sec2_in_box2{
+    width:23%;
+    margin: 0 1%;
+    height: 100%;
+    float:left;
+    background-color:white;
+}
+/*내부 사진 박스*/
+.m_sec2_box_in{
+    width:100%;
+    height: 50%;
+}
+/*뉴스 항목별 사진 1 ~ 4*/
+#m_sec2_bg1{
+    background-image:url(/phoenixex/resources/img/main/3.jpeg);
+}
+#m_sec2_bg2{
+    background-image:url(/phoenixex/resources/img/main/4.jpeg);
+}
+#m_sec2_bg3{
+    background-image:url(/phoenixex/resources/img/main/5.png);
+}
+#m_sec2_bg4{
+    background-image:url(/phoenixex/resources/img/main/6.png);
+}
+
+/*뉴스박스 */
+
+.m_sec2_box2{
+    width:100%;
+    height: 50%;
+}
+/*뉴스박스-1 */
+.m_sec2_box_in2{
+    width:90%;
+    height: 20%;
+    margin: 0% 5%;
+    padding: 5% 0%;
+    color:darkgrey;
+    text-align: center;
+    font-size: 10px;
+}
+/*뉴스박스 -2 */
+.m_sec2_box_in3{
+    width:90%;
+    height: 40%;
+    margin: 0% 5%;
+    color:black;
+    text-align: center;
+    font-size: 5px;
+}
+/*뉴스박스 화면 색 부여 */
+.m_sec2_box2:hover{
+    background-color:gainsboro;
+}
+
+
+/**/
+.m_sec2_box_bt{
+    width: 50%;
+    margin: 0 25%;
+    height: 10%;
+    border:1px dashed;
+    font-size:1px;
+    text-align: center;
+    color:darkgrey;
+}
+
+.m_bt{
+		
+}
+
+.m_btbox{
+	width:80px;
+	height: 25px;
+	float:right;
+	border-radius:2px;
+	border : 2px solid white;
+	margin-right : 15px;
+	margin-top : 15px;
+	
+	text-align : center;
+}
+.m_btbox a{
+	color:white;
+}
+
+
+.m_col_disn {
+	display:none;
+}
+.m_col_disb{
+	display:block;
+}

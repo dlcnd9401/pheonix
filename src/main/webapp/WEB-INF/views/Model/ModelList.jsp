@@ -1,18 +1,16 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <!doctype html>
 <html>
 <head>
-    <link rel = "stylesheet" href = /views/css/layout.css">
-     <link rel = "stylesheet" href = /views/css/ModelList.css">
+    <link rel = "stylesheet" href = "resources/css/layout.css">
+     <link rel = "stylesheet" href = "resources/css/ModelList.css">
     <script  src="https://code.jquery.com/jquery-2.2.4.js"
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
-<script type="text/javascript">
-   // 팝업을 띄우기, width 300, height 400, 스크롤바, 툴바, 메뉴바를 모두 숨기는 경우
-   window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');return false; target = "_blank";
-</script>
 
 
 </head>
@@ -21,29 +19,29 @@
         <div><input type = "text" placeholder = "국적" class = "put2">  <input type = "text" placeholder = "검색" class = "put"></div>
     <div class = "box50">
         <div>
-        <img src = "/images/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
         <div><a href =""> 컬렉션</a></div>
                 
-        <div class = ""><a href ="#"> <div class ="in_box30"><img src = "/images/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <div class = ""><a href ="#"> <div class ="in_box30"><img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
             <div class ="in_box70">문의하기</div>
             </a></div>
         <div><a href =""> 마이페이지</a></div>
         </div> </header>
     
-    
+  
     
     <section>
         <!--첫번째 칸-->
     <div class="content">
         <div class="imgzone">
-            <img src="images/collection/Main/INMAIN/PATRIMONT-top.png">
+         <img src="resources/img/Model/1972top.png">
         </div>
         <div class="txtzone">
          <div class="maintxt">
-            <h1>PATRIMONY</h1>
+            <h1>Collection</h1>
             </div>
             <div class="subtxt">
-            <p>"완벽한 원형, 본질을 추구하는 정신, 그리고 조화로운 비율.<br> 1950년대의 바쉐론 콘스탄틴 모델에서 영감을 받은 <br>Patrimony 컬렉션은 순수한 스타일과 무결함의 정수를 보<br>여줍니다."</p>
+            <p>"완벽한 원형, 본질을 추구하는 정신, 그리고 조화로운 비율.<br> 1950년대의 바쉐론 콘스탄틴의 역사가 담긴 컬렉션."</p>
             </div>
         </div>
         </div>
@@ -93,29 +91,35 @@
             <div class="colltionArray">
                 <!--시계와 시계이름, 시계번호, 구매버튼-->
                 <ul>
-                    
-                <a href="#" class="products">
-                <li class="left">
+                
+               <%
+               List<HashMap<String, Object>>map = (List<HashMap<String, Object>>) request.getAttribute("data"); 
+				for(int i = 0; i < map.size(); i++){
+					%>
+                <!-- <a href="#" class="products"> -->
+               	<li class="left">
                 <div class="visu">
                     <!--사진-->
                 <div class="collimg">
-                 <img src="images/collection/Main/INMAIN/QUALDEI'ILE/QUAIDEL'ILE4500S000A-B195/QUAIDEL'ILE.png">
+                 <img src="<%= map.get(i).get("img") %>">
                 </div>
                     <!--시계이름-->
                     <div class="colltit">
-                    <span>HARMONY 투르비용 크로노그래프</span>
+                    <span><%= map.get(i).get("name") %></span>
                         <!--시계번호-->
-                        <p>{4500S000A-B195 }</p>
-                        <p>가격</p> 
+<%--                         <p><%= map.get(i).get("scode") %></p> --%>
+                        <p><%= map.get(i).get("price") %></p> 
                     </div>
                     <div class="purcbtn">
-                    <span>구매하기</span>
+                    <span><a href = "modeldetail?code=<%= map.get(i).get("code")%>" style = ttext-decoration: none;>구매</a></span>
                     </div>
                </div>
                     </li>
-                    </a>
+                    <!-- </a> -->
                     
-                   
+                   <%
+                   }
+                   %>
                     
                    
                     </ul>
@@ -132,7 +136,7 @@
     <footer> 
     <div class = "ft_box">
         <div class ="ft_box_in">
-        <div class = "cent"><img src ="images/vacheron-constantin-logo.png"></div>
+        <div class = "cent"><img src ="resources/img/main/vacheron-constantin-logo.png"></div>
         <div class ="col">
             <div class ="m_head">컬렉션</div>
             <div><a href = "#" >Patrimony</a></div>

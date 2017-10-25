@@ -1,10 +1,12 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <!doctype html>
 <html>
 <head>
-     <link rel = "stylesheet" href = "Join.css">
+     <link rel = "stylesheet" href = "resources/css/Join.css">
     <link rel="stylesheet" 
  href="fontello-f177c519/fontello-f177c519/css/fontello.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -12,15 +14,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel = "stylesheet" href = "resources/css/layout.css">
-     <link rel = "stylesheet" href = "resources/css/ModelList.css">
+     <link rel = "stylesheet" href = "resources/css/Modeldetail.css">
     <script  src="https://code.jquery.com/jquery-2.2.4.js"
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
-<script type="text/javascript">
-   // 팝업을 띄우기, width 300, height 400, 스크롤바, 툴바, 메뉴바를 모두 숨기는 경우
-   window.open('pop.html', 'popup01', 'width=300, height=400, scrollbars= 0, toolbar=0, menubar=no');return false; target = "_blank";
-</script>
-
 
 </head>
 <body><div class = "main">
@@ -31,23 +28,28 @@
       
     <div class = "box50">
         <div>
-        <img src = "/img/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        
+        
         <div><a href =""> 컬렉션</a></div>
                 
-        <div class = ""><a href =""> <div class ="in_box30"><img src = "/img/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
+        <div class = ""><a href =""> <div class ="in_box30"><img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
             <div class ="in_box70">문의하기</div>
             </a></div>
         <div><a href ="#"> 마이페이지</a></div>
         </div> </header>
     
-    
+     <%
+    			List<HashMap<String, Object>>map = (List<HashMap<String, Object>>) request.getAttribute("detail");
+				for(int i = 0; i < map.size(); i++){
+					%>
     <section>
         <div class="collectBox">
             <nav>
 
             <div class="clockAndselect">
                 <div class="clock">
-                <img class="clock" src ="images/collection/Main/INMAIN/QUALDEI'ILE/QUAIDEL'ILE4500S000A-B195/QUAIDEL'ILE.png" onclick="document.getElementById('modal01').style.display='block'" style="width:100%;cursor:zoom-in">
+                <img class="clock" src ="<%= map.get(i).get("img")%>" onclick="document.getElementById('modal01').style.display='block'" style="width:100%;cursor:zoom-in">
                 </div>
                 <div class="select">
                     <div class="collbtn"><span>장바구니</span></div>
@@ -69,7 +71,7 @@
                     <input  class="addrtxt-1" type="text" placeholder="주소지(기본)"><br>
                     <input class="addrtxt-2" type="text" placeholder="체크박스 해제시 주소지 직접입력"><br>
                     <input class="addrtxt-3" type="text" placeholder="세부사항">
-                        <div class="money"><span>1,000,000원</span></div>
+                        <div class="money"><span><></span></div>
                     </div>
                 </div>
             </div>
@@ -79,25 +81,21 @@
                     <div class="b1">
                 <form>
                     <table>
-                        <th><span>제품 설명</span></th>
-                        <tr><td><br></td></tr>
+                        <th><span><%= map.get(i).get("introduce")%></span></th>
                         <tr><td><br></td></tr>
                         <tr>
                         <td>제품번호 : </td>
-                            <td>값</td>
+                            <td><%= map.get(i).get("code")%></td>
                         </tr>
                         
                         <tr>
                         <td>모양 : </td>
-                            <td>값</td>
-                        </tr>
-                        
-                        <tr>
-                        <td>케이스 소재 : </td>
-                            <td>값</td>
-                        </tr>
+                            <td><%= map.get(i).get("mshape") %></td>
+                        </tr>   
+  
                     </table>          
                 </form>
+                <!-- 비대칭-1 / 기타-2 / 쿠션-3 / 라운드-4 / 직사각형-5 / 또노-6 -->
                     </div>
                     
                     <!--      무브먼트        -->
@@ -105,20 +103,7 @@
                     <form>
                     <table>
                         <th><span>칼리버이름</span></th>
-                        <tr><td><br></td></tr>
-                        <tr><td><br></td></tr>
-                        <tr>
-                        <td>제품번호 : </td>
-                            <td>값</td>
-                        </tr>
-                        <tr>
-                        <td>동력 : </td>
-                            <td>값</td>
-                        </tr>
-                        <tr>
-                        <td>두깨 : </td>
-                            <td>값</td>
-                        </tr>
+                        <tr><td><br><%= map.get(i).get("mKind")%></td></tr>
                     </table>          
                 </form>
                     </div>
@@ -129,6 +114,8 @@
             <div class="collbtn"><span>구매하기</span></div>
 
         </div>
+        
+        <% } %>
         <!--modal-->
         <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
     <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
@@ -169,11 +156,13 @@
   </div>
 </div>
 
+
+<!-- 
 <!-- Modal -->
 <div class="modal fade" id="signPop" role="dialog">
   <div class="modal-dialog" style="transform: translateX(-30%);">
   
-    <!-- Modal content-->
+    Modal content
     <div class="modal-content" style="height: 100%;
     width: 1030px;">
       <div class="modal-header">
@@ -181,15 +170,15 @@
         <h4 class="modal-title">회원 가입</h4>
       </div>
       <div class="modal-body">
-           <!--제목-->
+           제목
         <div class="back">
            <div class="back1"><h2>회원가입</h2></div>
            
-           <!--입력창-->
+           입력창
            <div class="bigtle">
-           <!-- 설명+입력창 -->
+           설명+입력창
            <div class="midtle">
-           <!--설명-->
+           설명
            <div class="forwardtle">
                <div class="signtext">아이디</div>
                <div class="signtext">비밀번호</div>
@@ -199,7 +188,7 @@
                <div class="signtext">휴대전화</div>
                <div class="signtext">주소</div>
            </div>
-           <!--입력창-->
+           입력창
             <div class="backtle">
                  <input type="text" placeholder="아이디를 입력하세요" class="inputbox">
                  <button type="button" class="btnP">중복확인</button> 
@@ -219,7 +208,7 @@
             </div>
                 </div>                 
             </div>
-             <!--버튼-->
+             버튼
             <div class="btn2"> 
                 <button type="button" class="btnP1">가입하기</button> 
             </div>
@@ -229,7 +218,7 @@
     </div>
     
   </div>
-</div>
+</div> -->
       
     
     
