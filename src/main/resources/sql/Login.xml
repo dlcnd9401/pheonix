@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sjsj">
+   <select id="getData" resultType="hashmap">
+      select * from userinfo
+   </select>
+   <select id="getLoginData" resultType="hashmap">
+      select * from userinfo where UserId = #{UserId} and UserPw = #{UserPw}
+   </select>
+   <insert id="getSignupData" parameterType="hashmap">
+      insert into userinfo
+      (UserId,
+       UserPw,
+       UserName,
+       UserPost,
+       UserGender,
+       UserTel,
+       UserEmail)
+      values
+      (#{UserId},
+       #{UserPw},
+       #{UserName},
+       #{UserPost},
+       #{UserGender},
+       #{UserTel},
+       #{UserEmail})
+   </insert>
+</mapper>

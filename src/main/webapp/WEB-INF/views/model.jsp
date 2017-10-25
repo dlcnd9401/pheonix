@@ -10,9 +10,13 @@
   <link rel="stylesheet" href="resources/css/Model.css">
   <link rel="stylesheet" href="resources/js/main.js">
    <link rel = "stylesheet" href = "resources/css/layout.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script  src="https://code.jquery.com/jquery-2.2.4.js"
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
+    
 	<script type = "text/javascript">
 	$(document).ready(function(){
 	    $('.sec_in2_box_in2').click(function(){
@@ -33,6 +37,10 @@
 	    	$("#m_submenu").addClass("m_col_disb");
 	    	mouseout();
 	    });
+	    
+	    $(".sgbtn").click(function(){
+            location.replace("Signup"); 
+         });
 		 
 	});
 		function mouseout(){
@@ -51,8 +59,8 @@
 <div class = "main">
     <header>
        <div class ="m_bt">
-            <div class= "m_btbox"><a href = "">Login</a></div>
-            <div class= "m_btbox"><a href = "">Sign Up</a></div>
+            <div class= "m_btbox"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+            <div class= "m_btbox"><button type="button" class="sgbtn">회원가입</button></div>
             </div>
     <div class = "box50">
         <div>
@@ -65,7 +73,36 @@
         <div><a href =""> 마이페이지</a></div>
         <div><a href =""> 관리자 페이지</a></div>
         </div> </header>
+        
+        <!-- Modal1 -->
+	<div id="login" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content -->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">로그인</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+			  <div class="form-group">
+			    <label for="email">Id:</label>
+			    <input type="text" class="form-control" id="id" style="margin-left: 0px" name="loginid">
+			  </div>
+			  <div class="form-group">
+			    <label for="pwd">Password:</label>
+			    <input type="password" class="form-control" id="pw" style="margin-left: 0px" name="loginpw">
+			  </div>
+			  <button type="button" class="btn btn-default" id="loginbtn">Login</button>
+			</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+        
     <section>
+    
   
     <div class="m_col_disn abc"  id = "m_submenu">
     <div class="m_wapper">
@@ -103,7 +140,8 @@
         </div>
     <div class = "sec_in2">
             <div class ="sec_in2_box">
-            <div class ="sec_in2_box_in"><a href = "#" ><p>OVERSEAS</p></a></div>
+            <div class ="sec_in2_box_in"><a href = "#" ><p>OVERSEAS</p></a></div></div>
+            <div class ="sec_in2_box">
             <div class ="sec_in2_box_in2"><a href = "#" ><p>셀레스티얼 메카닉스</p></a></div>
             </div>
             </div>
