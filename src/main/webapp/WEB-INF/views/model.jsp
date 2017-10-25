@@ -221,15 +221,15 @@
             <div class = "paper">
             <div class ="m_head m_mar">포럼
                 <div class = "m_img2">
-                <img src = "/phoenixex/resources/img/main/MainPage13.jpeg"></div>
+                <img src = "/phoenix/resources/img/main/MainPage13.jpeg"></div>
                 </div>
             <div class ="m_head">프레스 라운지
                 <div class = "m_img">
-                <img src = "/phoenixex/resources/img/main/MainPage14.jpeg"></div>
+                <img src = "/phoenix/resources/img/main/MainPage14.jpeg"></div>
                 </div>
             <div class ="m_head">가입하기
             <div class = "m_img">
-                <img src = "/phoenixex/resources/img/main/MainPage15.png"></div>
+                <img src = "/phoenix/resources/img/main/MainPage15.png"></div>
                 </div>
             </div>
             

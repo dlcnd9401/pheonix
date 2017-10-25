@@ -58,14 +58,14 @@ a {
 /*JS 그림 전환 */
 .bg { 
 background-size: cover;
-background-image: url(/phoenixex/resources/img/main/backimage.scale.1920.800.1507211353369.jpeg);
+background-image: url(/phoenix/resources/img/main/backimage.scale.1920.800.1507211353369.jpeg);
 width:100%;
 height: 100%;
     
 }
 .bg2 { 
 background-size: cover;
-background-image: url(/phoenixex/resources/img/main/backimage.scale.1920.800.1507211353392.jpeg);
+background-image: url(/phoenix/resources/img/main/backimage.scale.1920.800.1507211353392.jpeg);
 width:100%;
 height: 100%;
 }
@@ -150,7 +150,7 @@ height: 100%;
 .m_sec_in_box{
     width:46%;
     height: 400px;
-    background-image:url(/phoenixex/resources/img/main/1.png);
+    background-image:url(/phoenix/resources/img/main/1.png);
     background-size:cover;
     margin: 0% 2%;
     float:left;
@@ -158,7 +158,7 @@ height: 100%;
 .m_sec_in_box2{
     width:46%;
     height: 400px;
-    background-image:url(/phoenixex/resources/img/main/2.jpeg);
+    background-image:url(/phoenix/resources/img/main/2.jpeg);
     background-size:cover;
     margin: 0% 2%;
     float:left;
@@ -232,16 +232,16 @@ padding: 0px;
 }
 /*뉴스 항목별 사진 1 ~ 4*/
 #m_sec2_bg1{
-    background-image:url(/phoenixex/resources/img/main/3.jpeg);
+    background-image:url(/phoenix/resources/img/main/3.jpeg);
 }
 #m_sec2_bg2{
-    background-image:url(/phoenixex/resources/img/main/4.jpeg);
+    background-image:url(/phoenix/resources/img/main/4.jpeg);
 }
 #m_sec2_bg3{
-    background-image:url(/phoenixex/resources/img/main/5.png);
+    background-image:url(/phoenix/resources/img/main/5.png);
 }
 #m_sec2_bg4{
-    background-image:url(/phoenixex/resources/img/main/6.png);
+    background-image:url(/phoenix/resources/img/main/6.png);
 }
 
 /*뉴스박스 */
