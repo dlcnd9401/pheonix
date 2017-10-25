@@ -3,38 +3,52 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
-	<select id="cart" resultType="hashmap">
-		select UserId , 
-		       ifnull(path, '') as path, 
-		       ifnull(Sname, '') as Sname, 
-		       ifnull(Name, '') as Name, 
-		       ifnull(Code, '') as Code, 
-		       ifnull(Price, '') as Price, 
-		       auth 
-		  from buylist 
-		 where auth=2
-	</select>
-	
+	<!-- Cart삭제 -->
 	<select id="del" parameterType="hashmap">
 		UPDATE buylist SET auth = 3 where BuyNo = #{BuyNo}
 	</select>
-	
+	<!-- Cart 페이징 -->
 	<select id="paging" parameterType="hashmap" resultType="hashmap">
 		select BuyNo,
-		       SortNo,
 		       UserId , 
 		       ifnull(path, '') as path, 
 		       ifnull(Sname, '') as Sname, 
 		       ifnull(Name, '') as Name, 
 		       ifnull(Code, '') as Code, 
 		       ifnull(Price, '') as Price, 
+		       ifnull(Store, '') as Store,
+		       ifnull(Date, '') as Date,
 		       auth 
 		  from buylist 
 		 where auth=2
 		 and   UserId = 'test'
 		 limit #{start}, #{viewRow}
 	</select>
+	<!-- Cart 갯수 -->
 	<select id="totCnt" resultType="hashmap">
 		select count(*) as tot from buylist where UserId = 'test' and auth=2
+	</select>
+	
+	<!-- Sell 페이징 -->
+	<select id="sellpaging" parameterType="hashmap" resultType="hashmap">
+		select BuyNo,
+		       UserId , 
+		       ifnull(path, '') as path, 
+		       ifnull(Sname, '') as Sname, 
+		       ifnull(Name, '') as Name, 
+		       ifnull(Code, '') as Code, 
+		       ifnull(Price, '') as Price, 
+		       ifnull(Store, '') as Store,
+		        ifnull(Date, '') as Date,
+		       auth 
+		       
+		  from buylist 
+		 where auth=1
+		 and   UserId = '우석'
+		 limit #{start}, #{viewRow}
+	</select>
+	<!-- Sell 갯수 -->
+	<select id="selltotCnt" resultType="hashmap">
+		select count(*) as tot from buylist where UserId = '우석' and auth=1
 	</select>
 </mapper>

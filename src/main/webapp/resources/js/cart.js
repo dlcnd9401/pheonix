@@ -64,6 +64,7 @@ $(document).ready(function(){
         		    tag += "</td>";
         		    tag += "</tr>";
         		$("tbody").append(tag);
+        		
         		  
             }
            
@@ -72,7 +73,9 @@ $(document).ready(function(){
     		    tag += "<td>찜하신 상품이 없습니다.</td>";
     		    tag += "</tr>";
             	$("tbody").append(tag);
+            	
             }
+            
 	  }
 	 
 	  function createPaging(){
@@ -116,6 +119,7 @@ $(document).ready(function(){
 				createHtml(); // 화면에 표현하기 위하여 함수 호출
 				createPaging(); // 페이지 링크 표현하기 우하여 함수 호출
 			});
+			
 		}	
 		initData();
 	  
