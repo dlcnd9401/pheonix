@@ -24,4 +24,24 @@ public class Modeldao implements ModeldaoInterface {
 	return session.selectList("sql.model",param);
 
 	}
+	@Override
+	public List<HashMap<String,Object>> modellist(HashMap<String,Object> param){
+	return session.selectList("sql.modellist",param);
+
+	}
+	@Override
+	public List<HashMap<String,Object>> modeldetail(HashMap<String,Object> param){
+	return session.selectList("sql.modeldetail",param);
+
+	}
+/*	@Override
+	public List<HashMap<String, Object>> getData() {
+		return session.selectList("mmodel.model");
+	}
+	@Override
+	public HashMap<String, Object> getlistdata(HashMap<String, Object> param) {
+		return session.selectOne("mmodel.getlistdata", param);
+	}*/
+	
+	
 }

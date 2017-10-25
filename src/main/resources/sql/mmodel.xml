@@ -2,18 +2,16 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="sql">
-
+<mapper namespace="mmodel">
 	<select id="model" resultType="hashmap">
 		select * from Kategorie
 	</select>
-	<select id ="modellist" resultType ="hashmap" parameterType="hashmap">
+	
+	<select id="getlistdata" resultType="hashmap" parameterType="hashmap">
 			select * from Kategorie as k
 			inner join Product as p
 			on(k.scode = p.scode) 
 			where k.scode = #{scode}
-	</select>  
-	<select id ="modeldetail" resultType ="hashmap" parameterType="hashmap">
-	select * from Product where code = #{code}
 	</select>
+	
 </mapper>
