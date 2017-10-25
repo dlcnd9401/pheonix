@@ -1,33 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <meta charset="UTF-8">
 <head>
-    <link rel = "stylesheet" href = "/phoenix/resources/css/revisestart.css">
-    <script  src="https://code.jquery.com/jquery-2.2.4.js"
-    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-    crossorigin="anonymous"></script>
-    <script type="text/javascript" src="index.js"></script>
+  <link rel = "stylesheet" href = "/phoenix/resources/css/total.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-<script language="javascript">
-    function Confirmidcheck() {
- if (confirm("이 ID로 하시겠습니까?"))
-  {
-   alert("사용 가능한 ID입니다.");
-  } else {
-   alert("취소하셨습니다.");
-  }
- }
-    
- function Confirmcheck() {
- if (confirm("이대로 수정하시겠습니까?"))
-  {
-   alert("수정하셨습니다.");
-  } else {
-   alert("취소하셨습니다.");
-  }
- }
-    </script>
 </head>
 <body><div class = "main">
     <header>
@@ -46,27 +24,27 @@
   
     
     <!--몸통 -->    
-<div id="mymain">
- <div class="titlebox">
-  <a class="title">회원정보수정 입장시 비밀번호 입력이 필요합니다.</a>
+<div id="PSmymain">
+ <div class="PStitlebox">
+  <a class="PStitle">회원정보수정 입장시 비밀번호 입력이 필요합니다.</a>
   </div>
-  <div id="bigtle"><!-- 킅틀 -->
+  <div id="PSbigtle"><!-- 킅틀 -->
   
    
    <!-- 정보수정틀-->
-    <div id="midtle">
+    <div id="PSmidtle">
        <!--수정할것들(아이디,비번등등)-->
-        <div class="sujungtext">
+        <div class="PSsujungtext">
          <a>비밀번호</a>        <br>
          
        </div>
        
-       <div class="sujunginput">
-        <input class="inputtle" type="text" placeholder="비밀번호를 입력해주세요">     <br>         
+       <div class="PSsujunginput">
+        <input class="PSinputtle" type="text" placeholder="비밀번호를 입력해주세요">     <br>         
        </div>
        
-       <div class="button">
-      <button type="button" onclick="Confirmidcheck();" class="ID">확인</button>
+       <div class="PSbutton">
+      <a href="UserUpdate"><button type="button" class="">확인</button></a>
       <!-- 비밀번호로 사용자 확인 -->       
     
            <!-- 빈공간 있으면 페이지 이동 안되게하기 -->
