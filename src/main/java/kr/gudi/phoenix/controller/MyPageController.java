@@ -18,44 +18,50 @@ import net.sf.json.JSONSerializer;
 public class MyPageController {
 	@Autowired
 	MyPageServiceInterface msi;
-
+	//장바구니
 	@RequestMapping("/Cart")
-	public ModelAndView cartpage(ModelAndView mav){
-		 mav.setViewName("MyPage/Cart");
+	public ModelAndView cartpage(ModelAndView mav) {
+		mav.setViewName("MyPage/Cart");
 		return mav;
-	}
+	}//구매목록
 	@RequestMapping("/SellList")
-	public String sellList(){
-		return "MyPage/SellList";
+	public ModelAndView sellList(ModelAndView mav) {
+		mav.setViewName("MyPage/SellList");
+		return mav;
 	}
-	@RequestMapping("/listView")
-	public ModelAndView listView(ModelAndView mav){
-		mav.setViewName("Mypage/Cart");
+	@RequestMapping("/PwSelect")
+	public ModelAndView pwSelect(ModelAndView mav) {
+		mav.setViewName("MyPage/PwSelect");
+		return mav;
+	}
+	@RequestMapping("/UserUpdate")
+	public ModelAndView userUpdate(ModelAndView mav) {
+		mav.setViewName("MyPage/UserUpdate");
 		return mav;
 	}
 	
+	//Cart 페이지 데이터페이징, 삭제버튼
+	@RequestMapping("/listData")
+	public ModelAndView listData(HttpServletRequest req) {
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		param.put("start", Integer.parseInt(req.getParameter("start")));
+		param.put("viewRow", Integer.parseInt(req.getParameter("viewRow")));
+		return HttpUtil.makeHashToJsonModelAndView(msi.paging(param));
+	}
+	@RequestMapping("/bagdel")
+	public ModelAndView bagdel(HttpServletRequest req) {
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		param.put("BuyNo", Integer.parseInt(req.getParameter("BuyNo")));
+		return HttpUtil.makeHashToJsonModelAndView(msi.bagdel(param));
+	}
 	
-	   @RequestMapping("/cartData")
-	   public ModelAndView cartData(ModelAndView mav){
-	      HashMap<String, Object> map = new HashMap<String, Object>();
-	      map = msi.cart();
-	      return HttpUtil.makeHashToJsonModelAndView(map);
-	   }
-	   
-	   @RequestMapping("/listData")
-		public ModelAndView listData(HttpServletRequest req){
-			HashMap<String, Object> param = new HashMap<String, Object>();
-			param.put("start", Integer.parseInt(req.getParameter("start")));
-			param.put("viewRow", Integer.parseInt(req.getParameter("viewRow")));
-			System.out.println(param);
-			return HttpUtil.makeHashToJsonModelAndView(msi.paging(param));
-	   }
-	   
-	   @RequestMapping("/bagdel")
-		public ModelAndView bagdel(HttpServletRequest req){
-			HashMap<String, Object> param = new HashMap<String, Object>();
-			param.put("BuyNo", Integer.parseInt(req.getParameter("BuyNo")));
-			return HttpUtil.makeHashToJsonModelAndView(msi.bagdel(param));
-	   }
-	   
+	//구매목록 데이터페이징
+	@RequestMapping("/sellData")
+	public ModelAndView sellData(HttpServletRequest req) {
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		param.put("start", Integer.parseInt(req.getParameter("start")));
+		param.put("viewRow", Integer.parseInt(req.getParameter("viewRow")));
+		System.out.println(param);
+		return HttpUtil.makeHashToJsonModelAndView(msi.sellpaging(param));
+	}
 }

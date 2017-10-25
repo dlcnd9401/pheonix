@@ -12,13 +12,7 @@ import org.springframework.stereotype.Repository;
 public class MyPageDao implements MyPageDaoInterface {
 	@Resource(name="sqlSession")
 	SqlSession session;
-	
 
-	@Override
-	public List<HashMap<String, Object>> cart() {
-		// TODO Auto-generated method stub
-		return session.selectList("mypage.cart");
-	}
 
 	@Override
 	public List<HashMap<String, Object>> paging(HashMap<String, Object> param) {
@@ -33,6 +27,16 @@ public class MyPageDao implements MyPageDaoInterface {
 	@Override
 	public int bagdel(HashMap<String, Object> param) {
 		return session.update("mypage.del", param);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> sellpaging(HashMap<String, Object> param) {
+		return session.selectList("mypage.sellpaging", param);
+	}
+
+	@Override
+	public HashMap<String, Object> selltotCnt() {
+		return session.selectOne("mypage.selltotCnt");
 	}
 	
 }

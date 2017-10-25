@@ -14,13 +14,6 @@ public class MyPageService implements MyPageServiceInterface {
 	MyPageDaoInterface mdi;
 	
 	public HashMap<String, Object> map;
-	
-	@Override
-	public HashMap<String, Object> cart() {
-		  map = new HashMap<String, Object>();
-	      map.put("list", mdi.cart());
-	      return map;
-	}
 
 	@Override
 	public HashMap<String, Object> paging(HashMap<String, Object> param) {
@@ -29,11 +22,18 @@ public class MyPageService implements MyPageServiceInterface {
 		map.put("totCnt", mdi.totCnt());
 		return map;
 	}
-
 	@Override
 	public HashMap<String, Object> bagdel(HashMap<String, Object> param) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("status", mdi.bagdel(param));
+		return map;
+	}
+	
+	@Override
+	public HashMap<String, Object> sellpaging(HashMap<String, Object> param) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("data2", mdi.sellpaging(param));
+		map.put("totCnt2", mdi.selltotCnt());
 		return map;
 	}
 }
