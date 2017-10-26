@@ -42,6 +42,16 @@ public class Modeldao implements ModeldaoInterface {
 	public HashMap<String, Object> getlistdata(HashMap<String, Object> param) {
 		return session.selectOne("mmodel.getlistdata", param);
 	}*/
+	@Override
+	public int modelbuy(HashMap<String, Object> param) {
+		return session.insert("sql.modelbuy",param);
+	}
+	@Override
+	public int modelcart(HashMap<String, Object> param) {
+		return session.insert("sql.modelcart",param);
+	}
+	
+	
 	
 	
 }

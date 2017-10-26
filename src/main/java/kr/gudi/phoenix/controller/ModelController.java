@@ -31,12 +31,18 @@ public class ModelController {
 		
 	}*/
 	
-/*	@RequestMapping("/model")
-	public ModelAndView model(ModelAndView mav){
-		mav.setViewName("model");
+	@RequestMapping("/modeltest")
+	public ModelAndView modeltest(ModelAndView mav){
+		mav.setViewName("test");
 		return mav;
 	}
 	
+	@RequestMapping("/PopUp")
+	public ModelAndView popup(ModelAndView mav){
+		mav.setViewName("Model/popup");
+		return mav;
+	}
+	/*
 	@RequestMapping("/modellist")
 	public ModelAndView modellist(ModelAndView mav){
 		mav.setViewName("Model/ModelList");
@@ -87,6 +93,30 @@ public class ModelController {
 		return mav;
 	}
 	
+	@RequestMapping("/Modelbuy")
+	public ModelAndView modelbuy(ModelAndView mav,HttpServletRequest req){
+		HashMap<String,Object> param = new HashMap<String,Object>();
+		param = HttpUtil.getParameterMap(req);
+		param= msi.modelbuy(param);
+		mav.setViewName("MyPage/SellList");
+		return mav;
+	}  
+
+
+
+	
+
+	
+	@RequestMapping("/ModelCart")
+	public ModelAndView modelcart(ModelAndView mav,HttpServletRequest req){
+		HashMap<String,Object> param = new HashMap<String,Object>();
+		param = HttpUtil.getParameterMap(req);
+		param= msi.modelcart(param);
+		mav.setViewName("MyPage/Cart");
+		return  mav;
+	}
+
+	
 /*	@RequestMapping("/modeldata") //List 보여주기 
 	public ModelAndView masterPageData(ModelAndView mav){
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -113,5 +143,18 @@ public class ModelController {
 		return HttpUtil.makeHashToJsonModelAndView(map);
 	}
 	*/
+	
+	/*		map = new HashMap <String,Object>();
+	map.put("Code", req.getParameter("Code"));
+	map.put("path", req.getParameter("path"));
+	map.put("Sname", req.getParameter("Sname"));
+	map.put("auth", req.getParameter("auth"));
+	map.put("UserId", req.getParameter("UserId"));
+	map.put("Price", req.getParameter("Price"));
+	map.put("Name",req.getParameter("Name"));
+	map = msi.modelcart(map);
+	mav.addObject("modelcart", map.get("modelcart"));
+	mav.setViewName("ModelCart");
+	return mav;*/
 	
 }

@@ -22,12 +22,13 @@ public class ModelService implements ModelServiceInterface {
 		map.put("model", mdi.model(param));
 		return map;
 	}
-	
+	@Override
 	public HashMap<String, Object> modellist(HashMap<String, Object> param) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("modellist", mdi.modellist(param));
 		return map;
 	}
+	@Override
 	public HashMap<String, Object> modeldetail(HashMap<String, Object> param) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("modeldetail", mdi.modeldetail(param));
@@ -44,6 +45,18 @@ public class ModelService implements ModelServiceInterface {
 	      map.put("data", mdi.getlistdata(param));
 	      return map;
 	  }*/
-	
+
+	@Override
+	public HashMap<String, Object> modelbuy(HashMap<String, Object> param) {
+		map = new HashMap<String,Object>();
+		map.put("buylist",mdi.modelbuy(param));
+		return map;
+	}
+	@Override
+	public HashMap<String, Object> modelcart(HashMap<String, Object> param) {
+		map = new HashMap<String, Object>();
+		map.put("modelcart", mdi.modelcart(param));
+		return map;
+	}
 	
 }
