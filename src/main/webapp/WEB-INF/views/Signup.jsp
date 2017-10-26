@@ -15,7 +15,6 @@
     
     $(document).ready(function(){
         $("form").on("submit", function(event){
-          console.log("------------------");
           event.preventDefault();
           $.ajax({
         	  	 type:"post",

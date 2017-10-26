@@ -34,16 +34,15 @@
 	    	mouseout();
 	    });
 	    
-// 	    $('#loginbtn').off().on("click",function(){
-// 	    	$("#m_btbox").removeClass("m_col_disn");
-// 	    	$("#sjlogoutbtn").addClass("m_col_disb");
-// 	    });
-	    
 	    $(".sgbtn").click(function(){
             location.replace("Signup"); 
         });
 	    
 	    $("#loginbtn").off().on("click", function(){
+	    	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+	    	$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+	    	$('#sjlogoutbtn').addClass('m_col_disb');
+	    	$('#sjlabel').addClass('m_col_disb');
 	        login();
 	    });
 		 
@@ -69,13 +68,12 @@
 	        
 	        
 	        $.ajax({
-	           type:"post",
+	           type:"get",
 	           url:"LoginData",
 	           data:{"UserId": UserId, "UserPw": UserPw},
 	           datatype:"json"
 	        }).done(function(d){
 	           alert("yes");
-	           var result = JSON.parse(d);
 	           console.log(d.LoginData);
 	        }).fail(function(d){
 	           alert("no"); 
@@ -93,8 +91,8 @@
        <div class ="m_bt">
 			<div class= "m_btbox m_col_disn" id="sjlabel"> id 님</div>
             <div class= "m_btbox m_col_disn" id="sjlogoutbtn">Log Out</div>
-            <div class= "m_btbox"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
-            <div class= "m_btbox"><button type="button" class="sgbtn">회원가입</button></div>
+            <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+            <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div>
             </div>
     <div class = "box50">
         <div>
@@ -128,7 +126,7 @@
 			    <label for="pwd">Password:</label>
 			    <input type="password" class="form-control" id="UserPw" style="margin-left: 0px" name="UserPw">
 			  </div>
-			  <button type="button" class="btn btn-default" id="loginbtn">Login</button>
+			  <button type="button" class="btn btn-default" id="loginbtn" data-dismiss="modal">Login</button>
 			</form>
 	      </div>
 	    </div>

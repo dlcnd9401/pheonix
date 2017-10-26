@@ -70,6 +70,7 @@ public class ModelController {
 		map = msi.modellist(map);
 		mav.addObject("data", map.get("modellist"));
 		mav.setViewName("Model/ModelList");
+		System.out.println(session.getAttribute("user"));
 		return mav;
 	}
 	
