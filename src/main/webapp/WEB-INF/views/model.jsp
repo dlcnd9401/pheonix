@@ -36,18 +36,7 @@
 		});
 		
 		   
-		$('.sec_in2_box_in2').click(function(){
-	    $('.bg').fadeOut(1000, function(){
-	    $('.bg2').fadeIn(1000);
-	    });
-	        
-	    });
-	    $('.sec_in2_box_in').click(function(){
-	    $('.bg2').fadeOut(1000, function(){
-	    $('.bg').fadeIn(1000);
-	    });
-	        
-	    });
+
 	    
 	    $('.collection').off().on("mouseover",function(){
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");
@@ -94,7 +83,7 @@
 	          }
 	    
 	    function loadJSP(){
-			var url = "/phoenixex/resources/html/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
+			var url = "/phoenix/resources/html/"+ hash.substr(1, hash.length) + ".html"; // url 주소 생성
 			$("section").load(url);
 			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
 		} 
@@ -105,8 +94,22 @@
 			}
 			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
 		} */
+		
 	    loadJSP();
 	    /* loadJSP(); */
+	    
+		$('.sec_in2_box_in2 a').click(function(){
+		    $('.bg').fadeOut(1000, function(){
+		    $('.bg2').fadeIn(1000);
+		    });
+		        
+		    });
+		    $('.sec_in2_box_in a').click(function(){
+		    $('.bg2').fadeOut(1000, function(){
+		    $('.bg').fadeIn(1000);
+		    });
+		        
+		    });
 });	
 	
 
