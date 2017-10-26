@@ -11,11 +11,8 @@
 	<!-- <link rel="stylesheet" href="resources/js/main.js"> -->
 	<link rel = "stylesheet" href = "resources/css/layout.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script  src="https://code.jquery.com/jquery-2.2.4.js"
-    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-    crossorigin="anonymous"></script>
 	<script type = "text/javascript">
 	$(document).ready(function(){
 	    $('.sec_in2_box_in2').click(function(){
@@ -37,6 +34,11 @@
 	    	mouseout();
 	    });
 	    
+// 	    $('#loginbtn').off().on("click",function(){
+// 	    	$("#m_btbox").removeClass("m_col_disn");
+// 	    	$("#sjlogoutbtn").addClass("m_col_disb");
+// 	    });
+	    
 	    $(".sgbtn").click(function(){
             location.replace("Signup"); 
         });
@@ -57,15 +59,27 @@
 		}
 		
 		function login(){
-	        id = $("#id").val();
-	        pwd = $("#pw").val();
+			UserId = $("#UserId").val();
+			UserPw = $("#UserPw").val();
+	        
+	        if(UserId == ""){
+	            alert("아이디를 입력하세요");
+	            return false;
+	        }
+	        
 	        
 	        $.ajax({
 	           type:"post",
 	           url:"LoginData",
-	           data:{"id": id, "pw": pwd}
+	           data:{"UserId": UserId, "UserPw": UserPw},
+	           datatype:"json"
 	        }).done(function(d){
+	           alert("yes");
 	           var result = JSON.parse(d);
+	           console.log(d.LoginData);
+	        }).fail(function(d){
+	           alert("no"); 
+	           console.log(d.LoginData);
 	        })
 	     }
 
@@ -77,6 +91,8 @@
 <div class = "main">
     <header>
        <div class ="m_bt">
+			<div class= "m_btbox m_col_disn" id="sjlabel"> id 님</div>
+            <div class= "m_btbox m_col_disn" id="sjlogoutbtn">Log Out</div>
             <div class= "m_btbox"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
             <div class= "m_btbox"><button type="button" class="sgbtn">회원가입</button></div>
             </div>
@@ -106,11 +122,11 @@
 	        <form>
 			  <div class="form-group">
 			    <label for="email">Id:</label>
-			    <input type="text" class="form-control" id="id" style="margin-left: 0px" name="loginid">
+			    <input type="text" class="form-control" id="UserId" style="margin-left: 0px" name="UserId">
 			  </div>
 			  <div class="form-group">
 			    <label for="pwd">Password:</label>
-			    <input type="password" class="form-control" id="pw" style="margin-left: 0px" name="loginpw">
+			    <input type="password" class="form-control" id="UserPw" style="margin-left: 0px" name="UserPw">
 			  </div>
 			  <button type="button" class="btn btn-default" id="loginbtn">Login</button>
 			</form>

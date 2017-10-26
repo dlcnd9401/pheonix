@@ -22,6 +22,7 @@ import kr.gudi.phoenix.dao.SignupDaoInterface;
 	    return map;
 	 }
 	
+	 // 로그인
 	 @Override
 	   public HashMap<String, Object> getLoginData(HashMap<String, Object> param) {
 	      map = new HashMap<String, Object>();
@@ -29,6 +30,8 @@ import kr.gudi.phoenix.dao.SignupDaoInterface;
 	      return map;
 	   }
 	 
+	 
+	 // 회원가입아이디 중복확인
 	 @Override
 	   public HashMap<String, Object> checkid(HashMap<String, Object> param){
 	      map = new HashMap<String, Object>();
@@ -36,6 +39,7 @@ import kr.gudi.phoenix.dao.SignupDaoInterface;
 	      return map;
 	   }
 	 
+	// 회원가입
 	@Override
 	public HashMap<String, Object> setSignupData(HashMap<String, Object> param) {
 	    map = new HashMap<String, Object>();

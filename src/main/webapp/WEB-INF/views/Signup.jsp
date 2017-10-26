@@ -10,7 +10,6 @@
     <!-- <link rel="stylesheet" href="resources/js/main.js"> -->
     <link rel = "stylesheet" href = "resources/css/layout.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
     
@@ -21,7 +20,8 @@
           $.ajax({
         	  	 type:"post",
         	  	 url:"SignupData", 
-                 data: $(this).serialize()
+                 data: $(this).serialize(),
+                 datatype: "json"
            }).done(function(result){
               data = JSON.parse(result);
               if(data.status == 1){
@@ -54,7 +54,8 @@
         $.ajax({
            type : "post",
            url : "checkid",
-           data:{"id" : id}
+           data:{"UserId" : id},
+           datatype: "json"
         }).done(function(result){
            console.log(result.checkid);
            if(result.checkid == null){

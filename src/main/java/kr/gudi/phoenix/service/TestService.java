@@ -21,5 +21,9 @@ public class TestService implements TestServiceInterface {
 		map.put("test", tdi.test());
 		return map;
 	}
+	@Override
+	public HashMap<String, Object> login(HashMap<String, Object> param) {
+		return tdi.login(param);
+	}
 
 }

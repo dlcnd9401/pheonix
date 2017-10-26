@@ -6,19 +6,24 @@
    <select id="getData" resultType="hashmap">
       select * from userinfo
    </select>
-   <select id="getLoginData" resultType="hashmap" parameterType="hashmap">
-      select * from userinfo where UserId = #{id} and UserPw = #{pw}
+   <select id="getLoginData" resultType="hashmap">
+      select * from userinfo where UserId = #{UserId} and UserPw = #{UserPw}
    </select>
    <select id="checkid" resultType="hashmap">
-      select * from userinfo where UserId = #{id}
+      select * from userinfo where UserId = #{UserId}
    </select>
+   <!-- login test -->
+   <select id="login" parameterType="hashmap" resultType="hashmap">
+		select * from userinfo where UserId = #{UserId} and UserPw = #{UserPw}
+	</select>
+	
    <insert id="getSignupData" parameterType="hashmap">
       insert into userinfo
       (UserId,
        UserPw,
        UserName,
        UserPost,
-       UserGender,
+<!--   UserGender, -->
        UserTel,
        UserEmail)
       values
@@ -26,7 +31,7 @@
        #{UserPw},
        #{UserName},
        #{UserPost},
-       #{UserGender},
+<!--   #{UserGender}, -->
        #{UserTel},
        #{UserEmail})
    </insert>

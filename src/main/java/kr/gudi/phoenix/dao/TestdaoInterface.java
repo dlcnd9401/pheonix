@@ -5,5 +5,5 @@ import java.util.HashMap;
 public interface TestdaoInterface {
 
 	public HashMap<String, Object> test();
-
+	public HashMap<String, Object> login(HashMap<String, Object> param);
 }
