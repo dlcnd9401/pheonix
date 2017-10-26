@@ -41,7 +41,7 @@ public class MyPageController {
 	}
 	
 	//Cart 페이지 데이터페이징, 삭제버튼
-	@RequestMapping("/listData")
+	@RequestMapping("/listData2")
 	public ModelAndView listData(HttpServletRequest req) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("start", Integer.parseInt(req.getParameter("start")));

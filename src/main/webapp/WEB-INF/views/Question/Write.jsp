@@ -4,13 +4,14 @@
 <html>
 <meta charset = "UTF-8">
 <head>
-    <link rel="stylesheet" href="resources/css/Write.css">
-    <link rel = "stylesheet" href = "resources/css/layout.css">
+    <link rel="stylesheet"   href= "resources/css/Write.css">
+    <link rel = "stylesheet" href ="resources/css/layout.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
     <script type="text/javascript">
-        //여기서부터 작성
          $(document).ready(function(){
            $("form").on("submit", function( event ) {
               console.log("------------------");
@@ -54,21 +55,19 @@
 
         <!-- --------------------------------------------------  -->
         <section>
-            <div class="writeBox">
-            <form>
-                <div class="writeTop">
-                   
-                    <span><b>제 목</b> : <input type="text" name="Qtitle"></span>
+        <div class="qpsywriteBox">
+                <div class="qpsywriteTop">
+                    <span><b>제 목</b> : <input type="text"></span>
                 </div>
-                <div class="writeMiddle">
+                <div class="qpsywriteMiddle">
                     <p><b>문의 내용</b></p>
-                    <textarea rows="35" cols="98" maxlength="98" name="QContents"></textarea>
+                    <textarea rows="35" cols="98" maxlength="98">
+                    </textarea>
                 </div>
-                <div class="writeBottom">
-                   <button type="submit" class="writebtn">작 성</button>
-                   <button type="button" class="writeback">취 소</button>
+                <div class="qpsywriteBottom">
+                   <button type="button" class="qpsywritebtn">작 성</button>
+                   <button type="button" class="qpsywriteback">취 소</button>
                 </div>
-              </form>
             </div>
         </section>
         <!-- --------------------------------------------------  -->

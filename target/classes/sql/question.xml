@@ -3,13 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="question">
-	<select id="qestionListData" resultType="hashmap">
+
+	<select id="qestionListData" resultType="hashmap"> <!-- 리스트조회 -->
 		select * from Question
 	</select>
-	<select id="questionDetailData" parameterType="hashmap" resultType="hashmap">
+	
+	<select id="questionDetailData" parameterType="hashmap" resultType="hashmap"> <!-- 리스트목록 클릭 시 상세보기 조회 -->
 		select * from Question where Qno = ${Qno}
 	</select>
-	<insert id="questionWriteData" parameterType="hashmap">
+	
+	<insert id="questionWriteData" parameterType="hashmap">  <!-- 게시판 글 작성  -->
 		insert into Question 
 		(Qtitle,
 		 UserId)
@@ -18,12 +21,16 @@
 		 #{UserId})
 	</insert>
 
-	<insert id="getWriteData" parameterType="hashmap">
-		insert into Question 
-		(Qtitle,
-		 UserId)
-		values
-		(#{Qtitle},
-		 #{UserId})
-	</insert>
+	
+		<select id="select" parameterType="hashmap" resultType="hashmap"> <!-- Paging 쿼리문 -->
+		select * from Question limit #{start}, #{viewRow}  	<!-- limit 한번에 보여지는 게시판    -->
+	</select>
+	
+	
+	<select id="totCnt" resultType="hashmap">
+		select count(*) as tot from Question   	<!-- 페이징 되는 숫자의 갯수를 생성(세어주는 쿼리문) -->
+	
+	</select>
+	
 </mapper>
+	
