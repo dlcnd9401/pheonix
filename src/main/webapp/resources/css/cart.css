@@ -1,0 +1,298 @@
+body{ 
+    width:1903px;
+    max-width:1903px;
+    min-width: 300px;
+    margin : 0px;
+    position: relative;
+}
+
+header{
+    width: 100%;
+    height: 98px;    
+    background-color: black;
+}
+
+.put{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+}
+.put2{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+    width: 5%;
+}
+.box50 {
+    width:calc(100% - 50%);
+    height: 70%;
+    float:left;
+    margin : 0px 0px 0px 25%;
+    padding-top : 25px;
+    display:inline-block;
+    
+    
+}
+
+.box50 img{
+    float:left;
+    margin-right : 5%;
+}
+
+
+.box50 a {
+    text-decoration: none;
+    float:left;
+    margin : 25px 15px;
+    color :white;
+    
+}
+
+.in_box30{
+    width: 25%;
+    float:left;
+    margin-right : 5%;
+}
+.in_box30 img{
+    width :100%;
+    margin-right:10%;
+}
+.in_box70{
+    width: 100%;
+}
+
+footer {
+    width : 1903px;
+    height: 720px;
+    background-color : black;
+}
+.ft_box{
+    width: 100%;
+    height: 677px;  
+    background-color : rgb(20,20,20);
+    color : rgb(170,170,156);
+}
+
+.ft_box_in{
+    width: 50%;
+    height: 627px;
+    margin : 0% 25%;
+    padding : 25px 0px;
+    background-color : rgb(20,20,20);
+}
+
+
+.ft_box1{
+    width: 100%;
+    height: 43px;
+    background-color : black;
+}
+
+
+.ft_box1_in{
+    width:50%;
+    height: 50%;
+    margin : 0% 25%;
+    color:white;
+    transform: translateY(calc(50% + 5.5px));
+    text-align: center;
+    font-size: 11px;
+}
+
+.ft_box_in a{
+            color : rgb(170,170,156);
+    font-size: 11px;
+}
+
+
+
+
+section{
+    width: 1903px;
+    height: calc(100% - 818px);
+    background-color :azure;
+}
+
+
+a {
+    text-decoration: none;
+}
+.white { 
+color:white;
+}
+
+.cent{
+    width: 50%;
+    padding : 30px 0px;
+    margin : 0% 25%;
+
+}
+
+.col {
+    width : 159px;
+    height: 370px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+.m_head{
+    margin: 10px 0%;
+    width: 100%;    
+}
+
+
+.news {
+    width: 173px;
+    height: 218px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+/*내 코딩 부분*/
+/*마이페이지 기본섹션크기*/
+#mymain {
+    width: 1903px;
+    height: 1000px;
+    background-color: white;
+}
+
+/*장바구니*/
+#mymain .titlebox {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-left: 150px;
+}
+
+/*구매목록 제목*/
+.title {    
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/*사용자페이지 + 장바구니페이지*/
+#shoppingbagpage {
+    margin-left: 150px;
+    width: 1603px;
+    height: 760px; 
+}
+
+
+/* 장바구니 큰공간*/
+#shoppingbag {
+    width: 1603px;    
+    float: left;    
+}
+
+/*사진 클릭*/
+#shoppingbag .img {
+    width: 25px;
+    height: 35px;    
+}
+
+/*체크박스크기+위치*/
+.checkbox {
+    width: 61px;
+    height: 18px;
+}
+/*장바구니 리스트글자 조정(크기+굵기+위치)*/
+#shoppingbag .listtop-text {
+    height: 35px;
+    width:  1603px;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    float: left;
+    border-top: 1px solid;
+    background-color: #c3c4c4;
+}
+
+/*장바구니 리스트글자 조정(크기+굵기+위치)*/
+#shoppingbag .list-text {    
+    width:  1603px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 0px;
+    text-align: center;
+    float: left;
+    border-top: 1px solid;
+}
+
+
+/*하단버튼 틀 (버튼라인)*/
+#btntle {    
+    width: 1603px;
+    height: 47px;
+    float: left;
+    
+    line-height: 50px; 
+    border-top: 1px solid;
+}
+
+/*페이지이동버튼 틀*/
+.pagebtns {    
+    height: 48px; 
+    float: left;
+    margin-left: 600px;
+}
+/*페이지이동버튼 크기+글자크기*/
+.btn {
+    height: 30px;
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white; 
+    border-radius: 10%;
+    color: dimgrey;
+    border: 1px solid;
+}
+.btn:hover { 
+    color: black;
+}
+/*구매, 삭제버튼 틀*/
+.buydelbtns {
+    height: 46px;
+    width: 300px;
+    float: left;
+    padding-left: 150px;
+    text-align: center;
+}
+/*구매, 삭제버튼 크기+글자*/
+.btn1 {    
+    width: 85px;
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    background-color: #f6fafc;   
+    line-height: 30px;
+    border: px solid;
+}
+.btn1:hover {
+    background-color: #716c6c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

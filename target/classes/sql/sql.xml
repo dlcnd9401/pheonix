@@ -3,7 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sql">
-	<select id="test" resultType="hashmap">
-		select '테스트' as data
+	<select id="model" resultType="hashmap">
+		select * from Kategorie
 	</select>
+	<select id ="modellist" resultType ="hashmap" parameterType="hashmap">
+			select * from Kategorie as k
+			inner join Product as p
+			on(k.scode = p.scode) 
+			where k.scode = #{scode}
+	</select>  
+	<select id ="modeldetail" resultType ="hashmap" parameterType="hashmap">
+	select * from Product where code = #{code}
+	</select>
+	<insert id = "modelcart" parameterType ="hashmap" ><!-- 구매 -->
+	insert into buylist
+	 (Sname,Name,Code,path,auth,Price,UserId)
+	 values
+	 (#{Sname},#{Name},#{Code},#{path},1,#{Price},'admin');
+	</insert>
+	<insert id = "modelbuy" parameterType ="hashmap" > <!-- 장바구니 -->
+	insert into buylist (Sname,Name,Code,auth,path,Price,UserId)
+	values
+	(#{Sname},#{Name},#{Code},2,#{path},#{Price},'Buy');
+	
+	</insert>
 </mapper>

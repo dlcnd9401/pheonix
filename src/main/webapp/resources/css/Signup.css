@@ -1,0 +1,346 @@
+body{ 
+    width:1730px;
+    max-width:1730px;
+    min-width: 300px;
+    margin : 0px;
+    position: relative;
+}
+
+header{
+    width: 100%;
+    height: 98px;    
+    background-color: black;
+}
+
+.put{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+}
+.put2{
+    background-color: black;
+    float : right;
+    margin : 5px 2% 0px 0;
+    width: 5%;
+}
+.box50 {
+    width:calc(100% - 50%);
+    height: 70%;
+    float:left;
+    margin : 0px 0px 0px 25%;
+    padding-top : 25px;
+    display:inline-block;
+    
+    
+}
+
+.box50 img{
+    float:left;
+    margin-right : 5%;
+}
+
+
+.box50 a {
+    text-decoration: none;
+    float:left;
+    margin : 25px 15px;
+    color :white;
+    
+}
+
+.in_box30{
+    width: 25%;
+    float:left;
+    margin-right : 5%;
+}
+.in_box30 img{
+    width :100%;
+    margin-right:10%;
+}
+.in_box70{
+    width: 100%;
+}
+
+
+/* *************************************************** 
+여기서부터 회ㄱ원가입 페이지 
+*************************************************  */
+
+/* 틀 나누기   */
+
+.back {
+    height: 100%;
+    width: 1730px;
+    text-align: center;
+}
+
+.back1 {
+    width: calc(1730px);
+    height: 75px;
+    float: left;
+}/* 회원가입 글씨  */
+
+.id {
+    width: 1100px;
+    height: 70px;
+    float: left;
+} /* 아이디창 */
+
+
+
+.btn1 {
+    width: 630px;
+    height: 70px;
+    float: left;
+}/*  중복확인 */
+
+
+
+
+.pwd {
+    width: 1730px;
+    height: 70px;
+    float: left;
+} /* 비밀번호 */
+
+
+
+.pwdok {
+    width: 1730px;
+    height: 70px;
+    float: left;
+}
+
+.back2 {
+    width: 1730px;
+    height: 25px;
+    float: left;
+}/* 하단 여백 */
+
+
+.name {
+    width: 1100px;
+    height: 70px;
+    float: left;
+}
+
+.gnd {
+    width: 630px;
+    height: 70px;
+    float: left;
+}/* 성별선택 */
+
+.email {
+    width: 1730px;
+    height: 70px;
+    float: left;
+}
+
+.hp {
+    width: 1730px;
+    height: 70px;
+    float: left;
+}
+
+.home {
+    width: 1730px;
+    height: 70px;
+    float: left;
+}
+
+.btn2 {
+    width: 1730px;
+    float: left;
+    margin-left: 20px;
+} /* 가입하기 취소 큰 틀 */
+
+
+
+
+
+
+
+
+
+
+
+/*  꾸미기 및 위치이동  */
+
+.btnP {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #464646;
+    color: white;
+    font-weight: bold;
+    margin-left: -570px;
+} /* 버튼 속성 꾸미기 -> 중복확인  */
+
+
+.gndr {
+    padding: 10px 1px;
+    margin-left: -570px;
+    border-radius: 5px;
+}
+
+
+.inputbox {
+    border-radius: 5px;
+    float: left;
+    width: 350px;
+    height: 25px;
+    padding: 5px;
+    
+    
+} /* 입력 창 꾸미기 */
+
+
+div input {
+    margin-left: 700px;
+} /* input박스 위치 지정 */
+
+
+.okbtn {
+	margin: 5px;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 68px;
+    background-color: #464646;
+    color: white;
+    font-weight: bold;
+    
+}
+
+.btnP1 {
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 68px;
+    background-color: #464646;
+    color: white;
+    font-weight: bold;
+} /* 버튼 속성 꾸미기 -> 가입하기  */
+
+
+
+/* *************************************************** 
+여기서부터 회ㄱ원가입 페이지 끝 
+*************************************************  */
+
+footer {
+    width : 1730px;
+    height: 720px;
+    background-color : black;
+}
+.ft_box{
+    width: 100%;
+    height: 677px;  
+    background-color : rgb(20,20,20);
+    color : rgb(170,170,156);
+}
+
+.ft_box_in{
+    width: 50%;
+    height: 627px;
+    margin : 0% 25%;
+    padding : 25px 0px;
+    background-color : rgb(20,20,20);
+}
+
+
+.ft_box1{
+    width: 100%;
+    height: 43px;
+    background-color : black;
+}
+
+
+.ft_box1_in{
+    width:50%;
+    height: 50%;
+    margin : 0% 25%;
+    color:white;
+    transform: translateY(calc(50% + 5.5px));
+    text-align: center;
+    font-size: 11px;
+}
+
+.ft_box_in a{
+            color : rgb(170,170,156);
+    font-size: 11px;
+}
+
+
+
+
+.hsection{
+    width: 1903px;
+    height: auto;
+    background-color :azure;
+}
+
+
+a {
+    text-decoration: none;
+}
+.white { 
+color:white;
+}
+
+.cent{
+    width: 50%;
+    padding : 30px 0px;
+    margin : 0% 25%;
+
+}
+
+.col {
+    width : 159px;
+    height: 370px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+.m_head{
+    margin: 10px 0%;
+    width: 100%;
+    
+}
+
+
+.news {
+    width: 173px;
+    height: 218px;
+    float:left;
+    margin-left: 20px;
+    margin-top : 20px;
+}
+
+
+
+.back {
+    /* background-color: #ededed; */
+    height: 700px;
+    width: 1730px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
