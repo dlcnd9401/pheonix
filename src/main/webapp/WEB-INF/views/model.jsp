@@ -154,7 +154,7 @@
 			    <label for="pwd">Password:</label>
 			    <input type="password" class="form-control" id="pw" style="margin-left: 0px" name="loginpw">
 			  </div>
-			  <button type="button" class="btn btn-default" id="loginbtn">Login</button>
+			  <button type="button" class="btn btn-default" id="loginbtn" data-dismiss="modal">Login</button>
 			</form>
 	      </div>
 	    </div>
