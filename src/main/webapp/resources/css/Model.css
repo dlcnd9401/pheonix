@@ -15,6 +15,7 @@ a {
     height: 615px;
 
 }
+
 .m_wapper {
     width : 994px;
     height : 615px;
@@ -305,6 +306,7 @@ padding: 0px;
 	border : 2px solid white;
 	margin-right : 15px;
 	margin-top : 15px;
+	
 	text-align : center;
 }
 .m_btbox a{

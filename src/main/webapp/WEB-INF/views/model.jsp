@@ -6,16 +6,37 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-<title>Vacheron-Constantin</title>
-	<link rel="stylesheet" href="resources/css/Model.css">
-	<!-- <link rel="stylesheet" href="resources/js/main.js"> -->
-	<link rel = "stylesheet" href = "resources/css/layout.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Vacheron-Constantin</title>
+  <link rel="stylesheet" href="resources/css/Model.css">
+   <link rel = "stylesheet" href = "resources/css/layout.css">
+    <link rel = "stylesheet" href = "resources/css/ModelList.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
 	<script type = "text/javascript">
 	$(document).ready(function(){
-	    $('.sec_in2_box_in2').click(function(){
+		var hash = location.hash; // url에서 hash값 가져오기.
+		if(hash == ""){
+			hash = "#main"; // hash에 값이 없을때 초기값 설정
+		}
+		function main(){
+			location.hash = hash; // url에 hash 정보 변경
+			loadHTML(); // 화면 전환
+		};
+		
+		$('.m_in_mainimg').on("click",function(){
+			hash = "#modellist";
+			location.hash = hash; // url에 hash 정보 변경
+			console.log(hash);
+			$("section").load(url);
+			loadJSP();    
+		
+		});
+		
+		   
+		$('.sec_in2_box_in2').click(function(){
 	    $('.bg').fadeOut(1000, function(){
 	    $('.bg2').fadeIn(1000);
 	    });
@@ -29,84 +50,91 @@
 	    });
 	    
 	    $('.collection').off().on("mouseover",function(){
-	    	$("#m_submenu").removeClass("m_col_disn");
-	    	$("#m_submenu").addClass("m_col_disb");
-	    	mouseout();
+	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");
 	    });
-	    
-	    $(".sgbtn").click(function(){
+	    $('#m_exit').click(function(){
+	    	$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn").animate({
+	    		opcatiy :'0.4'
+	    	},10000);
+	   
+	    	$(".sgbtn").click(function(){
             location.replace("Signup"); 
-        });
-	    
-	    $("#loginbtn").off().on("click", function(){
-	    	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
-	    	$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
-	    	$('#sjlogoutbtn').addClass('m_col_disb');
-	    	$('#sjlabel').addClass('m_col_disb');
-	        login();
-	    });
+         });
 		 
 	});
-		function mouseout(){
-			$('.abc .collection').mouseout(function(){
-		    	$("#m_submenu").animate({
-		    		opcatiy :'0.4'
-		    	},10000).removeClass("m_col_disb");
-		    	$("#m_submenu").addClass("m_col_disn");
-		    });
-			
-		}
-		
-		function login(){
-			UserId = $("#UserId").val();
-			UserPw = $("#UserPw").val();
-	        
-	        if(UserId == ""){
-	            alert("아이디를 입력하세요");
-	            return false;
-	        }
-	        
-	        
-	        $.ajax({
-	           type:"get",
-	           url:"LoginData",
-	           data:{"UserId": UserId, "UserPw": UserPw},
-	           datatype:"json"
-	        }).done(function(d){
-	           alert("yes");
-	           console.log(d.LoginData);
-	        }).fail(function(d){
-	           alert("no"); 
-	           console.log(d.LoginData);
-	        })
-	     }
+	       $("#loginbtn").off().on("click", function(){
+	           $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+	           $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+	           $('#sjlogoutbtn').addClass('m_col_disb');
+	           $('#sjlabel').addClass('m_col_disb');
+	            login();
+	        });
+	       function login(){
+	           UserId = $("#UserId").val();
+	           UserPw = $("#UserPw").val();
+	             
+	             if(UserId == ""){
+	                 alert("아이디를 입력하세요");
+	                 return false;
+	             }
+	             
+	             
+	             $.ajax({
+	                type:"get",
+	                url:"LoginData",
+	                data:{"UserId": UserId, "UserPw": UserPw},
+	                datatype:"json"
+	             }).done(function(d){
+	                alert("환영합니다.");
+	                console.log(d.LoginData);
+	             }).fail(function(d){
+	                alert("오류 다시로그인하세요."); 
+	                console.log(d.LoginData);
+	             });
+	          }
+	    
+	    function loadJSP(){
+			var url = "/phoenixex/resources/html/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
+			$("section").load(url);
+			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
+		} 
+	    /* function loadJSP(){
+	    	var url = "/phoenixex/"+ hash.substr(1, hash.length); // url 주소 생성
+			if(hash.substr(1,hash.length) == "modellist"){
+	    	$("section").load(url);
+			}
+			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
+		} */
+	    loadJSP();
+	    /* loadJSP(); */
+});	
+	
 
-	     
 
+	
+	
 	</script>
 </head>
 <body>
 <div class = "main">
     <header>
-       <div class ="m_bt">
-			<div class= "m_btbox m_col_disn" id="sjlabel"> id 님</div>
+             <div class ="m_bt">
+         	<div class= "m_btbox m_col_disn" id="sjlabel"> id 님</div>
             <div class= "m_btbox m_col_disn" id="sjlogoutbtn">Log Out</div>
             <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
             <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div>
             </div>
     <div class = "box50">
-        <div>
-        <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
-        <div class ="collection"><a href =""> 컬렉션</a></div>
-                
-        <div class = ""><a href =""> <div class ="in_box30"><img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></div>
-            <div class ="in_box70">문의하기</div>
-            </a></div>
+        <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
+        <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></a></div>
+        <a href =""><div class ="collection">컬렉션</div></a>
+        <div class = ""><a href ="">문의하기</a></div>
         <div><a href =""> 마이페이지</a></div>
         <div><a href =""> 관리자 페이지</a></div>
-        </div> </header>
+        </div></div> 
+        </header>
         
-   <!----------------------------------Login Modal1-------------------------------------------------->
+        <!-- Modal1 -->
 	<div id="login" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
 	
@@ -120,24 +148,20 @@
 	        <form>
 			  <div class="form-group">
 			    <label for="email">Id:</label>
-			    <input type="text" class="form-control" id="UserId" style="margin-left: 0px" name="UserId">
+			    <input type="text" class="form-control" id="id" style="margin-left: 0px" name="loginid">
 			  </div>
 			  <div class="form-group">
 			    <label for="pwd">Password:</label>
-			    <input type="password" class="form-control" id="UserPw" style="margin-left: 0px" name="UserPw">
+			    <input type="password" class="form-control" id="pw" style="margin-left: 0px" name="loginpw">
 			  </div>
-			  <button type="button" class="btn btn-default" id="loginbtn" data-dismiss="modal">Login</button>
+			  <button type="button" class="btn btn-default" id="loginbtn">Login</button>
 			</form>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-    <!------------------------------------------------------------------------------------------------->    
-    <section>
-    
-  
-    <div class="m_col_disn abc"  id = "m_submenu">
-    <div class="m_wapper">
+        <div class="m_col_disn abc"  id = "m_submenu" style = cursor:pointer;>
+    <div class="m_wapper"> <p id = "m_exit">X</p>
         <!--컬랙션 종류-->
         <nav class="m_subcollection">
             <!--사진과 컬랙션 이름. 링크이동-->
@@ -147,7 +171,7 @@
     				/* (HashMap<String, HashMap<String, Object>>) request.getAttribute("data"); */
 				for(int i = 0; i < map.size(); i++){
 					%>
-                <a href="modellist?scode=<%= map.get(i).get("scode") %>"> 
+                <a href="modellist?scode=<%= map.get(i).get("scode") %> " id ="<%= map.get(i).get("scode")%> "> 
                 <div class="m_in_mainimg">  
        			<img src =<%= map.get(i).get("path") %>>
        			<%-- <img src =<%=map.get(i).get("path") %>> --%>
@@ -162,73 +186,10 @@
 </div>
         </nav>
         <!--신제품 및 무브먼트, 검색기능으로 이동-->
-        
+         
     </div>
     </div>
-    
-    <div class ="sec">
-           <div class = "bg"></div>
-            <div class = "bg2 disnone"></div>
-        </div>
-    <div class = "sec_in2">
-            <div class ="sec_in2_box">
-            <div class ="sec_in2_box_in"><a href = "#" ><p>OVERSEAS</p></a></div></div>
-            <div class ="sec_in2_box">
-            <div class ="sec_in2_box_in2"><a href = "#" ><p>셀레스티얼 메카닉스</p></a></div>
-            </div>
-            </div>
-    <div class ="m_sec">
-        <div class = "m_sec_in">
-        <div class ="m_sec_in_hd"><p>바쉐론 콘스탄틴 컬렉션</p></div>
-        <div class ="m_sec_in_box">
-            <div class ="m_sec_in_box150"><a href="#">바쉐론 콘스탄틴 컬렉션<br> 자세히 보기<br><br>
-               <div class ="m_sec_in_btbox">자세히 보기</div>
-                </a></div></div>
-        <div class ="m_sec_in_box2"><div class ="m_sec_in_box150"><a href="#">가장 가까운<br> 바쉐론 콘스탄틴<br> 부티크 찾기<br>
-               <div class ="m_sec_in_btbox">검색</div>
-                </a></div></div>
-        
-        
-        </div></div>
-    <div class ="m_sec2">
-        <div class = "m_sec2_in_hd"><hr>
-            바쉐론 콘스탄틴 뉴스<hr></div>
-        <div class ="m_sec2_in_box">
-            <div class ="m_sec2_in_box2"><a href="#">
-            <div class ="m_sec2_box_in" id ="m_sec2_bg1"></div>
-                <div class ="m_sec2_box2">
-                <div class ="m_sec2_box_in2">OVERSEAS- 바쉐론 콘스탄<br>틴이 간직한 여행의 정신을 <br>보여주는 시계</div>
-                    <div class ="m_sec2_box_in3"><hr>1755년 제네바에 설립된 바쉐론<br>콘스탄틴은 메종의 공동 설립자<br>인프랑소와 콘스탄틴(Francois</div>
-                <div class ="m_sec2_box_bt">뉴스읽기</div>
-                </div></a>
-        </div>
-            <div class ="m_sec2_in_box2"><a href="#">
-            <div class ="m_sec2_box_in" id ="m_sec2_bg2"></div>
-                <div class ="m_sec2_box2">
-                <div class ="m_sec2_box_in2">OVERSEAS - 교체가능한 브<br>레이슬릿/스트랩 및 버클</div>
-                <div class ="m_sec2_box_in3"><hr>새로운 Overseas 컬렉션은 2016<br>년을 맞이해, 전 세계 어느 자리<br>에서나 어울리는 우아한 스포츠</div>
-                <div class ="m_sec2_box_bt">뉴스읽기</div>
-                </div></a>
-        </div>
-            <div class ="m_sec2_in_box2"><a href="#">
-            <div class ="m_sec2_box_in" id ="m_sec2_bg3"></div>
-                <div class ="m_sec2_box2">
-                <div class ="m_sec2_box_in2">$1.2M RAISED AT <br> NATIONAL GALLERY<br>SINGAPORE...</div>
-                    <div class ="m_sec2_box_in3"><hr>As the presenting sponsor of the <br>national Gellery Singapore<br>inauqural fundraisinq Gale 2016</div>
-                <div class ="m_sec2_box_bt">뉴스읽기</div>
-                </div></a>
-        </div>
-            <div class ="m_sec2_in_box2"><a href="#">
-            <div class ="m_sec2_box_in" id ="m_sec2_bg4"></div>
-                <div class ="m_sec2_box2">
-                <div class ="m_sec2_box_in2">뉴욕과 도쿄에서 개최된<br>OVERSEAS 컬렉션 전 세계<br>출시 기념행사</div>
-                    <div class ="m_sec2_box_in3"><hr>바쉐론 콘스탄틴은 메종의 고객<br>들과 VIP, 유럽과 미국, 아시아태<br>평양, 일본의 해외 및 현지 언론</div>
-                <div class ="m_sec2_box_bt">뉴스읽기</div>
-                
-                </div></a>
-        </div>
-        </div>
-        </div>
+    <section>
     </section>
     <footer> 
     <div class = "ft_box">
@@ -319,6 +280,5 @@
         </div>
         </div>
     </footer>
-    </div>
     </body>
 </html>

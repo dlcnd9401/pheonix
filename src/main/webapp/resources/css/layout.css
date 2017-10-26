@@ -1,4 +1,8 @@
 @CHARSET "UTF-8";
+body a {
+	text-decoration: none;
+}
+
 body{ 
     width:1903px;
     max-width:1903px;
@@ -26,7 +30,7 @@ header{
 }
 .box50 {
     width:calc(100% - 50%);
-    height: 70%;
+    height: 98px;
     float:left;
     margin : 0px 0px 0px 25%;
     padding-top : 25px;
@@ -48,7 +52,12 @@ header{
     color :white;
     
 }
+.m_mar {
 
+}
+.m_mar a{
+	margin : 0 100px 0 0;
+}
 .in_box30{
     width: 25%;
     float:left;
