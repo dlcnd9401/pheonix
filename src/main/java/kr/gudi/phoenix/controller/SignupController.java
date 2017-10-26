@@ -48,7 +48,7 @@ public class SignupController {
    }
    
    //로그인
-   @RequestMapping(value = "/LoginData", method = RequestMethod.GET)
+   @RequestMapping(value = "/LoginData", method = RequestMethod.POST)
    public void loginData(HttpServletRequest req, HttpServletResponse resp, HttpSession session){
 	   HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 	   HashMap<String, Object> result = tsi.getLoginData(param);

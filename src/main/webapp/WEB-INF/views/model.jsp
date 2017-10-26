@@ -11,7 +11,7 @@
    <link rel = "stylesheet" href = "resources/css/layout.css">
     <link rel = "stylesheet" href = "resources/css/ModelList.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     
@@ -21,25 +21,31 @@
 		if(hash == ""){
 			hash = "#main"; // hash에 값이 없을때 초기값 설정
 		}
-		function main(){
+/* 		function main(){
 			location.hash = hash; // url에 hash 정보 변경
 			loadJSP(); // 화면 전환
-		};
-		
+		}; */
+	    
+		function loadJSP(){
+			var url = "/phoenix/resources/html/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
+			$("section").load(url);
+			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
+		} 
 	    
 	    $('.collection').off().on("mouseover",function(){
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");
 	    });
+	    
 	    $('#m_exit').click(function(){
 	    	$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn").animate({
 	    		opcatiy :'0.4'
 	    	},10000);
-	   
-	    	$(".sgbtn").click(function(){
+	    });
+	    
+	    $(".sgbtn").click(function(){
             location.replace("Signup"); 
-         });
-		 
-	});
+        });
+
 	       $("#loginbtn").off().on("click", function(){
 	           $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	           $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
@@ -47,6 +53,8 @@
 	           $('#sjlabel').addClass('m_col_disb');
 	            login();
 	        });
+		     loadJSP();
+	});
 	       function login(){
 	           UserId = $("#UserId").val();
 	           UserPw = $("#UserPw").val();
@@ -58,7 +66,7 @@
 	             
 	             
 	             $.ajax({
-	                type:"get",
+	                type:"post",
 	                url:"LoginData",
 	                data:{"UserId": UserId, "UserPw": UserPw},
 	                datatype:"json"
@@ -71,15 +79,11 @@
 	             });
 	          }
 	    
-	    function loadJSP(){
-			var url = "/phoenix/resources/html/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
-			$("section").load(url);
-			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
-		} 
-	    loadJSP();
-	    
 
-});	
+
+
+
+
 	
 
 
