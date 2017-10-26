@@ -7,11 +7,13 @@
 <html>
 <meta charset = "UTF-8">
 <head>
-    <link rel="stylesheet" href="resources/css/MasterPage1.css">
-    <link rel = "stylesheet" href = "resources/css/layout.css">
+    <link rel="stylesheet"   href= "resources/css/MasterPage1.css">
+    <link rel = "stylesheet" href ="resources/css/layout.css">    
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
     <script type="text/javascript">
 
         var Qno = <%=Qno%>;
@@ -23,8 +25,9 @@
 					var data = resultJSON.data;
 					console.log(data);
 					$(".datailMiddel span").eq(0).text(data.UserId);
-					$("#QContents").text(data.QContents);
+					$("#Qtitle").text(data.Qtitle);
 				});
+
 			}
 			
 			init();
@@ -54,26 +57,29 @@
 
 
         <!-- --------------------------------------------------  -->
-        <section>
-               <div class="detailBox">
-                <div class="datailTop">
+         <section>
+            <div class="qpsydetailBox">
+                <div class="qpsydatailTop">
                     <span>Qtitle</span>
                 </div>
-                <div class="datailMiddel">
+                <div class="qpsydatailMiddel">
                     <p>작성자 : <span>ID</span></p>
-                    <div class="detailMiddel2">
-                    <p>QContant(문의 내용)</p>
-                    <p id="QContents"></p>
+                    <div class="qpsydetailMiddel2">
+                        <p>QContant(문의 내용)</p>
                     </div>
                     <form action="">
-                     <div class="datailTop">
-                    <span>관리자 답변</span>
-                          <div class="detailMiddel2">
-                    <p></p>
-                    <input type="text" class="Qtext">
-                    </div>
-                    </div>
-                    <input type="button" class="Qbtn" value="답변">
+                        <div class="qpsydatailTop">
+                            <span>관리자 답변</span>
+                <!--관리자일경우 버튼이 보이고 버튼 클릭시 .Qtext 생성-->
+                            <button type="button disblock">answer</button>
+                            <div class="qpsydetailMiddel2">
+                <!--관리자가 답변했을경우 disblock으로 변경-->
+                                <p class="qpsyanswer disblock">답변내용</p>
+                                <input type="text" class="qpsyQtext disnone">
+                            </div>
+                        </div>
+                        <input type="button" class="qpsyQbtn1" value="답변">
+                        <input type="button" class="qpsyQbtn2" value="취소">
                     </form>
                 </div>
             </div>
