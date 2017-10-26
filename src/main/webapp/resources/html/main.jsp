@@ -11,7 +11,7 @@ $('.sec_in2_box_in2 a').click(function(){
     $('.sec_in2_box_in a').click(function(){
     $('.bg2').fadeOut(1000, function(){
     $('.bg').fadeIn(1000);
-    });
+    });   
         
     });
 </script>
