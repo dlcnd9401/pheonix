@@ -100,7 +100,7 @@
 					html = "<tr>"
 					html += '<td><a href="#num">' + data[i].Qno + '</a></td>';
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].UserId + '</a></td>'; 
-					html += '<td class="name">' + data[i].Qtitle + '</td>';
+					html += '<td class="name">' + data[i].QContents + '</td>';
 					html += '<td class="title">';
 					html += '</td>';
 					html += '</tr>';

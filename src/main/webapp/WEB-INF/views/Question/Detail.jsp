@@ -24,8 +24,8 @@
 					var resultJSON = JSON.parse(result);
 					var data = resultJSON.data;
 					console.log(data);
-					$(".datailMiddel span").eq(0).text(data.UserId);
-					$("#Qtitle").text(data.Qtitle);
+					$(".qpsydatailMiddel span").eq(0).text(data.UserId);
+					$(".qpsydetailMiddel1").text(data.QContents);
 				});
 
 			}
@@ -59,16 +59,16 @@
         <!-- --------------------------------------------------  -->
          <section>
             <div class="qpsydetailBox">
-                <div class="qpsydatailTop">
-                    <span>Qtitle</span>
+                <div class="qpsydatailTop1">
+                    <span>Question</span>
                 </div>
                 <div class="qpsydatailMiddel">
                     <p>작성자 : <span>ID</span></p>
-                    <div class="qpsydetailMiddel2">
+                    <div class="qpsydetailMiddel1">
                         <p>QContant(문의 내용)</p>
                     </div>
                     <form action="">
-                        <div class="qpsydatailTop">
+                        <div class="qpsydatailTop2">
                             <span>관리자 답변</span>
                 <!--관리자일경우 버튼이 보이고 버튼 클릭시 .Qtext 생성-->
                             <button type="button disblock">answer</button>

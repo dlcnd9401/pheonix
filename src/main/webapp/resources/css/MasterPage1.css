@@ -1,21 +1,29 @@
+/**** 많이 사용하는 것들 ****/
+.disnone {
+    display: none;
+}
+.disblock {
+    display: block;
+}
+
 /******************* Question *******************/
-.main2 {
+.qpsymain2 {
     width: 100%;
     height: 800px;
 }
-.table_name {
+.qpsytable_name {
     font-size: 30px;
     margin-left: 250px;
     font-weight: bold;
 }
-.select {
+.qpsyselect {
     margin-left: 250px;
 }
-.select select {
+.qpsyselect select {
     width: 100px;
     height: 23px;
 }
-.sub_news {
+.qpsysub_news {
     margin: 10px 250px;
     width: 1400px;
     border-bottom: 1px solid #999;
@@ -23,27 +31,27 @@
     font-size: 12px;
     table-layout: fixed;
 }
-.sub_news,
-.sub_news th,
-.sum_news td,
-.sum_news tr {
+.qpsysub_news,
+.qpsysub_news th,
+.qpsysum_news td,
+.qpsysum_news tr {
     border: 0;
 }
 
-.sub_news a {
+.qpsysub_news a {
     color: #383838;
     text-decoration: none;
 }
 
-.sub_news img {
+.qpsysub_news img {
     padding: 1px 2px;
 }
 
-.sub_news caption {
+.qpsysub_news caption {
     display: none;
 }
 
-.sub_news th {
+.qpsysub_news th {
     padding: 5px 0 6px;
     border-top: solid 1px #999;
     border-bottom: solid 1px #b2b2b2;
@@ -52,36 +60,36 @@
     font-size: 15px;
     font-weight: bold;
     line-height: 20px;
-    vertical-align: :top;
+    vertical-align :top;
 }
 
-.sub_news td {
+.qpsysub_news td {
     padding: 8px 0 9px;
     border-bottom: solid 1px #d2d2d2;
     text-align: center;
     line-height: 18px;
 }
 
-.sub_news .date,
-.sub_news .hit {
+.qpsysub_news .date,
+.qpsysub_news .hit {
     padding: 0;
     font-size: 12px;
     line-height: normal;
 }
 
-.sub_news .title {
+.qpsysub_news .title {
     text-align: left;
     padding-left: 15px;
     font-size: 15px;
 }
 
-.sub_news .title .pic,
-.sub_news .title .new {
+.qpsysub_news .title .pic,
+.qpsysub_news .title .new {
     margin: 0 0 2px;
     vertical-align: middle;
 }
 
-.paging {
+.qpsypaging {
     margin-left: 450px;
     margin-bottom: 20px;
 }
@@ -90,7 +98,7 @@
 display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 모두 갖는다
 크기를 가질 수 있으며 텍스트 정렬도 적용받는다
 */
-.paging a {
+.qpsypaging a {
     display: inline-block;
     font-weight: bold;
     text-decoration: none;
@@ -103,17 +111,35 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 
 /* 현재 페이징에 select 클래스를 적용한다*/
 
-.paging a.chk {
+.qpsypaging a.chk {
     color: #ece4d7;
     background-color: #262522;
 }
-.paging a:hover {
+.qpsypaging a:hover {
     background-color: #656565;
     color: #f8edde;
 }
 
+
+.writebtn { 
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    color: #000000;
+    background-color: #b2b2b2;
+    font-size: 12px;
+    margin-left: 30px; 
+    cursor: pointer;
+} 
+
+
+
+
+
 /********************* Detail **************************/
-.detailBox {
+.qpsydetailBox {
     margin: 10px 500px 5px 500px;
     border: 1px solid;
     width:900px;
@@ -121,44 +147,83 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 
     padding: 0 20px 0 20px;
 }
+
+
 /* 상단 title */
-.datailTop {
+.qpsydatailTop1 {
     width: 100%;
     height: 55px;
     border-bottom: 1px;
     border-bottom-style:dotted;
 }
-.datailTop span {
+.qpsydatailTop1 span {
     margin-left: 30px;
     font-size: 27px;
     letter-spacing: 2px;
     line-height: 2.5;
 }
-.datailMiddel p{
-    margin-left: 30px;
-    font-size: 20px;
-    letter-spacing: 1px;  
-    
-}
-.detailMiddel2 {
-    width: 100%;
-    height: 300px;
-    border: 1px solid;
-}
-.datailbotton {
+
+
+.qpsydatailTop2 {
     width: 100%;
     height: 55px;
     border-bottom: 1px;
     border-bottom-style:dotted;
 }
-.Qbtn {
+.qpsydatailTop2 span {
+    margin-left: 30px;
+    font-size: 27px;
+    letter-spacing: 2px;
+    line-height: 2.5;
+}
+
+
+
+.qpsydatailMiddel p{
+    margin-left: 30px;
+    font-size: 20px;
+    letter-spacing: 1px;  
+    
+}
+
+
+.qpsydetailMiddel1 {
+    width: 100%;
+    height: 300px;
+    border: 1px solid;
+}
+
+.qpsydetailMiddel2 {
+    width: 100%;
+    height: 300px;
+    border: 1px solid;
+}
+.qpsydatailbotton {
+    width: 100%;
+    height: 55px;
+    height: 55px;
+    border-bottom: 1px;
+    border-bottom-style:dotted;
+}
+.qpsyQbtn1 {
     position:relative;
-        bottom:-320px;
-        right: -42vw;
+    margin-left: 700px;
+    float: left;
+    bottom:-320px;
     width: 95px;
     height: 30px;
 }
-.Qtext {
-    width: 895px;
-    height: 300px;
+.qpsyQbtn2 {
+    position:relative;
+    margin-left: 807px;
+    float: left;
+    bottom:-290px;
+    width: 95px;
+    height: 30px;
+}
+.qpsyQtext {
+    margin: 0;
+    width: 896px;
+    height: 295px;
+     word-break: break-all;
 }

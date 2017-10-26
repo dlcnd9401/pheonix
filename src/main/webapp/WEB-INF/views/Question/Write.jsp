@@ -54,20 +54,22 @@
         </header>
 
         <!-- --------------------------------------------------  -->
-        <section>
-        <div class="qpsywriteBox">
+          <section>
+            <div class="qpsywriteBox">
+            <form>
                 <div class="qpsywriteTop">
-                    <span><b>제 목</b> : <input type="text"></span>
+                   
+                    <span><b>제 목</b> : <input type="text" name="Qtitle"></span>
                 </div>
                 <div class="qpsywriteMiddle">
                     <p><b>문의 내용</b></p>
-                    <textarea rows="35" cols="98" maxlength="98">
-                    </textarea>
+                    <textarea rows="35" cols="98" maxlength="98" name="QContents"></textarea>
                 </div>
                 <div class="qpsywriteBottom">
-                   <button type="button" class="qpsywritebtn">작 성</button>
+                   <button type="submit" class="qpsywritebtn">작 성</button>
                    <button type="button" class="qpsywriteback">취 소</button>
                 </div>
+              </form>
             </div>
         </section>
         <!-- --------------------------------------------------  -->
