@@ -110,7 +110,7 @@ $(document).ready(function(){
 	
 			$.ajax({
 					type:"post", // post 방식으로 통신 요청
-					url:"/phoenix/listData", // Spring에서 만든 URL 호출
+					url:"/phoenix/listData2", // Spring에서 만든 URL 호출
 					dataType : "json",
 					data:{"start":start, "viewRow":viewRow} // 파라메터로 사용할 변수 값 객체 넣기
 			}).done(function(result){ // 비동기식 데이터 가져오기
