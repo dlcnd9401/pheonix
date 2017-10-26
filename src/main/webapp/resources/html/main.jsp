@@ -1,4 +1,26 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<head>
+<script type ="text/javascript">
+$('.sec_in2_box_in2 a').click(function(){
+	$('.bg').fadeOut(1000, function(){
+    $('.bg2').fadeIn(1000);
+    });
+        
+    });
+    $('.sec_in2_box_in a').click(function(){
+    $('.bg2').fadeOut(1000, function(){
+    $('.bg').fadeIn(1000);
+    });
+        
+    });
+</script>
 
+</head>
+
+    
+   
+    
     
 
     <div class ="sec" id = "main">
