@@ -16,4 +16,8 @@ public class Testdao implements TestdaoInterface {
 	public HashMap<String, Object> test() {
 		return session.selectOne("sql.test");
 	}
+	@Override
+	public HashMap<String, Object> login(HashMap<String, Object> param) {
+		return session.selectOne("sql.login", param);
+	}
 }
