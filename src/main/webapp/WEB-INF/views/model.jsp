@@ -2,7 +2,7 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -51,7 +51,8 @@
 	           $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 	           $('#sjlogoutbtn').addClass('m_col_disb');
 	           $('#sjlabel').addClass('m_col_disb');
-	            login();
+	           
+	           login();
 	        });
 		     loadJSP();
 	});
@@ -60,12 +61,13 @@
 	           var UserId = $("#id").val();
 	           var UserPw = $("#pw").val();
 	           
-	           console.log(UserId + ", dd " +UserPw);
+	           console.log(UserId + UserPw);
 	             
-	             if(UserId == ""){
-	                 alert("아이디를 입력하세요");
+	             if(UserId == "" || UserPw == ""){
+	                 alert("아이디 또는 비밀번호가 입력되지 않았습니다!!");
 	                 return false;
 	             }
+	             
 	             
 	             $.ajax({
 	                type:"post",
@@ -73,7 +75,7 @@
 	                data:{"UserId": UserId, "UserPw": UserPw},
 	                datatype:"json"
 	             }).done(function(d){
-	                alert("환영합니다.");
+	                alert(UserId + "님 환영합니다.");
 	                console.log(d.LoginData);
 	             }).fail(function(d){
 	                alert("오류 다시로그인하세요."); 
@@ -93,9 +95,9 @@
 <body>
 <div class = "main">
     <header>
-             <div class ="m_bt">
-         	<div class= "m_btbox m_col_disn" id="sjlabel"> id 님</div>
-            <div class= "m_btbox m_col_disn" id="sjlogoutbtn">Log Out</div>
+            <div class ="m_bt">
+         	<div class= "m_btbox m_col_disn" id="sjlabel">__님 환영합니다</div>
+            <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/model">로그아웃</a></div>
             <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
             <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div>
             </div>

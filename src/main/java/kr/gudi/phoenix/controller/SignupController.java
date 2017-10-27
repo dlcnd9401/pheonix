@@ -29,6 +29,7 @@ public class SignupController {
    @Autowired
    SignupServiceInterface tsi;
    
+   // 회원가입
    @RequestMapping("/SignupData")
    public ModelAndView signupData(ModelAndView mav, HttpServletRequest req){ 
       HashMap<String, Object> param = HttpUtil.getParameterMap(req);
@@ -38,7 +39,7 @@ public class SignupController {
       return HttpUtil.makeHashToJsonModelAndView(param);
    }
    
-   
+   // 회원가입 아이디 중복체크
    @RequestMapping(value="/checkid", method = RequestMethod.POST)
    public void checkid(HttpServletRequest req, HttpServletResponse resp){
       HashMap<String, Object> checkid = HttpUtil.getParameterMap(req);
@@ -47,7 +48,7 @@ public class SignupController {
       HttpUtil.sendResponceToJson(resp, checkiddata);
    }
    
-   //로그인
+   // 로그인
    @RequestMapping(value = "/LoginData", method = RequestMethod.POST)
    public void loginData(HttpServletRequest req, HttpServletResponse resp, HttpSession session){
 	   HashMap<String, Object> param = HttpUtil.getParameterMap(req);
@@ -58,6 +59,13 @@ public class SignupController {
 	   System.out.println(session.getAttribute("user"));
 	   HttpUtil.sendResponceToJson(resp, result);
    }
+   
+   // 로그아웃
+   @RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.removeAttribute("user");
+		return "redirect:/";
+	}
    
 
 }
