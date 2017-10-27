@@ -3,7 +3,8 @@ $(document).ready(function(){
 	var viewRow = 10; // 화면에 보여질 행 갯수
 	var page = 1; // 현재 페이지 값
 	var totCnt = 0; // 데이터 전체 객수
-	
+	var pageGroup = 1; // 현재 페이지 값
+    var pageView = 5; // 페이징 버튼 객수
 	function createHtml(){
              $("tbody").empty();
              // 데이터를 출력하는데 널값이 있어도 빈칸으로 출력되게함.
@@ -64,7 +65,6 @@ $(document).ready(function(){
         		    tag += "</td>";
         		    tag += "</tr>";
         		$("tbody").append(tag);
-        		
         		  
             }
            
@@ -73,13 +73,12 @@ $(document).ready(function(){
     		    tag += "<td>찜하신 상품이 없습니다.</td>";
     		    tag += "</tr>";
             	$("tbody").append(tag);
-            	
             }
-            
 	  }
 	 
 	  function createPaging(){
 			var paging = totCnt / viewRow;
+			
 			// 전체의 행의 수에서 보여줄 행을 나누면 페이지의 갯수를 알 수 있다.
 			$(".Cartpagebtns").empty(); // div 태그 속에 a 태그를 초기화 한다.
 			for(var i = 0; i < paging; i++){
@@ -104,13 +103,11 @@ $(document).ready(function(){
 			if(hash != ""){ // hash 값이 있을 경우 page 변수의 값으로 사용한다.
 				page = hash.substr(5, hash.length);
 			}
-			
-			var end = (viewRow * page); // 10 * 2 = 20 
-			var start = (end - viewRow); // 20 - 10 = 10
-	
+			var end = (viewRow * page); // 10 * 2 = 20
+		    var start = (end - viewRow); // 20 - 10 = 10
 			$.ajax({
 					type:"post", // post 방식으로 통신 요청
-					url:"/phoenix/listData2", // Spring에서 만든 URL 호출
+					url:"/phoenix/cartList", // Spring에서 만든 URL 호출
 					dataType : "json",
 					data:{"start":start, "viewRow":viewRow} // 파라메터로 사용할 변수 값 객체 넣기
 			}).done(function(result){ // 비동기식 데이터 가져오기
@@ -118,10 +115,12 @@ $(document).ready(function(){
 				totCnt = result.totCnt.tot;
 				createHtml(); // 화면에 표현하기 위하여 함수 호출
 				createPaging(); // 페이지 링크 표현하기 우하여 함수 호출
-			});
-			
+			}).fail(function(d, s, x) {
+	            alert("fail");
+	        });
 		}	
 		initData();
+		
 	  
 	  
 	  

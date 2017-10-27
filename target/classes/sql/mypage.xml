@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
 	<!-- Cart삭제 -->
-	<select id="del" parameterType="hashmap">
+	<update id="del" parameterType="hashmap">
 		UPDATE buylist SET auth = 3 where BuyNo = #{BuyNo}
-	</select>
+	</update>
 	<!-- Cart 페이징 -->
 	<select id="paging" parameterType="hashmap" resultType="hashmap">
 		select BuyNo,
@@ -18,37 +18,50 @@
 		       ifnull(Price, '') as Price, 
 		       ifnull(Store, '') as Store,
 		       ifnull(Date, '') as Date,
+		       ifnull(Stock, '') as Stock,
 		       auth 
 		  from buylist 
 		 where auth=2
-		 and   UserId = 'test'
+		 and   UserId = #{UserId}
 		 limit #{start}, #{viewRow}
 	</select>
 	<!-- Cart 갯수 -->
-	<select id="totCnt" resultType="hashmap">
-		select count(*) as tot from buylist where UserId = 'test' and auth=2
+	<select id="totCnt" parameterType="hashmap" resultType="hashmap">
+		select count(*) as tot from buylist where UserId = #{UserId} and auth=2
 	</select>
 	
 	<!-- Sell 페이징 -->
 	<select id="sellpaging" parameterType="hashmap" resultType="hashmap">
 		select BuyNo,
-		       UserId , 
+		       UserId, 
 		       ifnull(path, '') as path, 
 		       ifnull(Sname, '') as Sname, 
 		       ifnull(Name, '') as Name, 
 		       ifnull(Code, '') as Code, 
 		       ifnull(Price, '') as Price, 
 		       ifnull(Store, '') as Store,
-		        ifnull(Date, '') as Date,
+		       ifnull(Date, '') as Date,
 		       auth 
 		       
 		  from buylist 
 		 where auth=1
-		 and   UserId = '우석'
+		 and   UserId = #{UserId}
 		 limit #{start}, #{viewRow}
 	</select>
 	<!-- Sell 갯수 -->
 	<select id="selltotCnt" resultType="hashmap">
-		select count(*) as tot from buylist where UserId = '우석' and auth=1
+		select count(*) as tot from buylist where UserId = #{UserId} and auth=1
 	</select>
+
+	<update id="userUpdate" parameterType="hashmap">
+	update userinfo set 
+		<if test="UserPw != null">
+	    	UserPw    = #{UserPw},
+	  	</if>
+		UserName  = #{UserName}, 
+		UserPost  = #{UserPost}, 
+		UserEmail = #{UserEmail}, 
+		UserTel   = #{UserTel} 
+	where UserNo = #{UserNo}
+	</update>
 </mapper>
