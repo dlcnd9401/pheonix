@@ -6,7 +6,7 @@
    <select id="getData" resultType="hashmap">
       select * from userinfo
    </select>
-   <select id="getLoginData" resultType="hashmap">
+   <select id="getLoginData" parameterType="hashmap" resultType="hashmap">
       select * from userinfo where UserId = #{UserId} and UserPw = #{UserPw}
    </select>
    <select id="checkid" resultType="hashmap">

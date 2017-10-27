@@ -51,8 +51,11 @@ public class SignupController {
    @RequestMapping(value = "/LoginData", method = RequestMethod.POST)
    public void loginData(HttpServletRequest req, HttpServletResponse resp, HttpSession session){
 	   HashMap<String, Object> param = HttpUtil.getParameterMap(req);
+	   System.out.println("controller : " + param);
 	   HashMap<String, Object> result = tsi.getLoginData(param);
+	   System.out.println(result);
 	   session.setAttribute("user", result);
+	   System.out.println(session.getAttribute("user"));
 	   HttpUtil.sendResponceToJson(resp, result);
    }
    

@@ -26,7 +26,9 @@ import kr.gudi.phoenix.dao.SignupDaoInterface;
 	 @Override
 	   public HashMap<String, Object> getLoginData(HashMap<String, Object> param) {
 	      map = new HashMap<String, Object>();
+	      System.out.println("param"+ param);
 	      map.put("data", tdi.getLoginData(param));
+	      System.out.println("map"+ map);
 	      return map;
 	   }
 	 

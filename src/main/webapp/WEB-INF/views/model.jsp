@@ -55,15 +55,17 @@
 	        });
 		     loadJSP();
 	});
+	
 	       function login(){
-	           UserId = $("#UserId").val();
-	           UserPw = $("#UserPw").val();
+	           var UserId = $("#id").val();
+	           var UserPw = $("#pw").val();
+	           
+	           console.log(UserId + ", dd " +UserPw);
 	             
 	             if(UserId == ""){
 	                 alert("아이디를 입력하세요");
 	                 return false;
 	             }
-	             
 	             
 	             $.ajax({
 	                type:"post",
@@ -77,11 +79,8 @@
 	                alert("오류 다시로그인하세요."); 
 	                console.log(d.LoginData);
 	             });
+	             
 	          }
-	    
-
-
-
 
 
 	
