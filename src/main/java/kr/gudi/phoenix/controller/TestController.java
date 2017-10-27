@@ -36,4 +36,5 @@ public class TestController {
 			session.setAttribute("user", result);
 			HttpUtil.sendResponceToJson(resp, result);
 		}
+		
 }

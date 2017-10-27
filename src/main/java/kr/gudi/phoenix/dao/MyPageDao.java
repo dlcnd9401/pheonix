@@ -20,8 +20,8 @@ public class MyPageDao implements MyPageDaoInterface {
 	}
 
 	@Override
-	public HashMap<String, Object> totCnt() {
-		return session.selectOne("mypage.totCnt");
+	public List<HashMap<String, Object>> totCnt(HashMap<String, Object> param) {
+		return session.selectOne("mypage.totCnt", param);
 	}
 
 	@Override
@@ -37,6 +37,16 @@ public class MyPageDao implements MyPageDaoInterface {
 	@Override
 	public HashMap<String, Object> selltotCnt() {
 		return session.selectOne("mypage.selltotCnt");
+	}
+
+	@Override
+	public List<HashMap<String, Object>> myLog(HashMap<String, Object> param) {
+		return session.selectList("mypage.mylog", param);
+	}
+
+	@Override
+	public int userUpdate(HashMap<String, Object> param) {
+		return session.update("mypage.userUpdate", param);
 	}
 	
 }

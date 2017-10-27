@@ -1,17 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
-<meta charset="UTF-8">
-<script type="text/javascript">
-$(document).ready(function(){
-	
-});
-</script>
-
 <head>
+  <meta charset="UTF-8">
+  <title>비밀번호 확인</title>
   <link rel = "stylesheet" href = "/phoenix/resources/css/total.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script type="text/javascript">
+// $(document).ready(function(){
+// 	var data = [];
+// 	var pw = "";
+// 	var id,pw,name,post,email,tel = "";
+// 	function initDate() {
+// 		$.ajax({
+// 			type:"post",
+// 			url:"/phoenix/userupDate",
+// 			dataType="json",
+// 			data:{"id":id, "pw":pw, "pame":name,"post":post,"email":email,"tel":tel}
+// 		}).done(function(user){
+// 			data = user.data;
+// 			pw = user.myLog.UserPw;
+// 			console.log(data,pw);
+// 		});
+// 	}
+// });
+</script>
 </head>
 <body>  
 <div id="PSmymain">
@@ -23,22 +36,21 @@ $(document).ready(function(){
    
    <!-- 정보수정틀-->
     <div id="PSmidtle">
-       <!--수정할것들(아이디,비번등등)-->
-        <div class="PSsujungtext">
-         <a>비밀번호</a>        <br>
-         
-       </div>
-       
-       <div class="PSsujunginput">
-        <input class="PSinputtle" type="text" placeholder="비밀번호를 입력해주세요">     <br>         
-       </div>
-       
-       <div class="PSbutton">
-      <a href="UserUpdate"><button type="button" class="">확인</button></a>
-      <!-- 비밀번호로 사용자 확인 -->       
-    
-           <!-- 빈공간 있으면 페이지 이동 안되게하기 -->
-       </div>
+    	<form action="PwSelectForm" method="post">
+	        <!--수정할것들(아이디,비번등등)-->
+	        <div class="PSsujungtext">
+	        	<p>비밀번호</p>
+	        </div>
+	        
+	        <div class="PSsujunginput">
+		        <input class="PSinputtle" type="text" placeholder="비밀번호를 입력해주세요" name="UserPw">     <br>         
+	        </div>
+
+			<!-- 비밀번호로 사용자 확인 -->	       
+	        <div class="PSbutton">
+	      		<button type="submit">확인</button>
+       		</div>
+       </form>
    </div>
    </div>
 </div>      
