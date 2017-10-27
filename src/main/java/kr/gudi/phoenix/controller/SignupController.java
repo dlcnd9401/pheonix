@@ -60,12 +60,17 @@ public class SignupController {
 	   HttpUtil.sendResponceToJson(resp, result);
    }
    
-   // 로그아웃
-   @RequestMapping("/logout")
-	public String logout(HttpSession session){
-		session.removeAttribute("user");
-		return "redirect:/";
-	}
+//   // 로그아웃
+//   @RequestMapping("/logout")
+//	public String logout(HttpSession session){
+//		session.removeAttribute("user");
+//		return "redirect:/";
+//	}
    
-
+   @RequestMapping("/Logout")
+   public ModelAndView logout(ModelAndView mav, HttpSession session){
+	   session.invalidate();
+	   mav.setViewName("redirect:/model");
+	   return mav;
+   }
 }

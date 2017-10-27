@@ -96,8 +96,8 @@
 <div class = "main">
     <header>
             <div class ="m_bt">
-         	<div class= "m_btbox m_col_disn" id="sjlabel">__님 환영합니다</div>
-            <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/model">로그아웃</a></div>
+            <div class= "m_btbox m_col_disn" id="sjlabel">___님 환영합니다</div>
+            <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>
             <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
             <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div>
             </div>
