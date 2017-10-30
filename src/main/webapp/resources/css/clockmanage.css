@@ -11,6 +11,10 @@ header{
     height: 98px;    
     background-color: black;
 }
+tbody {
+            text-align: center;
+            font-size: 20px;
+        }
 
 .put{
     background-color: black;
@@ -165,13 +169,13 @@ color:white;
 
 
 /*섹션부분*/
-.main2 {
+.cmjymain2 {
     width: 100%;
     height: 800px;
     background-color: white;
 }
 /*제목*/
-.page2 {
+.cmjypage2 {
     padding-top: 30px;
     padding-bottom: 20px;
     margin-left: 150px;   
@@ -179,27 +183,27 @@ color:white;
 p {
     margin: 0;
 }
-.table_name2 {
+.cmjytable_name2 {
     font-size: 50px;
     font-weight: bold;
 }
 /*판매처검색*/
-.select {
+.cmjyselect {
     margin-left: 150px;
 }
 
-.select select {
+.cmjyselect select {
     width: 200px;
     height: 30px;
     font-size: 15px;    
 }
-.select .selectbtn {
+.cmjyselect .cmjyselectbtn {
     width: 90px;
     height: 30px;  
     font-size: 15px;
 }
 
-.sub_news {
+.cmjysub_news {
     margin-top: 10px;
     margin-left: 150px;
     width: 1603px;
@@ -207,23 +211,23 @@ p {
     font-size: 12px;    
 }
 
-.sub_news,
-.sub_news th,
-.sum_news td,
-.sum_news tr {
+.cmjysub_news,
+.cmjysub_news th,
+.cmjysum_news td,
+.cmjysum_news tr {
     border: 0;
 }
 
-.sub_news a {
+.cmjysub_news a {
     color: #383838;
     text-decoration: none;
 }
 
-.sub_news caption {
+.cmjysub_news caption {
     display: none;
 }
 
-.sub_news th {
+.cmjysub_news th {
     padding: 5px 0 6px;
     border-top: solid 1px #999;
     border-bottom: solid 1px #b2b2b2;
@@ -234,7 +238,7 @@ p {
     vertical-align: top;
 }
 
-.sub_news td {
+.cmjysub_news td {
     padding: 8px 0 9px;
     border-bottom: solid 1px #d2d2d2;
     text-align: center;
@@ -242,57 +246,57 @@ p {
     font-size: 20px;
 }
 
-.sub_news .date,
-.sub_news .hit {
+.cmjysub_news .date,
+.cmjysub_news .hit {
     padding: 0;
     font-size: 12px;
     line-height: normal;
 }
 
-.sub_news .title {
+.cmjysub_news .cmtitle {
     text-align: left;
     padding-left: 15px;
     font-size: 15px;
 }
 
-.sub_news .title .pic,
-.sub_news .title .new {
+.cmjysub_news .title .pic,
+.cmjysub_news .title .new {
     margin: 0 0 2px;
     vertical-align: middle;
 }
-.deletbtn {
+.cmjyupdatebtn {
     width: 100px;
     height: 30px;
     font-size: 18px;
 }
 
-.paging {
+.cmjypaging {
     margin-top: 10px;
     margin-left: 600px;    
 }
 
-.paging a {
+.cmjypaging a {
 /*
 display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 모두 갖는다
 크기를 가질 수 있으며 텍스트 정렬도 적용받는다
 */
-    display: inline-block;
-    font-weight: bold;
+    display: inline-block;    
     text-decoration: none;
-    padding: 5px 8px;
+    padding: 5px 8px;    
     border: 1px solid #ccc;
     color: #000000;
-    background-color: #b2b2b2;
-    font-size: 12px;
+    background-color: #b2b2b2;    
 }
 
 /* 현재 페이징에 select 클래스를 적용한다*/
 
-.paging a.chk {
+.cmjypaging a.cmjychk {	
     color: #ece4d7;
     background-color: #262522;
+    font-size: 12px;
+    font-weight: bold;
 }
-.paging a:hover {
+.cmjypaging a:hover {
     background-color: #656565;
     color: #f8edde;
 }
@@ -304,7 +308,7 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 
 /**/
 /*하단버튼 틀 (버튼라인)*/
-#btntle {    
+#cmjybtntle {    
     width: 1603px;
     height: 47px;
     float: left;    
@@ -313,22 +317,30 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 }
 
 /*페이지이동버튼 틀*/
-.pagebtns {    
+.cmjypagebtns {    
     height: 48px; 
     float: left;
     margin-left: 600px;
 }
-/*페이지이동버튼 크기+글자크기*/
-.btn {
-    height: 30px;
-    width: 50px;
-    font-size: 20px;
+
+/* 하단 페이지이동 */
+.cmjypagebtns a {
+	width: 20px;
+	text-align: center;
+    display: inline-block;
     font-weight: bold;
-    background-color: white; 
-    border-radius: 10%;
-    color: dimgrey;
-    border: 1px solid;
+    text-decoration: none;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    color: #000000;
+    background-color: #b2b2b2;
+    font-size: 20px;
 }
-.btn:hover { 
-    color: black;
+.cmjypagebtns a.jychk {
+	 color: #ece4d7;
+    background-color: #262522;
+}
+.cmjypagebtns a:hover {
+    background-color: #656565;
+    color: #f8edde;
 }

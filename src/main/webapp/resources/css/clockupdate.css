@@ -165,17 +165,17 @@ color:white;
 
 
 /*------------------------------------------------------------------------*/
-#tle {
+#cdjytle {
     width: 1903px;
     height: 900px;   
 }
-#tle .title {
+#cdjytle .cdjytitle {
     font-size: 50px;
     margin-left: 250px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-#midtle {
+#cdjymidtle {
     width: 1403px;
     height: 700px;
     background-color: #ced0d0;
@@ -187,79 +187,108 @@ p{
 }
 
 
-#midtle .smalltle {
+#cdjymidtle .cdjysmalltle {
     width: 1000px;
     height: 680px; 
     float: left;
-    padding-top: 20px;
+    margin-top: 60px;
     padding-left: 300px;
 }
-#midtle .text {
+#cdjymidtle .cdjytext {
     width: 200px;
     height: 680px;
     float: left;
     margin-left:50px;
 }
-#midtle .input {
+#cdjymidtle .cdjyinput {
     width: 550px;
     height: 600px;
     float: left;    
 }
-#midtle .upbtn{
+#cdjymidtle .cdjyupbtn{
     float: left;
     width: 150px;    
 }
 
-#midtle .upjul1 {
+#cdjymidtle .cdjyupjul1 {
     height: 55px;
 }
-#midtle .upjul2 {
+#cdjymidtle .cdjyupjul2 {
     height: 180px;
 }
-#midtle .check {
+#cdjymidtle .cdjycheck {
     height: 40px;
     width: 20px;
     float: left;
 }
-#midtle .uptext {
+#cdjymidtle .cdjyuptext {
     font-size: 30px;
     float: left;   
 }
-#midtle .upjul1 .ground {
+#cdjymidtle .cdjyupjul1 .cdjyground {
     float: left;
     font-size: 15px;
     font-weight: bold;
     line-height: 42px;
 }
-#midtle .uptext1 {
+#cdjymidtle .cdjyuptext1 {
     height: 35px;
     width: 400px;
     font-size: 15px;
 }
-#midtle .uptext2 {
+#cdjymidtle .cdjyuptext2 {
     height: 150px;
     width: 400px;
     font-size: 15px;
 }
-#midtle .select {
+#cdjymidtle .cdjyselect {
     width: 200px;
     height: 30px;
     font-size: 15px;    
 }
-#midtle .imgfile {
-    width: 100px;
+
+
+.cdjyupjul1 .file { 
+	display: inline-block; 
+	padding: .5em .75em; 
+	color: black; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #fdfdfd; 
+	cursor: pointer; 
+	border: 1px solid #ebebeb; 	
+	border-radius: .25em; 
+	} 
+.cdjyupjul1 input[type="file"] { 
+	/* 파일 필드 숨기기 */ 
+	position: absolute;
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0; 
+	}
+
+
+
+
+#cdjymidtle .cdjyimgfile {
+    width: 80px;
     height: 40px;
     font-size: 15px;
     font-weight: 600;
 }
 
 
-#midtle .upsucess {    
+#cdjymidtle .cdjyupsucess {    
     height: 60px;
     width: 120px;
     font-size: 25px;
     font-weight: 500;
-    margin-top: 600px;
+    margin-top: 550px;
     margin-left: 50px;
 }
 
