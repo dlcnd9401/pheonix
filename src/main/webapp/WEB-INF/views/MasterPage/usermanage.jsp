@@ -138,46 +138,6 @@ var data = []; // 데이터 담을 배열 변수 선언
 	});
 
 	
-	
-	
-	
-	/* 회원찾기 */
-	function search() {
-		/* 제품등록버튼눌렀을시 */
-		$("form").on("submit", function( event ) {				 
-				 event.preventDefault();
-					$.ajax({
-			       	  	 url:"userselectData", 
-			       	  	 data: $(this).serialize()
-			          }).done(function(result){
-			        	  	var html = '';
-							var resultJSON = JSON.parse(result);
-							var data = resultJSON.list;						
-							$("tbody").empty();	
-							for(var i = 0; i < data.length; i++){
-								html = "<tr>"
-								html += "<td class='umjytitle1 umjyno'>" + data[i].UserNo + "</td> "; 
-								html += "<td class='umjytitle1 umjyid'>" + data[i].UserId + "</td>";
-								html += "<td class='umjytitle1 umjyname'>" + data[i].UserName + "</td>";
-								html += "<td class='umjytitle1 umjyemail'>" + data[i].UserEmail + "</td>";
-								html += "<td class='umjytitle1 umjytel'>" + data[i].UserTel + "</td>";
-								html += "<td class='umjytitle1 umjyaddress'>" + data[i].UserPost + "</td>";								
-								html += '</tr>';
-								$("tbody").append(html);
-							}	
-							/* select에 ID를 찾아서 그 option에 순서에 맞는 아이템에 값을 가져온다 */
-							var a = document.getElementById('umjycontent').options[document.getElementById('umjycontent').selectedIndex].value;
-							alert(a);
-			          });
-			});
-	}
-	
-	
-	
-	
-	
-	
-	
         function myFunction() {
                document.getElementById("myDropdown").classList.toggle("show");
         }
