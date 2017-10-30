@@ -19,12 +19,12 @@
 	insert into buylist
 	 (Sname,Name,Code,path,auth,Price,UserId)
 	 values
-	 (#{Sname},#{Name},#{Code},#{path},1,#{Price},'admin');
+	 (#{Sname},#{Name},#{Code},#{path},1,#{Price},#{UserId});
 	</insert>
 	<insert id = "modelbuy" parameterType ="hashmap" > <!-- 장바구니 -->
 	insert into buylist (Sname,Name,Code,auth,path,Price,UserId)
 	values
-	(#{Sname},#{Name},#{Code},2,#{path},#{Price},'Buy');
+	(#{Sname},#{Name},#{Code},2,#{path},#{Price},#{UserId});
 	
 	</insert>
 </mapper>
