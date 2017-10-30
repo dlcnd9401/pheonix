@@ -20,7 +20,7 @@ public class MyPageDao implements MyPageDaoInterface {
 	}
 
 	@Override
-	public List<HashMap<String, Object>> totCnt(HashMap<String, Object> param) {
+	public HashMap<String, Object> totCnt(HashMap<String, Object> param) {
 		return session.selectOne("mypage.totCnt", param);
 	}
 
@@ -47,6 +47,11 @@ public class MyPageDao implements MyPageDaoInterface {
 	@Override
 	public int userUpdate(HashMap<String, Object> param) {
 		return session.update("mypage.userUpdate", param);
+	}
+
+	@Override
+	public int sellUpdate(HashMap<String, Object> param) {
+		return session.update("mypage.sellUpdate", param);
 	}
 	
 }

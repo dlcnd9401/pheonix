@@ -7,6 +7,12 @@
 	<update id="del" parameterType="hashmap">
 		UPDATE buylist SET auth = 3 where BuyNo = #{BuyNo}
 	</update>
+	
+	<!-- 장바구니에서 구매리스트로 변경 -->
+	<update id="sellUpdate" parameterType="hashmap">
+	update buylist set auth = 1 where BuyNo = #{BuyNo}
+	</update>
+	
 	<!-- Cart 페이징 -->
 	<select id="paging" parameterType="hashmap" resultType="hashmap">
 		select BuyNo,
@@ -16,9 +22,7 @@
 		       ifnull(Name, '') as Name, 
 		       ifnull(Code, '') as Code, 
 		       ifnull(Price, '') as Price, 
-		       ifnull(Store, '') as Store,
 		       ifnull(Date, '') as Date,
-		       ifnull(Stock, '') as Stock,
 		       auth 
 		  from buylist 
 		 where auth=2
@@ -39,7 +43,6 @@
 		       ifnull(Name, '') as Name, 
 		       ifnull(Code, '') as Code, 
 		       ifnull(Price, '') as Price, 
-		       ifnull(Store, '') as Store,
 		       ifnull(Date, '') as Date,
 		       auth 
 		       
@@ -52,7 +55,7 @@
 	<select id="selltotCnt" resultType="hashmap">
 		select count(*) as tot from buylist where UserId = #{UserId} and auth=1
 	</select>
-
+	<!-- 회원정보변경 -->
 	<update id="userUpdate" parameterType="hashmap">
 	update userinfo set 
 		<if test="UserPw != null">
@@ -64,4 +67,5 @@
 		UserTel   = #{UserTel} 
 	where UserNo = #{UserNo}
 	</update>
+	
 </mapper>

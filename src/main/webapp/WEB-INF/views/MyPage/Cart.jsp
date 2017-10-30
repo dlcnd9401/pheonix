@@ -8,13 +8,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="/phoenix/resources/js/cart.js"></script>
 </head>
+<style>
+
+</style>
 <body>
+
    <div id="Cartshoppingbagpage">  
      <!-- 페이지숫자, 이동버튼 --> 
+     <h1>장바구니</h1>
+     
       <div class="Cartbuydelbtns"> <!-- 장바구니 버튼 -->
           <a href="SellList"><button type="button" class="Cartbtn1 Cartbagbuy">구매</button></a>
           <button type="button" class="Cartbtn1 Cartbagdel">삭제</button>
       </div>
+      
    <!-- 장바구니 -->
     <div id="Cartshoppingbag">        
     <table id="Cartshoppingbaglist">
@@ -27,7 +34,6 @@
      <th width="300">시리즈</th>
      <th width="300">상품명</th>
      <th width="360">제품번호</th>
-     <th width="200">판매처</th> 
      <th width="250">가격</th> 
      <th width="200">구입날짜</th>
      
@@ -36,7 +42,7 @@
     <!-- 상단(가격, 시리즈, 숫자...) -->
     
     
-       <tbody width="1402">
+       <tbody>
            
         </tbody>                    
          
@@ -48,5 +54,6 @@
     </div>
       </div>
       </div>
+
     </body>
 </html>

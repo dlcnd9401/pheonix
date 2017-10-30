@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.gudi.phoenix.service.ModelServiceInterface;
@@ -102,12 +103,7 @@ public class ModelController {
 		return mav;
 	}  
 
-
-
-	
-
-	
-	@RequestMapping("/ModelCart")
+	@RequestMapping(value ="/ModelCart",method = RequestMethod.POST)
 	public ModelAndView modelcart(ModelAndView mav,HttpServletRequest req){
 		HashMap<String,Object> param = new HashMap<String,Object>();
 		param = HttpUtil.getParameterMap(req);

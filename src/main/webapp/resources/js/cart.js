@@ -42,13 +42,6 @@ $(document).ready(function(){
         		    	tag += "　";
         		    }
         		    tag += "</td>";
-        		    tag += "<td width='200'>";
-        		    if(data[i].Store != ''){
-        		    	tag += data[i].Store; 
-        		    }else {
-        		    	tag += "　";
-        		    }
-        		    tag += "</td>";
         		    tag += "<td width='250'>";
         		    if(data[i].Price != ''){
         		    	tag += data[i].Price; 
@@ -141,11 +134,25 @@ $(document).ready(function(){
     });
     //구매버튼
     $(".Cartbagbuy").on("click", function(){
-    	if (confirm("구매하시겠습니까?")){
-    	    alert("구매하셨습니다.");
-    	  }else {
-    	   alert("취소하셨습니다.");
-    	  }
+    	if(confirm("구입하시겠습니까?")){
+	    	var cnt = 0;
+    		for(var i = 0; i < $("tbody tr input:checkbox:checked").length; i++){
+	    		var index = $("tbody tr input:checkbox").index($("tbody tr input:checkbox:checked").eq(i));
+    	    	$.ajax({url:"sellUpdate", data:{"BuyNo": data[index].BuyNo}, dataType : "json"}).done(function(data){
+    	    		if(data.status == 0){
+    	    			cnt++;
+    	    		}
+    	    	});
+	    	}
+	    	if(cnt > 0){
+	    		alert("실패하셨습니다.");
+	    	}else {
+	    		alert("구입하셨습니다.");
+				initData();
+	    	}
+    	}else {
+    		alert("취소하셨습니다.");
+  	  	}
 	});
     //삭제버튼
     $(".Cartbagdel").on("click", function(){

@@ -46,14 +46,7 @@ public class MyPageController {
 		return mav;
 	}
 	
-	//Cart 페이지 데이터페이징
-	@RequestMapping("/listData2")
-	public ModelAndView listData(ModelAndView mav, HttpServletRequest req, HttpSession session) {
-		HashMap<String, Object> param = new HashMap<String, Object>();
-		param.put("start", Integer.parseInt(req.getParameter("start")));
-		param.put("viewRow", Integer.parseInt(req.getParameter("viewRow")));
-		return HttpUtil.makeHashToJsonModelAndView(msi.paging(param));
-	}
+	
 	//Cart 삭제버튼
 	@RequestMapping("/bagdel")
 	public ModelAndView bagdel(HttpServletRequest req) {
@@ -61,18 +54,16 @@ public class MyPageController {
 		param.put("BuyNo", Integer.parseInt(req.getParameter("BuyNo")));
 		return HttpUtil.makeHashToJsonModelAndView(msi.bagdel(param));
 	}
-	
-	//구매목록 데이터페이징
-	@RequestMapping("/sellData")
-	public ModelAndView sellData(HttpServletRequest req) {
+	//장바구니 체크한것들 구매목록으로 이동
+	@RequestMapping("/sellUpdate")
+	public ModelAndView sellUpdate(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
-		param.put("start", Integer.parseInt(req.getParameter("start")));
-		param.put("viewRow", Integer.parseInt(req.getParameter("viewRow")));
-		System.out.println(param);
-		return HttpUtil.makeHashToJsonModelAndView(msi.sellpaging(param));
+		param.put("BuyNo", Integer.parseInt(req.getParameter("BuyNo")));
+		return HttpUtil.makeHashToJsonModelAndView(msi.sellUpdate(param));
 	}
+	
 	//회원별 장바구니 리스트
-	@RequestMapping(value = "/cartList", method = RequestMethod.GET)
+	@RequestMapping(value = "/cartList", method = RequestMethod.POST)
 	public ModelAndView ListDataID(ModelAndView mav, HttpServletRequest req, HttpSession session){
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
@@ -94,12 +85,11 @@ public class MyPageController {
 		}
 		return HttpUtil.makeHashToJsonModelAndView(msi.paging(param));
 	}
-	@RequestMapping(value = "/sellList", method = RequestMethod.GET)
+	@RequestMapping(value = "/sellListdata", method = RequestMethod.POST)
 	public ModelAndView sellListData(ModelAndView mav, HttpServletRequest req, HttpSession session){
 		HashMap<String, Object> param = new HashMap<String, Object>();
-		try {
-			HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
-			param.put("UserId", user.get("UserId"));
+		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+		try {	
 			int start = 0;
 			int viewRow = 10;
 			System.out.println("UserId");
@@ -111,6 +101,7 @@ public class MyPageController {
 			}
 			param.put("start", start);
 			param.put("viewRow", viewRow);
+			param.put("UserId", user.get("UserId"));
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
