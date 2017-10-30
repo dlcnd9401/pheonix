@@ -4,6 +4,7 @@ import java.io.Console;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,8 @@ public class ModelController {
 	}
 	
 	@RequestMapping("/PopUp")
-	public ModelAndView popup(ModelAndView mav){
+	public ModelAndView popup(ModelAndView mav, HttpSession session){
+		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		mav.setViewName("Model/popup");
 		return mav;
 	}
@@ -50,17 +52,26 @@ public class ModelController {
 		return mav;
 	}*/
 	
-
+	@RequestMapping(value = "/IDFORM", method = RequestMethod.POST)
+	   public ModelAndView formtest(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
+	      HashMap<String, Object> param = HttpUtil.getParameterMap(req);
+	      return mav;
+	   }
+	
 	/*1023*/
-@RequestMapping("/modeldetail")
-	public ModelAndView modeldetail(ModelAndView mav,HttpServletRequest req, HttpSession session){
+@RequestMapping(value = "/modeldetail", method = RequestMethod.GET)
+	public ModelAndView modeldetail(ModelAndView mav,HttpServletRequest req, HttpServletResponse resp, HttpSession session){
 	map = new HashMap<String,Object>();
+	HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 	map.put("code", req.getParameter("code"));
 	map = msi.modeldetail(map);
+	HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 	mav.addObject("detail", map.get("modeldetail"));
+	mav.addObject("UserId", user.get("data").get("UserId"));
 	mav.setViewName("Model/Modeldetail");
 	return mav;
 	}
+
 
 /*	@RequestMapping("/modeldata")
 	public ModelAndView modeldata(ModelAndView mav,HttpServletRequest req, HttpSession session){
@@ -73,6 +84,7 @@ public class ModelController {
 	@RequestMapping("/modellist")
 	public ModelAndView modellist(ModelAndView mav,HttpServletRequest req, HttpSession session){
 		map = new HashMap<String,Object>();
+		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		map.put("scode", req.getParameter("scode"));
 		map = msi.modellist(map);
 		mav.addObject("data", map.get("modellist"));
@@ -83,6 +95,7 @@ public class ModelController {
 	
 	@RequestMapping("/model")
 	public ModelAndView model(ModelAndView mav,HttpServletRequest req, HttpSession session){
+		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		map = new HashMap <String,Object>();
 		map.put("path", req.getParameter("path"));
 		map.put("sname", req.getParameter("sname"));
@@ -91,24 +104,29 @@ public class ModelController {
 		map = msi.model(map);
 		mav.addObject("model", map.get("model"));
 		mav.setViewName("model");
+		System.out.println(session.getAttribute("user"));
 		return mav;
 	}
 	
 	@RequestMapping("/Modelbuy")
-	public ModelAndView modelbuy(ModelAndView mav,HttpServletRequest req){
+	public ModelAndView modelbuy(ModelAndView mav,HttpServletRequest req, HttpSession session){
 		HashMap<String,Object> param = new HashMap<String,Object>();
+		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		param = HttpUtil.getParameterMap(req);
 		param= msi.modelbuy(param);
-		mav.setViewName("MyPage/SellList");
+		mav.setViewName("Model/popup");
+		System.out.println(session.getAttribute("user"));
 		return mav;
 	}  
 
-	@RequestMapping(value ="/ModelCart",method = RequestMethod.POST)
-	public ModelAndView modelcart(ModelAndView mav,HttpServletRequest req){
+	@RequestMapping("/ModelCart")
+	public ModelAndView modelcart(ModelAndView mav,HttpServletRequest req, HttpSession session){
 		HashMap<String,Object> param = new HashMap<String,Object>();
+		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		param = HttpUtil.getParameterMap(req);
 		param= msi.modelcart(param);
-		mav.setViewName("MyPage/Cart");
+		mav.setViewName("Model/popup");
+		System.out.println(session.getAttribute("user"));
 		return  mav;
 	}
 
