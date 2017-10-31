@@ -89,20 +89,46 @@
 	                 alert("아이디 또는 비밀번호가 입력되지 않았습니다!!");
 	                 return false;
 	             }
-	             
-	             
+	               
 	             $.ajax({
 	                type:"post",
 	                url:"LoginData",
 	                data:{"UserId": UserId, "UserPw": UserPw},
-	                datatype:"json"
-	             }).done(function(d){
-	                alert(UserId + "님 환영합니다.");
-	                console.log(UserId);
-	                ui = UserId;
-	                     
-	                $("#sjlabel span").append(ui + "님");
-	             }).fail(function(d){
+	                datatype:"json"  
+	             }).done(function(data){
+	            	 var c = $("data").find('UserId');
+	            	 console.log(c);
+	            	 console.log(c.length);
+	            	 console.log("id:" + UserId);
+	            	 console.log("id:" + data.UserId);
+					 console.log("pw:"  + data.UserPw);
+					 console.log("data:" + data.status); 
+	            	 if(c == 1){
+	            		 alert("실패");
+	            	 }else if(c > 1){
+	            		 alert("성공");
+	            	 }
+	            	 /*  if(d.LoginData != null){  
+	            		 alert("성공");
+	            	 }else{  
+	            		 alert("실패");
+	            	 } */
+	            
+	            	  /*if(data != null){    
+	            		 alert(UserId + "님 환영합니다.");
+		 	                 ui = UserId;
+		 	                $("#sjlabel span").append(ui + "님");
+	            	 	  location.replace("model");  
+	            	 }else if(data == null){
+	            		 alert("실패");
+	            	 } * else if( d == null){  
+	            		 alert(UserId + "님 환영합니다.");
+		 	                ui = UserId;
+		 	                $("#sjlabel span").append(ui + "님"); 
+	            	 }*/ 
+	            	 console.log(UserId);
+	               
+	             }).fail(function(x){
 	                alert("오류 다시로그인하세요."); 
 	                console.log(d.LoginData);
 	             });

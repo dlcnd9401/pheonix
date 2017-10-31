@@ -61,6 +61,7 @@ public class SignupController {
 	   HttpUtil.sendResponceToJson(resp, result);
    }
    
+   
    // 로그아웃
    @RequestMapping("/Logout")
    public ModelAndView logout(ModelAndView mav, HttpSession session){

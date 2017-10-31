@@ -12,11 +12,6 @@
    <select id="checkid" resultType="hashmap">
       select * from userinfo where UserId = #{UserId}
    </select>
-   <!-- login test -->
-   <select id="login" parameterType="hashmap" resultType="hashmap">
-		select * from userinfo where UserId = #{UserId} and UserPw = #{UserPw}
-	</select>
-	
    <insert id="getSignupData" parameterType="hashmap">
       insert into userinfo
       (UserId,
