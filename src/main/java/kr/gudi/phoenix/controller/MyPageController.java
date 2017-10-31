@@ -57,7 +57,7 @@ public class MyPageController {
 	}
 	//장바구니 체크한것들 구매목록으로 이동
 	@RequestMapping("/sellUpdate")
-	public ModelAndView sellUpdate(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
+	public ModelAndView sellUpdate(HttpServletRequest req) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("BuyNo", Integer.parseInt(req.getParameter("BuyNo")));
 		return HttpUtil.makeHashToJsonModelAndView(msi.sellUpdate(param));
