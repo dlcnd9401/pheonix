@@ -67,11 +67,10 @@ public class MyPageController {
 	@RequestMapping(value = "/cartList", method = RequestMethod.POST)
 	public ModelAndView ListDataID(ModelAndView mav, HttpServletRequest req, HttpSession session){
 		HashMap<String, Object> param = new HashMap<String, Object>();
-		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 		try {
 			int start = 0;
 			int viewRow = 10;
-			System.out.println("UserId");
 			if(req.getParameter("start") != null){
 				start = Integer.parseInt(req.getParameter("start"));
 			}
@@ -80,7 +79,8 @@ public class MyPageController {
 			}
 			param.put("start", start);
 			param.put("viewRow", viewRow);
-			param.put("UserId", user.get("UserId"));
+			param.put("UserId", user.get("data").get("UserId"));
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -89,11 +89,10 @@ public class MyPageController {
 	@RequestMapping(value = "/sellListdata", method = RequestMethod.POST)
 	public ModelAndView sellListData(ModelAndView mav, HttpServletRequest req, HttpSession session){
 		HashMap<String, Object> param = new HashMap<String, Object>();
-		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 		try {	
 			int start = 0;
 			int viewRow = 10;
-			System.out.println("UserId");
 			if(req.getParameter("start") != null){
 				start = Integer.parseInt(req.getParameter("start"));
 			}
@@ -102,7 +101,7 @@ public class MyPageController {
 			}
 			param.put("start", start);
 			param.put("viewRow", viewRow);
-			param.put("UserId", user.get("UserId"));
+			param.put("UserId", user.get("data").get("UserId"));
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

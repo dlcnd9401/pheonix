@@ -122,13 +122,6 @@
     	        });
     		}	
     		initData();
-    		
-    	  
-    	  
-    	  
-    	  
-
-     
         
         $("#Cartcheckall").click(function(){
             //클릭되었으면
