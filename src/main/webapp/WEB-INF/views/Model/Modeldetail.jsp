@@ -33,6 +33,7 @@
 
      <%
     			String UserId = request.getAttribute("UserId").toString();
+     			String UserPost = request.getAttribute("UserPost").toString();
      			List<HashMap<String, Object>>map = (List<HashMap<String, Object>>) request.getAttribute("detail");
      			
 				for(int i = 0; i < map.size(); i++){
@@ -65,7 +66,7 @@
                     <input type="checkbox">
                         </div>
                     <div class="addrtxt">
-                    <input  class="addrtxt-1" type="text" placeholder="주소지(기본)"><br>
+                    <input  class="addrtxt-1" type="text" id = "UserPost" name = "UserPost" placeholder="주소지(기본)" value = "<%=UserPost%>"><br>
                     <input class="addrtxt-2" type="text" placeholder="체크박스 해제시 주소지 직접입력"><br>
                     <input class="addrtxt-3" type="text" placeholder="세부사항">
                     <div class="money"><span name = "Price" id ="Price"><%= map.get(i).get("price")%></span></div>

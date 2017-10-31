@@ -1,5 +1,6 @@
 package kr.gudi.phoenix.controller;
 
+import java.io.Console;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,11 +39,9 @@ public class ModelController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/PopUp", method = RequestMethod.GET)
+	@RequestMapping(value = "/PopUp")
 	public ModelAndView popup(ModelAndView mav, HttpSession session){
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
-		mav.addObject("UserId", user.get("data").get("UserId"));
-		mav.setViewName("Model/popup");
 		return mav;
 	}
 	/*
@@ -62,6 +61,9 @@ public class ModelController {
 	HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 	mav.addObject("detail", map.get("modeldetail"));
 	mav.addObject("UserId", user.get("data").get("UserId"));
+	mav.addObject("UserPost", user.get("data").get("UserPost"));
+	System.out.println(user.get("data").get("UserId"));
+	System.out.println(user.get("data").get("UserPost"));
 	mav.setViewName("Model/Modeldetail");
 	return mav;
 	}
@@ -116,7 +118,6 @@ public class ModelController {
 	@RequestMapping("/ModelCart")
 	public ModelAndView modelcart(ModelAndView mav,HttpServletRequest req, HttpSession session){
 		HashMap<String,Object> param = new HashMap<String,Object>();
-		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		param = HttpUtil.getParameterMap(req);
 		param= msi.modelcart(param);
 		mav.setViewName("Model/popup");
