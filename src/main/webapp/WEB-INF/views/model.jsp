@@ -16,10 +16,11 @@
 
     
 	<script type = "text/javascript">
+	var ui = 0;
 	$(document).ready(function(){
 		var hash = location.hash; // url에서 hash값 가져오기.
 		if(hash == ""){
-			hash = "#mainsec"; // hash에 값이 없을때 초기값 설정
+			hash = "#main"; // hash에 값이 없을때 초기값 설정
 		}
 /* 		function main(){
 			location.hash = hash; // url에 hash 정보 변경
@@ -27,7 +28,7 @@
 		}; */
 	    
 		function loadJSP(){
-			var url = "/phoenix/"+ hash.substr(1, hash.length);// url 주소 생성
+			var url = "/phoenix/resources/html/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
 			$("section").load(url);
 			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
 		} 
@@ -46,22 +47,45 @@
             location.replace("Signup"); 
         });
 
-	       $("#loginbtn").off().on("click", function(){
-	           $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
-	           $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
-	           $('#sjlogoutbtn').addClass('m_col_disb');
-	           $('#sjlabel').addClass('m_col_disb');
+	    $("#loginbtn").off().on("click", function(){
+	        $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+	        $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+	        $('#sjlogoutbtn').addClass('m_col_disb');
+	        $('#sjlabel').addClass('m_col_disb');
 	           
-	           login();
-	        });
-		     loadJSP();
+	        login();
+	        console.log("a");
+	        console.log(ui);
+	     });
+		    loadJSP();
+		   
+		 // 마이페이지를 클릭했을때 예외처리
+		 $("#mypagego").off().on("click", function(){			 
+			 if(ui == "admin"){
+				alert("접근 권한이 없습니다.");
+			 }else if(ui == ""){
+				alert("접근 권한이 없습니다."); 
+			 }else{
+			 	alert("안녕?");
+			 }
+		 });
+		 
+		// 마스터페이지를 클릭했을때 예외처리
+		 $("#mspagego").off().on("click", function(){
+			 if(ui == "admin"){
+				alert("안녕!");
+			 }else{
+				alert("접근 권한이 없습니다."); 
+			 }
+		 });
+		
 	});
 	
 	       function login(){
 	           var UserId = $("#id").val();
 	           var UserPw = $("#pw").val();
 	           
-	           console.log(UserId + UserPw);
+	           console.log(UserId);
 	             
 	             if(UserId == "" || UserPw == ""){
 	                 alert("아이디 또는 비밀번호가 입력되지 않았습니다!!");
@@ -76,19 +100,15 @@
 	                datatype:"json"
 	             }).done(function(d){
 	                alert(UserId + "님 환영합니다.");
-	                console.log(d.LoginData);
+	                console.log(UserId);
+	                ui = UserId;
+	                console.log(ui);
 	             }).fail(function(d){
 	                alert("오류 다시로그인하세요."); 
 	                console.log(d.LoginData);
 	             });
 	             
 	          }
-
-
-	
-
-
-	
 	
 	</script>
 </head>
@@ -96,18 +116,19 @@
 <div class = "main">
     <header>
             <div class ="m_bt">
-            <div class= "m_btbox m_col_disn" id="sjlabel">___님 환영합니다</div>
+            <div class= "m_btbox m_col_disn" id="sjlabel"><h1></h1>님 환영합니다</div>
             <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>
             <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
-            <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div>
+            <!-- <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div> -->
+            <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>
             </div>
     <div class = "box50">
         <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
         <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></a></div>
         <a href =""><div class ="collection">컬렉션</div></a>
         <div class = ""><a href ="">문의하기</a></div>
-        <div><a href =""> 마이페이지</a></div>
-        <div><a href =""> 관리자 페이지</a></div>
+        <div><a href ="#2" id="mypagego"> 마이페이지</a></div>
+        <div><a href ="#1" id="mspagego"> 관리자 페이지</a></div>
         </div></div> 
         </header>
         

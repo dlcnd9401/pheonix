@@ -30,12 +30,13 @@ public class SignupController {
    SignupServiceInterface tsi;
    
    // 회원가입
-   @RequestMapping("/SignupData")
+   @RequestMapping(value="/SignupData", method = RequestMethod.POST)
    public ModelAndView signupData(ModelAndView mav, HttpServletRequest req){ 
       HashMap<String, Object> param = HttpUtil.getParameterMap(req);
       System.out.println(param);
       param = tsi.setSignupData(param);
       System.out.println(param);
+     
       return HttpUtil.makeHashToJsonModelAndView(param);
    }
    

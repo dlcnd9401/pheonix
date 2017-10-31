@@ -14,25 +14,41 @@
     <script type="text/javascript">
     
     $(document).ready(function(){
-        $("form").on("submit", function(event){
-          event.preventDefault();
-          $.ajax({
-        	  	 type:"post",
-        	  	 url:"SignupData", 
-                 data: $(this).serialize(),
-                 datatype: "json"
-           }).done(function(result){
-              data = JSON.parse(result);
-              if(data.status == 1){
-                 alert("환영합니다.");
-              }else {
-                 alert("실패하였습니다.");
-              }
-              location.href = "model"; //예외처리
-           });
-     	});
-     
-    
+    	
+    	// 회원가입 + 예외처리
+    	var idText = "";
+        var finId ="";
+    	
+    	$("#btnP0").on("click", function(){
+    		id = $("#userId").val();
+    		pw = $("#UserPw").val();
+    		name = $("#UserName").val();
+    		email = $("#UserEmail").val();
+    		tel = $("#UserTel").val();
+    		post = $("#UserPost").val();
+    		
+    		if(id != "" && pw != "" && name != "" && email != "" && tel != "" && post != "" && $("#checkid").text()=="완료" && finId==idText){
+                $.ajax({
+                   type:"post",
+                   url:"SignupData",
+                   data: {"UserId" : id , "UserPw" : pw, "UserName" : name, "UserEmail" : email, "UserTel" : tel, "UserPost" : post}
+                }).done(function(result){
+                  alert("회원가입이 완료되었습니다. 로그인하세요.");
+                  location.href = "model";
+                });
+            }else{
+               if($("#userId").val()==null){               
+                  alert("모든 텍스트를 입력하세요.");
+               }else if(finId != idText){
+                  alert("id를 다시 확인하세요.");
+                  $("#userId").val(idText);
+               }else{
+                  alert("모든정보를 입력하세요.");
+               }
+             }
+         });
+   
+        
 	$("#btnP1").off().on("click", function(){
 		location.replace("model");
 	});
@@ -58,10 +74,15 @@
         }).done(function(result){
            console.log(result.checkid);
            if(result.checkid == null){
-              alert("사용 가능한 아이디 입니다.");
-           }else{
-              alert("사용 불가능한 아이디 입니다.")
-           }
+               $("#checkid").text("완료");
+               alert("사용가능한 아이디입니다.");
+            }else{
+               $("#checkid").text("중복확인");
+               $("#userId").val("");
+               alert("사용중인 아이디 입니다.");
+            }
+           
+
         });
      }
     
@@ -75,8 +96,8 @@
 <div class = "main">
     <header>
        <div class ="m_bt">
-            <div class= "m_btbox"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
-            <div class= "m_btbox"><button type="button" class="sgbtn">회원가입</button></div>
+            <!-- <div class= "m_btbox"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+            <div class= "m_btbox"><button type="button" class="sgbtn">회원가입</button></div> -->
             </div>
     <div class = "box50">
         <div>
@@ -91,7 +112,7 @@
         </div> </header>
         
      <div class ="hsection">
-		<form>
+		
         <div class="back">
            <div class="back1"><h2>회원가입</h2></div>
            
@@ -119,11 +140,11 @@
                 <input type="text" placeholder="집 주소" class="inputbox" id="UserPost" name="UserPost" maxLength="20"> 
             </div>
             <div class="btn2"> 
-                <button type="submit" class="btnP1">가입하기</button> 
+                <button type="button" class="btnP1" id="btnP0">가입하기</button> 
                 <button type="button" class="btnP1" id="btnP1">취소</button>
             </div>
             </div>
-            </form>
+            
         </div>
     
     
