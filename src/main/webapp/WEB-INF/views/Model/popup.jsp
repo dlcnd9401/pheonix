@@ -19,12 +19,11 @@
             </div></a>
 
             <!--구매내역 버튼-->
-        <a href="Cart"><div class="popbtn">
-           <span class="popspan">구매목록</span> 
-            </div></a>
-            
-                       <!--구매내역 버튼-->
         <a href="SellList"><div class="popbtn">
+           <span class="popspan">구매목록</span> 
+            </div></a>SellList
+            
+        <a href="Cart"><div class="popbtn">
            <span class="popspan">장바구니</span> 
             </div></a>
         </div>

@@ -16,11 +16,11 @@
 
     
 	<script type = "text/javascript">
-	var ui = 0;
+	var ui = "";
 	$(document).ready(function(){
 		var hash = location.hash; // url에서 hash값 가져오기.
 		if(hash == ""){
-			hash = "#main"; // hash에 값이 없을때 초기값 설정
+			hash = "#mainsec"; // hash에 값이 없을때 초기값 설정
 		}
 /* 		function main(){
 			location.hash = hash; // url에 hash 정보 변경
@@ -28,7 +28,7 @@
 		}; */
 	    
 		function loadJSP(){
-			var url = "/phoenix/resources/html/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
+			var url = "/phoenix/"+ hash.substr(1, hash.length)// url 주소 생성
 			$("section").load(url);
 			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
 		} 
@@ -54,8 +54,6 @@
 	        $('#sjlabel').addClass('m_col_disb');
 	           
 	        login();
-	        console.log("a");
-	        console.log(ui);
 	     });
 		    loadJSP();
 		   
@@ -102,12 +100,14 @@
 	                alert(UserId + "님 환영합니다.");
 	                console.log(UserId);
 	                ui = UserId;
-	                console.log(ui);
+	                     
+	                $("#sjlabel span").append(ui + "님");
 	             }).fail(function(d){
 	                alert("오류 다시로그인하세요."); 
 	                console.log(d.LoginData);
 	             });
 	             
+
 	          }
 	
 	</script>
@@ -116,7 +116,7 @@
 <div class = "main">
     <header>
             <div class ="m_bt">
-            <div class= "m_btbox m_col_disn" id="sjlabel"><h1></h1>님 환영합니다</div>
+            <div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>
             <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>
             <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
             <!-- <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div> -->
