@@ -33,9 +33,9 @@ public class ModelController {
 		
 	}*/
 	
-	@RequestMapping("/modeltest")
+	@RequestMapping("/mainsec")
 	public ModelAndView modeltest(ModelAndView mav){
-		mav.setViewName("test");
+		mav.setViewName("main");
 		return mav;
 	}
 	

@@ -19,7 +19,7 @@
 	$(document).ready(function(){
 		var hash = location.hash; // url에서 hash값 가져오기.
 		if(hash == ""){
-			hash = "#main"; // hash에 값이 없을때 초기값 설정
+			hash = "#mainsec"; // hash에 값이 없을때 초기값 설정
 		}
 /* 		function main(){
 			location.hash = hash; // url에 hash 정보 변경
@@ -27,7 +27,7 @@
 		}; */
 	    
 		function loadJSP(){
-			var url = "/phoenix/resources/html/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
+			var url = "/phoenix/"+ hash.substr(1, hash.length);// url 주소 생성
 			$("section").load(url);
 			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
 		} 
