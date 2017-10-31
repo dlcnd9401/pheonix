@@ -269,6 +269,9 @@ color:white;
     width: 1550px;
     height: 1400px; 
 }
+#Cartshoppingbagpage h1 {
+	margin-top: 0px; 
+}
 
 
 /* 장바구니 큰공간*/
@@ -385,7 +388,7 @@ color:white;
     height: 46px;
     width: 300px;
     float: left;
-    padding-left: 1350px;
+    padding-left: 1300px;
     text-align: center;
 }
 /*구매, 삭제버튼 크기+글자*/
@@ -431,8 +434,6 @@ color:white;
     width: 1603px;
     height: 300px; 
     padding-top: 80px;
-
-
 }
 
 .PSsujungtext {
