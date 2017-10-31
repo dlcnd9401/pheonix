@@ -52,12 +52,6 @@ public class ModelController {
 		return mav;
 	}*/
 	
-	@RequestMapping(value = "/IDFORM", method = RequestMethod.POST)
-	   public ModelAndView formtest(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
-	      HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-	      return mav;
-	   }
-	
 	/*1023*/
 @RequestMapping(value = "/modeldetail", method = RequestMethod.GET)
 	public ModelAndView modeldetail(ModelAndView mav,HttpServletRequest req, HttpServletResponse resp, HttpSession session){
