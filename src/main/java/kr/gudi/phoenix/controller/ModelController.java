@@ -1,6 +1,5 @@
 package kr.gudi.phoenix.controller;
 
-import java.io.Console;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +39,9 @@ public class ModelController {
 	}
 	
 	@RequestMapping(value="/PopUp", method = RequestMethod.GET)
-	public ModelAndView popup(ModelAndView mav, HttpSession session,HttpServletRequest req){
+	public ModelAndView popup(ModelAndView mav, HttpSession session){
+		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
+		mav.addObject("UserId", user.get("data").get("UserId"));
 		mav.setViewName("Model/popup");
 		return mav;
 	}

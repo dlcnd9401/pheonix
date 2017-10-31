@@ -5,31 +5,43 @@
 <html>
 <head>
 <link rel = "stylesheet" href = "/phoenix/resources/css/findid.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script type="text/javascript">
+ $(document).ready(function(){
+		$("#SellList").on("Click",function(){
+			location.href = "SellList"
+		});
+		$("#Cart").on("Click",function(){
+			location.href = "Cart"
+		});
+	 
+ });
+</script>
+<title>구매완료</title>
 </head>
 <body>
 <%
 HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
-    			String UserId = request.getAttribute("UserId").toString();%>
+String UserId = request.getAttribute("UserId").toString();
+%>
 <div class="popup-300">
 <!--  message    -->
-
-    <div class="msg"><p><%=UserId%>님 구매완료하였습니다</p></div>
-        
+		<form action="PopUp" method="get">
+    		<div class="msg"><p><%=UserId%>님 구매완료하였습니다</p></div>
         <div class="msg">
 
-          <!--구매내역 버튼-->
-           <a href="SellList"><button class="popbtn" name="SellList">
-           <span class="popspan">구매목록</span> 
-            </button></a>
-            
-                       <!--장바구니 버튼-->
-           <a href="Cart"><button class="popbtn" name="Cart">
-           <span class="popspan">장바구니</span> 
-            </button></a>
+           <!--구매내역 버튼-->
+           <button type="button" class="popbtn" id="SellList">
+            	<span class="popspan">구매목록</span> 
+           </button>
+          
+           <!--장바구니 버튼-->
+           <button type="button" class="popbtn" id="Cart">
+           		<span class="popspan">장바구니</span> 
+           </button>
         </div>
-       
+       </form>
     </div>
 </body>
 </html>
