@@ -18,6 +18,13 @@ public class QuestionDao implements QuestionDaoInterface {
 	public List<HashMap<String, Object>> getData() {
 		return session.selectList("question.qestionListData");
 	}
+	
+	@Override
+	public List<HashMap<String, Object>> getSearchData(HashMap<String, Object> param) {
+		return session.selectList("question.questionSearchData", param);
+	}
+	
+	
 
 	@Override
 	public HashMap<String, Object> getDetailData(HashMap<String, Object> param) {

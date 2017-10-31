@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html>
 <meta charset = "UTF-8">
@@ -13,13 +14,21 @@
     crossorigin="anonymous"></script>
     <script type="text/javascript">
     
+
+    
+    var data = []; // 데이터 담을 배열 변수 선언
+    
     $(document).ready(function(){
     	
-    	var data = []; // 데이터 담을 배열 변수 선언
+      /* 	$("submit").children(function(){
+    
+     
+    
+    	});  */     	
+    	
     	var viewRow = 10; // 화면에 보여질 행 갯수
     	var page = 1; // 현재 페이지 값
     	var totCnt = 0; // 데이터 전체 객수
-    	
     	var pageGroup = 1; // 현재 페이지 값
     	var pageView = 5; // 페이징 버튼 객수
     	
@@ -36,6 +45,7 @@
 			//전체 행 / 보여줄행 --> 페이지 수 
 			$(".paging").empty(); // div 태그 속에 a 태그를 초기화 한다.
 			var k = 0; // 소연이 보아라... 너무 힘들었도다... 어쩔... :( ★★
+						//   :)  good
 			
 			if(end > pageView){
 				$(".paging").append('<a class="select" href="#' + ((start+1) - pageView) + '">이전페이지</a>');
@@ -88,20 +98,20 @@
 			}).done(function(result){ // 비동기식 데이터 가져오기
 				data = result.data; // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
 				totCnt = result.totCnt.tot;
-				init();
+				init(result.data);
 				createPaging(); // 페이지 링크 표현하기 
 			});
     	}
     	
     	
-		function init(){
+		function init(data){
 				$("tbody").empty();
 				for(var i = 0; i < data.length; i++){
 					html = "<tr>"
-					html += '<td><a href="#num">' + data[i].Qno + '</a></td>';
+					html += '<td><a href="Detail?#num">' + data[i].Qno + '</a></td>';
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].UserId + '</a></td>'; 
-					html += '<td class="name">' + data[i].QContents + '</td>';
-					html += '<td class="title">';
+					html += '<td><a href="Detail?class="name">' + data[i].QContents + '</td>';
+					html += '<td><a href="Detail?class="title">';
 					html += '</td>';
 					html += '</tr>';
 					$("tbody").append(html);
@@ -118,6 +128,22 @@
 		}
 		
 		initData();
+		
+		$("#contact_selecttype").on("change", function(){ //주제선택
+	         $("#textsearch").val("");
+	      });
+	      
+	      $(".searchbtn").on("click", function(){
+	         var data = {"textsearch":$("#textsearch").val(), "contact_select":$("option").eq(Number($("#contact_selecttype").val())).text()}
+	         console.log(data); 		//검색	콤보
+	         $.ajax({
+	            url:"MasterPage1Search", data:data, datatype:"json", type:"post"
+	            }).done(function(result){         
+	            data = result.list;
+	            init(result.list);
+	         });
+	      });    	
+    	
 });
 </script>
 
@@ -153,12 +179,12 @@
                 </div>
                 <div class="qpsyselect">
                     <form name="contact" method="post">
-                        <select name="contact_select">
-                       <option value="1">제목</option>
-                       <option value="2">작성자</option>
+                    <select  id="contact_selecttype" name="contact_select">
+                       <option value="0">제목</option>
+                       <option value="1">작성자</option>
                     </select>
-                        <input type="text">
-                        <input type="submit" value="확인">
+                        <input type="text" class="textfind" name="textsearch" id="textsearch">
+                        <input type="button" value="검색" class="searchbtn">
                     </form>
                 </div>
                 <div class="mid">

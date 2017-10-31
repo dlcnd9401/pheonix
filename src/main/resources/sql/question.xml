@@ -8,9 +8,30 @@
 		select * from Question
 	</select>
 	
+
+
+ 	<select id="questionSearchData" parameterType="hashmap" resultType="hashmap"> <!-- 리스트검색 -->
+		select Qno, QContents, UserId from Question
+		where 1= 1
+	  <if test="contact_select == '제목'">  <!-- 제목으로 검색 -->
+          AND QContents like '%${textsearch}%'
+          <!--  컬럼명                         텍스트입력                           디비에 있는 ㄴㅐ용과 콤보박스에 선택한 주제를 일치시킴 --> 
+      </if>      
+        <if test="contact_select == '작성자'">   <!-- 유저 아이디로 검색 -->
+          AND  UserId like '%${textsearch}%'
+      </if>
+	</select> 
+		
+		
+	
 	<select id="questionDetailData" parameterType="hashmap" resultType="hashmap"> <!-- 리스트목록 클릭 시 상세보기 조회 -->
 		select * from Question where Qno = ${Qno}
 	</select>
+	
+	
+	<update id="questionDetailAnswer"> <!-- 답변기능 -->
+		update Question SET auth = 3 where BuyNo = #{BuyNo}
+	</update>
 	
 	<insert id="questionWriteData" parameterType="hashmap">  <!-- 게시판 글 작성  -->
 		insert into Question 

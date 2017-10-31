@@ -11,8 +11,7 @@ import kr.gudi.phoenix.dao.QuestionDaoInterface;
 public class QuestionService implements QuestionServiceInterface {
 
    @Autowired
-   QuestionDaoInterface tdi;
-   
+   QuestionDaoInterface tdi;   
    public HashMap<String, Object> map;
    
  @Override
@@ -21,7 +20,15 @@ public class QuestionService implements QuestionServiceInterface {
 	 map.put("list", tdi.getData());
 	 return map;
  }
-
+ 
+ @Override
+	public HashMap<String, Object> getSearchData(HashMap<String, Object> param) {
+		map = new HashMap<String, Object>();
+		map.put("list", tdi.getSearchData(param));
+		return map;
+	}
+ 
+ 
    @Override
    public HashMap<String, Object> getDetailData(HashMap<String, Object> param) {
       map = new HashMap<String, Object>();
@@ -29,10 +36,15 @@ public class QuestionService implements QuestionServiceInterface {
       return map;
    }
    
-   @Override
-   public HashMap<String, Object> setWriteData(HashMap<String, Object> param) {
-   	map = new HashMap<String, Object>();
-       map.put("status", tdi.setWriteData(param)); //상태값 ㄹㅇㄴㄹㄹㅇㄴㅇ
-       return map;
-   }
+
+
+@Override
+public HashMap<String, Object> setWriteData(HashMap<String, Object> param) {
+	map = new HashMap<String, Object>();
+    map.put("status", tdi.setWriteData(param)); //상태값 ㄹㅇㄴㄹㄹㅇㄴㅇ
+    return map;
+}
+   
+   
+
 }

@@ -18,6 +18,7 @@
 
         var Qno = <%=Qno%>;
         
+       
         $(document).ready(function(){
 			function init(){
 				$.ajax({url:"DetailData", data:{"Qno":Qno}}).done(function(result){
@@ -25,9 +26,9 @@
 					var data = resultJSON.data;
 					console.log(data);
 					$(".qpsydatailMiddel span").eq(0).text(data.UserId);
-					$(".qpsydetailMiddel1").text(data.QContents);
+					$(".qpsydetailMiddel1").text(data.QContents); 
+					
 				});
-
 			}
 			
 			init();
@@ -71,7 +72,7 @@
                         <div class="qpsydatailTop2">
                             <span>관리자 답변</span>
                 <!--관리자일경우 버튼이 보이고 버튼 클릭시 .Qtext 생성-->
-                            <button type="button disblock">answer</button>
+                            <button type="button" class="ansbtn">answer</button>
                             <div class="qpsydetailMiddel2">
                 <!--관리자가 답변했을경우 disblock으로 변경-->
                                 <p class="qpsyanswer disblock">답변내용</p>

@@ -1,37 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String Qno = request.getParameter("Qno");
+%>
 <!doctype html>
 <html>
 <meta charset = "UTF-8">
 <head>
-    <link rel="stylesheet"   href= "resources/css/Write.css">
-    <link rel = "stylesheet" href ="resources/css/layout.css">
+    <link rel="stylesheet"   href= "resources/css/MasterPage1.css">
+    <link rel = "stylesheet" href ="resources/css/layout.css">    
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script  src="https://code.jquery.com/jquery-2.2.4.js"
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
     <script type="text/javascript">
-         $(document).ready(function(){
-           $("form").on("submit", function( event ) {
-              console.log("-------fdgfgf----------");
-             event.preventDefault();
-             $.ajax({
-                    url:"WriteData", 
-                    data: $( this ).serialize()
-              }).done(function(result){
-                 data = JSON.parse(result);
-                 if(data.status == 1){
-                    alert("성공하셨습니다.");
-                 }else {
-                    alert("실수 했수다.");
-                 }
-                 location.href = "MasterPage1"; //예외처리
-              });
-        });
-      });
 
+        var Qno = <%=Qno%>;
+        
+        $(document).ready(function(){
+			function init(){
+				$.ajax({url:"DetailData", data:{"Qno":Qno}}).done(function(result){
+					var resultJSON = JSON.parse(result);
+					var data = resultJSON.data;
+					console.log(data);
+					$(".qpsydatailMiddel span").eq(0).text(data.UserId);
+					$(".qpsydetailMiddel1").text(data.QContents);
+				});
+
+			}
+			
+			init();
+		});
     </script>
+
 </head>
 
 <body>
@@ -53,23 +55,33 @@
             </div>
         </header>
 
+
         <!-- --------------------------------------------------  -->
-          <section>
-            <div class="qpsywriteBox">
-            <form>
-                <div class="qpsywriteTop">
-                   
-                    <span><b>제 목</b> : <input type="text" name="Qtitle"></span>
+         <section>
+            <div class="qpsydetailBox">
+                <div class="qpsydatailTop1">
+                    <span>Question</span>
                 </div>
-                <div class="qpsywriteMiddle">
-                    <p><b>문의 내용</b></p>
-                    <textarea rows="35" cols="98" maxlength="98" name="QContents"></textarea>
+                <div class="qpsydatailMiddel">
+                    <p>작성자 : <span>ID</span></p>
+                    <div class="qpsydetailMiddel1">
+                        <p>QContant(문의 내용)</p>
+                    </div>
+                    <form action="">
+                        <div class="qpsydatailTop2">
+                            <span>관리자 답변</span>
+                <!--관리자일경우 버튼이 보이고 버튼 클릭시 .Qtext 생성-->
+                            <button type="button disblock">answer</button>
+                            <div class="qpsydetailMiddel2">
+                <!--관리자가 답변했을경우 disblock으로 변경-->
+                                <p class="qpsyanswer disblock">답변내용</p>
+                                <input type="text" class="qpsyQtext disnone">
+                            </div>
+                        </div>
+                        <input type="button" class="qpsyQbtn1" value="답변">
+                        <input type="button" class="qpsyQbtn2" value="취소">
+                    </form>
                 </div>
-                <div class="qpsywriteBottom">
-                   <button type="submit" class="qpsywritebtn">작 성</button>
-                   <button type="button" class="qpsywriteback">취 소</button>
-                </div>
-              </form>
             </div>
         </section>
         <!-- --------------------------------------------------  -->
@@ -130,9 +142,7 @@
 
                 </div>
 
-
             </div>
-
 
             <div class="ft_box1">
                 <div class="ft_box1_in">
