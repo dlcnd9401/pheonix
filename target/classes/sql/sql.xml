@@ -18,10 +18,10 @@
 	<insert id = "modelcart" parameterType ="hashmap" ><!-- 구매 -->
 	insert into buylist (Sname,Name,Code,auth,path,Price,UserId,Stock)
 	values
-	(#{Sname},#{Name},#{Code},2,#{path},#{Price},#{UserId},1);
+	(#{Sname},#{Name},#{Code},1,#{path},#{Price},#{UserId},1);
 	</insert>
 	<insert id = "modelbuy" parameterType ="hashmap" > <!-- 장바구니 -->
-	insert into buylist (Sname,Name,Code,auth,path,Price,UserId,Stock,)
+	insert into buylist (Sname,Name,Code,auth,path,Price,UserId,Stock)
 	values
 	(#{Sname},#{Name},#{Code},2,#{path},#{Price},#{UserId},1);
 	</insert>
