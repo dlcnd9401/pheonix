@@ -137,7 +137,7 @@
         //구매버튼
         $(".Cartbagbuy").on("click", function(){
         	if(confirm("구입하시겠습니까?")){
-    	    	var cnt = 0;
+        		var cnt = 0;
         		for(var i = 0; i < $("tbody tr input:checkbox:checked").length; i++){
     	    		var index = $("tbody tr input:checkbox").index($("tbody tr input:checkbox:checked").eq(i));
         	    	$.ajax({url:"sellUpdate", data:{"BuyNo": data[index].BuyNo}, dataType : "json"}).done(function(data){
