@@ -91,41 +91,21 @@
 	             }
 	               
 	             $.ajax({
-	                type:"post",
+	                type:"post", 
 	                url:"LoginData",
 	                data:{"UserId": UserId, "UserPw": UserPw},
 	                datatype:"json"  
 	             }).done(function(data){
-	            	 var c = $("data").find('UserId');
-	            	 console.log(c);
-	            	 console.log(c.length);
-	            	 console.log("id:" + UserId);
-	            	 console.log("id:" + data.UserId);
-					 console.log("pw:"  + data.UserPw);
-					 console.log("data:" + data.status); 
-	            	 if(c == 1){
+	            	var result = data;
+					console.log(data);
+	            	 if(result.data == null){  
 	            		 alert("실패");
-	            	 }else if(c > 1){
-	            		 alert("성공");
+	            		 location.replace("model"); 
+	            	 }else if(result.data != null){
+	            		 alert(UserId + "님 환영합니다.");
+	 	                 ui = UserId;
+	 	                $("#sjlabel span").append(ui + "님");
 	            	 }
-	            	 /*  if(d.LoginData != null){  
-	            		 alert("성공");
-	            	 }else{  
-	            		 alert("실패");
-	            	 } */
-	            
-	            	  /*if(data != null){    
-	            		 alert(UserId + "님 환영합니다.");
-		 	                 ui = UserId;
-		 	                $("#sjlabel span").append(ui + "님");
-	            	 	  location.replace("model");  
-	            	 }else if(data == null){
-	            		 alert("실패");
-	            	 } * else if( d == null){  
-	            		 alert(UserId + "님 환영합니다.");
-		 	                ui = UserId;
-		 	                $("#sjlabel span").append(ui + "님"); 
-	            	 }*/ 
 	            	 console.log(UserId);
 	               
 	             }).fail(function(x){
