@@ -39,9 +39,8 @@ public class ModelController {
 		return mav;
 	}
 	
-	@RequestMapping("/PopUp")
-	public ModelAndView popup(ModelAndView mav, HttpSession session){
-		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+	@RequestMapping(value="/PopUp", method = RequestMethod.GET)
+	public ModelAndView popup(ModelAndView mav, HttpSession session,HttpServletRequest req){
 		mav.setViewName("Model/popup");
 		return mav;
 	}

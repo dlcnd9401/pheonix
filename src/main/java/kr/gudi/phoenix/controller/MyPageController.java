@@ -23,22 +23,13 @@ public class MyPageController {
 	@Autowired
 	MyPageServiceInterface msi;
 	
-	
-	// test 
-		@RequestMapping(value = "/formtest", method = RequestMethod.POST)
-		public ModelAndView formtest(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
-			HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-			return mav;
-		}
-		
-		
 		
 	//장바구니
 	@RequestMapping("/Cart")
 	public ModelAndView cartpage(ModelAndView mav) {
 		mav.setViewName(PAGE + "Cart");
 		return mav;
-	}//구매목록
+	}//구매목록  
 	@RequestMapping("/SellList")
 	public ModelAndView sellList(ModelAndView mav) {
 		mav.setViewName(PAGE + "SellList");
