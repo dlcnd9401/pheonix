@@ -23,7 +23,12 @@ public class MyPageController {
 	@Autowired
 	MyPageServiceInterface msi;
 	
-		
+	//MyPageMaster
+	@RequestMapping("/MyPageMaster")
+	public ModelAndView MyPageMaster(ModelAndView mav) {
+		mav.setViewName(PAGE + "MyPageMaster");
+		return mav;
+	}
 	//장바구니
 	@RequestMapping("/Cart")
 	public ModelAndView cartpage(ModelAndView mav) {

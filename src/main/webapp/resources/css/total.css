@@ -559,5 +559,65 @@ color:white;
     height: 35px;
     font-size: 18px;    
 }
+/********* MyPageMaster ************/
+.MyPageMaster {    
+    width: 1303px;
+    margin-left: 450px;
+    margin-top: 20px;
+}
 
+.MpmPwSelect {
+    width: 1000px;
+    height: 280px;
+    margin-bottom: 30px;
+    background-image: url("/phoenix/resources/img/main/mpm1.jpeg");
+    background-repeat: no-repeat;
+    background-size: 1000px 400px;
+    
+}
+.MpmPwSelect h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 180px;
+    padding-bottom: 0;
+    color:#004eff;
+    
+}
+.MpmCart {
+
+    width: 1000px;
+    height: 280px;
+    margin-bottom: 30px;
+    background-image: url("/phoenix/resources/img/main/mpm2.jpeg");
+    background-repeat: no-repeat;
+    background-size: 1000px 320px; 
+}
+.MpmCart h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 180px;
+    padding-bottom: 0;
+    color:#f4ff75;
+    
+}
+
+.MpmSellList {
+
+    width: 1000px;
+    height: 290px;
+    margin-bottom: 0px;
+    background-image: url("/phoenix/resources/img/main/mpm1.jpeg");
+    background-repeat: no-repeat;
+    background-size: 1000px 290px; 
+}
+.MpmSellList h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 180px;
+    padding-bottom: 0;
+    color: #ff8686;
+}
+a {
+    text-decoration: none;
+}
 
