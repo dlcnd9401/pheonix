@@ -12,20 +12,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <link rel = "stylesheet" href = "resources/css/Modeldetail.css">
 	<script type="text/javascript">
-/* 	$(document).ready(function(){
-		$("input:submit .Modelbuy").off().on("click",function(){
-			alert("1234");
-			location.href="#model";
-			loadHTML();
-		});
+ 	$(document).ready(function(){
 		
-		function loadHTML(){
-			var url = "/phoenixex/"+ hash.substr(1, hash.length) + ".jsp"; // url 주소 생성
-			$("html").load(url);
-			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
-		}
-		loadHTML(); 
-	}); */
+ 		
+ 		var a = $("#cnt").val();
+ 		console.log(a);
+ 		var b = $("#stockcnt").val();
+ 		console.log(b);
+ 		
+ 		var c = b-a;
+ 		console.log(c);
+ 		var tag = "수량 : 1(" + c + ")";
+ 		console.log(tag);
+ 		
+ 		$("option").append(tag);	
+ 		
+	}); 
 	</script>
 
 </head>
@@ -55,8 +57,8 @@
 			<input style =display:none; type = "text" name = "Price" id ="Price" value ="<%= map.get(i).get("price")%>"><br>
 			<input type ="submit" class = "collbtn2" value ="장바구니"></form>
                      <!-- Cart -->
-                    <select >
-                        <option value="상품수량선택">수량 : 1(<%=map.get(i).get("stock") %>)</option>
+                    <select>
+                        <option value="상품수량선택"></option>
                     </select>                        
                          
                 </div>
@@ -121,7 +123,8 @@
 					
                 </nav>
 
-
+		<input type = "text" style =display:none; name = "cnt" id ="cnt" value ="<%= map.get(i).get("cnt")%>"><br>
+		<input type = "text" style =display:none; name = "stockcnt" id ="stockcnt" value ="<%= map.get(i).get("Stock")%>"><br>
     
         <% 
 				}%>

@@ -13,7 +13,11 @@
 			where k.scode = #{scode}
 	</select>  
 	<select id ="modeldetail" resultType ="hashmap" parameterType="hashmap">
-	select * from Product where code = #{code}
+<!-- 	select * from Product where code = #{code} -->
+		select count(b.stock) as cnt, p.code,p.Stock,p.mKind,p.mshape,p.scode,p.sname,p.name,p.introduce,p.gender,p.img,p.price from Product as p 
+		inner join buylist  as b 
+		on(p.code = b.code)
+		where p.code = #{code};
 	</select>
 	<insert id = "modelcart" parameterType ="hashmap" ><!-- 구매 -->
 	insert into buylist (Sname,Name,Code,auth,path,Price,UserId,Stock)

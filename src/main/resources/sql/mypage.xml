@@ -21,8 +21,7 @@
 		       ifnull(Sname, '') as Sname, 
 		       ifnull(Name, '') as Name, 
 		       ifnull(Code, '') as Code, 
-		       ifnull(Price, '') as Price, 
-		       ifnull(Date, '') as Date,
+		       ifnull(Price, '') as Price,
 		       auth 
 		  from buylist 
 		 where auth=2
@@ -43,7 +42,6 @@
 		       ifnull(Name, '') as Name, 
 		       ifnull(Code, '') as Code, 
 		       ifnull(Price, '') as Price, 
-		       ifnull(Date, '') as Date,
 		       auth 
 		       
 		  from buylist 

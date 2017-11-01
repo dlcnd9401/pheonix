@@ -11,10 +11,10 @@
 
 
     <select id="questionSearchData" parameterType="hashmap" resultType="hashmap"> <!-- 리스트검색 -->
-      select Qno, QContents, UserId from Question
+      select Qno,Qtitle, QContents, UserId from Question
       where 1= 1
      <if test="contact_select == '제목'">  <!-- 제목으로 검색 -->
-          AND QContents like '%${textsearch}%'
+          AND Qtitle like '%${textsearch}%'
           <!--  컬럼명                         텍스트입력                           디비에 있는 ㄴㅐ용과 콤보박스에 선택한 주제를 일치시킴 --> 
       </if>      
         <if test="contact_select == '작성자'">   <!-- 유저 아이디로 검색 -->
