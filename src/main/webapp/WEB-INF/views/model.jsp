@@ -132,7 +132,7 @@
         <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
         <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></a></div>
         <a href =""><div class ="collection">컬렉션</div></a>
-        <div class = ""><a href ="">문의하기</a></div>
+        <div class = ""><a href ="MasterPage1">문의하기</a></div>
         <div><a href ="MyPageMaster" id="mypagego"> 마이페이지</a></div>
         <div><a href ="#1" id="mspagego"> 관리자 페이지</a></div>
         </div></div> 
