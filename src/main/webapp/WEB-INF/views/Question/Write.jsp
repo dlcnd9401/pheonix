@@ -31,6 +31,11 @@
                  location.href = "MasterPage1"; //예외처리
               });
         });
+           
+           $(".qpsywriteback").off().on("click", function(){
+        	   
+        	   location.href = "MasterPage1";
+           });
       });
 
     </script>

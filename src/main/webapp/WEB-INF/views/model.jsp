@@ -27,12 +27,28 @@
 			loadJSP(); // 화면 전환
 		}; */
 	    
+		// 문의하기를 클릭했을때 hash 화면전환--------------------------------
+		 $("#questionbtn").off().on("click", function(){
+		 hash= "#MasterPage1";  //이거 2개 가져다쓰면 화면전환 가능!!
+  		 htmlLoad();			//이거 2개 가져다쓰면 화면전환 가능!!
+  		 });
+		 		
+  		 function htmlLoad(){
+  		 var url = "/phoenix/" + hash.substr(1, hash.length)
+  		 $("section").load(url);
+  		 }
+		 	       
+ 		 htmlLoad();
+
+		 //------------------------------------------------------
+		 
+		
 		function loadJSP(){
 			var url = "/phoenix/"+ hash.substr(1, hash.length)// url 주소 생성
 			$("section").load(url);
 			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
 		} 
-	    
+		   
 	    $('.collection').off().on("mouseover",function(){
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");
 	    });
@@ -55,7 +71,7 @@
 	           
 	        login();
 	     });
-		    loadJSP();
+		   
 		   
 		 // 마이페이지를 클릭했을때 예외처리
 		 $("#mypagego").off().on("click", function(){			 
@@ -64,7 +80,8 @@
 			 }else if(ui == ""){
 				alert("접근 권한이 없습니다."); 
 			 }else{
-			 	alert("안녕?");
+				 hash= "#MyPageMaster";
+		  		 htmlLoad();
 			 }
 		 });
 		 
@@ -77,6 +94,8 @@
 			 }
 		 });
 		
+		
+		 loadJSP();
 	});
 	
 	       function login(){
@@ -132,9 +151,9 @@
         <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
         <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></a></div>
         <a href =""><div class ="collection">컬렉션</div></a>
-        <div class = ""><a href ="MasterPage1">문의하기</a></div>
-        <div><a href ="MyPageMaster" id="mypagego"> 마이페이지</a></div>
-        <div><a href ="#1" id="mspagego"> 관리자 페이지</a></div>
+        <div class = "questionbtn" id ="questionbtn"><a href ="#">문의하기</a></div>
+        <div><a href ="#" id="mypagego"> 마이페이지</a></div>
+        <div><a href ="#" id="mspagego"> 관리자 페이지</a></div>
         </div></div> 
         </header>
         
