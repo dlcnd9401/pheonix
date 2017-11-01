@@ -32,6 +32,11 @@ public class QuestionDao implements QuestionDaoInterface {
 	}
 	
 	@Override
+	public int setAnswerData(HashMap<String, Object> param) {
+		return session.update("question.questionAnswerData", param);
+	}
+	
+	@Override
 	public int setWriteData(HashMap<String, Object> param) {
 		return session.insert("question.questionWriteData", param); //값 넣는 화면구현 --> insert
 	}

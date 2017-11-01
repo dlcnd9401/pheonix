@@ -19,12 +19,7 @@
     var data = []; // 데이터 담을 배열 변수 선언
     
     $(document).ready(function(){
-    	
-      /* 	$("submit").children(function(){
-    
-     
-    
-    	});  */     	
+      	
     	
     	var viewRow = 10; // 화면에 보여질 행 갯수
     	var page = 1; // 현재 페이지 값
@@ -107,13 +102,13 @@
 		function init(data){
 				$("tbody").empty();
 				for(var i = 0; i < data.length; i++){
-					html = "<tr>"
-					html += '<td><a href="Detail?#num">' + data[i].Qno + '</a></td>';
+				 	html = "<tr>"
+					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qno + '</a></td>';
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].UserId + '</a></td>'; 
-					html += '<td><a href="Detail?class="name">' + data[i].QContents + '</td>';
+					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qtitle + '</td>';
 					html += '<td><a href="Detail?class="title">';
 					html += '</td>';
-					html += '</tr>';
+					html += '</tr>'; 
 					$("tbody").append(html);
 				}
 				$(".writebtn").click(function(){

@@ -18,6 +18,11 @@ import kr.gudi.util.HttpUtil;
 
 @Controller
 public class QuestionController {
+	
+	
+	@Autowired
+	QuestionServiceInterface tsi;
+
 
 	@RequestMapping("/MasterPage1") //List 보여주기 
 	public ModelAndView masterPage1(ModelAndView mav, HttpSession session){  														
@@ -53,32 +58,28 @@ public class QuestionController {
 	
 	
 	
-/*	@RequestMapping("/Answer") //관리자 답변
+	@RequestMapping("/Answer") //관리자 답변
 	public ModelAndView answer(ModelAndView mav){
-		mav.setViewName("/Question/Detail");
+		mav.setViewName("/Question/Answer");
 		return mav;
 	}
-	*/
+	
 	
 	
 	
 	@RequestMapping("/Write") //글작성하기
-	public ModelAndView write(ModelAndView mav, HttpSession session ){
+	public ModelAndView write(ModelAndView mav, HttpSession session){
 		mav.setViewName("/Question/Write");
 		return mav;
 	}
 	
 	
-	
-	@Autowired
-	QuestionServiceInterface tsi;
 
 	@RequestMapping("/MasterPageData") //List 보여주기 
 	public ModelAndView masterPageData(ModelAndView mav, HttpServletRequest req, HttpSession session){ 
 		HashMap<String, HashMap<String, Object>> UserId = (HashMap<String, HashMap<String, Object>>) session.getAttribute("UserId");
 		HashMap<String, Object> map = new HashMap<String, Object>();  //데이터를 요청하는게 필요없으면 안적어줌 req 
 		map = tsi.getData();
-		/*map = tsi.getData();*/
 		return HttpUtil.makeHashToJsonModelAndView(map);
 	}
 	
@@ -90,12 +91,7 @@ public class QuestionController {
 		return HttpUtil.makeHashToJsonModelAndView(map);
 	}
 	
-	
-	
-	
-	
-	
-	
+
 	
 	@RequestMapping("/WriteData") //글 작성하기
 	public ModelAndView writeData(ModelAndView mav, HttpServletRequest req){ 

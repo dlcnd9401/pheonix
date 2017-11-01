@@ -36,12 +36,19 @@ public class QuestionService implements QuestionServiceInterface {
       return map;
    }
    
+   @Override
+	public HashMap<String, Object> setAnswerData(HashMap<String, Object> param) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("status", tdi.setAnswerData(param));
+		return map;
+	}
+   
 
 
 @Override
 public HashMap<String, Object> setWriteData(HashMap<String, Object> param) {
 	map = new HashMap<String, Object>();
-    map.put("status", tdi.setWriteData(param)); //상태값 ㄹㅇㄴㄹㄹㅇㄴㅇ
+    map.put("status", tdi.setWriteData(param)); //상태값에 
     return map;
 }
    

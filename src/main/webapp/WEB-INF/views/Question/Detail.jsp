@@ -25,6 +25,7 @@
 					var resultJSON = JSON.parse(result);
 					var data = resultJSON.data;
 					console.log(data);
+				
 					$(".qpsydatailMiddel span").eq(0).text(data.UserId);
 					$(".qpsydetailMiddel1").text(data.QContents); 
 					
@@ -32,6 +33,17 @@
 			}
 			
 			init();
+			
+			// 비활성화 눌렀을때
+			$("#sybutn0").off().on("click", function(){
+				$("#syinputbox").attr("readonly",true).attr("disabled",false); //입력가능
+			});
+			
+			// 활성화눌렀을때
+			$("#sybutn1").off().on("click", function(){
+				$("#syinputbox").attr("readonly",false).attr("disabled",false); //입력불가
+			});
+			
 		});
     </script>
 
@@ -72,11 +84,12 @@
                         <div class="qpsydatailTop2">
                             <span>관리자 답변</span>
                 <!--관리자일경우 버튼이 보이고 버튼 클릭시 .Qtext 생성-->
-                            <button type="button" class="ansbtn">answer</button>
+                            <button type="button" class="ansbtn" id="sybutn0">비활성화</button>
+                            <button type="button" class="ansbtn" id="sybutn1">활성화</button>
                             <div class="qpsydetailMiddel2">
                 <!--관리자가 답변했을경우 disblock으로 변경-->
                                 <p class="qpsyanswer disblock">답변내용</p>
-                                <input type="text" class="qpsyQtext disnone">
+                                <input type="text" class="qpsyQtext" id="syinputbox">
                             </div>
                         </div>
                         <input type="button" class="qpsyQbtn1" value="답변">

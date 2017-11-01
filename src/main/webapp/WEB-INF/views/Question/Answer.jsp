@@ -26,8 +26,9 @@
 					console.log(data);
 					$(".qpsydatailMiddel span").eq(0).text(data.UserId);
 					$(".qpsydetailMiddel1").text(data.QContents);
+					
+					
 				});
-
 			}
 			
 			init();
