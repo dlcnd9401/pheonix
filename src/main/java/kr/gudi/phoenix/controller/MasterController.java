@@ -28,6 +28,14 @@ public class MasterController {
 	@Autowired
 	MasterServiceInterface msi;	
 	
+//	화면이동페이지 3개 이미지출력
+	//MyPageMaster
+		@RequestMapping("/mastermove")
+		public ModelAndView MyPageMaster(ModelAndView mav) {
+			mav.setViewName("mastermove");
+			return mav;
+		}
+	
 //	재고관리페이지로 이동
 	@RequestMapping("/clockmanage")
 	public ModelAndView clockmanage(ModelAndView mav){
