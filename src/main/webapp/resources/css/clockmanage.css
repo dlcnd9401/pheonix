@@ -238,9 +238,7 @@ p {
     vertical-align: top;
 }
 
-.cmjysub_news td {
-    padding: 8px 0 9px;
-    border-bottom: solid 1px #d2d2d2;
+.cmjysub_news td {       
     text-align: center;
     line-height: 18px;
     font-size: 20px;
@@ -302,7 +300,29 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 }
 
 
-
+/*th+td너비*/
+.cmjyno {
+    width: 200px;    
+}
+.cmjystore {
+    width: 250px;    
+}
+.cmjysname {
+    width: 350px;    
+}
+.cmjyname{
+    width: 450px;    
+}
+.cmjyemail {
+    width: 200px;    
+}
+.cmjytitle1 {    
+    height: 40px;    
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+    border-top: 1px solid;    
+}
 
 
 
@@ -314,6 +334,7 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
     float: left;    
     line-height: 50px; 
     margin-left: 150px;
+    border-top: 1px solid;
 }
 
 /*페이지이동버튼 틀*/
@@ -324,8 +345,7 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 }
 
 /* 하단 페이지이동 */
-.cmjypagebtns a {
-	width: 20px;
+.cmjypagebtns a {	
 	text-align: center;
     display: inline-block;
     font-weight: bold;
@@ -343,4 +363,11 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 .cmjypagebtns a:hover {
     background-color: #656565;
     color: #f8edde;
+}
+.cmjystockupdatebtn {
+	margin-left: 850px;
+	height: 60px;
+	width: 120px;
+	font-weight: bold;
+	font-size: 25px;
 }

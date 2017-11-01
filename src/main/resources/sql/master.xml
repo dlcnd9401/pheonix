@@ -3,15 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="master">
-	
-	<!-- 회원전체 보기 -->
-	<select id="userlist" resultType="hashmap">
-		select UserNo, UserId, UserName, UserPost,UserTel,UserEmail from userinfo 
-	</select>	
+		
 	<!-- where에 찾는 항목으로 검색해서 보고싶은 회원만 출력 보여주기 -->
 	<select id="userlistselect" parameterType="hashmap" resultType="hashmap">
 		select UserNo, UserId, UserName, UserPost,UserTel,UserEmail from userinfo 
-		where 1 = 1
+		where not UserId = 'admin' 
+		<if test="userSearchType == 'ID'">
+		    AND UserId like '%${usersearch}%'
+		</if>
+		<if test="userSearchType == 'Name'">
+		    AND UserName like '%${usersearch}%'
+		</if>
+		<if test="userSearchType == 'Email'">
+		    AND UserEmail like '%${usersearch}%'
+		</if>
+		<if test="userSearchType == 'Tel'">
+		    AND UserTel like '%${usersearch}%'
+		</if>
+		<if test="userSearchType == 'Address'">
+		    AND UserPost like '%${usersearch}%'
+		</if>		
+	</select>	
+	<!-- 회원페이징 -->	
+	<select id="userlistpaging" parameterType="hashmap" resultType="hashmap">
+		select UserNo, UserId, UserName, UserPost,UserTel,UserEmail from userinfo	
+		where 1=1
 		<if test="userSearchType == 'ID'">
 		    AND UserId like '%${usersearch}%'
 		</if>
@@ -27,11 +43,7 @@
 		<if test="userSearchType == 'Address'">
 		    AND UserPost like '%${usersearch}%'
 		</if>
-	</select>	
-	<!-- 회원페이징 -->	
-	<select id="userlistpaging" parameterType="hashmap" resultType="hashmap">
-		select UserNo, UserId, UserName, UserPost,UserTel,UserEmail from userinfo
-		 limit #{start}, #{viewRow}
+		 limit #{start}, #{viewRow}	
 	</select>
 	<!-- 회원인원  -->
 	<select id="userlisttotcnt" resultType="hashmap">
@@ -39,38 +51,43 @@
 	</select>
 	
 	
-	
-	
-	<!-- 재고관리전체 보기 -->
-	<select id="stocklist" resultType="hashmap">
-		select DISTINCT(CT.gender), CT.No, RE.Store, CT.sname, CT.code, CK.Stock from Product as CT inner join Stock as CK on CK.Scode = CT.scode inner join store as RE on CT.Scode = RE.scode
-	</select>	
 	<!-- where에 지점에 있는 재고만 보여주기  where-->
 	<select id="stocklistselect" resultType="hashmap">
-		select DISTINCT(CT.gender), CT.No, RE.Store, CT.sname, CT.code, CK.Stock from Product as CT inner join Stock as CK on CK.Scode = CT.scode inner join store as RE on CT.Scode = RE.scode 
-		
-	</select>	
-	<!-- 재고 수량변경 -->	
-	<update id="stockupdatae" parameterType="hashmap">
-		update Stock set Stock=#{stock}
-	</update>	
+		select DISTINCT(CT.gender), CT.No, RE.Store, CT.sname, CT.code, CT.Stock from Product as CT inner join store as RE on CT.Scode = RE.scode 	
+		where 1= 1 
+		<if test="storeSearchType != null">
+		    AND RE.Store = #{storeSearchType}
+		</if>
+		limit #{start}, #{viewRow}	
+	</select>
 	<!-- 재고페이징 -->	
 	<select id="stocklistpaging" parameterType="hashmap" resultType="hashmap">
-		select DISTINCT(CT.gender), CT.No, RE.Store, CT.sname, CT.code, CK.Stock from Product as CT inner join Stock as CK on CK.Scode = CT.scode inner join store as RE on CT.Scode = RE.scode 
-		 limit #{start}, #{viewRow}
+		select DISTINCT(CT.gender), CT.No, RE.Store, CT.sname, CT.code, CT.Stock from Product as CT inner join store as RE on CT.Scode = RE.scode 
+		where 1= 1 
+		<if test="storeSearchType != null">
+		    AND RE.Store = #{storeSearchType}
+		</if>
+		limit #{start}, #{viewRow}	
 	</select>
 	<!-- 재고량  -->
 	<select id="stocklisttotcnt" resultType="hashmap">
-		select count(*) as tot from Product as CT inner join Stock as CK on CK.Scode = CT.scode inner join store as RE on CT.Scode = RE.scode 
+		select count(*) as tot from Product as CT inner join store as RE on CT.Scode = RE.scode
+		where 1= 1 
+		<if test="storeSearchType != null">
+		    AND RE.Store = #{storeSearchType}
+		</if>							
 	</select>
-	
-	
+	<!-- 재고 수량변경 -->	
+	<update id="stockupdate" parameterType="hashmap">
+		update Product set stock = #{stock}
+		where code = #{code}
+	</update>	
 	
 	<!-- 상품등록 -->
-	<select id="clockinsert" parameterType="hashmap" resultType="hashmap">
+	<insert id="clockinsert" parameterType="hashmap">
 		insert into Product(localCode, sname, name, mKind, mshape, code, price, introduce, img)
 			values (#{localCode}, #{sname}, #{name}, #{mKind}, #{mshape}, #{code}, #{price}, #{introduce}, #{img})
-	</select>
+	</insert>
 	
 	
 </mapper>

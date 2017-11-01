@@ -12,8 +12,7 @@
 <script type="text/javascript">
 var data = []; // 데이터 담을 배열 변수 선언
 	$(document).ready(function(){
-		
-// 		var data = []; // 데이터 담을 배열 변수 선언
+
 		var viewRow = 10; // 화면에 보여질 행 갯수
 		var page = 1; // 현재 페이지 값
 		var totCnt = 0; // 데이터 전체 객수
@@ -50,8 +49,7 @@ var data = []; // 데이터 담을 배열 변수 선언
 			
 			if(end >= pageView && paging > end){
 				$(".umjypagebtns").append('<a href="#' + (end + 1) + '">다음페이지</a>');
-			}
-			
+			}			
 			
 			$(".umjypagebtns a").off().on("click", function(){ //페이지 전환 이벤트를 작성 
 				page = $(this).text();
@@ -118,8 +116,7 @@ var data = []; // 데이터 담을 배열 변수 선언
 	    } 
 			
 	}		
-		initData();		/* 화면에 출력 */
-		search();
+		initData();		/* 화면에 출력 */		
 		
 		$("#umjycontent").on("change", function(){
 			$("#usersearch").val("");
@@ -128,15 +125,15 @@ var data = []; // 데이터 담을 배열 변수 선언
 		$("input.umjymyButton:button").on("click", function(){
 			var data = {"usersearch":$("#usersearch").val(), "userSearchType":$("option").eq(Number($("#umjycontent").val())).text()}
 			console.log(data);
-			$.ajax({url:"userselectData", data:data, datatype:"json", type:"post"}).done(function(result){
+			$.ajax({
+				url:"userselectData", data:data, datatype:"json", type:"post"
+				}).done(function(result){			
 				data = result.list;
 				init(result.list);
 			});
 		});
-		
-		
+				
 	});
-
 	
         function myFunction() {
                document.getElementById("myDropdown").classList.toggle("show");

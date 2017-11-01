@@ -14,15 +14,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
 	<script type="text/javascript">	   	   
-		
+	var text = ""; 
 		$(document).ready(function(){
-			
-			var data = []; // 데이터 담을 배열 변수 선언
-			var viewRow = 10; // 화면에 보여질 행 갯수
+			var storage = [];
+			var data1 = []; // 데이터 담을 배열 변수 선언
+			var viewRow = 12; // 화면에 보여질 행 갯수
 			var page = 1; // 현재 페이지 값
 			var totCnt = 0; // 데이터 전체 객수			
 			var pageGroup = 1; // 현재 페이지 값
-	    	var pageView = 5; // 페이징 버튼 객수
+			var pageView = 5; // 페이징 버튼 객수
 			
 	    	function createPaging(){			
 	    		
@@ -35,7 +35,8 @@
 				}				
 				//전체 행 / 보여줄행 --> 페이지 수 
 				$(".cmjypagebtns").empty(); // div 태그 속에 a 태그를 초기화 한다.
-				var k = 0; 				
+				var k = 0; 
+				
 				if(end > pageView){
 					$(".cmjypagebtns").append('<a class="select" href="#' + ((start+1) - pageView) + '">이전페이지</a>');
 					k = 1;
@@ -68,11 +69,11 @@
 	    	
 	    	
 			function initData(){ // 디비에서 데이터 가져오기 위한 함수				
-				var hash = location.hash; // a 태그의 이벤트로 발생한 hash 값을 가져온다.
-				if(hash != ""){ // hash 값이 있을 경우 page 변수의 값으로 사용한다.
-					page = hash.substr(5, hash.length);
-					pageGroup = Math.ceil(page / pageView);
-				}				
+// 				var hash = location.hash; // a 태그의 이벤트로 발생한 hash 값을 가져온다.
+// 				if(hash != ""){ // hash 값이 있을 경우 page 변수의 값으로 사용한다.
+// 					page = hash.substr(1, hash.length);
+// 					pageGroup = Math.ceil(page / pageView);
+// 				}				
 				var end = (viewRow * page); // 10 * 2 = 20 
 				var start = (end - viewRow); // 20 - 10 = 10
 		
@@ -82,124 +83,140 @@
 						dataType : "json",
 						data:{"start":start, "viewRow":viewRow} // 파라메터로 사용할 변수 값 객체 넣기
 				}).done(function(result){ // 비동기식 데이터 가져오기
-					data = result.data; // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
-					totCnt = result.totCnt.tot;
-					init();
-					createPaging(); // 페이지 링크 표현하기 우하여 함수 호출
+					data1 = result.data; // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
+					totCnt = result.totCnt.tot;	
+					//createPaging(); // 페이지 링크 표현하기 우하여 함수 호출
 				});
 				
 			}
-	    	
+	
+	    
 			function init(){
+				
 				$("tbody").empty();
-				for(var i = 0; i < data.length; i++){
+				for(var i = 0; i < data1.length; i++){
 					html = "<tr> <td class='cmjytitle1 cmjychecked'><input type='checkbox'></td>";
-					html += "<td class='cmjytitle1 cmjyno'>" + data[i].No + "</td>";	
-					html += "<td class='cmjytitle1 cmjystore'>" + data[i].Store + "</td> "; 
-					html += "<td class='cmjytitle1 cmjysname'>" + data[i].sname + "</td>";
-					html += "<td class='cmjytitle1 cmjyname'>" + data[i].code + "</td>";
-					html += "<td class='cmjytitle1 cmjyemail'>" + data[i].Stock + "</td>";	
-					html += "<td class='cmjytitle1'> <button class='cmjyupdatebtn' type='submit'>등록</button> </td> <tr>";
+					html += "<td class='cmjytitle1 cmjyno'>" + data1[i].No + "</td>";	
+					html += "<td class='cmjytitle1 cmjystore'>" + data1[i].Store + "</td> "; 
+					html += "<td class='cmjytitle1 cmjysname'>" + data1[i].sname + "</td>";
+					html += "<td class='cmjytitle1 cmjyname' name='code'>" + data1[i].code + "</td>";
+					html += "<td class='cmjytitle1 cmjyemail' name='stock' id='stock'>" + data1[i].Stock + "</td></tr>";	
+					//html += "<td class='cmjytitle1'> <button class='cmjyupdatebtn' type='submit'>등록</button> </td></tr>";
 					$("tbody").append(html);
 				}
-				if(data.length < 1){
+				if(data1.length < 1){
 		           	var tag = "<tr class='list-text2'>"; 
-		   		    tag += "<td>데이터가 없습니다.</td>";
+		   		    tag += "<td></td><td>데이터가 없습니다.</td>";
 		   		    tag += "</tr>";
 		           	$("tbody").append(tag);		           	
 		    } 
-				distintcheck();
-				stockselect();
+				distintcheck();				
 		}
 			initData();
-			
-		});
+			stocklistselect();
+			stockupdate();
+
 		
-		/* 지점검색버튼클릭시 */
-		function stockselect(){	
-			console.log("a");
-			$("form").on("submit", function( event ) {
-				event.preventDefault();
-				$.ajax({
-		       	  	 url:"stockselectData", 
-		       	  	 data: $(this).serialize()
-		          }).done(function(result){
-		        	  	var html = '';
-						var resultJSON = JSON.parse(result);
-						var data = resultJSON.list;						
-						$("tbody").empty();						
-						for(var i = 0; i < data.length; i++){
-							html = "<tr> <td class='cmjytitle1 cmjychecked'><input type='checkbox'></td>";
-							html += "<td class='cmjytitle1 cmjyno'>" + data[i].No + "</td>";	
-							html += "<td class='cmjytitle1 cmjystore'>" + data[i].Store + "</td> "; 
-							html += "<td class='cmjytitle1 cmjysname'>" + data[i].sname + "</td>";
-							html += "<td class='cmjytitle1 cmjyname'>" + data[i].code + "</td>";
-							html += "<td class='cmjytitle1 cmjyemail'>" + data[i].Stock + "</td>";
-							html += "<td class='cmjytitle1'> <button class='cmjyupdatebtn' type='submit'>등록</button> </td><tr>";
-							html += "<tr>";	
-							$("tbody").append(html);
-						}	
-						/* select에 ID를 찾아서 그 option에 순서에 맞는 아이템에 값을 가져온다 */
-						var a = document.getElementById('cmjycontent').options[document.getElementById('cmjycontent').selectedIndex].value;						
-						alert(a);
-						distintcheck();
-		          });
-									
-				});
-			
-			}
 		
-		/* 체크박스 클릭시 인풋박스 생김 */
-		function distintcheck() {				
-					$("tbody input:checkbox").click(function(){ // 리스트에 있는 체크박스의 이벤트 처리						
+		
+		/* 체크박스중복체크 / 클릭시 인풋박스 생김 */
+		function distintcheck() {
+			$("tbody input:checkbox").off();
+					$("tbody input:checkbox").on("click", function(){ // 리스트에 있는 체크박스의 이벤트 처리						
 						var index = $("tbody input:checkbox").index(this);
 						var tr = $("tbody tr").eq(index);
 						var tds = tr.find("td");
-						var text = "";
-						text = tds.eq(5).text();							
+									
+						text = tds.eq(5).text();						  
 						if($(this).prop("checked")){ // 현재 선택한 체크박스의 값이 true인지 확인
-							$("input:checkbox").prop("checked",false); // 전체 체크박스의 값을 false로 변경
-							$(this).prop("checked",true); // 현재 선택한 체크박스의 값만 true로 변경												
-							tds.eq(5).html("<input type='text' value='" + text + "'>");					
-						}else{
-							$("input:checkbox").prop("checked",false); // 전체 체크박스의 값을 false로 변경
-							tds.eq(5).empty();
-							tds.eq(5).html(text);
-							/* 인풋 텍스트가 비어있냐? 안비어있냐? */
-							if(text != null) {
-								/* text에 값이 없을때(null일때)는 원래있던값을 넣기 */
-								text = tds.eq(5).find("input").val();								
-								tds.eq(5).html(text);								
-							} else {
-								/* text에 값이있을때(null이 아닐때) 변경된 값으로 넣기*/								
-								console.log("a");
-								alert("no");
-							}							
-																				
-						}
+							$("input:checkbox").prop("checked",false);  // 전체 체크박스의 값을 false로 변경
+							$(this).prop("checked",true); // 현재 선택한 체크박스의 값만 true로 변경	
+							tds.eq(5).html("<input name='stock' type='number' min='0' id='s1'max= '100' value='" + text + "'>"); 
+						}else {  							
+							$("input:checkbox").prop("checked",false);
+							text = tds.eq(5).find("input").val();
+							tds.eq(5).text(text);
+						}    
 				});					
-		}		
+		}
+		/* 등록버튼으로 디비 stock에 넣기 */
+		function stockupdate(){
+			
+			$(".cmjystockupdatebtn").off().on("click", function(){
+				if(confirm("등록하시겠습니까?")){
+	    	    	var cnt = 0;
+	    	    	var stock = $("#s1").val();	 
+	    	    	console.log(stock);
+	    	    	for(var i = 0; i < $("tbody tr input:checkbox:checked").length; i++){
+	    	    		var index = $("tbody tr td input:checkbox").index($("tbody tr td input:checkbox:checked").eq(i));
+	        	    	$.ajax({url:"stockupdate", 
+	        	    		data:{"code": data1[index].code, "stock":stock}, 
+	        	    		dataType : "json"}).done(function(data){
+	        	    	
+	        	    		if(data.status == 0){
+	        	    			cnt++;
+	        	    		}
+	        	    	});
+	    	    	}	    	    	
+	    	    	if(cnt > 0){
+	    	    		alert("실패하셨습니다.");
+	    	    	}else {
+	    	    		alert("등록하셨습니다.");	    	    		
+	    	    		location.href = "clockmanage";
+	    	    	}
+	        	}else {
+	        		alert("취소하셨습니다.");
+	      	  	}
+	    	});
+		}
+//			$.ajax({
+//   	  	 url:"stockupdate", 
+//   	  	 data: $(this).serialize()
+//      }).done(function(result){
+//         data = JSON.parse(result);
+//         if($(".cdjyuptext1") == null ) {
+//        	 alert("상품이 등록에 실패하였습니다.");
+//        	 location.href = "clockmanage";
+//         } else {		            	 
+//        	 alert("상품이 등록되었습니다.");
+//        	 location.href = "clockmanage";
+//         }
+        
+       /*  if(data.status == 1){
+           alert("상품이 등록되었습니다.");
+        }else {
+       	 alert("상품이 등록에 실패하였습니다.");
+        }
+        location.href = "clockmanage"; //예외처리 */
 		
-		
+		/* 판매점별 재고확인하기 */
+		function stocklistselect() {
+			$("input.cmjyselectbtn:button").on("click", function(){			
+				var end = (viewRow * page); // 10 * 2 = 20 
+				var start = (end - viewRow); // 20 - 10 = 10
+				
+				var param = {"start":start, "viewRow":viewRow, "storeSearchType":$("#cmjycontent").val()}	
+				$.ajax({
+					url:"stocklistData", 
+					data: param, 
+					datatype:"json", 
+					type:"post"
+					}).done(function(result){
+					jsonData = JSON.parse(result);
+					data1 = jsonData.data;
+					
+					init();	
+					initData()
+				});			
+			
+			});
+		}			
+	});
    </script>  
 </head>
 <body>
-	<div class = "main">
-    <header>
-        <div><input type = "text" placeholder = "국적" class = "put2">  <input type = "text" placeholder = "검색" class = "put"></div>
-    <div class = "box50">
-        <div>
-        <!-- <img src = "/team/vacheron-constantin-logo.png.resource.1427891127632.png"> --></div>
-        <div><a href =""> 컬렉션</a></div>
-                
-        <div class = ""><a href =""> <div class ="in_box30"><!-- <img src = "/team/vacheron-constantin-logo.png.resource.1427891127632.png"> --></div>
-            <div class ="in_box70">문의하기</div>
-            </a></div>
-        <div><a href =""> 마이페이지</a></div>
-        </div> </header>
-        
-        
-    <section>
+   
+    
        <div class="cmjymain2">
         <div class="cmjypage2">
                     <p class="cmjytable_name2">관리자 제품 재고관리</p>
@@ -207,31 +224,31 @@
                 <!-- 판매처 -->
                 <div class="cmjyselect">
                     <form name="store" method="post">
-                        <select name="contact_select" id="cmjycontent">
+                        <select name="storeSearchType" id="cmjycontent">
 	                       <option value="강남" id="cmjystorewhere">강남점</option>
 	                       <option value="광주" id="cmjystorewhere">광주점</option>
 	                       <option value="부산" id="cmjystorewhere">부산점</option>
 	                       <option value="여의도" id="cmjystorewhere">여의도점</option>
 	                       <option value="이태원" id="cmjystorewhere">이태원점</option>
-	                       <option value="제주도" id="cmjystorewhere">제주점</option>                        
+	                       <option value="제주" id="cmjystorewhere">제주도점</option>                        
                     	</select>
                     	
-                        <button class="cmjyselectbtn" type="sumbit" id="cmjysearch">검색</button>
+                        <input class="cmjyselectbtn" type="button" id="cmjysearch" value="검색">
                     </form>
                 </div>
                 
                 <!-- 테이블, 제품 -->
+<!--                 <form action="stockupdate" method="post"> -->
                 <div class="cmjymid">
                     <table class="cmjysub_news" cellspacing="0" width="1540px">                         
                         <thead>
                             <tr>
-                               <th width="50"></th>
-                                <th width="170">NO.</th>
-                                <th width="220">판매처</th>
-                                <th width="320">제품명</th>
-                                <th width="420">제품번호</th>
-                                <th width="170">수량</th>
-                                <th width="170"></th>
+                               <th width="60"></th>
+                                <th width="200">NO.</th>
+                                <th width="250">판매처</th>
+                                <th width="350">제품명</th>
+                                <th width="450">제품번호</th>
+                                <th width="200">수량</th>                                                               
                             </tr>
                         </thead>
                         <tbody>
@@ -240,112 +257,16 @@
                         </tbody>
                     </table>
                     
-                </div>
+                
                 
                 <div id="cmjybtntle"><!-- 하단버튼() -->
-                 <div class="cmjypagebtns" style="display: inline-block;">
-                    
+                 <div class="cmjypagebtns" style="display: inline-block;">   
                 </div>
+                <div><button type="submit" class="cmjystockupdatebtn">등록</button></div>
                   </div>
             </div>
-    </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <footer> 
-    <div class = "ft_box">
-        <div class ="ft_box_in">
-        <!-- <div class = "cent"><img src = "/team/vacheron-constantin-logo.png"> --></div>
-        <div class ="col">
-            <div class ="m_head">컬렉션</div>
-            <div><a href = "#"  >Patrimony</a></div>
-            <div><a href = "#" >Traditionnelle</a></div>
-            <div><a href = "#" >Harmony</a></div>
-            <div><a href = "#" >1972</a></div>
-            <div><a href = "#" >Malte</a></div>
-            <div><a href = "#" >Historiques</a></div>
-            <div><a href = "#" >Métiers d'Art</a></div>
-            <div><a href = "#" >Quai de L’ile</a></div>
-            <div><a href = "#" ><br>수동 무브먼트</a></div>
-            <div><a href = "#" >자동 무브먼트</a></div>
+<!--             </form> -->
             </div>
-        <div class ="col"><div class ="m_head">시계 제조사</div>
-            <div><a href = "#">아틀리에 캐비노티에</a></div>
-            <div><a href = "#">우리의 약속</a></div>
-            <div><a href = "#">액티비티 사이트</a></div>
-            <div><a href = "#">뉴스</a></div>
-            <div><a href = "#" >제네바 홀마크 인증</a></div>
-           <br><br><br>
-            <div class ="m_head"> 서비스</div>
-            <div><a href = "#">시계 수리,복원,관리</a></div>
-            <div><a href = "#">일상생활 중 시계 관리법</a></div>
-            <div><a href = "#" >증명서 발급</a></div>
-            </div>
-        <div class ="col"><div class ="m_head">판매처</div>
-            <div><a href = "#">한국</a></div>
-            <div><a href = "#">서울</a></div>
-            <div><a href = "#">여의도</a></div>
-            <div><a href = "#">강남</a></div>
-            <div><a href = "#">부산</a></div>
-            <div><a href = "#" >제주</a></div>
-           <br><br>
-            <div class ="m_head">연락처</div>
-            <div><a href = "#">바쉐론 콘스탄틴 카탈로그 받아보기</a></div>
-            <div><a href = "#">부티크 방문 예약하기</a></div>
-            <div><a href = "#" >기타 문의</a></div>
-            <div><a href = "#" >리크루팅</a></div>
-            </div>
-        <div class ="news">
-            <div class ="m_head">바쉐론 콘스탄틴 소식</div>
-            <div><a href = "#">facebook</a></div>
-            <div><a href = "#">twitter</a></div>
-            <div><a href = "#">youtube</a></div>
-            <div><a href = "#">instagram</a></div>
-            <a href = "#"></a>
-            <a href = "#"></a>
-            </div>    
             
-            </div>
-        
-        
-        </div>
-        
-        
-    <div class = "ft_box1">
-        <div class ="ft_box1_in">
-            <a href = "#" class ="white">Copyright Vacheron Constantin |</a>
-            <a href = "#" class ="white">이용약관 |</a>
-            <a href = "#" class ="white">개인정보취급방침 |</a>
-            <a href = "#" class ="white">사이트맵 |</a>
-            <a href = "#" class ="white">프레스 라운지 |</a>
-            <a href = "#" class ="white">watches & Wonders 2015 |</a>
-            <a href = "#" class ="white">SIHH 2016</a>
-        </div>
-        </div>
-    </footer>
-    </div>
 </body>
 </html>

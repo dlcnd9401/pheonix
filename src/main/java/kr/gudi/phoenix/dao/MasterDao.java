@@ -20,11 +20,6 @@ public class MasterDao implements MasterDaoInterface {
 	}
 	
 	@Override
-	public List<HashMap<String, Object>> userlist() {		
-		return session.selectList("master.userlist");
-	}
-	
-	@Override
 	public List<HashMap<String, Object>> userlistselect(HashMap<String, Object> param) {		
 		return session.selectList("master.userlistselect", param);
 	}
@@ -40,25 +35,26 @@ public class MasterDao implements MasterDaoInterface {
 		return session.selectOne("master.userlisttotcnt");
 	}
 	
+		
 	@Override
-	public List<HashMap<String, Object>> stocklist() {		
-		return session.selectList("master.stocklist");
-	}
-	
-	@Override
-	public List<HashMap<String, Object>> stocklistselect() {		
+	public List<HashMap<String, Object>> stocklistselect() {
 		return session.selectList("master.stocklistselect");
 	}
 
 	@Override
 	public List<HashMap<String, Object>> stocklistpaging(HashMap<String, Object> param) {
-		System.out.println(param);
+		System.out.println("dao : "+param);
 		return session.selectList("master.stocklistpaging", param);
 	}
 	
 	@Override
 	public HashMap<String, Object> stocklisttotcnt() {		
 		return session.selectOne("master.stocklisttotcnt");
+	}
+//	재고 수량 조절
+	@Override
+	public int stockupdate(HashMap<String, Object> param) {
+		return session.update("master.stockupdate", param);
 	}
 
 	
