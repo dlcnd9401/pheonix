@@ -7,140 +7,8 @@ body{
     position: relative;
 }
 
-header{
-    width: 100%;
-    height: 98px;    
-    background-color: black;
-}
-
-.put{
-    background-color: black;
-    float : right;
-    margin : 5px 2% 0px 0;
-}
-.put2{
-    background-color: black;
-    float : right;
-    margin : 5px 2% 0px 0;
-    width: 5%;
-}
-.box50 {
-    width:calc(100% - 50%);
-    height: 70%;
-    float:left;
-    margin : 0px 0px 0px 25%;
-    padding-top : 25px;
-    display:inline-block;
-    
-    
-}
-
-.box50 img{
-    float:left;
-    margin-right : 5%;
-}
-
-
-.box50 a {
-    text-decoration: none;
-    float:left;
-    margin : 25px 15px;
-    color :white;
-    
-}
-
-.in_box30{
-    width: 25%;
-    float:left;
-    margin-right : 5%;
-}
-.in_box30 img{
-    width :100%;
-    margin-right:10%;
-}
-.in_box70{
-    width: 100%;
-}
-
-footer {
-    width : 1903px;
-    height: 720px;
-    background-color : black;
-}
-.ft_box{
-    width: 100%;
-    height: 677px;  
-    background-color : rgb(20,20,20);
-    color : rgb(170,170,156);
-}
-
-.ft_box_in{
-    width: 50%;
-    height: 627px;
-    margin : 0% 25%;
-    padding : 25px 0px;
-    background-color : rgb(20,20,20);
-}
-
-
-.ft_box1{
-    width: 100%;
-    height: 43px;
-    background-color : black;
-}
-
-
-.ft_box1_in{
-    width:50%;
-    height: 50%;
-    margin : 0% 25%;
-    color:white;
-    transform: translateY(calc(50% + 5.5px));
-    text-align: center;
-    font-size: 11px;
-}
-
-.ft_box_in a{
-            color : rgb(170,170,156);
-    font-size: 11px;
-}
-
 a {
     text-decoration: none;
-}
-.white { 
-color:white;
-}
-
-.cent{
-    width: 50%;
-    padding : 30px 0px;
-    margin : 0% 25%;
-
-}
-
-.col {
-    width : 159px;
-    height: 370px;
-    float:left;
-    margin-left: 20px;
-    margin-top : 20px;
-}
-
-
-.m_head{
-    margin: 10px 0%;
-    width: 100%;
-    
-}
-
-
-.news {
-    width: 173px;
-    height: 218px;
-    float:left;
-    margin-left: 20px;
-    margin-top : 20px;
 }
 
 /****************** SellList *********************/
@@ -620,4 +488,11 @@ color:white;
 a {
     text-decoration: none;
 }
+
+
+
+
+
+
+
 
