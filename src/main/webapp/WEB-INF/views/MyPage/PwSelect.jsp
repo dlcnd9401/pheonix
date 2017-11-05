@@ -28,32 +28,16 @@
 </head>
 <body>  
 <div id="PSmymain">
- <div class="PStitlebox">
-  <a class="PStitle">회원정보수정 입장시 비밀번호 입력이 필요합니다.</a>
-  </div>
-  <div id="PSbigtle"><!-- 킅틀 -->
-  
-   
-   <!-- 정보수정틀-->
-    <div id="PSmidtle">
-    	<form action="PwSelectForm" method="post">
-	        <!--수정할것들(아이디,비번등등)-->
-	        <div class="PSsujungtext">
-	        	<p>비밀번호</p>
-	        </div>
-	        
-	        <div class="PSsujunginput">
-		        <input class="PSinputtle" type="text" placeholder="비밀번호를 입력해주세요" name="UserPw">     <br>         
-	        </div>
-
-			<!-- 비밀번호로 사용자 확인 -->	       
-	        <div class="PSbutton">
-	      		<button type="submit">확인</button>
-       		</div>
-       </form>
-   </div>
-   </div>
-</div>      
+    <div class="PStitlebox">
+        <p class="PStitle"><b>회원정보 변경</b></p>
+        <form action="PwSelectForm" method="post">
+            <div class="PWex"><p>회원정보 변경전에 
+            <span>현재 비밀번호</span>를 입력해주세요.</p></div>
+            <div class="PWinput"><p>Password : <input type="password"></p></div>
+        </form>
+    </div>
+    <div></div>
+</div>
     </body>
     
 </html>

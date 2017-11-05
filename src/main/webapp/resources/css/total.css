@@ -38,7 +38,7 @@ a {
 }
 
 #Sellshoppingbaglist {
-	margin: 10px 0px;
+   margin: 10px 0px;
     width: 1550px;
     color: #666;
     font-size: 12px;
@@ -74,15 +74,15 @@ a {
 }
 
 #Sellshoppingbaglist tbody tr td .img{
-	width: 85px;
+   width: 85px;
     height: 100px;  
-	}
+   }
 #Sellshoppingbaglist tbody tr td  {
-	text-align: center;
-	font-size: 25px;
-	padding-top: 5px;
+   text-align: center;
+   font-size: 25px;
+   padding-top: 5px;
 }
-	/*페이지이동버튼 틀*/
+   /*페이지이동버튼 틀*/
 .Sellpagebtns {    
     height: 20px; 
     float: left;
@@ -91,7 +91,7 @@ a {
      margin-top: 10px;
 }
 .Sellpagebtns a {
-	display: inline-block;
+   display: inline-block;
     font-weight: bold;
     text-decoration: none;
     padding: 5px 8px;
@@ -138,7 +138,7 @@ a {
     height: 1400px; 
 }
 #Cartshoppingbagpage h1 {
-	margin-top: 0px; 
+   margin-top: 0px; 
 }
 
 
@@ -183,8 +183,8 @@ a {
     margin: 0;
 }
 #Cartcheckall {  
-	width: 20px;
-	height: 20px;
+   width: 20px;
+   height: 20px;
 }
 
 #Cartshoppingbag .Cartlist-text2 {    
@@ -203,9 +203,9 @@ a {
     padding-top: 8px;
 }
 #Cartlist-text tbody tr {
-	text-align: center;
-	font-size: 25px;
-	padding-top: 5px;
+   text-align: center;
+   font-size: 25px;
+   padding-top: 5px;
 }
 
 /*페이지이동버튼 틀*/
@@ -217,7 +217,7 @@ a {
      margin-top: 10px;
 }
 .Cartpagebtns a {
-	display: inline-block;
+   display: inline-block;
     font-weight: bold;
     text-decoration: none;
     padding: 5px 8px;
@@ -273,222 +273,90 @@ a {
     background-color: #716c6c;
 }
 /****************** PwSelect ********************/
-#mymain {
+#PSmymain {
     width: 1903px;
-    height: 1000px;
-    background-color: white;
+    height: 873px;
+    background-color: #e6e6e6;
+    padding-top: 100px;
 }
 
-
-#pwmymain .PStitlebox {
+.PStitlebox {
     padding-top: 30px;
     padding-bottom: 20px;
-    margin-left: 400px;
+    margin: 0 600px 0 600px;
+    background-color:white;
 }
 
 .PStitle {    
-    font-size: 50px; 
+    font-size: 35px; 
+    letter-spacing: 2px;
+    text-indent: 50px;
+    margin-top: 0;
 }
-
-/*큰틀*/
-#PSbigtle {
-    margin-left: 150px;
-    width: 1603px;
-    height: 800px;
+.PWex {
+     text-indent: 50px;
 }
-
-/*수정칸*/
-#PSmidtle {
-    width: 1603px;
-    height: 300px; 
-    padding-top: 80px;
+.PWex span {
+    color: blue;
 }
-
-.PSsujungtext {
-    float: left;
-    width: 150px;
-    text-align: left;
-    margin-top: 20px;
-    margin-left: 450px;
-    font-size: 30px;
-    font-weight: 600;
-    float: left;
-    line-height: 100px;
-}
-
-.PSsujunginput {
-    margin-top: 55px;
-    width: 450px;
-    height: 664px;    
-    float: left;
-    line-height: 100px;    
-}
-
-.PSinputtle {
-    float: left;
-    width: 400px;
-    height: 30px;
-    font-size: 20px;
-}
-
-/*버튼위치*/
-.PSbutton {
-    margin-top: 55px;
-    float: left;
-    width: 248px;
-    height: 664px;    
-}
-.PWnext {
-	width: 90px;
-    height: 35px;
-    font-size: 18px;
-    float: inherit;
+.PWinput {
+    padding-top: 10px;
+    text-indent: 220px;
 }
 /*************** UserUpdate *****************/
 #UUmymain {
     width: 1903px;
-    height: 1000px;
-    background-color: white;
+    height: 873px;
+    background-color: #e6e6e6;
+    padding-top: 100px;
 }
-
-
-#UUmymain .UUtitlebox {
+.UUtitlebox {
     padding-top: 30px;
     padding-bottom: 20px;
-    margin-left: 150px;
+    margin: 0 600px 0 600px;
+    background-color:white;
 }
-/*구매목록 제목*/
 .UUtitle {    
-    font-size: 50px; 
+    font-size: 35px; 
+    letter-spacing: 2px;
+    text-indent: 50px;
+    margin-top: 0;
 }
-
-/*큰틀*/
-#UUbigtle {
-    margin-left: 150px;
-    width: 1603px;
-    height: 800px;
+.UUInput1 {
+    padding-top: 10px;
+    text-indent: 50px;
+    float: left;
+    font-size: 17px;
 }
-
-/*수정칸*/
-#UUmidtle {
-    width: 1603px;
-    height: 720px; 
-    padding-top: 80px;
-    float: left;
-    background-color: gainsboro;
+.UUInput2 {
+     text-indent: 50px;
+     padding-top: 10px;
+    font-size: 16.5px;
 }
-
-/*회원정보수정 왼쪽글자*/
-.UUsujungtext {
-    float: left;
-    width: 250px;
-    text-align: left;
-    margin-top: 20px;
-    margin-left: 450px;
-    font-size: 30px;
-    font-weight: 600;
-    float: left;
-    line-height: 100px;
+.UUInput2 input {
+    width: 370px;
 }
-
-/*수정입력창 전체틀 크기, 위치*/
-.UUsujunginput {
-    margin-top: 55px;
-    width: 450px;
-    height: 664px;    
-    float: left;
-    line-height: 100px;    
+.UUbtn {
+    margin-left: 580px;
 }
-
-/*수정입력창 위치, 크기 조정*/
-.UUinputtle {
-    float: left;
-    width: 400px;
+.UUbtn button {
+    width: 100px;
     height: 30px;
-    font-size: 20px;
+    background-color: black;
+    color: #c3a07d;
+    border: 2px solid #c3a07d;
+    line-height: 1;
 }
 
-/*버튼위치*/
-.UUbutton {
-    margin-top: 55px;
-    float: left;
-    width: 248px;
-    height: 664px;    
-}
-.UUOverlapID {
-    width: 90px;
-    height: 35px;
-    font-size: 18px;
-    float: inherit;
-}
-.UUModified {
-    margin-top: 560px;
-    width: 90px;
-    height: 35px;
-    font-size: 18px;    
-}
-/********* MyPageMaster ************/
-.MyPageMaster {    
-    width: 1303px;
-    margin-left: 450px;
-    margin-top: 20px;
-}
 
-.MpmPwSelect {
-    width: 1000px;
-    height: 280px;
-    margin-bottom: 30px;
-    background-image: url("/phoenix/resources/img/main/mpm1.jpeg");
-    background-repeat: no-repeat;
-    background-size: 1000px 400px;
-    
-}
-.MpmPwSelect h1 {
-    font-size: 50px;
-    margin: 0;
-    padding: 180px;
-    padding-bottom: 0;
-    color:#004eff;
-    
-}
-.MpmCart {
 
-    width: 1000px;
-    height: 280px;
-    margin-bottom: 30px;
-    background-image: url("/phoenix/resources/img/main/mpm2.jpeg");
-    background-repeat: no-repeat;
-    background-size: 1000px 320px; 
-}
-.MpmCart h1 {
-    font-size: 50px;
-    margin: 0;
-    padding: 180px;
-    padding-bottom: 0;
-    color:#f4ff75;
-    
-}
 
-.MpmSellList {
 
-    width: 1000px;
-    height: 290px;
-    margin-bottom: 0px;
-    background-image: url("/phoenix/resources/img/main/mpm1.jpeg");
-    background-repeat: no-repeat;
-    background-size: 1000px 290px; 
-}
-.MpmSellList h1 {
-    font-size: 50px;
-    margin: 0;
-    padding: 180px;
-    padding-bottom: 0;
-    color: #ff8686;
-}
+
+
 a {
     text-decoration: none;
 }
-
 
 
 
