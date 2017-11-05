@@ -273,21 +273,22 @@ a {
     background-color: #716c6c;
 }
 /****************** PwSelect ********************/
-#PSmymain {
+#PWmymain {
     width: 1903px;
     height: 873px;
     background-color: #e6e6e6;
     padding-top: 100px;
 }
 
-.PStitlebox {
+.PWtitlebox {
     padding-top: 30px;
     padding-bottom: 20px;
     margin: 0 600px 0 600px;
     background-color:white;
+    height: 170px;
 }
 
-.PStitle {    
+.PWtitle {    
     font-size: 35px; 
     letter-spacing: 2px;
     text-indent: 50px;
@@ -301,7 +302,8 @@ a {
 }
 .PWinput {
     padding-top: 10px;
-    text-indent: 220px;
+    text-indent: 200px;
+    float: left;
 }
 /*************** UserUpdate *****************/
 #UUmymain {

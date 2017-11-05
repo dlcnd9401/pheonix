@@ -116,10 +116,10 @@ public class MyPageController {
 	@RequestMapping(value = "/PwSelectForm", method = RequestMethod.POST)
 	public ModelAndView pwSelectForm(ModelAndView mav, HttpServletRequest req, HttpSession session) {
 		try {
-			HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+			HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 			HashMap<String, Object> form = HttpUtil.getParameterMap(req);
-			
-			if((form.get("UserPw")).equals(user.get("UserPw"))){
+			System.out.println();
+			if((form.get("UserPw")).equals(user.get("data").get("UserPw"))){
 				mav.setViewName(PAGE + "UserUpdate");
 				mav.addObject("user", user);
 			}else{

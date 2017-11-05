@@ -26,7 +26,7 @@
     <div class="UUInput2">
        <p>: ${user.UserId}</p>
        <p>: <input class="UUinputtle" type="password" name="UserPw1" placeholder="새로운 비밀번호를 입력해주요"></p>
-       <p>: <input class="UUinputtle" type="password" name="UserPw2" placeholder="새로운 비밀번호를 입력해주요"></p>
+       <p>: <input class="UUinputtle" type="password" name="UserPw2" placeholder="비밀번호를 한번더 입력해주세요"></p>
        <p>: <input class="UUinputtle" type="email" name="UserEmail" placeholder="새로운 이메일을 입력해주세요" value="${user.UserEmail}"></p>
        <p>: <input class="UUinputtle" type="text" name="UserPost" placeholder="새로운 주소를 입력해주세요" value="${user.UserPost}"></p>
        <p>: <input class="UUinputtle" type="text" name="UserTel" placeholder="새로운 전화번호를 입력해주세요" value="${user.UserTel}"></p>
