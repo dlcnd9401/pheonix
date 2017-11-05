@@ -18,7 +18,7 @@
             <span>현재 비밀번호</span>를 입력해주세요.</p></div>
 	        <div class="PWinput">
 	        	Password : 
-		        <input type="text" placeholder="비밀번호를 입력해주세요" name="UserPw">       
+		        <input type="password" placeholder="비밀번호를 입력해주세요" name="UserPw">       
 	        	<button type="submit">확인</button>
 	        </div>
        </form>

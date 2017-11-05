@@ -16,7 +16,7 @@
     <div class="UUtitlebox">
         <p class="UUtitle"><b>회원정보 수정</b></p>
     
-     <form action="PwSelectForm" method="post">
+     <form action="userupDate" method="post">
     <div class="UUInput1">
         <p>ID         </p>
         <p>Name 	  </p>

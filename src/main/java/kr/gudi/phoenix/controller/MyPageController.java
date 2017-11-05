@@ -52,7 +52,6 @@ public class MyPageController {
 		mav.setViewName(PAGE + "UserUpdate");
 		return mav;
 	}
-	
 	//Cart 삭제버튼
 	@RequestMapping("/bagdel")
 	public ModelAndView bagdel(HttpServletRequest req) {
@@ -140,13 +139,13 @@ public class MyPageController {
 		HashMap<String, Object> form = HttpUtil.getParameterMap(req);
 		boolean check = true;
 		if(("").equals(form.get("UserPw1"))){
-			System.out.println("첫번째 칸 비밀번호를 입력해주세요.");
+			System.out.println("첫번째칸 비밀번호를 입력해주세요");
 			check = false;
 		}
 		System.out.println(form.get("UserPw1"));
 		System.out.println(form.get("UserPw2"));
 		if(("").equals(form.get("UserPw2"))){
-			System.out.println("비밀번호 재확인을 입력해주세요");
+			System.out.println("비밀번호 재확인을 입력해주세요.");
 			check = false;
 		}
 		if(form.get("UserPw2").equals(form.get("UserPw1"))){
@@ -156,12 +155,11 @@ public class MyPageController {
 				form.put("UserPw", null);
 			}
 			form = msi.userUpdate(form);
-			System.out.println(form.get("state"));
-			if(Integer.parseInt(form.get("state").toString()) == 1){
+			System.out.println(form.get("status"));
+			if(Integer.parseInt(form.get("status").toString()) == 1){
 				mav.setViewName("redirect:/");
 			}else{
 				mav.setViewName(PAGE + "Error");
-				System.out.println("비번이 잘못됬다");
 				mav.addObject("msg", "수정이 잘못 되었습니다. 다시 수정 하시겠습니까?");
 				mav.addObject("url", "UserUpdate");
 			}
@@ -171,10 +169,10 @@ public class MyPageController {
 			mav.addObject("url", "UserUpdate");
 		}
 		form.put("UserId", user.get("data").get("UserId"));
-		form.put("UserId", user.get("data").get("UserName"));
-		form.put("UserId", user.get("data").get("UserEmail"));
-		form.put("UserId", user.get("data").get("UserPost"));
-		form.put("UserId", user.get("data").get("UserTel"));
+		form.put("UserName", user.get("data").get("UserName"));
+		form.put("UserEmail", user.get("data").get("UserEmail"));
+		form.put("UserPost", user.get("data").get("UserPost"));
+		form.put("UserTel", user.get("data").get("UserTel"));
 		return mav;
 	}
 }

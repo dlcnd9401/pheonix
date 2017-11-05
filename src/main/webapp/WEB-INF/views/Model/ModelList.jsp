@@ -8,9 +8,7 @@
 <head>
     <link rel = "stylesheet" href = "resources/css/layout.css">
      <link rel = "stylesheet" href = "resources/css/ModelList.css">
-    <script  src="https://code.jquery.com/jquery-2.2.4.js"
-    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 </head>
@@ -91,11 +89,14 @@
                     <span><%= map.get(i).get("name") %></span>
                         <!--시계번호-->
 <%--                         <p><%= map.get(i).get("scode") %></p> --%>
+					</div>
+					<div class="collprice">
                         <p><%= map.get(i).get("price") %></p> 
                     </div>
+                    <a href = "modeldetail?code=<%= map.get(i).get("code")%>" style = text-decoration: none;>
                     <div class="purcbtn">
-                    <span><a href = "modeldetail?code=<%= map.get(i).get("code")%>" style = text-decoration: none;>구매</a></span>
-                    </div>
+                    <span>구매</span>
+                    </div></a>
                </div>
                     </li>
                     <!-- </a> -->
