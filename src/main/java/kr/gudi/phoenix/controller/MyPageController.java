@@ -137,27 +137,27 @@ public class MyPageController {
 	@RequestMapping(value = "/userupDate", method = RequestMethod.POST)
 	public ModelAndView userupDate(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav, HttpSession session) {
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
-		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
+		HashMap<String, Object> form = HttpUtil.getParameterMap(req);
 		boolean check = true;
-		if(("").equals(param.get("UserPw1"))){
-			System.out.println("1 비번이 없다.");
+		if(("").equals(form.get("UserPw1"))){
+			System.out.println("첫번째 칸 비밀번호를 입력해주세요.");
 			check = false;
 		}
-		
-		if(("").equals(param.get("UserPw2"))){
-			System.out.println("2 비번이 없다.");
+		System.out.println(form.get("UserPw1"));
+		System.out.println(form.get("UserPw2"));
+		if(("").equals(form.get("UserPw2"))){
+			System.out.println("비밀번호 재확인을 입력해주세요");
 			check = false;
 		}
-		
-		if(param.get("UserPw2").equals(param.get("UserPw1"))){
+		if(form.get("UserPw2").equals(form.get("UserPw1"))){
 			if(check){
-				param.put("UserPw", param.get("UserPw1"));
+				form.put("UserPw", form.get("UserPw1"));
 			}else{
-				param.put("UserPw", null);
+				form.put("UserPw", null);
 			}
-			param = msi.userUpdate(param);
-			System.out.println(param.get("state"));
-			if(Integer.parseInt(param.get("state").toString()) == 1){
+			form = msi.userUpdate(form);
+			System.out.println(form.get("state"));
+			if(Integer.parseInt(form.get("state").toString()) == 1){
 				mav.setViewName("redirect:/");
 			}else{
 				mav.setViewName(PAGE + "Error");
@@ -170,10 +170,11 @@ public class MyPageController {
 			mav.addObject("msg", "수정이 잘못 되었습니다. 다시 수정 하시겠습니까?");
 			mav.addObject("url", "UserUpdate");
 		}
-		param.put("UserId", user.get("data").get("UserId"));
-		param.put("UserId", user.get("data").get("UserEmail"));
-		param.put("UserId", user.get("data").get("UserPost"));
-		param.put("UserId", user.get("data").get("UserTel"));
+		form.put("UserId", user.get("data").get("UserId"));
+		form.put("UserId", user.get("data").get("UserName"));
+		form.put("UserId", user.get("data").get("UserEmail"));
+		form.put("UserId", user.get("data").get("UserPost"));
+		form.put("UserId", user.get("data").get("UserTel"));
 		return mav;
 	}
 }
