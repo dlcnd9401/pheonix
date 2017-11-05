@@ -135,7 +135,8 @@ public class MyPageController {
 	
 	//userinfo 데이터 가져와서 비밀번호 입력후 정보 수정, 예외처리
 	@RequestMapping(value = "/userupDate", method = RequestMethod.POST)
-	public ModelAndView userupDate(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
+	public ModelAndView userupDate(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav, HttpSession session) {
+		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		boolean check = true;
 		if(("").equals(param.get("UserPw1"))){
@@ -169,7 +170,10 @@ public class MyPageController {
 			mav.addObject("msg", "수정이 잘못 되었습니다. 다시 수정 하시겠습니까?");
 			mav.addObject("url", "UserUpdate");
 		}
-				
+		param.put("UserId", user.get("data").get("UserId"));
+		param.put("UserId", user.get("data").get("UserEmail"));
+		param.put("UserId", user.get("data").get("UserPost"));
+		param.put("UserId", user.get("data").get("UserTel"));
 		return mav;
 	}
 }
