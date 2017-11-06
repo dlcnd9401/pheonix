@@ -106,7 +106,7 @@
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qno + '</a></td>';
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].UserId + '</a></td>'; 
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qtitle + '</td>';
-					html += '<td><a href="Detail?class="title">';
+/* 					html += '<td><a href="Detail?class="title">'; */
 					html += '</td>';
 					html += '</tr>'; 
 					$("tbody").append(html);
@@ -124,8 +124,10 @@
 		
 		initData();
 		
+	
+		
 		$("#contact_selecttype").on("change", function(){ //주제선택
-	         $("#textsearch").val("");
+			
 	      });
 	      
 	      $(".searchbtn").on("click", function(){
@@ -135,9 +137,19 @@
 	            url:"MasterPage1Search", data:data, datatype:"json", type:"post"
 	            }).done(function(result){         
 	            data = result.list;
-	            init(result.list);
+	            init(result.list);       
 	         });
-	      });    	
+	         
+	         //검색 값을 입력 안하고 버튼을 누를시 예외처리 
+	         var textSearch = $("#textsearch").val(); 
+	    	  	if(textSearch == ""){
+					alert("검색 내용을 입력해주세요");
+					return false; //여기까지만 실행 해라
+	    	  	}else if(result.list !== null){ //값을 입력하면 검색 허용 
+	    	  		return false; 
+	    	 }
+	    	  	//그냥 검색만 누를시 리스트가 늘어나는거 수정
+	      });   
     	
 });
 </script>
