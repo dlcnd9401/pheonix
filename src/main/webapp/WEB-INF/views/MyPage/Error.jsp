@@ -12,7 +12,7 @@
 		if (result) {
 		    location.href = '${url}';
 		} else {
-			location.href = "/phoenix";
+			location.href = "/phoenix/model";
 		}
 </script>
 </head>

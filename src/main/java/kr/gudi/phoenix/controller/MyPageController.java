@@ -117,7 +117,6 @@ public class MyPageController {
 		try {
 			HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 			HashMap<String, Object> form = HttpUtil.getParameterMap(req);
-			System.out.println();
 			if((form.get("UserPw")).equals(user.get("data").get("UserPw"))){
 				mav.setViewName(PAGE + "UserUpdate");
 				mav.addObject("user", user);
@@ -142,22 +141,24 @@ public class MyPageController {
 			System.out.println("첫번째칸 비밀번호를 입력해주세요");
 			check = false;
 		}
-		System.out.println(form.get("UserPw1"));
-		System.out.println(form.get("UserPw2"));
+		
 		if(("").equals(form.get("UserPw2"))){
 			System.out.println("비밀번호 재확인을 입력해주세요.");
 			check = false;
 		}
+		System.out.println(check);
 		if(form.get("UserPw2").equals(form.get("UserPw1"))){
 			if(check){
 				form.put("UserPw", form.get("UserPw1"));
 			}else{
 				form.put("UserPw", null);
 			}
+			
+			System.out.println(form);
 			form = msi.userUpdate(form);
-			System.out.println(form.get("status"));
-			if(Integer.parseInt(form.get("status").toString()) == 1){
-				mav.setViewName("redirect:/");
+			System.out.println(form.get("status2"));
+			if(Integer.parseInt(form.get("status2").toString()) == 1){
+				mav.setViewName("redirect:/model");
 			}else{
 				mav.setViewName(PAGE + "Error");
 				mav.addObject("msg", "수정이 잘못 되었습니다. 다시 수정 하시겠습니까?");
@@ -168,8 +169,6 @@ public class MyPageController {
 			mav.addObject("msg", "수정이 잘못 되었습니다. 다시 수정 하시겠습니까?");
 			mav.addObject("url", "UserUpdate");
 		}
-		form.put("UserId", user.get("data").get("UserId"));
-		form.put("UserName", user.get("data").get("UserName"));
 		form.put("UserEmail", user.get("data").get("UserEmail"));
 		form.put("UserPost", user.get("data").get("UserPost"));
 		form.put("UserTel", user.get("data").get("UserTel"));
