@@ -66,7 +66,8 @@
                             <div class="qpsydetailMiddel2">
                 <!--관리자가 답변했을경우 disblock으로 변경-->
                                 <p class="qpsyanswer disblock">답변내용</p>
-                                <input type="text" class="qpsyQtext" id="syinputbox">     
+                                <textarea rows="10" cols="125"maxlength="125" id="syinputbox"> 
+                                </textarea>    
                                 <input type="button" class="qpsyQbtn1" value="답변">
                         		<input type="button" class="qpsyQbtn2" value="취소">
                             </div>
