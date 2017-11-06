@@ -3,14 +3,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%List<HashMap<String, Object>>map = (List<HashMap<String, Object>>) request.getAttribute("data"); %>
 <!doctype html>
 <html>
 <head>
     <link rel = "stylesheet" href = "resources/css/layout.css">
      <link rel = "stylesheet" href = "resources/css/ModelList.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type ="text/javascript">
+		$(document).ready(function(){
 
+		});
+	 
 
+</script>
 </head>
         <!--첫번째 칸-->
     <div class="content">
@@ -74,7 +82,7 @@
                 <ul>
                 
                <%
-               List<HashMap<String, Object>>map = (List<HashMap<String, Object>>) request.getAttribute("data"); 
+                
 				for(int i = 0; i < map.size(); i++){
 					%>
                 <!-- <a href="#" class="products"> -->
@@ -93,7 +101,7 @@
 					<div class="collprice">
                         <p><%= map.get(i).get("price") %></p> 
                     </div>
-                    <a href = "modeldetail?code=<%= map.get(i).get("code")%>" style = text-decoration: none;>
+                    <a href = "modeldetail?code=<%= map.get(i).get("code")%>" id ="sellbtn" style = text-decoration: none;>
                     <div class="purcbtn">
                     <span>구매</span>
                     </div></a>

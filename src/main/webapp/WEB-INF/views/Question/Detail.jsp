@@ -16,7 +16,7 @@
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
     <script type="text/javascript">
-        var  Qno = <%=Qno%>;
+        var Qno = <%=Qno%>;
         var UserAuth = <%=UserAuth%>;
         $(document).ready(function(){  
 			function init(){

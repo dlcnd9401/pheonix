@@ -111,9 +111,9 @@
 					html += '</tr>'; 
 					$("tbody").append(html);
 				}
-				$(".writebtn").click(function(){
+/* 				$(".writebtn").click(function(){
 					location.replace("Write"); 
-				});	
+				});	 */
 				 if(data.length < 1){
 			           	var tag = "<tr class='list-text2'>"; 
 			   		    tag += "<td>데이터가 없습니다.</td>";

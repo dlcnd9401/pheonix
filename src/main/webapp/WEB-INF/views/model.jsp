@@ -2,7 +2,9 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%--     <%
+	String UserAuth = request.getAttribute("UserAuth").toString();
+%> --%>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -17,6 +19,7 @@
     
 	<script type = "text/javascript">
 	var ui = "";
+	var UserAuth = "";
 	$(document).ready(function(){
 		var hash = location.hash; // url에서 hash값 가져오기.
 		if(hash == ""){
@@ -32,7 +35,12 @@
 		 hash= "#MasterPage1";  //이거 2개 가져다쓰면 화면전환 가능!!
   		 htmlLoad();			//이거 2개 가져다쓰면 화면전환 가능!!
   		 });
-		 		
+
+		
+		$(".writebtn").off().on("click",function(){
+			hash = "#Write";
+			htmlLoad();
+		});
   		 function htmlLoad(){
   		 var url = "/phoenix/" + hash.substr(1, hash.length)
   		 $("section").load(url);
@@ -70,9 +78,10 @@
 	        $('#sjlabel').addClass('m_col_disb');
 	           
 	        login();
+	        
 	     });
 		   
-		   
+	    datacheck();
 		 // 마이페이지를 클릭했을때 예외처리
 		 $("#mypagego").off().on("click", function(){			 
 			 if(ui == "admin"){
@@ -89,6 +98,8 @@
 		 $("#mspagego").off().on("click", function(){
 			 if(ui == "admin"){
 				alert("안녕!");
+				hash = "#mastermove";
+				htmlLoad();
 			 }else{
 				alert("접근 권한이 없습니다."); 
 			 }
@@ -124,7 +135,8 @@
 	            		 alert(UserId + "님 환영합니다.");
 	 	                 ui = UserId;
 	 	                $("#sjlabel span").append(ui + "님");
-	            	 }
+	 	              
+	            	  }
 	            	 console.log(UserId);
 	               
 	             }).fail(function(x){
@@ -133,7 +145,8 @@
 	             });
 	             
 
-	          }
+	          }  
+
 	
 	</script>
 </head>

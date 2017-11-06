@@ -13,8 +13,6 @@
      <link rel = "stylesheet" href = "resources/css/Modeldetail.css">
 	<script type="text/javascript">
  	$(document).ready(function(){
-		
- 		
  		var a = $("#cnt").val();
  		console.log(a);
  		var b = $("#stockcnt").val();

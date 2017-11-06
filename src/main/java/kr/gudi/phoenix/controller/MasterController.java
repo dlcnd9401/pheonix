@@ -32,7 +32,7 @@ public class MasterController {
 	//MyPageMaster
 		@RequestMapping("/mastermove")
 		public ModelAndView MyPageMaster(ModelAndView mav) {
-			mav.setViewName("mastermove");
+			mav.setViewName("/MasterPage/mastermove");
 			return mav;
 		}
 	
