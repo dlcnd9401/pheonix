@@ -59,7 +59,6 @@
 		<if test="UserPw != null">
 	    	UserPw    = #{UserPw},
 	  	</if>
-		UserName  = #{UserName}, 
 		UserPost  = #{UserPost}, 
 		UserEmail = #{UserEmail}, 
 		UserTel   = #{UserTel} 

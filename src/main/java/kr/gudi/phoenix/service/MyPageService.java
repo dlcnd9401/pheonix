@@ -38,7 +38,7 @@ public class MyPageService implements MyPageServiceInterface {
 	@Override
 	public HashMap<String, Object> userUpdate(HashMap<String, Object> param) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("status", mdi.userUpdate(param));
+		map.put("status2", mdi.userUpdate(param));
 		return map;
 	}
 	@Override

@@ -38,6 +38,7 @@
     <div class="UUInput3">
     <p><%= user.get("data").get("UserId") %></p>
     <p><%= user.get("data").get("UserName")%></p>
+    <input type="hidden" name="UserNo" value="<%=user.get("data").get("UserNo")%>">
     <input class="UUinputtle" type="password" name="UserPw1" placeholder="새로운 비밀번호를 입력해주요">
     <input class="UUinputtle" type="password" name="UserPw2" placeholder="비밀번호를 한번더 입력해주세요">
     <input class="UUinputtle" type="email" name="UserEmail"  value="<%= user.get("data").get("UserEmail") %>">
