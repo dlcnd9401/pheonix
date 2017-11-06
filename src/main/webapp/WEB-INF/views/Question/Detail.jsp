@@ -12,8 +12,16 @@
     <link rel = "stylesheet" href ="resources/css/layout.css">    
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    .disnone {
+    display: none;
+    }
+    .disblock {
+    display:block;
+    }
+    </style>
     <script type="text/javascript">
         var  Qno = <%=Qno%>;
         var UserAuth = <%=UserAuth%>;
@@ -31,21 +39,10 @@
 			
 			init();
 		
-			var tag =  "<div class ='boxheight'>";
-				tag += "<input type='button' class='qpsyQbtn2' value='취소'>";
-    			tag += "<input type='button' class='qpsyQbtn1' value='답변'>";
-    			tag += "</div>";
-    		
-				
-				
+			
 			// 활성화눌렀을때
 			$(".ansbtn").off().on("click", function(){
-				if(UserAuth == 1){
 				$('#syinputbox').removeClass('disnone').addClass('disblock');
-				}else{
-					alert("관리자가 아닙니다.");
-				}
-				
 			});
 			
 			// 취소버튼 눌렀을때 MasterPage1로 돌아가기
@@ -64,6 +61,7 @@
 		        	    		dataType : "json"
 		        	    		}).done(function(data){
 		        	    		if(data.status == 0){
+		        	    			
 		        	    			cnt++;
 		        	    			alert(cnt);
 		        	    		}  
@@ -72,9 +70,9 @@
 		    	    		alert("실패하셨습니다.");
 		    	    	}else {
 		    	    		alert("등록하셨습니다.");	    	    		
-		    	     		location.href = "Detail?Qno="+Qno; 
+		    	    		location.href = "Detail?Qno="+Qno;
 		    	    	}
-		        	}else{
+		        	}else {
 		        		alert("취소하셨습니다.");
 		      	  	}
 		    	});
@@ -107,9 +105,9 @@
                 <!--관리자가 답변했을경우 disblock으로 변경-->
                                 
                                 <div class ="qp_textbox">
-                                <p class="qpsyanswer disblock">답변내용</p>
-                                <input type ="text" class ="disnone" id="syinputbox" name="Reply" style = "width:800px; height:200px;"></div>
                                 
+<!--                                 <input type ="text" id="syinputbox" name="Reply"  class="" style = "width:800px; height:200px;"></div> -->
+                                <textarea id="syinputbox" name="Reply" class="form-control col-xs-12 disnone" rows="14" cols="80" style="margin:0;width: 855px; height: 297px;resize:none;" ></textarea>
                                 
                                 <div class ="boxheight">
                         		<input type="button" class="qpsyQbtn2" value="취소">
