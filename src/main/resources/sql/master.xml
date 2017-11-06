@@ -27,7 +27,7 @@
 	<!-- 회원페이징 -->	
 	<select id="userlistpaging" parameterType="hashmap" resultType="hashmap">
 		select UserNo, UserId, UserName, UserPost,UserTel,UserEmail from userinfo	
-		where 1=1
+		where not UserId = 'admin' 
 		<if test="userSearchType == 'ID'">
 		    AND UserId like '%${usersearch}%'
 		</if>
