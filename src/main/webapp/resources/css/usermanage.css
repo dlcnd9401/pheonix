@@ -195,14 +195,13 @@ body,html {
 
 .umjymid {
     background-color: #f5f5f5;
-    width: 1709px;
-    height: 670px;
-    margin: 0;  
+    width: 1609px;
+    height: 670px;    
     margin-left: 150px;
 }
 
 .umjycol-1 {    
-    width: 1300px;    
+    width: 1570px;    
     float: left;          
 }
 /*상단*/
@@ -216,22 +215,22 @@ body,html {
 }
 /*th+td너비*/
 .umjyno {
-    width: 40px;    
+    width: 80px;    
 }
 .umjyid {
-    width: 170px;    
+    width: 200px;    
 }
 .umjyname {
-    width:100px;    
+    width:154px;    
 }
 .umjyemail{
-    width: 264px;    
+    width: 300px;    
 }
 .umjytel {
-    width: 160px;    
+    width: 220px;    
 }
 .umjyaddress{
-    width: 550px;    
+    width: 600px;    
 }
 .umjytitle1 {    
     height: 40px;
@@ -244,27 +243,32 @@ body,html {
 
 .umjycol-2 {
     background-color: #f5f5f5;
-    width: 230px;
-    height: 600px;
+     width: 205px;
+    height: 50px;
     float: left;    
 }
 
 .umjycol-3 {
     background-color: #f5f5f5;
     width: 100px;
-    height: 600px;
+    height: 50px;
     float: left;
+}
+.umjysearch {
+	width: 500px;
+    height: 50px;
+    margin-left: 1250px;
 }
 /*드롭다운박스--------------------------------------------*/
 
 .umjydropdown {
-    height: 50px;
-    width: 230px;    
+    height: 40px;
+    width: 180px;    
     float: left;
 }
 
 #umjycontent {   
-    margin-left: 25px;
+    height: 40px;
     width: 180px;
     font-size: 25px;
     font-weight: bold;
@@ -285,7 +289,7 @@ body,html {
     border: 1px solid #bcbcbc;
     border-radius: 0px;
     -webkit-appearance: none;
-    height: 50px;
+    height: 40px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -294,7 +298,7 @@ body,html {
 /*버튼---------------------------------------------------*/
 
 .umjymyButton {    
-    height: 50px;
+    height: 40px;
     width: 80px;
     font: inherit; 
     padding: 2px 4px; 
@@ -318,7 +322,7 @@ body,html {
 /*페이지넘기기-------------------------------------------*/
 /*하단버튼 틀 (버튼라인)*/
 #umjybtntle {    
-    width: 1300px;
+    width: 1570px;
     height: 47px;
     float: left;    
     line-height: 50px; 
@@ -329,7 +333,7 @@ body,html {
 .umjypagebtns {    
     height: 48px; 
     float: left;
-    margin-left: 450px;
+    margin-left: 650px;
 }
 /*페이지이동버튼 크기+글자크기*/
 .umjybtn {

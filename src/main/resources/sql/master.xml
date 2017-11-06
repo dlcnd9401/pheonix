@@ -53,34 +53,34 @@
 	
 	<!-- where에 지점에 있는 재고만 보여주기  where-->
 	<select id="stocklistselect" resultType="hashmap">
-		select DISTINCT(CT.gender), CT.No, RE.Store, CT.sname, CT.code, CT.Stock from Product as CT inner join store as RE on CT.Scode = RE.scode 	
+		select No, sname, code, Stock, mshape from Product 
 		where 1= 1 
 		<if test="storeSearchType != null">
-		    AND RE.Store = #{storeSearchType}
+		    AND sname = #{storeSearchType}
 		</if>
 		limit #{start}, #{viewRow}	
 	</select>
 	<!-- 재고페이징 -->	
 	<select id="stocklistpaging" parameterType="hashmap" resultType="hashmap">
-		select DISTINCT(CT.gender), CT.No, RE.Store, CT.sname, CT.code, CT.Stock from Product as CT inner join store as RE on CT.Scode = RE.scode 
+		select No, sname, code, Stock, mshape from Product 
 		where 1= 1 
 		<if test="storeSearchType != null">
-		    AND RE.Store = #{storeSearchType}
+		    AND sname = #{storeSearchType}
 		</if>
 		limit #{start}, #{viewRow}	
 	</select>
 	<!-- 재고량  -->
 	<select id="stocklisttotcnt" resultType="hashmap">
-		select count(*) as tot from Product as CT inner join store as RE on CT.Scode = RE.scode
+		select count(*) as tot from Product
 		where 1= 1 
 		<if test="storeSearchType != null">
-		    AND RE.Store = #{storeSearchType}
+		    AND sname = #{storeSearchType}
 		</if>							
 	</select>
 	<!-- 재고 수량변경 -->	
 	<update id="stockupdate" parameterType="hashmap">
 		update Product set stock = #{stock}
-		where code = #{code}
+		where No = #{no}
 	</update>	
 	
 	<!-- 상품등록 -->

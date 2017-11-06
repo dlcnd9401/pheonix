@@ -18,7 +18,7 @@
 		$(document).ready(function(){
 			var storage = [];
 			var data1 = []; // 데이터 담을 배열 변수 선언
-			var viewRow = 12; // 화면에 보여질 행 갯수
+			var viewRow = 1000; // 화면에 보여질 행 갯수
 			var page = 1; // 현재 페이지 값
 			var totCnt = 0; // 데이터 전체 객수			
 			var pageGroup = 1; // 현재 페이지 값
@@ -86,18 +86,16 @@
 					data1 = result.data; // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
 					totCnt = result.totCnt.tot;	
 					//createPaging(); // 페이지 링크 표현하기 우하여 함수 호출
-				});
-				
+				});				
 			}
-	
-	    
+			
 			function init(){
 				
 				$("tbody").empty();
 				for(var i = 0; i < data1.length; i++){
 					html = "<tr> <td class='cmjytitle1 cmjychecked'><input type='checkbox'></td>";
 					html += "<td class='cmjytitle1 cmjyno'>" + data1[i].No + "</td>";	
-					html += "<td class='cmjytitle1 cmjystore'>" + data1[i].Store + "</td> "; 
+					html += "<td class='cmjytitle1 cmjystore'>" + data1[i].mshape + "</td> "; 
 					html += "<td class='cmjytitle1 cmjysname'>" + data1[i].sname + "</td>";
 					html += "<td class='cmjytitle1 cmjyname' name='code'>" + data1[i].code + "</td>";
 					html += "<td class='cmjytitle1 cmjyemail' name='stock' id='stock'>" + data1[i].Stock + "</td></tr>";	
@@ -146,11 +144,12 @@
 				if(confirm("등록하시겠습니까?")){
 	    	    	var cnt = 0;
 	    	    	var stock = $("#s1").val();	 
+	    	    	 
 	    	    	console.log(stock);
 	    	    	for(var i = 0; i < $("tbody tr input:checkbox:checked").length; i++){
 	    	    		var index = $("tbody tr td input:checkbox").index($("tbody tr td input:checkbox:checked").eq(i));
 	        	    	$.ajax({url:"stockupdate", 
-	        	    		data:{"code": data1[index].code, "stock":stock}, 
+	        	    		data:{"no": no, "stock":stock}, 
 	        	    		dataType : "json"}).done(function(data){
 	        	    	
 	        	    		if(data.status == 0){
@@ -169,25 +168,6 @@
 	      	  	}
 	    	});
 		}
-//			$.ajax({
-//   	  	 url:"stockupdate", 
-//   	  	 data: $(this).serialize()
-//      }).done(function(result){
-//         data = JSON.parse(result);
-//         if($(".cdjyuptext1") == null ) {
-//        	 alert("상품이 등록에 실패하였습니다.");
-//        	 location.href = "clockmanage";
-//         } else {		            	 
-//        	 alert("상품이 등록되었습니다.");
-//        	 location.href = "clockmanage";
-//         }
-        
-       /*  if(data.status == 1){
-           alert("상품이 등록되었습니다.");
-        }else {
-       	 alert("상품이 등록에 실패하였습니다.");
-        }
-        location.href = "clockmanage"; //예외처리 */
 		
 		/* 판매점별 재고확인하기 */
 		function stocklistselect() {
@@ -225,12 +205,16 @@
                 <div class="cmjyselect">
                     <form name="store" method="post">
                         <select name="storeSearchType" id="cmjycontent">
-	                       <option value="강남" id="cmjystorewhere">강남점</option>
-	                       <option value="광주" id="cmjystorewhere">광주점</option>
-	                       <option value="부산" id="cmjystorewhere">부산점</option>
-	                       <option value="여의도" id="cmjystorewhere">여의도점</option>
-	                       <option value="이태원" id="cmjystorewhere">이태원점</option>
-	                       <option value="제주" id="cmjystorewhere">제주도점</option>                        
+	                       <option value="1972" id="cmjystorewhere">1972</option>
+	                       <option value="HEURES-CREATIVES" id="cmjystorewhere">HEURES-CREATIVES</option>
+	                       <option value="HISTORIQUES" id="cmjystorewhere">HISTORIQUES</option>
+	                       <option value="METIERS-DART" id="cmjystorewhere">METIERS-DART</option>
+	                       <option value="OVERSEAS" id="cmjystorewhere">OVERSEAS</option>
+	                       <option value="HARMONY" id="cmjystorewhere">HARMONY</option>      
+	                       <option value="MALTE" id="cmjystorewhere">MALTE</option>    
+	                       <option value="Patrimony" id="cmjystorewhere">Patrimony</option>    
+	                       <option value="QUAL-DEI-ILE" id="cmjystorewhere">QUAL-DEI-ILE</option>    
+	                       <option value="TRADITIONNELLE" id="cmjystorewhere">TRADITIONNELLE</option>                      
                     	</select>
                     	
                         <input class="cmjyselectbtn" type="button" id="cmjysearch" value="검색">
@@ -245,7 +229,7 @@
                             <tr>
                                <th width="60"></th>
                                 <th width="200">NO.</th>
-                                <th width="250">판매처</th>
+                                <th width="250">시계모양</th>
                                 <th width="350">제품명</th>
                                 <th width="450">제품번호</th>
                                 <th width="200">수량</th>                                                               
