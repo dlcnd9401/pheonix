@@ -12,17 +12,8 @@
     <link rel = "stylesheet" href ="resources/css/layout.css">    
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script  src="https://code.jquery.com/jquery-2.2.4.js"
-    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-    crossorigin="anonymous"></script>
-    <style>
-    .disnone {
-    display: none;
-    }
-    .disblock {
-    display:block;
-    }
-    </style>
+
+
     <script type="text/javascript">
         var  Qno = <%=Qno%>;
         var UserAuth = <%=UserAuth%>;
@@ -40,10 +31,21 @@
 			
 			init();
 		
-			
+			var tag =  "<div class ='boxheight'>";
+				tag += "<input type='button' class='qpsyQbtn2' value='취소'>";
+    			tag += "<input type='button' class='qpsyQbtn1' value='답변'>";
+    			tag += "</div>";
+    		
+				
+				
 			// 활성화눌렀을때
 			$(".ansbtn").off().on("click", function(){
+				if(UserAuth == 1){
 				$('#syinputbox').removeClass('disnone').addClass('disblock');
+				}else{
+					alert("관리자가 아닙니다.");
+				}
+				
 			});
 			
 			// 취소버튼 눌렀을때 MasterPage1로 돌아가기
@@ -62,7 +64,6 @@
 		        	    		dataType : "json"
 		        	    		}).done(function(data){
 		        	    		if(data.status == 0){
-		        	    			
 		        	    			cnt++;
 		        	    			alert(cnt);
 		        	    		}  
@@ -71,9 +72,9 @@
 		    	    		alert("실패하셨습니다.");
 		    	    	}else {
 		    	    		alert("등록하셨습니다.");	    	    		
-		    	    		location.href = "Detail?Qno="+Qno;
+		    	     		location.href = "Detail?Qno="+Qno; 
 		    	    	}
-		        	}else {
+		        	}else{
 		        		alert("취소하셨습니다.");
 		      	  	}
 		    	});
@@ -107,7 +108,7 @@
                                 
                                 <div class ="qp_textbox">
                                 <p class="qpsyanswer disblock">답변내용</p>
-                                <input type ="text" id="syinputbox" name="Reply"  class="" style = "width:800px; height:200px;"></div>
+                                <input type ="text" class ="disnone" id="syinputbox" name="Reply" style = "width:800px; height:200px;"></div>
                                 
                                 
                                 <div class ="boxheight">
