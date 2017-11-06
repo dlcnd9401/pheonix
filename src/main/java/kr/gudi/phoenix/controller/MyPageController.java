@@ -158,7 +158,7 @@ public class MyPageController {
 			form = msi.userUpdate(form);
 			System.out.println(form.get("status2"));
 			if(Integer.parseInt(form.get("status2").toString()) == 1){
-				mav.setViewName("redirect:/");
+				mav.setViewName("redirect:/model");
 			}else{
 				mav.setViewName(PAGE + "Error");
 				mav.addObject("msg", "수정이 잘못 되었습니다. 다시 수정 하시겠습니까?");
