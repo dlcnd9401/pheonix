@@ -8,6 +8,7 @@ body{
     max-width:1903px;
     min-width: 300px;
     margin : 0px;
+    height: auto;
     position: relative;
 }
 

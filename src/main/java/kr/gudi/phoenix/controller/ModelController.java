@@ -39,6 +39,11 @@ public class ModelController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/alert")
+	public ModelAndView alert(ModelAndView mav){
+		return mav;
+	}
+	
 	@RequestMapping(value = "/PopUp")
 	public ModelAndView popup(ModelAndView mav, HttpSession session){
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
@@ -54,18 +59,24 @@ public class ModelController {
 	/*1023*/
 @RequestMapping(value = "/modeldetail", method = RequestMethod.GET)
 	public ModelAndView modeldetail(ModelAndView mav,HttpServletRequest req, HttpServletResponse resp, HttpSession session){
-	map = new HashMap<String,Object>();
-	HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-	map.put("code", req.getParameter("code"));
-	map = msi.modeldetail(map);
 	HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
-	mav.addObject("detail", map.get("modeldetail"));
-	mav.addObject("UserId", user.get("data").get("UserId"));
-	mav.addObject("UserPost", user.get("data").get("UserPost"));
-	System.out.println(user.get("data").get("UserId"));
-	System.out.println(user.get("data").get("UserPost"));
-	mav.setViewName("Model/Modeldetail");
-	return mav;
+	if(user == null){
+		mav.setViewName("redirect:/alert");
+		return mav;
+	}else{
+		map = new HashMap<String,Object>();
+		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
+		map.put("code", req.getParameter("code"));
+		map = msi.modeldetail(map);
+		mav.addObject("detail", map.get("modeldetail"));
+		mav.addObject("UserId", user.get("data").get("UserId"));
+		mav.addObject("UserPost", user.get("data").get("UserPost"));
+		System.out.println(user.get("data").get("UserId"));
+		System.out.println(user.get("data").get("UserPost"));
+		mav.setViewName("Model/Modeldetail");
+		return mav;
+	}
+	
 	}
 
 
@@ -77,13 +88,17 @@ public class ModelController {
 	}*/
 
 
+
 	@RequestMapping("/modellist")
 	public ModelAndView modellist(ModelAndView mav,HttpServletRequest req, HttpSession session){
 		map = new HashMap<String,Object>();
-		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
+		/*HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");*/
 		map.put("scode", req.getParameter("scode"));
 		map = msi.modellist(map);
 		mav.addObject("data", map.get("modellist"));
+	/*	mav.addObject("UserAuth", user.get("data").get("UserAuth"));*/
+		/*System.out.println(user.get("data").get("UserAuth"));*/
 		mav.setViewName("Model/ModelList");
 		System.out.println(session.getAttribute("user"));
 		return mav;

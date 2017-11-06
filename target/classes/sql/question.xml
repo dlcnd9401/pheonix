@@ -29,9 +29,13 @@
    </select>
    
    
-   <update id="questionDetailAnswer"> <!-- 답변기능 -->
-      update Question SET auth = 3 where BuyNo = #{BuyNo}
+   <!-- 관리자 답변기능  -->
+   
+   <update id="questionAnswerData" parameterType="hashmap">
+      update Question set Reply = #{Reply} where Qno = #{Qno}
    </update>
+   
+   
    
    <insert id="questionWriteData" parameterType="hashmap">  <!-- 게시판 글 작성  -->
       insert into Question 
