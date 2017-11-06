@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;   //HttpSession
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -57,12 +58,19 @@ public class QuestionController {
    
    
    
-/*   @RequestMapping("/Answer") //관리자 답변
-   public ModelAndView answer(ModelAndView mav){
-      mav.setViewName("/Question/Detail");
-      return mav;
-   }
-   */
+//---------------------------------------답변기능----------------------------------------------------------------
+   
+ 		@RequestMapping(value="/setAnswerData", method=RequestMethod.POST)
+ 		public ModelAndView setAnswerData(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
+ 			HashMap<String, Object> param = HttpUtil.getParameterMap(req);
+ 			 param = HttpUtil.getParameterMap(req);
+ 			 param = tsi.setAnswerData(param);
+ 			 param.put("Qno", req.getParameter("Qno"));
+ 			 param.put("Reply", req.getParameter("Reply"));
+ 			return HttpUtil.makeHashToJsonModelAndView(tsi.setAnswerData(param));
+ 		}
+ 		
+//------------------------------------------------------------------------------------------------------------
    
    
    
@@ -87,7 +95,7 @@ public class QuestionController {
       return HttpUtil.makeHashToJsonModelAndView(map);
    }
    
-   @RequestMapping("/DetailData") //게시판안에 있는 글 상세보기 
+   @RequestMapping(value="/DetailData", method=RequestMethod.POST) //게시판안에 있는 글 상세보기 
    public ModelAndView detailData(ModelAndView mav, HttpServletRequest req,HttpSession session){
 	   HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 	   HashMap<String, Object> param = new HashMap<String, Object>(); // 요청하는 데이터면 담는 그릇은 parameter 

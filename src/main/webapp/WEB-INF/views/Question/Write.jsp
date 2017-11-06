@@ -14,31 +14,19 @@
     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
     crossorigin="anonymous"></script>
     <script type="text/javascript">
-    
          $(document).ready(function(){
-        	 
            $("form").on("submit", function( event ) {
-             event.preventDefault(); //submit이 안되게 막는다 
-             						//ajax 사용하기 때문
-             						
-             /* 값 넣으라는 예외처리(null값일 경우 경고창 띄움) */
-			 if($("#Qtitle").val() == ""){ 
-				alert("제목을 입력해주세요.");
-				return false;
-			 }else if($("#QContents").val() ==""){
-				 alert("내용을 입력해주세요.");
-					return false;
-			 }
-             
+              console.log("-------fdgfgf----------");
+             event.preventDefault();
              $.ajax({
                     url:"WriteData", 
-                    data: $(this).serialize()
+                    data: $( this ).serialize()
               }).done(function(result){
                  data = JSON.parse(result);
                  if(data.status == 1){
-                    alert("작성되었습니다.");
+                    alert("성공하셨습니다.");
                  }else {
-                    alert("다시 작성해주세요.");
+                    alert("실수 했수다.");
                  }
                  location.href = "MasterPage1"; //예외처리
               });
@@ -59,11 +47,11 @@
             <form>
                 <div class="qpsywriteTop">
                       <!-- <span>작성자 : <input type ="text" name = "UserId" value = ""></span> -->
-                    <span><b>제 목</b> : <input type="text" name="Qtitle" id="Qtitle"></span>
+                    <span><b>제 목</b> : <input type="text" name="Qtitle"></span>
                 </div>
                 <div class="qpsywriteMiddle">
                     <p><b>문의 내용</b></p>
-                    <textarea rows="35" cols="98" maxlength="98" name="QContents" id="QContents"></textarea>
+                    <textarea rows="35" cols="98" maxlength="98" name="QContents"></textarea>
                 </div>
                 <div class="qpsywriteBottom">
                    <button type="submit" class="qpsywritebtn">작 성</button>
