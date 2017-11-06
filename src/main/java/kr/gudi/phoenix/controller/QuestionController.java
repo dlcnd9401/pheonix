@@ -49,10 +49,15 @@ public class QuestionController {
    @RequestMapping("/Detail") //게시판안에 있는 글 상세보기 
    public ModelAndView detail(ModelAndView mav, HttpSession session){
 	  HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
-	  mav.addObject("UserAuth", user.get("data").get("UserAuth"));
-	  System.out.println(user.get("data").get("UserAuth"));
-      mav.setViewName("/Question/Detail"); //경로설정 확인
-      return mav;
+	  if(user == null){
+		  mav.setViewName("redirect:/alert");
+		  return mav;
+	  }else{
+		  mav.addObject("UserAuth", user.get("data").get("UserAuth"));
+		  System.out.println(user.get("data").get("UserAuth"));
+	      mav.setViewName("/Question/Detail"); //경로설정 확인
+	      return mav;
+	  }
    }
    
    
