@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.gudi.phoenix.dao.MasterDaoInterface;
+import kr.gudi.util.HttpUtil;
 
 @Service
 public class MasterService implements MasterServiceInterface {
@@ -20,30 +21,36 @@ public class MasterService implements MasterServiceInterface {
 	@Autowired
 	MasterDaoInterface mdi;
 	public HashMap<String, Object> map;
-	
+		
 	@Override
 	public HashMap<String, Integer> setClockupData(HashMap<String, Object> param) {
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		 HashMap<String, Integer> map = new HashMap<String, Integer>();
 	    //HashMap<String, Integer> map = new HashMap<String, Integer>();
 	    map.put("status", mdi.setClockupData(param));
 	    return map;
 	}
+	
 	@Override
 	   public HashMap<String, Integer> fileOutput(MultipartFile[] file, HttpServletRequest req) {
 	      HashMap<String, Integer> map2 = new HashMap<String, Integer>();
 	      map = new HashMap<String, Object>();
 	      
+	      HashMap<String, Object> param = HttpUtil.getParameterMap(req);
+	      System.out.println("param value : " + param.get("sname"));
+
 	      for(int i = 0; i < file.length; i++){
 	         String name = file[i].getOriginalFilename();
 	         String path2 = "resources/img/";
+	         String path3 = "Collection/";
 	         System.out.println(path2 + name);
 	         try {
 	            byte[] bytes = file[i].getBytes();
 	            
 	            String path = "";
 	            // 개발 툴에서만 사용 할것!
-//	            path = "E:/GIT/JDC/src/main/webapp/" + path2;
-	            path = req.getSession().getServletContext().getRealPath("/") + path2;
+	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 
+	            //path = "E:/GIT/JDC/src/main/webapp/" + path2;
+	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;
 	            System.out.println(path);
 	            
 	            File f = new File(path);
@@ -51,12 +58,19 @@ public class MasterService implements MasterServiceInterface {
 	            if(f.exists()){
 	               f = new File(path + name);
 	               OutputStream out = new FileOutputStream(f);
+	            System.out.println(f);
 	               out.write(bytes);
 	               out.close();
 	               
 	               HashMap<String, Object> map = new HashMap<String, Object>();
-	               map.put("path", path2);
-	               map.put("name", name);	               
+	               map.put("path", path);
+	               map.put("sname", param.get("sname"));
+	               map.put("name", param.get("name"));
+	               map.put("mKind", param.get("mKind"));
+	               map.put("mshape", param.get("mshape"));
+	               map.put("code", param.get("code"));
+	               map.put("price", param.get("price"));
+	               map.put("introduce", param.get("introduce"));
 	               System.out.println("service map : "+ map);
 	               map2 = setClockupData(map);
 	            }

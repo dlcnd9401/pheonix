@@ -8,35 +8,33 @@
     width: 1000px;
     height: 280px;
     margin-bottom: 30px;    
-    background-image: url("");
+    background-image: url("/phoenix/resources/img/main/mpm1.jpeg");
     background-repeat: no-repeat;
     background-size: 1000px 400px;
-}
-
-h1{
-	border: solid black 1px;
+    
 }
 .mmjyummove h1 {
     font-size: 50px;
     margin: 0;
-    padding: 180px;
+    padding-left: 550px;
+    padding-top: 100px;
     padding-bottom: 0;
-    color:#004eff;
+    color:rgba(229, 164, 59, 0.95);
     
 }
 .mmjycmmove {
-
     width: 1000px;
     height: 280px;
     margin-bottom: 30px; 
-    background-image: url("");   
+    background-image: url("/phoenix/resources/img/main/mpm2.jpeg");   
     background-repeat: no-repeat;
     background-size: 1000px 320px; 
 }
 .mmjycmmove h1 {
     font-size: 50px;
     margin: 0;
-    padding: 180px;
+    padding-left: 100px;
+    padding-top: 100px;
     padding-bottom: 0;
     color:#f4ff75;
     
@@ -46,16 +44,17 @@ h1{
     width: 1000px;
     height: 290px;
     margin-bottom: 0px; 
-    background-image: url("");         
+    background-image: url("/phoenix/resources/img/main/mpm1.jpeg");         
     background-repeat: no-repeat;
     background-size: 1000px 290px; 
 }
 .mmjycdmove h1 {
     font-size: 50px;
     margin: 0;
-    padding: 180px;
+    padding-left: 550px;
+    padding-top: 100px;
     padding-bottom: 0;
-    color: #ff8686;
+    color: #bababa;
 }
 a {
     text-decoration: none;

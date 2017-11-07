@@ -40,16 +40,19 @@ $(document).ready(function(){
 		         event.preventDefault();
 		         var form = document.forms[0];
 		         var formData = new FormData(form);
+		         console.log(form, formData)
 		         $.ajax({
 		        	 type:"post",		         
 		       	  	 url:"clockupData", 
 			       	 enctype: 'multipart/form-data',
 			         processData: false,
 			         contentType: false,
+			         processData: false,
 			         cache: false,
-		       	  	 data: $(this).serialize()
+			         data: formData
+		       	  	 //data: $(this).serialize()
 		          }).done(function(result){
-		             data = JSON.parse(result);
+		             //data = JSON.parse(result);
 		             if($(".cdjyuptext1") == null ) {
 		            	 alert("상품이 등록에 실패하였습니다.");
 		            	 location.href = "clockupdate";
@@ -57,7 +60,7 @@ $(document).ready(function(){
 		            	 alert("상품이 등록되었습니다.");
 		            	 location.href = "clockmanage";
 		             }
-		          });
+		          }).fail(alert("what?"));
 			});	
 	}
 	
@@ -125,31 +128,31 @@ $(document).ready(function(){
               
            <!--시리즈-->
            <div class="cdjyupjul1">              
-               <input type="text" placeholder="시리즈을 입력해주세요" class="cdjyuptext1" name="sname" id="cdjyclocksname">
+               <input type="text" placeholder="시리즈(sname)을 입력해주세요" class="cdjyuptext1" name="sname" id="cdjyclocksname">
            </div>
            <!--제품번호-->
            <div class="cdjyupjul1">               
-               <input type="text" placeholder="시리즈 이름을 입력해주세요" class="cdjyuptext1" name="name" id="cdjyclockname">
+               <input type="text" placeholder="시리즈 이름(name)을 입력해주세요" class="cdjyuptext1" name="name" id="cdjyclockname">
            </div>
            <div class="cdjyupjul1">               
-               <input type="text" placeholder="시계이름을 입력해주세요" class="cdjyuptext1" name="mKind" id="cdjyclockmKind">
+               <input type="text" placeholder="시계이름(mKind)을 입력해주세요" class="cdjyuptext1" name="mKind" id="cdjyclockmKind">
            </div>
            <div class="cdjyupjul1">               
-               <input type="text" placeholder="시계모양을 입력해주세요" class="cdjyuptext1" name="mshape" id="cdjyclockmshape">
+               <input type="text" placeholder="시계모양(mshape)을 입력해주세요" class="cdjyuptext1" name="mshape" id="cdjyclockmshape">
            </div>
            <div class="cdjyupjul1">               
-               <input type="text" placeholder="제품번호를 입력해주세요" class="cdjyuptext1" name="code" id="cdjyclockcode">
+               <input type="text" placeholder="제품번호(code)를 입력해주세요" class="cdjyuptext1" name="code" id="cdjyclockcode">
            </div>
            <div class="cdjyupjul1">               
-               <input type="number" placeholder="가격을 입력해주세요" class="cdjyuptext1" name="price" id="cdjyclockprice">
+               <input type="number" placeholder="가격(price)을 입력해주세요" class="cdjyuptext1" name="price" id="cdjyclockprice">
            </div>           
            <!--간략소개-->
            <div class="cdjyupjul2">               
-               <input type="text" placeholder="시계에 대한 설명을 입력해주세요" class="cdjyuptext2" name="introduce" id="cdjyclockintroduce">
+               <input type="text" placeholder="시계에 대한 설명(introduce)을 입력해주세요" class="cdjyuptext2" name="introduce" id="cdjyclockintroduce">
            </div>
            <!--시계이미지+버튼-->
            <div class="cdjyupjul1">               
-               <input type="text" placeholder="시계 이미지파일을 넣어주세요" class="cdjyuptext1" readonly="readonly" name="img">  
+               <input type="text" placeholder="시계 이미지파일(img)을 넣어주세요" class="cdjyuptext1" readonly="readonly" name="img">  
                <label for="cdjyfilename" class="file">사진첨부</label>             
                <input type="file" id="cdjyfilename" name="cdjyfilename" class="cdjyimgfile">
            </div>

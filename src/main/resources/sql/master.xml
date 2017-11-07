@@ -83,10 +83,11 @@
 		where No = #{no}
 	</update>	
 	
+	
 	<!-- 상품등록 -->
 	<insert id="clockinsert" parameterType="hashmap">
-		insert into Product(localCode, sname, name, mKind, mshape, code, price, introduce, img)
-			values (#{localCode}, #{sname}, #{name}, #{mKind}, #{mshape}, #{code}, #{price}, #{introduce}, #{img})
+		insert into Product(sname, name, mKind, mshape, code, price, introduce, img)
+			values (#{sname}, #{name}, #{mKind}, #{mshape}, #{code}, #{price}, #{introduce}, #{path})
 	</insert>
 	
 	

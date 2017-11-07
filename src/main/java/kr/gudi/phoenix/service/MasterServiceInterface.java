@@ -11,6 +11,7 @@ public interface MasterServiceInterface {
 	public HashMap<String, Integer> setClockupData(HashMap<String, Object> param);	
 	/*public HashMap<String, Integer> fileAdd(HashMap<String, Object> param);*/
 	public HashMap<String, Integer> fileOutput(MultipartFile[] file, HttpServletRequest req);
+	
 	public HashMap<String, Object> stocklistselect();
 	public HashMap<String, Object> stocklistpaging(HashMap<String, Object> param);
 	public HashMap<String, Object> stockupdate(HashMap<String, Object> param);

@@ -142,27 +142,20 @@
 			
 			$(".cmjystockupdatebtn").off().on("click", function(){
 				if(confirm("등록하시겠습니까?")){
-	    	    	var cnt = 0;
 	    	    	var stock = $("#s1").val();	 
-	    	    	 
+	    	    	var no = $("#s1").closest("tr").find("td").eq(1).text();
 	    	    	console.log(stock);
-	    	    	for(var i = 0; i < $("tbody tr input:checkbox:checked").length; i++){
-	    	    		var index = $("tbody tr td input:checkbox").index($("tbody tr td input:checkbox:checked").eq(i));
-	        	    	$.ajax({url:"stockupdate", 
-	        	    		data:{"no": no, "stock":stock}, 
-	        	    		dataType : "json"}).done(function(data){
-	        	    	
-	        	    		if(data.status == 0){
-	        	    			cnt++;
-	        	    		}
-	        	    	});
-	    	    	}	    	    	
-	    	    	if(cnt > 0){
-	    	    		alert("실패하셨습니다.");
-	    	    	}else {
-	    	    		alert("등록하셨습니다.");	    	    		
-	    	    		location.href = "clockmanage";
-	    	    	}
+        	    	$.ajax({url:"stockupdate", 
+        	    		data:{"no": no, "stock":stock}, 
+        	    		dataType : "json"}).done(function(data){
+        	    		if(data.status == 0){
+    	    	    		alert("실패하셨습니다.");
+    	    	    	}else {
+    	    	    		alert("등록하셨습니다.");	    	    		
+    	    	    		location.href = "clockmanage";
+    	    	    	}
+        	    	});
+	    	    	
 	        	}else {
 	        		alert("취소하셨습니다.");
 	      	  	}
