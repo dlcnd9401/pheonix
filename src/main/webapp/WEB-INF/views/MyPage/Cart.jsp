@@ -135,6 +135,7 @@
         });
         //구매버튼
         $(".Cartbagbuy").on("click", function(){
+        	var hash = location.hash;
         	if($("tbody tr input:checkbox:checked").length == 0){
         		alert("품목을 체크해주세요");
         	}else{
@@ -151,7 +152,6 @@
     	    	if(cnt > 0){
     	    		alert("실패하셨습니다.");
     	    	}else {
-    	    		var hash = location.hash;
     	    		alert("구입하셨습니다.");
     	    		hash = "#SellList";
     	    		 var url = "/phoenix/" + hash.substr(1, hash.length);
@@ -213,7 +213,8 @@
     <thead class="Cartlisttop-text">
     <tr class="=Cartlist-text">
     <th width="68">
-     <input type="checkbox" class="Cartcheckbox" id="Cartcheckall">
+     <input type="checkbox" class="Cartcheckbox" id="Cartcheckall" style="margin-top: 6px;
+   margin-left: 20px;">
      </th>     
      <th width="150">이미지</th>
      <th width="300">시리즈</th>

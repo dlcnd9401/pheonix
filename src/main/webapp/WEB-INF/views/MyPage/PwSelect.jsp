@@ -10,19 +10,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-		
-	
 	var hash = location.hash;
-	
-	$("#cancel").off().on("click",function(){
-
-		hash = "#MyPageMaster";
+	function htmlLoad(){
 		var url = "/phoenix/" + hash.substr(1, hash.length);
 		 	$("section").load(url);
-		}else {
-			alert("비밀번호를 다시 입력해주세요");
-		}
+	}
+	$("#cancel").off().on("click",function(){
+		hash = "#MyPageMaster";
+		htmlLoad();
 	});
 // 	$("#sec").off().on("click",function(){
 <%-- 		 		if(<%= user.get("data").get("UserPw") %> == &("input:password").val()){  --%>

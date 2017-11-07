@@ -1,12 +1,4 @@
 
-body{ 
-    width:1903px;
-    max-width:1903px;
-    min-width: 300px;
-    margin : 0px;
-    position: relative;
-}
-
 a {
     text-decoration: none;
 }
@@ -159,6 +151,7 @@ a {
 .Cartcheckbox {
     width: 61px;
     height: 18px;
+
 }
 /*장바구니 리스트글자 조정(크기+굵기+위치)*/
 #Cartshoppingbag .Cartlisttop-text {
@@ -182,9 +175,13 @@ a {
     border-bottom: 1px solid;  
     margin: 0;
 }
+.Cartlist-text th p {
+	
+}
 #Cartcheckall {  
    width: 20px;
    height: 20px;
+   
 }
 
 #Cartshoppingbag .Cartlist-text2 {    
@@ -271,6 +268,7 @@ a {
 }
 .Cartbtn1:hover {
     background-color: #716c6c;
+    float: left;
 }
 /****************** PwSelect ********************/
 #PWmymain {
