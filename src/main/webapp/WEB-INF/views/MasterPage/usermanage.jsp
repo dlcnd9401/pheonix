@@ -158,7 +158,7 @@ var data = []; // 데이터 담을 배열 변수 선언
 <!-- --------------------------------------------------  -->    
     <section>
         <div class="umjyMasterPage1">
-           <div id="umjytitlebox"><a class="umjyjemuk">회원관리</a></div>
+           <div id="umjytitlebox"><p class="umjyjemuk">회원관리</p></div>
            <div class="umjysearch">
            		  <!--search + 검색 -->
                <div class="umjycol-2">

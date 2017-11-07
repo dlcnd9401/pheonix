@@ -41,24 +41,27 @@ public class MasterService implements MasterServiceInterface {
 	      for(int i = 0; i < file.length; i++){
 	         String name = file[i].getOriginalFilename();
 	         String path2 = "resources/img/";
-	         String path3 = "Collection/";
 	         System.out.println(path2 + name);
 	         try {
 	            byte[] bytes = file[i].getBytes();
 	            
 	            String path = "";
+	            
 	            // 개발 툴에서만 사용 할것!
 	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 
 	            //path = "E:/GIT/JDC/src/main/webapp/" + path2;
 	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;
+	            /*path = "C:/Users/GD/git/phoenix/src/main/webapp/resources/img/Collection/insert/"  +  name;*/
 	            System.out.println(path);
-	            
+	 
 	            File f = new File(path);
+	            System.out.println("f : " + f);
+	            System.out.println("exists : " + f.exists());
 	            
-	            if(f.exists()){
+	            if(f.exists() == false){
 	               f = new File(path + name);
 	               OutputStream out = new FileOutputStream(f);
-	            System.out.println(f);
+	            System.out.println("f" + f);
 	               out.write(bytes);
 	               out.close();
 	               
