@@ -221,6 +221,9 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
     width: 100%;
     height: 300px;
     border: 1px solid;
+    float: left;
+    padding: 6px 12px;
+    
 }
 .qpsydatailbotton {
     width: 100%;
