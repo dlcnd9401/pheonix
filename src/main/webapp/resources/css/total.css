@@ -1,3 +1,10 @@
+body{ 
+    width:1903px;
+    max-width:1903px;
+    min-width: 300px;
+    margin : 0px;
+    position: relative;
+}
 /****************** SellList *********************/
 #Sellmymain {
     width: 1903px;

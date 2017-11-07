@@ -69,4 +69,16 @@ public class SignupController {
 	   mav.setViewName("redirect:/model");
 	   return mav;
    }
+   // 로그인유지
+   @RequestMapping(value="/LoginCheck", method = RequestMethod.POST)
+   public void LoginCheck(HttpServletResponse resp, HttpSession session){
+      HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+      HashMap<String, Object> map = new HashMap<String, Object>();
+      if(user == null){
+         map.put("status", 0);
+      }else{
+         map.put("status", 1);
+      }
+      HttpUtil.sendResponceToJson(resp, map);
+   }
 }

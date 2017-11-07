@@ -2,9 +2,7 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%--     <%
-	String UserAuth = request.getAttribute("UserAuth").toString();
-%> --%>
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -60,15 +58,13 @@
             location.replace("Signup"); 
         });
 
-	    $("#loginbtn").off().on("click", function(){
-	        $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
-	        $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
-	        $('#sjlogoutbtn').addClass('m_col_disb');
-	        $('#sjlabel').addClass('m_col_disb');
-	           
-	        login();
-	        
-	     });
+ 	    $("#loginbtn").off().on("click", function(){
+ 			 login();
+ 	        /* $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+ 	        $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+ 	        $('#sjlogoutbtn').addClass('m_col_disb');
+ 	        $('#sjlabel').addClass('m_col_disb'); */  
+ 	     });
 		   
 		 // 마이페이지를 클릭했을때 예외처리
 		 $("#mypagego").off().on("click", function(){			 
@@ -92,9 +88,37 @@
 				alert("접근 권한이 없습니다."); 
 			 }
 		 });
-		
-		
+		 
+	        
+	        // 시작 부분...
+		 function init(){
+	           
+	           $.post("LoginCheck").done(function(result1){
+	              console.log("init()", result1);
+	              if(result1.status == 1){
+	                 // 로그인 되었을때 사용
+	                	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+ 	        			$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+ 	        			$('#sjlogoutbtn').addClass('m_col_disb');
+ 	        			$('#sjlabel').addClass('m_col_disb');
+	                /*  $(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>');
+	                 $(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>'); */
+	              }else{
+	                 // 로그아웃 되었을때 사용
+	                 /* $(".m_bt").html('<div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>'
+	                          + '<div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>'); */
+	               	 	$('#sjlogoutbtn').removeClass('m_col_disb').addClass('m_col_disn');
+	        			$('#sjlabel').removeClass('m_col_disb').addClass('m_col_disn');
+	        			$('#sjSignup').addClass('m_col_disb');
+ 	        			$('#sjloginbtn').addClass('m_col_disb');
+	                 
+	              }
+	           });
+	        }
+	
+	        init();
 		 htmlLoad();
+	
 	});
 	
 	       function login(){
@@ -122,31 +146,35 @@
 	            	 }else if(result.data != null){
 	            		 alert(UserId + "님 환영합니다.");
 	 	                 ui = UserId;
-	 	                $("#sjlabel span").append(ui + "님");
-	 	              
-	            	  }
+	 	                $("#idspan").append(ui + "님");
+	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
+	 	        		$('#sjlabel').addClass('m_col_disb');
+	 	        		
+	 	   	       	}
+	            
 	            	 console.log(UserId);
 	               
 	             }).fail(function(x){
 	                alert("오류 다시로그인하세요."); 
 	                console.log(d.LoginData);
 	             });
-	             
 
-	          }  
+	       } 
 
-	
+
+
 	</script>
 </head>
 <body>
 <div class = "main">
     <header>
             <div class ="m_bt">
-            <div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>
-            <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>
-            <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
-            <!-- <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div> -->
-            <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>
+             <div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;" id = "idspan"></span></div> 
+            <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div> 
+             <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div> 
+             <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div> 
             </div>
     <div class = "box50">
         <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
