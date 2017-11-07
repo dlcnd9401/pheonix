@@ -12,9 +12,11 @@
     height: 800px;
 }
 .qpsytable_name {
-    font-size: 30px;
-    margin-left: 250px;
+    font-size: 60px;
+    margin-left: 750px;
     font-weight: bold;
+    line-height: 130px;
+    
 }
 .qpsyselect {
     margin-left: 250px;
@@ -52,6 +54,7 @@
 }
 
 .qpsysub_news th {
+	text-align: center;
     padding: 5px 0 6px;
     border-top: solid 1px #999;
     border-bottom: solid 1px #b2b2b2;

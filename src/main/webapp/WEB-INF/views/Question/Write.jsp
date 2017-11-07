@@ -40,14 +40,42 @@
                  }else {
                     alert("다시 작성해주세요.");
                  }
-                 location.href = "MasterPage1"; //예외처리
+                 //location.href = "MasterPage1"; //예외처리
               });
         });
            
-           $(".qpsywriteback").off().on("click", function(){
+//            $(".qpsywriteback").off().on("click", function(){
         	   
-        	   location.href = "MasterPage1";
-           });
+//         	   location.href = "MasterPage1";
+//            });
+           
+//----------------------------------------------- 작성버튼 클릭시 부분전환-------------------------------------------------------------
+
+			$(".qpsywritebtn").off().on("click",function(){
+				hash = "#MasterPage1";
+				htmlLoad();
+			});
+			
+			function htmlLoad(){
+		  		var url = "/phoenix/" + hash.substr(1, hash.length)
+		  		$("section").load(url);
+		  	}
+
+//------------------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------- 취소버튼 클릭시 부분전환-------------------------------------------------------------
+
+			$(".qpsywriteback").off().on("click",function(){
+				hash = "#MasterPage1";
+				htmlLoad();
+			});
+			
+			function htmlLoad(){
+		  		var url = "/phoenix/" + hash.substr(1, hash.length)
+		  		$("section").load(url);
+		  	}
+
+//------------------------------------------------------------------------------------------------------------------------------
       });
 
     </script>
@@ -63,7 +91,7 @@
                 </div>
                 <div class="qpsywriteMiddle">
                     <p><b>문의 내용</b></p>
-                    <textarea rows="35" cols="98" maxlength="98" name="QContents" id="QContents"></textarea>
+                    <textarea rows="35" cols="98" maxlength="98" name="QContents" id="QContents" style="margin: 0px 0px 0px 50px; width: 805px; height: 649px;"></textarea>
                 </div>
                 <div class="qpsywriteBottom">
                    <button type="submit" class="qpsywritebtn">작 성</button>

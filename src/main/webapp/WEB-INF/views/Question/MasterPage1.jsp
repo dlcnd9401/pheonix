@@ -9,6 +9,9 @@
     <link rel = "stylesheet" href ="resources/css/layout.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
     <script type="text/javascript">
     
 
@@ -100,18 +103,35 @@
 				$("tbody").empty();
 				for(var i = 0; i < data.length; i++){
 				 	html = "<tr>"
-					html += '<td><a href="#">' + data[i].Qno + '</a></td>';
-					html += '<td><a href="#">' + data[i].UserId + '</a></td>'; 
-					html += '<td><a href="#">' + data[i].Qtitle + '</td>';
+					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qno + '</a></td>';
+					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].UserId + '</a></td>'; 
+					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qtitle + '</td>';
 /* 					html += '<td><a href="Detail?class="title">'; */
 					html += '</td>';
 					html += '</tr>'; 
 					$("tbody").append(html);
-					detailSection();
 				}
-				$(".writebtn").click(function(){
-					location.replace("Write"); 
-				});	
+				
+				
+// 				$(".writebtn").click(function(){
+// 					location.replace("Write"); 
+// 				});	
+
+//----------------------------------------------- 작성버튼 클릭시 부분전환-------------------------------------------------------------
+
+				$(".writebtn").off().on("click",function(){
+					hash = "#Write";
+					htmlLoad();
+				});
+				
+				function htmlLoad(){
+			  		var url = "/phoenix/" + hash.substr(1, hash.length)
+			  		$("section").load(url);
+			  	}
+
+//------------------------------------------------------------------------------------------------------------------------------
+
+
 				 if(data.length < 1){
 			           	var tag = "<tr class='list-text2'>"; 
 			   		    tag += "<td>데이터가 없습니다.</td>";
@@ -121,15 +141,7 @@
 		}
 		
 		initData();
-		function detailSection(data){
-			var hash = location.hash;
-            var index = $("tbody tr").index(this);
-			$("tbody tr td a").off().on("click",function(){
-				hash = "#Detail?Qno="+data[index].Qno;
-				var url = "/phoenix/" + hash.substr(1, hash.length);
-				$("section").load(url);
-			});
-		}
+		htmlLoad();
 		
 	
 		
