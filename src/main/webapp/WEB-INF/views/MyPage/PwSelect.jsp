@@ -7,6 +7,15 @@
   <link rel = "stylesheet" href = "/phoenix/resources/css/total.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	var hash = location.hash;
+	var url = "/phoenix/" + hash.substr(1, hash.length);
+	$("#cancel").off().on("click",function(){
+		hash = "#MyPageMaster";
+		 	$("body").load(url);
+	});
+	
+});
 </script>
 </head>
 <body>  
@@ -20,6 +29,7 @@
 	        	Password : 
 		        <input type="password" placeholder="비밀번호를 입력해주세요" name="UserPw">       
 	        	<button type="submit">확인</button>
+	        	<a href ="#"><button type="button" id ="cancel">취소</button></a>
 	        </div>
        </form>
     </div>

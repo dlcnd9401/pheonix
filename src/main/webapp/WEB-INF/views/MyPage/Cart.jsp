@@ -155,7 +155,7 @@
     	    		alert("구입하셨습니다.");
     	    		hash = "#SellList";
     	    		 var url = "/phoenix/" + hash.substr(1, hash.length);
-    	    		 $("body").load(url);
+    	    		 $("section").load(url);
     				initData();
     	    	}
         	}else {
