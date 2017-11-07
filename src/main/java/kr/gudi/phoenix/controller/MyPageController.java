@@ -119,7 +119,8 @@ public class MyPageController {
 			if((form.get("UserPw")).equals(user.get("data").get("UserPw"))){
 				mav.setViewName(PAGE + "UserUpdate");
 				mav.addObject("user", user);
-			}else{
+	     	}
+				else{
 				mav.setViewName(PAGE + "Error");
 				mav.addObject("msg", "비밀번호가 잘못 되었습니다. 다시 확인 하시겠습니까?");
 				mav.addObject("url", "PwSelect");

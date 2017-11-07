@@ -1,4 +1,6 @@
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user"); %>
 <!doctype html>
 <html>
 <head>
@@ -8,12 +10,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	
+		
+	
 	var hash = location.hash;
-	var url = "/phoenix/" + hash.substr(1, hash.length);
+	
 	$("#cancel").off().on("click",function(){
+
 		hash = "#MyPageMaster";
-		 	$("body").load(url);
+		var url = "/phoenix/" + hash.substr(1, hash.length);
+		 	$("section").load(url);
+		}else {
+			alert("비밀번호를 다시 입력해주세요");
+		}
 	});
+// 	$("#sec").off().on("click",function(){
+<%-- 		 		if(<%= user.get("data").get("UserPw") %> == &("input:password").val()){  --%>
+// 				hash = "#UserUpdate";
+// 				var url = "/phoenix/" + hash.substr(1, hash.length);
+// 				 	$("section").load(url);
+// 				}else {
+// 					alert("비밀번호를 다시 입력해주세요");
+// 				}
+// 			});
 	
 });
 </script>
@@ -28,7 +47,7 @@ $(document).ready(function(){
 	        <div class="PWinput">
 	        	Password : 
 		        <input type="password" placeholder="비밀번호를 입력해주세요" name="UserPw">       
-	        	<button type="submit">확인</button>
+	        	<button type="submit" id="sec">확인</button>
 	        	<a href ="#"><button type="button" id ="cancel">취소</button></a>
 	        </div>
        </form>
