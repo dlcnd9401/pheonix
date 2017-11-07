@@ -60,13 +60,7 @@
             		    	tag += "　";
             		    }
             		    tag += "</td>";
-            		    tag += "<td width='200'>";
-            		    if(data[i].Date != ''){
-            		    	tag += data[i].Date; 
-            		    }else {
-            		    	tag += "　";
-            		    }
-            		    tag += "</td>";
+            	
             		    tag += "</tr>";
             		$("tbody").append(tag);
             		  
@@ -200,10 +194,10 @@
 
    <div id="Cartshoppingbagpage">  
      <!-- 페이지숫자, 이동버튼 --> 
-     <h1>장바구니</h1>
+     <p>장바구니</p>
      
       <div class="Cartbuydelbtns"> <!-- 장바구니 버튼 -->
-          <a href="#"><button type="button" class="Cartbtn1 Cartbagbuy">구매</button></a>
+          <a href="#"><button type="button" class="Cartbtn1 Cartbagbuy" style="float: left;">구매</button></a>
           <button type="button" class="Cartbtn1 Cartbagdel">삭제</button>
       </div>
       
@@ -216,12 +210,11 @@
      <input type="checkbox" class="Cartcheckbox" id="Cartcheckall" style="margin-top: 6px;
    margin-left: 20px;">
      </th>     
-     <th width="150">이미지</th>
-     <th width="300">시리즈</th>
-     <th width="300">상품명</th>
-     <th width="360">제품번호</th>
-     <th width="250">가격</th> 
-     <th width="200">구입날짜</th>
+     <th width="150" style="text-align: center;">이미지</th>
+     <th width="300" style="text-align: center;">시리즈</th>
+     <th width="300" style="text-align: center;">상품명</th>
+     <th width="360" style="text-align: center;">제품번호</th>
+     <th width="250" style="text-align: center;">가격</th> 
      
       </tr>
        </thead>  

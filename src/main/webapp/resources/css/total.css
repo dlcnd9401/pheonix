@@ -1,8 +1,3 @@
-
-a {
-    text-decoration: none;
-}
-
 /****************** SellList *********************/
 #Sellmymain {
     width: 1903px;
@@ -24,26 +19,26 @@ a {
 }
 /*사용자페이지 + 장바구니페이지*/
 #Sellshoppingbagpage {
-    margin-left: 150px;
-    width: 1550px;
+    margin: 0 300px 0 300px;
+    width: 1300px;
     height: 1450px; 
 }
 
 #Sellshoppingbaglist {
    margin: 10px 0px;
-    width: 1550px;
+    width: 1300px;
     color: #666;
     font-size: 12px;
     table-layout: fixed;
 }
 /* 장바구니 큰공간*/
 #Sellshoppingbag {
-    width: 1550px;    
+    width: 1300px;    
 }
 /*장바구니 리스트글자 조정(크기+굵기+위치)*/
 #Sellshoppingbag .Selllisttop-text {
     height: 35px;
-    width:  1550px;
+    width:  1300px;
     font-size: 20px;
     font-weight: 500;
     text-align: center;
@@ -55,7 +50,7 @@ a {
 
 /*장바구니 리스트글자 조정(크기+굵기+위치)*/
 #Sellshoppingbag .Selllist-text {    
-    width:  1550px;       
+    width:  1300px;       
     font-size: 20px;
     height: 110px;    
     text-align: center;
@@ -131,6 +126,9 @@ a {
 }
 #Cartshoppingbagpage h1 {
    margin-top: 0px; 
+   padding-top: 20px;
+   font-size: 50px;
+    font-weight: bold;
 }
 
 
@@ -151,7 +149,6 @@ a {
 .Cartcheckbox {
     width: 61px;
     height: 18px;
-
 }
 /*장바구니 리스트글자 조정(크기+굵기+위치)*/
 #Cartshoppingbag .Cartlisttop-text {
@@ -175,13 +172,9 @@ a {
     border-bottom: 1px solid;  
     margin: 0;
 }
-.Cartlist-text th p {
-	
-}
 #Cartcheckall {  
    width: 20px;
    height: 20px;
-   
 }
 
 #Cartshoppingbag .Cartlist-text2 {    
@@ -268,7 +261,6 @@ a {
 }
 .Cartbtn1:hover {
     background-color: #716c6c;
-    float: left;
 }
 /****************** PwSelect ********************/
 #PWmymain {
@@ -427,10 +419,3 @@ a {
 a {
     text-decoration: none;
 }
-
-
-
-
-
-
-

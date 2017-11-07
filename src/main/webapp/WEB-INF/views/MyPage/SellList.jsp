@@ -21,47 +21,41 @@
 	             // 데이터를 출력하는데 널값이 있어도 빈칸으로 출력되게함.
 	             for(var i = 0; i < data2.length; i++){
 	        		var tag = "<tr class='Selllist-text'>"; 
-	        		    tag += "<td style='width:150px'>";
+	        		    tag += "<td width='250'>";
 	        		    if(data2[i].path != ''){
 	        		    	tag += "<img class='img' src='" + data2[i].path + "'";
 	        		    }else {
 	        		    	tag += "　";
 	        		    }
 	        		    tag += "</td>";
-	        		    tag += "<td style='width:250px'>";
+	        		    tag += "<td width='250'>";
 	        		    if(data2[i].Sname != ''){
 	        		    	tag += data2[i].Sname;
 	        		    }else {
 	        		    	tag += "　";
 	        		    }
 	        		    tag += "</td>";
-	        		    tag += "<td style='width:250px'>";
+	        		    tag += "<td width='250'>";
 	        		    if(data2[i].Name != ''){
 	        		    	tag += data2[i].Name;
 	        		    }else {
 	        		    	tag += "　";
 	        		    }
 	        		    tag +="</td>";
-	        		    tag += "<td style='width:250px'>";
+	        		    tag += "<td width='250'>";
 	        		    if(data2[i].Code != ''){
 	        		    	tag += data2[i].Code;
 	        		    }else {
 	        		    	tag += "　";
 	        		    }
-	        		    tag += "<td style='width:200px'>";
+	        		    tag += "<td width='200'>";
 	        		    if(data2[i].Price != ''){
 	        		    	tag += data2[i].Price; 
 	        		    }else {
 	        		    	tag += "　";
 	        		    }
 	        		    tag += "</td>";
-	        		    tag += "<td style='width:200px'>";
-	        		    if(data2[i].Date != ''){
-	        		    	tag += data2[i].Date; 
-	        		    }else {
-	        		    	tag += "　";
-	        		    }
-	        		    tag += "</td>";
+
 	        		    tag += "</tr>";
 	        		$("tbody").append(tag);
 	        		
@@ -135,12 +129,11 @@
    
     <thead class="Selllisttop-text">
     <tr>        
-     <th width="150px">이미지</th>
-     <th width="250px">시리즈</th>
-     <th width="250px">상품명</th>
-     <th width="250px">제품번호</th>
-     <th width="200px">가격</th> 
-     <th width="200px">구입날짜</th> 
+     <th width="250" style="text-align: center;">이미지</th>
+     <th width="250" style="text-align: center;">시리즈</th>
+     <th width="250" style="text-align: center;">상품명</th>
+     <th width="250" style="text-align: center;">제품번호</th>
+     <th width="200" style="text-align: center;">가격</th>  
     </tr>
    </thead>  
        <tbody>
