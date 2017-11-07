@@ -92,13 +92,14 @@
                 <div class="qpsydatailMiddel">
                     <p>작성자 : <span>ID</span></p>
                     <div class="qpsydetailMiddel1">
-                        <p>QContant(문의 내용)</p>
+                        <p></p>
                     </div>
                     </div>
                                 
 <!--                     <form action="setAnswerData" method="post"> -->
                         <div class="qpsydatailTop2">
-                            <p>관리자 답변 <button type="button" class="ansbtn" id="sybutn1">활성화</button></p></div>  
+                            <span>관리자 답변</span> <button type="button" class="ansbtn" id="sybutn1">활성화</button>
+                            </div>  
                             <!-- <input type="hidden" name="Qno" value=""> -->
                 <!--관리자일경우 버튼이 보이고 버튼 클릭시 .Qtext 생성-->
                             <div class="qpsydetailMiddel2">
@@ -108,16 +109,12 @@
                                 
 <!--                                 <input type ="text" id="syinputbox" name="Reply"  class="" style = "width:800px; height:200px;"></div> -->
                                 <textarea id="syinputbox" name="Reply" class="form-control col-xs-12 disnone" rows="14" cols="80" style="margin:0;width: 855px; height: 297px;resize:none;" ></textarea>
-                                
+                                </div>
                                 <div class ="boxheight">
                         		<input type="button" class="qpsyQbtn2" value="취소">
                         		<input type="button" class="qpsyQbtn1" value="답변">
-                        		</div>
-                            </div>
-                        
-                       
-<!--                     </form> -->
-                
+                        		
+                            </div>                
             </div>
 
 </body>
