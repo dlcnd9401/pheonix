@@ -75,8 +75,9 @@ header{
 }
 
 .back1 {
+	line-height: 70px;
     width: calc(1730px);
-    height: 75px;
+    height: 120px;
     float: left;
 }/* 회원가입 글씨  */
 
@@ -149,9 +150,10 @@ header{
 }
 
 .btn2 {
+	margin-top: 20px;
     width: 1730px;
     float: left;
-    margin-left: 20px;
+    margin-left: 10px;
 } /* 가입하기 취소 큰 틀 */
 
 
@@ -276,7 +278,7 @@ footer {
 .hsection{
     width: 1903px;
     height: auto;
-    background-color :azure;
+    background-color :#ededed;
 }
 
 
@@ -321,7 +323,7 @@ color:white;
 
 
 .back {
-    /* background-color: #ededed; */
+    background-color: #ededed;
     height: 700px;
     width: 1730px;
 }
