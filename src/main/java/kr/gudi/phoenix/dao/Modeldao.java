@@ -20,8 +20,8 @@ public class Modeldao implements ModeldaoInterface {
 
 	}*/
 	@Override
-	public List<HashMap<String,Object>> model(HashMap<String,Object> param){
-	return session.selectList("sql.model",param);
+	public List<HashMap<String,Object>> model(){
+	return session.selectList("sql.model");
 
 	}
 	@Override

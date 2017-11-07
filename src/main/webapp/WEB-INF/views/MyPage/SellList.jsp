@@ -125,7 +125,7 @@
 <body>
 <div id="Sellmymain">
  <div class="Selltitlebox">  
-   <a class="Selltitle">구매내역</a>
+   <p class="Selltitle">구매내역</p>
    </div>
    
    <div id="Sellshoppingbagpage">  

@@ -5,7 +5,7 @@
 <head>
 	<title>회원가입</title>
 </head>
-	<link rel = "stylesheet" href = "resources/css/Signup.css">
+	<link rel="stylesheet" href="resources/css/Signup.css">
     <link rel="stylesheet" href="resources/css/Model.css">
     <!-- <link rel="stylesheet" href="resources/js/main.js"> -->
     <link rel = "stylesheet" href = "resources/css/layout.css">
@@ -125,8 +125,6 @@
             <div class="pwd"> 
                 <input type="password" placeholder="비밀번호" class="inputbox" id="UserPw" name="UserPw" maxLength="20"> 
             </div>
-            <div class="back2"></div>
-            
             <div class="name"> 
                 <input type="text" placeholder="이름" class="inputbox" id="UserName" name="UserName" maxLength="20"> 
             </div>

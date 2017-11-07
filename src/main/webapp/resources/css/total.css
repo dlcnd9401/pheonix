@@ -367,7 +367,7 @@ a {
 .MyPageMaster {    
     width: 1303px;
     margin-left: 450px;
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 .MpmPwSelect {

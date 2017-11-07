@@ -39,16 +39,31 @@
 			
 			init();
 		
+			// 관리자는 활성화버튼이보임
+			if(UserAuth == 2){
+				$(".ansbtn").hide();
+			}else{
+				$(".ansbtn").show();
+			}
+			
+			// 관리자는 작성버튼이보임
+			if(UserAuth == 2){
+				$(".qpsyQbtn1").hide();
+			}else{
+				$(".qpsyQbtn1").show();
+			}
 			
 			// 활성화눌렀을때
 			$(".ansbtn").off().on("click", function(){
 				$('#syinputbox').removeClass('disnone').addClass('disblock');
 			});
 			
-			// 취소버튼 눌렀을때 MasterPage1로 돌아가기
+			// 취소버튼 눌렀을때 model로 돌아가기
 			$(".qpsyQbtn2").off().on("click", function(){
 				location.replace("model");
 			});
+			
+			// 답변달기
 			function ajax() {
 				$(".qpsyQbtn1").off().on("click", function(){
 					if(confirm("등록하시겠습니까?")){
@@ -82,44 +97,30 @@
     </script>
 
 </head>
-
-<body>
-
-            <div class="qpsydetailBox">
-                <div class="qpsydatailTop1">
-                    <span>Question</span>
-                </div>
-                <div class="qpsydatailMiddel">
-                    <p>작성자 : <span>ID</span></p>
-                    <div class="qpsydetailMiddel1">
-                        <p>QContant(문의 내용)</p>
-                    </div>
-                    </div>
-                                
-<!--                     <form action="setAnswerData" method="post"> -->
-                        <div class="qpsydatailTop2">
-                            <p>관리자 답변 <button type="button" class="ansbtn" id="sybutn1">활성화</button></p></div>  
-                            <!-- <input type="hidden" name="Qno" value=""> -->
-                <!--관리자일경우 버튼이 보이고 버튼 클릭시 .Qtext 생성-->
-                            <div class="qpsydetailMiddel2">
-                <!--관리자가 답변했을경우 disblock으로 변경-->
-                                
-                                <div class ="qp_textbox">
-                                
-<!--                                 <input type ="text" id="syinputbox" name="Reply"  class="" style = "width:800px; height:200px;"></div> -->
-                                <textarea id="syinputbox" name="Reply" class="form-control col-xs-12 disnone" rows="14" cols="80" style="margin:0;width: 855px; height: 297px;resize:none;" ></textarea>
-                                
-                                <div class ="boxheight">
-                        		<input type="button" class="qpsyQbtn2" value="취소">
-                        		<input type="button" class="qpsyQbtn1" value="답변">
-                        		</div>
-                            </div>
-                        
-                       
-<!--                     </form> -->
-                
-            </div>
-
-</body>
-
+	<body>
+	<div class="qpsydetailBox">
+		<div class="qpsydatailTop1">
+			<span>Question</span>
+		</div>
+		<div class="qpsydatailMiddel">
+			<p>작성자 : <span>ID</span></p>
+			<div class="qpsydetailMiddel1">
+				<p></p>
+			</div>
+		</div>
+		<div class="qpsydatailTop2">
+			<span>관리자 답변</span>
+			<button type="button" class="ansbtn" id="sybutn1">활성화</button>
+		</div>  
+		<div class="qpsydetailMiddel2">
+			<div class ="qp_textbox">
+				<textarea id="syinputbox" name="Reply" class="form-control col-xs-12 disnone" rows="14" cols="80" style="margin:0;width: 830px; height: 280px;resize:none;" ></textarea>
+			</div>            
+		</div>
+		<div class ="boxheight">
+			<input type="button" class="qpsyQbtn2" value="취소">
+			<input type="button" class="qpsyQbtn1" value="답변">
+		</div> 
+	</div>
+	</body>
 </html>

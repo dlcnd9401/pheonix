@@ -17,9 +17,9 @@ public class ModelService implements ModelServiceInterface {
 	public HashMap<String, Object> map;
 
 	@Override
-	public HashMap<String, Object> model(HashMap<String, Object> param) {
+	public HashMap<String, Object> model() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("model", mdi.model(param));
+		map.put("model", mdi.model());
 		return map;
 	}
 	@Override

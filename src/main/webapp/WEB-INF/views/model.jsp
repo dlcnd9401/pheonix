@@ -25,11 +25,7 @@
 		if(hash == ""){
 			hash = "#mainsec"; // hash에 값이 없을때 초기값 설정
 		}
-/* 		function main(){
-			location.hash = hash; // url에 hash 정보 변경
-			loadJSP(); // 화면 전환
-		}; */
-	    
+
 		// 문의하기를 클릭했을때 hash 화면전환--------------------------------
 		 $("#questionbtn").off().on("click", function(){
 		 hash= "#MasterPage1";  //이거 2개 가져다쓰면 화면전환 가능!!
@@ -45,17 +41,10 @@
   		 var url = "/phoenix/" + hash.substr(1, hash.length)
   		 $("section").load(url);
   		 }
-		 	       
- 		 htmlLoad();
 
 		 //------------------------------------------------------
 		 
-		
-		function loadJSP(){
-			var url = "/phoenix/"+ hash.substr(1, hash.length)// url 주소 생성
-			$("section").load(url);
-			// 특정 url에서 가져온 데이터(html)를 section 태그 속에 넣기.
-		} 
+
 		   
 	    $('.collection').off().on("mouseover",function(){
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");
@@ -105,7 +94,7 @@
 		 });
 		
 		
-		 loadJSP();
+		 htmlLoad();
 	});
 	
 	       function login(){
