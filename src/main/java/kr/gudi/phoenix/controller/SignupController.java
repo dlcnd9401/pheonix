@@ -48,7 +48,6 @@ public class SignupController {
       HashMap<String, Object> checkiddata = (HashMap<String, Object>) tsi.checkid(checkid);
       HttpUtil.sendResponceToJson(resp, checkiddata);
    }
-   
    // 로그인
    @RequestMapping(value = "/LoginData", method = RequestMethod.POST)
    public void loginData(HttpServletRequest req, HttpServletResponse resp, HttpSession session){

@@ -1,32 +1,50 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<link rel = "stylesheet" href = "/phoenixex/resources/css/findid.css">
+<link rel = "stylesheet" href = "/phoenix/resources/css/total.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>PoPup</title>
+    <script type="text/javascript">
+$(document).ready(function(){
+    	var hash = location.hash;
+    	function htmlLoad(){
+    		var url = "/phoenix/model/" + hash.substr(1, hash.length);
+   		 	$("section").load(url);
+    	}
+    	$(".popbtn1").off().on("click",function(){
+    		hash = "model";
+    		
+    	});
+    	$(".popbtn2").off().on("click",function(){
+    		hash = "#Cart";
+    		
+    	});
+    	$(".popbtn3").off().on("click",function(){
+    		hash = "#SellList";
+    		
+    	});
+		
+    });
+    </script>
 </head>
 <body>
-<div class="">
-<!--  message    -->
-        
         <div class="msg">
-            <!--닫기버튼-->
-        <a href="model"><div class="popbtn">
+       	<h2>이용해주셔서 감사합니다.</h2>
+        <a href="#"><div class="popbtn1">
             <span class="popspan">Home</span> 
             </div></a>
 
             <!--구매내역 버튼-->
-        <a href="SellList"><div class="popbtn">
+        <a href="#"><div class="popbtn2">
            <span class="popspan">구매목록</span> 
-            </div></a>SellList
+            </div></a>
             
-        <a href="Cart"><div class="popbtn">
+        <a href="#"><div class="popbtn3">
            <span class="popspan">장바구니</span> 
             </div></a>
         </div>
-    </div>
 </body>
 </html>

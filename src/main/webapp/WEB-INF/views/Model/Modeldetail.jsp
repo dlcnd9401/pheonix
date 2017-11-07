@@ -13,6 +13,7 @@
      <link rel = "stylesheet" href = "resources/css/Modeldetail.css">
      <link rel = "stylesheet" href = "resources/css/layout.css">  
      <link rel = "stylesheet" href = "resources/css/Model.css">
+     <link rel = "stylesheet" href = "/phoenix/resources/css/total.css">
      <%
      String UserId = request.getAttribute("UserId").toString();
 	String UserPost = request.getAttribute("UserPost").toString(); 
@@ -48,6 +49,34 @@
 
 </head>
 <body> 
+ <!-- Modal PoPup -->
+	<div id="PopUp" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content -->
+	     <div class="modal-content">
+	      <div class="modal-header">
+	      <div class="msg">
+       	<h2>이용해주셔서 감사합니다.</h2>
+       	<div class="popbtn">
+        <a href="#" data-dismiss="modal"><div class="popbtn1">
+            <span class="popspan">Home</span> 
+            </div></a>
+
+            <!--구매내역 버튼-->
+        <a href="#" data-dismiss="modal"><div class="popbtn2">
+           <span class="popspan">구매목록</span> 
+            </div></a>
+            
+        <a href="#" data-dismiss="modal"><div class="popbtn3">
+           <span class="popspan">장바구니</span> 
+            </div></a>
+            </div>
+        </div>
+         </div>
+          </div>
+	  </div>
+	</div>
 <div class = "main">
     <header>
             <div class ="m_bt">
@@ -115,7 +144,8 @@
 			<input style =display:none; type = "text" name = "Sname" id ="Sname" value ="<%= map.get(i).get("sname")%>"><br>
 			<input style =display:none; type = "text" name = "path" id ="path" value ="<%= map.get(i).get("img")%>"><br>
 			<input style =display:none; type = "text" name = "Price" id ="Price" value ="<%= map.get(i).get("price")%>"><br>
-			<input type ="submit" class = "collbtn2" value ="장바구니"></form>
+			<a href="#"  data-toggle="modal" data-target="#PopUp"><input type ="submit" class = "collbtn2" value ="장바구니"></a>
+			</form>
                      <!-- Cart -->
                     <select>
                         <option value="상품수량선택"></option>
@@ -177,7 +207,7 @@
 			<input style =display:none; type = "text" name = "Sname" id ="Sname" value ="<%= map.get(i).get("sname")%>"><br>
 			<input style =display:none; type = "text" name = "path" id ="path" value ="<%= map.get(i).get("img")%>"><br>
 			<input style =display:none; type = "text" name = "Price" id ="Price" value ="<%= map.get(i).get("price")%>"><br>
-			<input type ="submit" class = "collbtn" value ="구매">
+			<a href="#"  data-toggle="modal" data-target="#PopUp"><input type ="submit" class = "collbtn" value ="구매"></a>
 			</form> <!--  buylist -->
                 </div> 
 					

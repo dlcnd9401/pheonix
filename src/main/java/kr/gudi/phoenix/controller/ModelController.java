@@ -109,10 +109,11 @@ public class ModelController {
 			mav.setViewName("Model/ModelList");
 			System.out.println(session.getAttribute("user"));
 			return mav;
+			}
 		}
-		}
-	
 	}
+	
+	
 	
 //	@RequestMapping("/model")
 //	public ModelAndView model(ModelAndView mav,HttpServletRequest req, HttpSession session){
