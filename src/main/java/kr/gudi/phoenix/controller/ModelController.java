@@ -92,15 +92,26 @@ public class ModelController {
 	public ModelAndView modellist(ModelAndView mav,HttpServletRequest req, HttpSession session){
 		map = new HashMap<String,Object>();
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
+		if(user == null){ 
+			mav.setViewName("redirect:/alert");
+			return mav;
+		}else{
 		/*HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");*/
 		map.put("scode", req.getParameter("scode"));
 		map = msi.modellist(map);
 		mav.addObject("data", map.get("modellist"));
-	/*	mav.addObject("UserAuth", user.get("data").get("UserAuth"));*/
-		/*System.out.println(user.get("data").get("UserAuth"));*/
-		mav.setViewName("Model/ModelList");
-		System.out.println(session.getAttribute("user"));
-		return mav;
+		if(user != null) {
+			mav.addObject("UserId", user.get("data").get("UserId"));
+			mav.setViewName("Model/ModelList");
+			System.out.println(session.getAttribute("user"));
+			return mav;
+		}else{
+			mav.setViewName("Model/ModelList");
+			System.out.println(session.getAttribute("user"));
+			return mav;
+		}
+		}
+	
 	}
 	
 //	@RequestMapping("/model")
