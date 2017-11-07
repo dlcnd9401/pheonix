@@ -15,6 +15,7 @@
     	var totCnt = 0; // 데이터 전체 객수
     	var pageGroup = 1; // 현재 페이지 값
         var pageView = 5; // 페이징 버튼 객수
+        
     	function createHtml(){
                  $("tbody").empty();
                  // 데이터를 출력하는데 널값이 있어도 빈칸으로 출력되게함.
@@ -117,9 +118,7 @@
     				totCnt = result.totCnt.tot;
     				createHtml(); // 화면에 표현하기 위하여 함수 호출
     				createPaging(); // 페이지 링크 표현하기 우하여 함수 호출
-    			}).fail(function(x) {
-    	            alert("fail");
-    	        });
+    			});
     		}	
     		initData();
         
@@ -136,12 +135,14 @@
         });
         //구매버튼
         $(".Cartbagbuy").on("click", function(){
-        	if($("tbody tr input:checkbox:checked").length != 0){
+        	if($("tbody tr input:checkbox:checked").length == 0){
+        		alert("품목을 체크해주세요");
+        	}else{
         	if(confirm("구입하시겠습니까?")){
         		var cnt = 0;
         		for(var i = 0; i < $("tbody tr input:checkbox:checked").length; i++){
     	    		var index = $("tbody tr input:checkbox").index($("tbody tr input:checkbox:checked").eq(i));
-        	    	$.ajax({url:"sellUpdate", data:{"BuyNo": data[index].BuyNo}, dataType : "json"}).done(function(data){
+        	    	$.ajax({type:"post",url:"sellUpdate", data:{"BuyNo": data[index].BuyNo}, dataType : "json"}).done(function(data){
         	    		if(data.status == 0){
         	    			cnt++;
         	    		}
@@ -150,25 +151,28 @@
     	    	if(cnt > 0){
     	    		alert("실패하셨습니다.");
     	    	}else {
+    	    		var hash = location.hash;
     	    		alert("구입하셨습니다.");
+    	    		hash = "#SellList";
+    	    		 var url = "/phoenix/" + hash.substr(1, hash.length);
+    	    		 $("body").load(url);
     				initData();
     	    	}
         	}else {
         		alert("취소하셨습니다.");
-      	  	}else {
-          	  alert("구매할 상품을 선택해주세요");
-            }
+      	  	}
           }
     	});
         //삭제버튼
         $(".Cartbagdel").on("click", function(){
-        	
-        	if($("tbody tr input:checkbox:checked").length != 0){
+        	if($("tbody tr input:checkbox:checked").length == 0){
+        		alert("품목을 체크해주세요");
+        	}else{
         	if(confirm("삭제하시겠습니까?")){
     	    	var cnt = 0;
         		for(var i = 0; i < $("tbody tr input:checkbox:checked").length; i++){
     	    		var index = $("tbody tr input:checkbox").index($("tbody tr input:checkbox:checked").eq(i));
-        	    	$.ajax({url:"bagdel", data:{"BuyNo": data[index].BuyNo}, dataType : "json"}).done(function(data){
+        	    	$.ajax({type:"post",url:"bagdel", data:{"BuyNo": data[index].BuyNo}, dataType : "json"}).done(function(data){
         	    		if(data.status == 0){
         	    			cnt++;
         	    		}
@@ -183,9 +187,7 @@
         	}else {
         		alert("취소하셨습니다.");
       	  	}
-          }else {
-        	  alert("삭제할 상품을 선택해주세요");
-          }
+           }
     	});
     });
 
@@ -201,7 +203,7 @@
      <h1>장바구니</h1>
      
       <div class="Cartbuydelbtns"> <!-- 장바구니 버튼 -->
-          <a href="SellList"><button type="button" class="Cartbtn1 Cartbagbuy">구매</button></a>
+          <a href="#"><button type="button" class="Cartbtn1 Cartbagbuy">구매</button></a>
           <button type="button" class="Cartbtn1 Cartbagdel">삭제</button>
       </div>
       

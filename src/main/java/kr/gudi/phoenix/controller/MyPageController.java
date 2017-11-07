@@ -14,8 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.gudi.phoenix.service.MyPageServiceInterface;
 import kr.gudi.util.HttpUtil;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
+
 
 @Controller
 public class MyPageController {
@@ -53,14 +52,14 @@ public class MyPageController {
 		return mav;
 	}
 	//Cart 삭제버튼
-	@RequestMapping("/bagdel")
+	@RequestMapping(value="/bagdel",method = RequestMethod.POST)
 	public ModelAndView bagdel(HttpServletRequest req) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("BuyNo", Integer.parseInt(req.getParameter("BuyNo")));
 		return HttpUtil.makeHashToJsonModelAndView(msi.bagdel(param));
 	}
 	//장바구니 체크한것들 구매목록으로 이동
-	@RequestMapping("/sellUpdate")
+	@RequestMapping(value="/sellUpdate",method = RequestMethod.POST)
 	public ModelAndView sellUpdate(HttpServletRequest req) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("BuyNo", Integer.parseInt(req.getParameter("BuyNo")));
