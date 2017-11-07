@@ -32,14 +32,14 @@ public class MasterController {
 	//MyPageMaster
 		@RequestMapping("/mastermove")
 		public ModelAndView MyPageMaster(ModelAndView mav) {
-			mav.setViewName("mastermove");
+			mav.setViewName("/MasterPage/mastermove");
 			return mav;
 		}
 	
 //	재고관리페이지로 이동
 	@RequestMapping("/clockmanage")
 	public ModelAndView clockmanage(ModelAndView mav){
-		mav.setViewName("clockmanage");
+		mav.setViewName("/MasterPage/clockmanage");
 		return mav;
 	}	
 //	재고골라서리스트 가져오기
@@ -77,7 +77,7 @@ public class MasterController {
 //	회원관리페이지로 이동
 	@RequestMapping("/usermanage")
 	public ModelAndView usermanage(ModelAndView mav){
-		mav.setViewName("usermanage");
+		mav.setViewName("/MasterPage/usermanage");
 		return mav;
 	}
 //	유저골라서리스트 가져오기
@@ -106,7 +106,7 @@ public class MasterController {
 //	상품등록페이지 이동
 	@RequestMapping("/clockupdate")
 	public ModelAndView clockupdate(ModelAndView mav){
-		mav.setViewName("clockupdate");
+		mav.setViewName("/MasterPage/clockupdate");
 		return mav;
 	}	
 //	디비에 상품내용 등록
