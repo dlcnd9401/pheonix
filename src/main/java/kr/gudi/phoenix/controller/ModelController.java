@@ -1,6 +1,5 @@
 package kr.gudi.phoenix.controller;
 
-import java.io.Console;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,13 +24,13 @@ public class ModelController {
 		
 	public HashMap<String, Object> map;
 	
-/*	@RequestMapping("/model")
+	@RequestMapping("/model")
 	public ModelAndView model(ModelAndView mav){
 		mav.setViewName("model");
-		mav.addObject("data", msi.model());
+		HashMap<String, Object> map = msi.model();
+		mav.addObject("model", map.get("model"));
 		return mav;
-		
-	}*/
+	}
 	
 	@RequestMapping("/mainsec")
 	public ModelAndView modeltest(ModelAndView mav){
@@ -104,20 +103,20 @@ public class ModelController {
 		return mav;
 	}
 	
-	@RequestMapping("/model")
-	public ModelAndView model(ModelAndView mav,HttpServletRequest req, HttpSession session){
-		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
-		map = new HashMap <String,Object>();
-		map.put("path", req.getParameter("path"));
-		map.put("sname", req.getParameter("sname"));
-		map.put("top", req.getParameter("top"));
-		map.put("scode", req.getParameter("scode"));
-		map = msi.model(map);
-		mav.addObject("model", map.get("model"));
-		mav.setViewName("model");
-		System.out.println(session.getAttribute("user"));
-		return mav;
-	}
+//	@RequestMapping("/model")
+//	public ModelAndView model(ModelAndView mav,HttpServletRequest req, HttpSession session){
+//		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+//		map = new HashMap <String,Object>();
+//		map.put("path", req.getParameter("path"));
+//		map.put("sname", req.getParameter("sname"));
+//		map.put("top", req.getParameter("top"));
+//		map.put("scode", req.getParameter("scode"));
+//		map = msi.model(map);
+//		mav.addObject("model", map.get("model"));
+//		mav.setViewName("model");
+//		System.out.println(session.getAttribute("user"));
+//		return mav;
+//	}
 	
 	@RequestMapping("/Modelbuy")
 	public ModelAndView modelbuy(ModelAndView mav,HttpServletRequest req, HttpSession session){
