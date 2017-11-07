@@ -1,6 +1,7 @@
     <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <head>
+<link rel = "stylesheet" href = "resources/css/layout.css">
 <script type ="text/javascript">
 $('.sec_in2_box_in2 a').click(function(){
 	$('.bg').fadeOut(1000, function(){
@@ -15,11 +16,11 @@ $('.sec_in2_box_in2 a').click(function(){
         
     });
 </script>
-
+   
 </head>
 
     
-   
+
     
     
 
@@ -36,7 +37,7 @@ $('.sec_in2_box_in2 a').click(function(){
             </div>
     <div class ="m_sec">
         <div class = "m_sec_in">
-        <div class ="m_sec_in_hd"><p>바쉐론 콘스탄틴 컬렉션</p></div>
+        <div class ="m_sec_in_hd"><p id ="m_sectitle">바쉐론 콘스탄틴 컬렉션</p></div>
         <div class ="m_sec_in_box">
             <div class ="m_sec_in_box150"><a href="#">바쉐론 콘스탄틴 컬렉션<br> 자세히 보기<br><br>
                <div class ="m_sec_in_btbox">자세히 보기</div>
@@ -49,7 +50,7 @@ $('.sec_in2_box_in2 a').click(function(){
         </div></div>
     <div class ="m_sec2">
         <div class = "m_sec2_in_hd"><hr>
-            바쉐론 콘스탄틴 뉴스<hr></div>
+            <span id ="Newspan">바쉐론 콘스탄틴 뉴스</span><hr></div>
         <div class ="m_sec2_in_box">
             <div class ="m_sec2_in_box2"><a href="#">
             <div class ="m_sec2_box_in" id ="m_sec2_bg1"></div>

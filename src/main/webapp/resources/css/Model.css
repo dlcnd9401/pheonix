@@ -127,15 +127,14 @@ height: 100%;
 
 .m_sec{
     width: 100%;
-    background-color: #3e3c3c;
+    background-image: url(/phoenix/resources/img/main/collections_bg.jpg);
     height: 700px;
 }
 /* 2번칸 안의 박스 */
 .m_sec_in{
     width:calc(100%/3);
-    margin: 0 calc(100%/3);
+    margin: 0 calc(100%/3);  
     height: 80%;
-    background-color:#5d5d5d;
     transform:translateY(70px);
 }
 /* 머리 말 */
@@ -144,12 +143,11 @@ height: 100%;
     margin: 0 25%;
     font-size:25px;
     height: 80px;
-    line-height: 80px;
     text-align: center;
     margin-bottom: 50px;
 }
 .m_sec_in_hd p{
-    color: #9d8a22;
+    color: #c3a07d;
     margin: 0;
     padding :0;
 }
@@ -184,7 +182,7 @@ height: 100%;
 
 .m_sec_in_box150 a{
     text-decoration: none;
-    color:#b49f2f;
+    color:#c3a07d;
 }
 /* 컬렉션 이동 박스 - 버튼 */
 .m_sec_in_btbox{
@@ -319,4 +317,8 @@ padding: 0px;
 }
 .m_col_disb{
 	display:block;
+}
+#m_sectitle{
+	margin : 0px;
+	padding:0px;
 }
