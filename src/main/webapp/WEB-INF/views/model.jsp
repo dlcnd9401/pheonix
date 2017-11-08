@@ -148,14 +148,14 @@
 	 	        		$('#sjlabel').addClass('m_col_disb');
 	            	 }else{
 	            		 alert("로그인 실패");
-<<<<<<< HEAD
-	 	   	       	}   
-=======
+
+	 	   	       	   
+
 	            		 location.replace("Logout"); 
 	 	   	       	}
 	            	 console.log(UserId);
 	               
->>>>>>> branch 'master' of https://github.com/dlcnd9401/phoenix.git
+
 	             }).fail(function(x){
 	                alert("오류 다시로그인하세요."); 	                
 	             });
