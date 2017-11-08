@@ -103,6 +103,7 @@
 				/*  $(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>');
 				$(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>'); */
 			}else{
+				
 				// 로그아웃 되었을때 사용
 				/* $(".m_bt").html('<div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>'
 				+ '<div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>'); */
@@ -150,6 +151,7 @@
 	 	        		$('#sjlabel').addClass('m_col_disb');
 	            	 }else{
 	            		 alert("로그인 실패");
+	            		 location.replace("Logout"); 
 	 	   	       	}
 	            	 console.log(UserId);
 	               
