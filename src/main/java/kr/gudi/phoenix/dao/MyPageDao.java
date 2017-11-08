@@ -35,8 +35,8 @@ public class MyPageDao implements MyPageDaoInterface {
 	}
 
 	@Override
-	public HashMap<String, Object> selltotCnt() {
-		return session.selectOne("mypage.selltotCnt");
+	public HashMap<String, Object> selltotCnt(HashMap<String, Object> param) {
+		return session.selectOne("mypage.selltotCnt",param);
 	}
 
 	@Override

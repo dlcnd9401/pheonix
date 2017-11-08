@@ -50,7 +50,7 @@
 		 limit #{start}, #{viewRow}
 	</select>
 	<!-- Sell 갯수 -->
-	<select id="selltotCnt" resultType="hashmap">
+	<select id="selltotCnt"  parameterType="hashmap" resultType="hashmap">
 		select count(*) as tot2 from buylist where UserId = #{UserId} and auth=1
 	</select>
 	<!-- 회원정보변경 -->

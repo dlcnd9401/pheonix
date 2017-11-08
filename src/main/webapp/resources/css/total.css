@@ -273,8 +273,7 @@ body{
 /****************** PwSelect ********************/
 #PWmymain {
     width: 1903px;
-    height: 873px;
-    background-color: #e6e6e6;
+    height: 503px;
     padding-top: 100px;
 }
 
@@ -300,7 +299,7 @@ body{
 }
 .PWinput {
     padding-top: 10px;
-    text-indent: 200px;
+    text-indent: 50px;
     float: left;
 }
 /*************** UserUpdate *****************/
