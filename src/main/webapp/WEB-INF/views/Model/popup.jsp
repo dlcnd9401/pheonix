@@ -105,7 +105,7 @@ $(document).ready(function(){
         <div class = "cent"><img src = "resources/img/main/vacheron-constantin-logo.png"></div>
         <div class ="col">
             <div class ="m_head">컬렉션</div>
-            <div><a href = "#"  >Patrimony</a></div>
+            <div><a href = "#" >Patrimony</a></div>
             <div><a href = "#" >Traditionnelle</a></div>
             <div><a href = "#" >Harmony</a></div>
             <div><a href = "#" >1972</a></div>
