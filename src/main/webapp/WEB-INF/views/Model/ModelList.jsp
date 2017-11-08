@@ -116,25 +116,7 @@ List<HashMap<String, Object>>map = (List<HashMap<String, Object>>) request.getAt
         </a>
         </div>
         
-        <!--세번째 칸-->
-        <div class="watchesFilter">
-            <div class="wrapper">
-                <div class="georgia-title">
-                    <h2> 결과 검색 </h2>
-                </div>
-                <div class="hr"></div>
-                <div class="filter-Form">
-                    <ul class="nemcenter">
-                        <li><input type="checkbox"><a>신제품</a></li>
-                        <li><input type="checkbox"><a>신제품</a></li>
-                        <li><input type="checkbox"><a>신제품</a></li>
-                        <li><input type="checkbox"><a>신제품</a></li>
-                        <li><input type="checkbox"><a>신제품</a></li>
-                    </ul>
-                </div>
-                
-            </div>
-        </div>
+ 
         
         <!--네번째 칸-->
         <div class="collbackground">
