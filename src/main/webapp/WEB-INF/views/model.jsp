@@ -65,9 +65,9 @@
 		   
 		// 마이페이지를 클릭했을때 예외처리
 		$("#mypagego").off().on("click", function(){			 
-			if(ui == "admin"){  
+			if(false){  
 				alert("접근 권한이 없습니다.");
-			}else if(ui == ""){
+			}else if(false){
 				alert("접근 권한이 없습니다."); 
 			}else{
 				hash= "#MyPageMaster";
@@ -77,8 +77,7 @@
 		 
 		// 마스터페이지를 클릭했을때 예외처리
 		$("#mspagego").off().on("click", function(){
-			if(ui == "admin"){
-				alert("안녕!");
+			if(true){
 				hash = "#mastermove";
 				htmlLoad();
 			}else{
@@ -148,8 +147,6 @@
 	 	        		$('#sjlabel').addClass('m_col_disb');
 	            	 }else{
 	            		 alert("로그인 실패");
-
-	 	   	       	   
 
 	            		 location.replace("Logout"); 
 	 	   	       	}

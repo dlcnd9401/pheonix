@@ -121,9 +121,9 @@
 							$(this).prop("checked",true); // 현재 선택한 체크박스의 값만 true로 변경	
 							tds.eq(5).html("<input name='stock' type='number' min='0' id='s1'max= '100' value='" + text + "'>"); 
 						}else {  							
-							$("input:checkbox").prop("checked",false);
 							text = tds.eq(5).find("input").val();
 							tds.eq(5).text(text);
+							$("input:checkbox").prop("checked",false);
 						}    
 				});					
 		}
@@ -142,8 +142,9 @@
 	        	    		if(data.status == 0){
 	    	    	    		alert("실패하셨습니다.");
 	    	    	    	}else {
-	    	    	    		alert("등록하셨습니다.");	    	    		
-	    	    	    		location.href = "clockmanage";
+	    	    	    		alert("등록하셨습니다.");	    
+	    	    	    		$("input:checkbox").prop("checked",false);
+	    	    	    		
 	    	    	    	}
         	    	});
 	    	    	

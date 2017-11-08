@@ -85,16 +85,16 @@ $(document).ready(function(){
 <section>
         <div class="msg">
        	<h2>이용해주셔서 감사합니다.</h2>
-        <a href="model"><div class="popbtn1">
+        <a href="model" target ="_blank"><div class="popbtn1">
             <span class="popspan">Home</span> 
             </div></a>
 
             <!--구매내역 버튼-->
-        <a href="SellList"><div class="popbtn2">
+        <a href="SellList" target ="_blank" style =""><div class="popbtn2">
            <span class="popspan">구매목록</span> 
             </div></a>
             
-        <a href="Cart"><div class="popbtn3">
+        <a href="Cart" target ="_blank"><div class="popbtn3">
            <span class="popspan">장바구니</span> 
             </div></a>
         </div>
