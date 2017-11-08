@@ -160,8 +160,8 @@ body{
 }
 /*장바구니 리스트글자 조정(크기+굵기+위치)*/
 #Cartshoppingbag .Cartlisttop-text {
-    height: 35px;
-    width:  1550px;
+    height: 34px;
+    width: 1603px;
     font-size: 20px;
     font-weight: 500;
     text-align: center;
@@ -251,21 +251,23 @@ body{
 }
 /*구매, 삭제버튼 틀*/
 .Cartbuydelbtns {
-    height: 46px;
+    height: 55px;
     width: 300px;
     float: left;
-    padding-left: 1300px;
+    padding-left: 1420px;
     text-align: center;
 }
 /*구매, 삭제버튼 크기+글자*/
-.Cartbtn1 {    
+.Cartbtn1 {
+    /* margin-left: 0px; */
     width: 85px;
     font-size: 20px;
-    margin-right: 10px;
+    margin-right: 13px;
     font-weight: bold;
-    background-color: #f6fafc;   
-    line-height: 30px;
+    background-color: #f6fafc;
+    line-height: 33px;
     border: px solid;
+    border-radius: 5px;
 }
 .Cartbtn1:hover {
     background-color: #716c6c;
@@ -273,7 +275,8 @@ body{
 /****************** PwSelect ********************/
 #PWmymain {
     width: 1903px;
-    height: 503px;
+    height: 873px;
+    background-color: #e6e6e6;
     padding-top: 100px;
 }
 
@@ -299,7 +302,7 @@ body{
 }
 .PWinput {
     padding-top: 10px;
-    text-indent: 50px;
+    text-indent: 200px;
     float: left;
 }
 /*************** UserUpdate *****************/
@@ -379,13 +382,13 @@ body{
 .MpmPwSelect h1 {
     font-size: 50px;
     margin: 0;
-    padding: 180px;
+    padding-left: 570px;
+    padding-top: 120px;
     padding-bottom: 0;
     color:#004eff;
     
 }
 .MpmCart {
-
     width: 1000px;
     height: 280px;
     margin-bottom: 30px;
@@ -394,18 +397,17 @@ body{
     background-size: 1000px 320px; 
 }
 .MpmCart h1 {
-    font-size: 50px;
-    margin: 0;
-    padding: 180px;
-    padding-bottom: 0;
-    color:#f4ff75;
+   font-size: 50px;
+   margin: 0;
+   padding-left: 50px;
+   padding-top: 120px;
+   color:#f4ff75;
     
 }
 
 .MpmSellList {
-
     width: 1000px;
-    height: 290px;
+    height: 310px;
     margin-bottom: 0px;
     background-image: url("/phoenix/resources/img/main/mpm1.jpeg");
     background-repeat: no-repeat;
@@ -414,7 +416,8 @@ body{
 .MpmSellList h1 {
     font-size: 50px;
     margin: 0;
-    padding: 180px;
+    padding-left: 570px;
+    padding-top: 120px;
     padding-bottom: 0;
     color: #ff8686;
 }

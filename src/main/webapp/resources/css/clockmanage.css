@@ -2,13 +2,13 @@
 a {
     text-decoration: none;
 }
-/*섹션부분*/
+/*ì„¹ì…˜ë¶€ë¶„*/
 .cmjymain2 {
     width: 100%;
     height: 800px;
     background-color: white;
 }
-/*제목*/
+/*ì œëª©*/
 .cmjypage2 {
     padding-top: 30px;
     padding-bottom: 20px;
@@ -21,7 +21,7 @@ p {
     font-size: 50px;
     font-weight: bold;
 }
-/*판매처검색*/
+/*íŒë§¤ì²˜ê²€ìƒ‰*/
 .cmjyselect {
     margin-left: 150px;
 }
@@ -32,9 +32,13 @@ p {
     font-size: 15px;    
 }
 .cmjyselect .cmjyselectbtn {
-    width: 90px;
-    height: 30px;  
-    font-size: 15px;
+    width: 80px;
+    height: 32px;  
+    font-size: 17px;
+    margin-left:5px;
+    font-weight: bold;
+    text-align:center;
+	border-radius : 4px;
 }
 
 .cmjysub_news {
@@ -111,8 +115,8 @@ p {
 
 .cmjypaging a {
 /*
-display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 모두 갖는다
-크기를 가질 수 있으며 텍스트 정렬도 적용받는다
+display: inline-block ì¸ë¼ì¸ ìš”ì†Œì˜ íŠ¹ì§•ê³¼ ë¸”ë¡ ìš”ì†Œì˜ íŠ¹ì§•ì„ ëª¨ë‘ ê°–ëŠ”ë‹¤
+í¬ê¸°ë¥¼ ê°€ì§ˆ ìˆ˜ ìžˆìœ¼ë©° í…ìŠ¤íŠ¸ ì •ë ¬ë„ ì ìš©ë°›ëŠ”ë‹¤
 */
     display: inline-block;    
     text-decoration: none;
@@ -122,7 +126,7 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
     background-color: #b2b2b2;    
 }
 
-/* 현재 페이징에 select 클래스를 적용한다*/
+/* í˜„ìž¬ íŽ˜ì´ì§•ì— select í´ëž˜ìŠ¤ë¥¼ ì ìš©í•œë‹¤*/
 
 .cmjypaging a.cmjychk {	
     color: #ece4d7;
@@ -136,7 +140,7 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 }
 
 
-/*th+td너비*/
+/*th+tdë„ˆë¹„*/
 .cmjyno {
     width: 200px;    
 }
@@ -163,7 +167,7 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
 
 
 /**/
-/*하단버튼 틀 (버튼라인)*/
+/*í•˜ë‹¨ë²„íŠ¼ í‹€ (ë²„íŠ¼ë¼ì¸)*/
 #cmjybtntle {    
     width: 1603px;
     height: 47px;
@@ -173,14 +177,14 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
     border-top: 1px solid;
 }
 
-/*페이지이동버튼 틀*/
+/*íŽ˜ì´ì§€ì´ë™ë²„íŠ¼ í‹€*/
 .cmjypagebtns {    
     height: 48px; 
     float: left;
     margin-left: 600px;
 }
 
-/* 하단 페이지이동 */
+/* í•˜ë‹¨ íŽ˜ì´ì§€ì´ë™ */
 .cmjypagebtns a {	
 	text-align: center;
     display: inline-block;
@@ -201,9 +205,12 @@ display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 �
     color: #f8edde;
 }
 .cmjystockupdatebtn {
-	margin-left: 850px;
-	height: 60px;
-	width: 120px;
+	margin-left: 900px;
+	height: 45px;
+	text-align:center;
+	width: 85px;
+	margin-top: 15px;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 18px;
+	border-radius : 4px;
 }

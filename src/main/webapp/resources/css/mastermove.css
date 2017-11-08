@@ -16,11 +16,10 @@
 .mmjyummove h1 {
     font-size: 50px;
     margin: 0;
-    padding-left: 550px;
-    padding-top: 100px;
+    padding-left: 570px;
+    padding-top: 120px;
     padding-bottom: 0;
     color:rgba(229, 164, 59, 0.95);
-    
 }
 .mmjycmmove {
     width: 1000px;
@@ -31,18 +30,17 @@
     background-size: 1000px 320px; 
 }
 .mmjycmmove h1 {
-    font-size: 50px;
-    margin: 0;
-    padding-left: 100px;
-    padding-top: 100px;
-    padding-bottom: 0;
-    color:#f4ff75;
-    
+   font-size: 50px;
+   margin: 0;
+   padding-left: 50px;
+   padding-top: 120px;
+   padding-bottom: 0;
+   color:#f4ff75;
 }
 
 .mmjycdmove {
     width: 1000px;
-    height: 290px;
+    height: 310px;
     margin-bottom: 0px; 
     background-image: url("/phoenix/resources/img/main/mpm1.jpeg");         
     background-repeat: no-repeat;
@@ -51,8 +49,8 @@
 .mmjycdmove h1 {
     font-size: 50px;
     margin: 0;
-    padding-left: 550px;
-    padding-top: 100px;
+    padding-left: 570px;
+    padding-top: 120px;
     padding-bottom: 0;
     color: #bababa;
 }
