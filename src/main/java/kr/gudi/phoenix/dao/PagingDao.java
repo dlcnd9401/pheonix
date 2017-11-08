@@ -9,8 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PagingDao implements PagingDaoInterface {
-	//db를 xml?? --> 인터페이스 메소드 기능을 구현  (서비스에 전달해줌)
+public class PagingDao implements PagingDaoInterface {	
 	
 	@Resource(name="sqlSession")
 	SqlSession session;

@@ -24,8 +24,7 @@ public class MasterService implements MasterServiceInterface {
 		
 	@Override
 	public HashMap<String, Integer> setClockupData(HashMap<String, Object> param) {
-		 HashMap<String, Integer> map = new HashMap<String, Integer>();
-	    //HashMap<String, Integer> map = new HashMap<String, Integer>();
+		 HashMap<String, Integer> map = new HashMap<String, Integer>();	   
 	    map.put("status", mdi.setClockupData(param));	    
 	    return map;
 	}
@@ -35,35 +34,27 @@ public class MasterService implements MasterServiceInterface {
 	      HashMap<String, Integer> map2 = new HashMap<String, Integer>();
 	      map = new HashMap<String, Object>();
 	      
-	      HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-	      System.out.println("param value : " + param);
+	      HashMap<String, Object> param = HttpUtil.getParameterMap(req);	      
 
 	      for(int i = 0; i < file.length; i++){
 	         String name = file[i].getOriginalFilename();
-	         String path2 = "resources/img/";
-	         System.out.println(path2 + name);
+	         String path2 = "resources/img/";	         
 	         try {
 	            byte[] bytes = file[i].getBytes();
 	            
 	            String path = "";
 	            
 	            // 개발 툴에서만 사용 할것!
-	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 
-	            //path = "E:/GIT/JDC/src/main/webapp/" + path2;
-	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;
-	            /*path = "C:/Users/GD/git/phoenix/src/main/webapp/resources/img/Collection/insert/"  +  name;*/
-	            System.out.println(path);
-	 
+	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 	            
+	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
+	            	 
 	            File f = new File(path);
-	            System.out.println("f : " + f);
-	            System.out.println("exists : " + f.exists());
 	            
 	            if(f.exists() == false){
 	               f = new File(path + name);
-	               OutputStream out = new FileOutputStream(f);
-	            System.out.println("f" + f);
+	               OutputStream out = new FileOutputStream(f);	            
 	               out.write(bytes);
-	               out.close();
+	               out.close();	               
 	               
 	               HashMap<String, Object> map = new HashMap<String, Object>();
 	               map.put("path", path);
@@ -74,8 +65,7 @@ public class MasterService implements MasterServiceInterface {
 	               map.put("scode", param.get("scode"));
 	               map.put("code", param.get("code"));
 	               map.put("price", param.get("price"));
-	               map.put("introduce", param.get("introduce"));
-	               System.out.println("service map : "+ map);
+	               map.put("introduce", param.get("introduce"));	               
 	               map2 = setClockupData(map);
 	            }
 	         } catch (IOException e) {
@@ -97,19 +87,15 @@ public class MasterService implements MasterServiceInterface {
 	@Override
 	public HashMap<String, Object> stocklistpaging(HashMap<String, Object> param) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-//		System.out.println("service param : "+ param);
 		map.put("data", mdi.stocklistpaging(param));
-//		System.out.println();
 		map.put("totCnt", mdi.stocklisttotcnt());
 		return map;
 	}
 	
 	@Override
-	public HashMap<String, Object> stockupdate(HashMap<String, Object> param) {
-		System.out.println("service param : "+ param);
+	public HashMap<String, Object> stockupdate(HashMap<String, Object> param) {		
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("status", mdi.stockupdate(param));
-		System.out.println("service : "+ map);
+		map.put("status", mdi.stockupdate(param));		
 		return map;
 	}
  

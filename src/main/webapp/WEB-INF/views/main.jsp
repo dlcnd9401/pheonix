@@ -18,11 +18,7 @@ $('.sec_in2_box_in2 a').click(function(){
 </script>
    
 </head>
-
-    
-
-    
-    
+   
 
     <div class ="sec" id = "main">
            <div class = "bg"></div>

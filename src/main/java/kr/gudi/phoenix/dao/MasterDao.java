@@ -26,15 +26,13 @@ public class MasterDao implements MasterDaoInterface {
 	
 	@Override
 	public List<HashMap<String, Object>> userlistpaging(HashMap<String, Object> param) {
-		System.out.println(param);
 		return session.selectList("master.userlistpaging", param);
 	}
 	
 	@Override
 	public HashMap<String, Object> userlisttotcnt() {		
 		return session.selectOne("master.userlisttotcnt");
-	}
-	
+	}	
 		
 	@Override
 	public List<HashMap<String, Object>> stocklistselect() {
@@ -43,7 +41,6 @@ public class MasterDao implements MasterDaoInterface {
 
 	@Override
 	public List<HashMap<String, Object>> stocklistpaging(HashMap<String, Object> param) {
-		System.out.println("dao : "+param);
 		return session.selectList("master.stocklistpaging", param);
 	}
 	
@@ -56,7 +53,5 @@ public class MasterDao implements MasterDaoInterface {
 	public int stockupdate(HashMap<String, Object> param) {
 		return session.update("master.stockupdate", param);
 	}
-
-	
 
 }

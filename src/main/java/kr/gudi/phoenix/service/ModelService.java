@@ -34,17 +34,6 @@ public class ModelService implements ModelServiceInterface {
 		map.put("modeldetail", mdi.modeldetail(param));
 		return map;
 	}
-	/*@Override
-	public HashMap<String,Object> getData(){
-		map = new HashMap<String,Object>();
-		map.put("model", mdi.getData());
-		return map;
-	}
-	  public HashMap<String, Object> getListData(HashMap<String, Object> param) {
-	      map = new HashMap<String, Object>();
-	      map.put("data", mdi.getlistdata(param));
-	      return map;
-	  }*/
 
 	@Override
 	public HashMap<String, Object> modelbuy(HashMap<String, Object> param) {

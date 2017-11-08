@@ -17,15 +17,12 @@
     var data = []; // 데이터 담을 배열 변수 선언
     
     $(document).ready(function(){
-      	
-    	
     	var viewRow = 10; // 화면에 보여질 행 갯수
     	var page = 1; // 현재 페이지 값
     	var totCnt = 0; // 데이터 전체 객수
     	var pageGroup = 1; // 현재 페이지 값
     	var pageView = 5; // 페이징 버튼 객수
     	
-
     	function createPaging(){
 			var paging = totCnt/viewRow; 
 			var end = (pageView * pageGroup); // 10 * 2 = 20 

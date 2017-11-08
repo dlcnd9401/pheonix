@@ -153,8 +153,6 @@
 
 	            		 location.replace("Logout"); 
 	 	   	       	}
-	            	 console.log(UserId);
-	               
 
 	             }).fail(function(x){
 	                alert("오류 다시로그인하세요."); 	                

@@ -23,7 +23,6 @@
 				$.ajax({url:"DetailData", data:{"Qno":Qno}}).done(function(result){
 					var resultJSON = JSON.parse(result);
 					var data = resultJSON.data;
-					console.log(data);
 					$(".qpsydatailMiddel span").eq(0).text(data.UserId);
 					$(".qpsydetailMiddel1").text(data.QContents);
 					

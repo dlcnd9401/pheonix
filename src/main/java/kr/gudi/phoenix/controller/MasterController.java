@@ -107,11 +107,9 @@ public class MasterController {
 	}	
 //	디비에 상품내용 등록
 	@RequestMapping(value="/clockupData", method=RequestMethod.POST)
-	   public ModelAndView clockupdate1(ModelAndView mav, HttpServletRequest req, @RequestParam("cdjyfilename") MultipartFile[] file){ 	 
-		System.out.println(HttpUtil.getParameterMap(req));
+	   public ModelAndView clockupdate1(ModelAndView mav, HttpServletRequest req, @RequestParam("cdjyfilename") MultipartFile[] file){	
 	      HashMap<String, Integer> map = new HashMap<String, Integer>();
 			map = msi.fileOutput(file, req);
-			System.out.println(map);
 			mav.addObject("data", map);
 			mav.setViewName("clockupdate");			
 			return mav;

@@ -13,12 +13,7 @@ public class Modeldao implements ModeldaoInterface {
 	
 	@Resource(name="sqlSession")
 	SqlSession session;
-	
-	/*@Override
-	public HashMap<String, Object> model() {
-		return session.selectOne("sql.model");
 
-	}*/
 	@Override
 	public List<HashMap<String,Object>> model(){
 	return session.selectList("sql.model");
@@ -32,16 +27,8 @@ public class Modeldao implements ModeldaoInterface {
 	@Override
 	public List<HashMap<String,Object>> modeldetail(HashMap<String,Object> param){
 	return session.selectList("sql.modeldetail",param);
+	}
 
-	}
-/*	@Override
-	public List<HashMap<String, Object>> getData() {
-		return session.selectList("mmodel.model");
-	}
-	@Override
-	public HashMap<String, Object> getlistdata(HashMap<String, Object> param) {
-		return session.selectOne("mmodel.getlistdata", param);
-	}*/
 	@Override
 	public int modelbuy(HashMap<String, Object> param) {
 		return session.insert("sql.modelbuy",param);
@@ -50,8 +37,5 @@ public class Modeldao implements ModeldaoInterface {
 	public int modelcart(HashMap<String, Object> param) {
 		return session.insert("sql.modelcart",param);
 	}
-	
-	
-	
-	
+		
 }

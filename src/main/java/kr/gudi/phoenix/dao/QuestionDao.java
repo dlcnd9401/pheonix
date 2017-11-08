@@ -24,8 +24,6 @@ public class QuestionDao implements QuestionDaoInterface {
 		return session.selectList("question.questionSearchData", param);
 	}
 	
-	
-
 	@Override
 	public HashMap<String, Object> getDetailData(HashMap<String, Object> param) {
 		return session.selectOne("question.questionDetailData", param);

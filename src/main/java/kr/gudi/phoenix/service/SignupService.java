@@ -11,8 +11,7 @@ import kr.gudi.phoenix.dao.SignupDaoInterface;
 	public class SignupService implements SignupServiceInterface {
 	
 	   @Autowired
-	   SignupDaoInterface tdi;
-	   
+	   SignupDaoInterface tdi;	   
 	   public HashMap<String, Object> map;
 	   
 	 @Override
@@ -25,10 +24,8 @@ import kr.gudi.phoenix.dao.SignupDaoInterface;
 	 // 로그인
 	 @Override
 	   public HashMap<String, Object> getLoginData(HashMap<String, Object> param) {
-	      map = new HashMap<String, Object>();
-	      System.out.println("param"+ param);
-	      map.put("data", tdi.getLoginData(param));
-	      System.out.println("map"+ map);
+	      map = new HashMap<String, Object>();	     
+	      map.put("data", tdi.getLoginData(param));	      
 	      return map;
 	   }
 	 

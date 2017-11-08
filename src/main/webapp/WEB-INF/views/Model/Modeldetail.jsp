@@ -21,15 +21,11 @@
 	<script type="text/javascript">
 	
  	$(document).ready(function(){
- 		var a = $("#cnt").val();
- 		console.log(a);
+ 		var a = $("#cnt").val(); 		
  		var b = $("#stockcnt").val();
- 		console.log(b);
  		
- 		var c = b-a;
- 		console.log(c);
- 		var tag = "수량 : 1(" + c + ")";
- 		console.log(tag);
+ 		var c = b-a; 		
+ 		var tag = "수량 : 1(" + c + ")"; 	
  		
  		$("option").append(tag);	
  		

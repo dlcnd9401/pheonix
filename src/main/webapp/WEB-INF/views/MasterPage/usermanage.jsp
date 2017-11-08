@@ -88,8 +88,7 @@ var data = []; // 데이터 담을 배열 변수 선언
 			});			
 		}
 		
-		function init(data){
-			console.log("init()", data, data.length);
+		function init(data){			
 			$("tbody").empty();
 			for(var i = 0; i < data.length; i++){
 				html = "<tr>"

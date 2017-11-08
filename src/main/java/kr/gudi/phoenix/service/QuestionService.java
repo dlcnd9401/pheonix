@@ -26,8 +26,7 @@ public class QuestionService implements QuestionServiceInterface {
 		map = new HashMap<String, Object>();
 		map.put("list", tdi.getSearchData(param));
 		return map;
-	}
- 
+	} 
  
    @Override
    public HashMap<String, Object> getDetailData(HashMap<String, Object> param) {
@@ -43,15 +42,11 @@ public class QuestionService implements QuestionServiceInterface {
 		return map;
 	}
    
-
-
 @Override
 public HashMap<String, Object> setWriteData(HashMap<String, Object> param) {
 	map = new HashMap<String, Object>();
     map.put("status", tdi.setWriteData(param)); //상태값에 
     return map;
 }
-   
-   
 
 }

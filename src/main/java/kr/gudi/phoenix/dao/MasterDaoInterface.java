@@ -5,8 +5,7 @@ import java.util.List;
 
 public interface MasterDaoInterface {
 	
-	public int setClockupData(HashMap<String, Object> param); //값을 넣는거니까 ->set 	
-		
+	public int setClockupData(HashMap<String, Object> param); //값을 넣는거니까 ->set 			
 	public List<HashMap<String, Object>> stocklistselect();
 	public List<HashMap<String, Object>> stocklistpaging(HashMap<String, Object> param);
 	public HashMap<String, Object> stocklisttotcnt();
