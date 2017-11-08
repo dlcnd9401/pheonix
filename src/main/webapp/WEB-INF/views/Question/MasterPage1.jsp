@@ -118,16 +118,17 @@
 // 				});	
 
 //----------------------------------------------- 작성버튼 클릭시 부분전환-------------------------------------------------------------
-
-				$(".writebtn").off().on("click",function(){
-					hash = "#Write";
-					htmlLoad();
-				});
+			     $(".writebtn").off().on("click",function(){
+		               hash = "#Write";
+		               htmlLoad();
+		            });
+		            
+		            function htmlLoad(){
+		                 var url = "/phoenix/" + hash.substr(1, hash.length)
+		                 $("section").load(url);
+		              }
 				
-				function htmlLoad(){
-			  		var url = "/phoenix/" + hash.substr(1, hash.length)
-			  		$("section").load(url);
-			  	}
+			
 
 //------------------------------------------------------------------------------------------------------------------------------
 
@@ -141,7 +142,6 @@
 		}
 		
 		initData();
-		htmlLoad();
 		
 	
 		
@@ -151,7 +151,6 @@
 	      
 	      $(".searchbtn").on("click", function(){
 	         var data = {"textsearch":$("#textsearch").val(), "contact_select":$("option").eq(Number($("#contact_selecttype").val())).text()}
-	         console.log(data); 		//검색	콤보
 	         $.ajax({
 	            url:"MasterPage1Search", data:data, datatype:"json", type:"post"
 	            }).done(function(result){         
@@ -165,12 +164,13 @@
 					alert("검색 내용을 입력해주세요");
 					return false; //여기까지만 실행 해라
 	    	  	}else if(result.list !== null){ //값을 입력하면 검색 허용 
-	    	  		return false; 
 	    	 }
+	      
 	    	  	//그냥 검색만 누를시 리스트가 늘어나는거 수정
 	      });   
     	
 });
+
 </script>
 
 
