@@ -32,7 +32,7 @@ public class MyPageService implements MyPageServiceInterface {
 	public HashMap<String, Object> sellpaging(HashMap<String, Object> param) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("data2", mdi.sellpaging(param));
-		map.put("totCnt2", mdi.selltotCnt());
+		map.put("totCnt2", mdi.selltotCnt(param));
 		return map;
 	}
 	@Override

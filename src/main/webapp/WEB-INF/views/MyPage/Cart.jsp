@@ -13,8 +13,7 @@
     	var viewRow = 10; // 화면에 보여질 행 갯수
     	var page = 1; // 현재 페이지 값
     	var totCnt = 0; // 데이터 전체 객수
-    	var pageGroup = 1; // 현재 페이지 값
-        var pageView = 5; // 페이징 버튼 객수
+
         
     	function createHtml(){
                  $("tbody").empty();
@@ -81,10 +80,6 @@
     			for(var i = 0; i < paging; i++){
     				$(".Cartpagebtns").append("<a href='#cart" + (i + 1) + "'>" + (i + 1) + "</a>");
     			}
-    			
-//    			$(".pagebtns a").eq(page - 1).addClass("page"); 
-    			// page의 변수를 이용하여 a 태그의 인덱스 값을 구하여 page 클래스를 적용한다.
-    			
     			$(".Cartpagebtns a").off().on("click", function(){ // 페이지 전환 이벤트를 작성 한다.
     				// a 태그 중에 몇번째 페이지인지 알면 리스트 화면를 다시 보여 줄 수 있다. page 변수 활용 할것!
     				page = $(this).text();

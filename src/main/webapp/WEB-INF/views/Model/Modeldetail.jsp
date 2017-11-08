@@ -128,7 +128,7 @@
                 <!--  주소입력  -->
                 <div class ="addr">
                     <div class="chcb">
-                    <input type="checkbox">
+                    <input type="checkbox" checked>
                         </div>
                     <div class="addrtxt">
                     <input  class="addrtxt-1" type="text" id = "UserPost" name = "UserPost" placeholder="주소지(기본)" value = "<%=UserPost%>"><br>
