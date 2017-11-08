@@ -46,8 +46,8 @@ public class MasterService implements MasterServiceInterface {
 	            
 	            // 개발 툴에서만 사용 할것!
 	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 	
-	            path = "C:/Users/GD/git/phoenix/src/main/webapp/" + path2 + name;
-	            //path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
+	            /*path = "C:/Users/GD/git/phoenix/src/main/webapp/" + path2 + name;*/
+	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
 	            System.out.println("name " + name + " path " + path);	 
 	            File f = new File(path);
 	            

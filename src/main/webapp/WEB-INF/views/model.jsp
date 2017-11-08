@@ -78,7 +78,6 @@
 		// 마스터페이지를 클릭했을때 예외처리
 		$("#mspagego").off().on("click", function(){
 			if(ui == "admin"){
-				alert("안녕!");
 				hash = "#mastermove";
 				htmlLoad();
 			}else{
