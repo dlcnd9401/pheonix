@@ -21,13 +21,6 @@
 	<script type="text/javascript">
 	
  	$(document).ready(function(){
- 		var a = $("#cnt").val(); 		
- 		var b = $("#stockcnt").val();
- 		
- 		var c = b-a; 		
- 		var tag = "수량 : 1(" + c + ")"; 	
- 		
- 		$("option").append(tag);	
  		
 		var UserId = "<%=UserId%>";  
 		var tag = "<span style = 'font-size:13px; color:white;'>" + UserId + "님" + "</span>";
@@ -117,7 +110,7 @@
 			</form>
                      <!-- Cart -->
                     <select>
-                        <option value="상품수량선택"></option>
+                        <option value="상품수량선택">수량 : 1 (<%=map.get(i).get("Stock") %>)</option>
                     </select>                        
                          
                 </div>
@@ -181,9 +174,6 @@
                 </div> 
 					
                 </nav>
-
-		<input type = "text" style =display:none; name = "cnt" id ="cnt" value ="<%= map.get(i).get("cnt")%>"><br>
-		<input type = "text" style =display:none; name = "stockcnt" id ="stockcnt" value ="<%= map.get(i).get("Stock")%>"><br>
     
         <% 
 				}%>
