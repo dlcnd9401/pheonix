@@ -45,18 +45,21 @@ public class MasterService implements MasterServiceInterface {
 	            String path = "";
 	            
 	            // 개발 툴에서만 사용 할것!
-	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 	            
-	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
-	            	 
+	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 	
+	            path = "C:/Users/GD/git/phoenix/src/main/webapp/" + path2 + name;
+	            //path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
+	            System.out.println("name " + name + " path " + path);	 
 	            File f = new File(path);
 	            
 	            if(f.exists() == false){
-	               f = new File(path + name);
+	               f = new File(path);
 	               OutputStream out = new FileOutputStream(f);	            
 	               out.write(bytes);
 	               out.close();	               
 	               
 	               HashMap<String, Object> map = new HashMap<String, Object>();
+	               path = "";
+	               path = path2 + name;
 	               map.put("path", path);
 	               map.put("sname", param.get("sname"));
 	               map.put("name", param.get("name"));
