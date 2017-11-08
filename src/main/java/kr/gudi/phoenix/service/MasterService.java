@@ -71,7 +71,7 @@ public class MasterService implements MasterServiceInterface {
 	               map.put("name", param.get("name"));
 	               map.put("mKind", param.get("mKind"));
 	               map.put("mshape", param.get("mshape"));
-	               map.put("code", param.get("scode"));
+	               map.put("scode", param.get("scode"));
 	               map.put("code", param.get("code"));
 	               map.put("price", param.get("price"));
 	               map.put("introduce", param.get("introduce"));
