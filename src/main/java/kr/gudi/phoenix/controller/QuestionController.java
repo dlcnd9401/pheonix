@@ -28,8 +28,6 @@ public class QuestionController {
       return mav;
    }
    
-   
-   
    @RequestMapping("/MasterPage1Search")//게시판 검색기능 
    public void masterPage1Search(HttpServletResponse response, HttpServletRequest req) {
         HashMap<String, Object> ud = HttpUtil.getParameterMap(req);

@@ -60,8 +60,7 @@ public class MasterController {
 		// 디비에서 받아 온 hashmap 데이터를 json으로 변경하여 model 값으로 넣어 준다.
 	      JSONObject jsonObject = new JSONObject();
 	      jsonObject = JSONObject.fromObject(JSONSerializer.toJSON(msi.stocklistpaging(param)));
-	      mav.addObject("message", jsonObject.toString());
-		
+	      mav.addObject("message", jsonObject.toString());		
 	      mav.setViewName("json");
 	      return mav;
 	}
@@ -108,11 +107,13 @@ public class MasterController {
 	}	
 //	디비에 상품내용 등록
 	@RequestMapping(value="/clockupData", method=RequestMethod.POST)
-	   public ModelAndView clockupdate1(ModelAndView mav, HttpServletRequest req, @RequestParam("cdjyfilename") MultipartFile[] file){ 	  
+	   public ModelAndView clockupdate1(ModelAndView mav, HttpServletRequest req, @RequestParam("cdjyfilename") MultipartFile[] file){ 	 
+		System.out.println(HttpUtil.getParameterMap(req));
 	      HashMap<String, Integer> map = new HashMap<String, Integer>();
 			map = msi.fileOutput(file, req);
+			System.out.println(map);
 			mav.addObject("data", map);
-			mav.setViewName("clockupdate");
+			mav.setViewName("clockupdate");			
 			return mav;
 	   }
 

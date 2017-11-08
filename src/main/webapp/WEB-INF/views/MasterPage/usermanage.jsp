@@ -36,8 +36,7 @@ var data = []; // 데이터 담을 배열 변수 선언
 			if(end > pageView){
 				$(".umjypagebtns").append('<a class="select" href="#' + ((start+1) - pageView) + '">이전페이지</a>');
 				k = 1;
-			}
-			
+			}			
 			for(var i = start; i < end; i++){
 				$(".umjypagebtns").append("<a href='#" + (i + 1) + "'>" + (i + 1) + "</a>");
 				if(page == (i + 1)){
@@ -66,8 +65,7 @@ var data = []; // 데이터 담을 배열 변수 선언
 			});
     	}	
 			
-		function initData(){ // 디비에서 데이터 가져오기 위한 함수
-			
+		function initData(){ // 디비에서 데이터 가져오기 위한 함수			
 			var hash = location.hash; // a 태그의 이벤트로 발생한 hash 값을 가져온다.
 			if(hash != ""){ // hash 값이 있을 경우 page 변수의 값으로 사용한다.
 				page = hash.substr(1, hash.length);
@@ -119,10 +117,12 @@ var data = []; // 데이터 담을 배열 변수 선언
 		});
 		
 		$("input.umjymyButton:button").on("click", function(){
-			var data = {"usersearch":$("#usersearch").val(), "userSearchType":$("option").eq(Number($("#umjycontent").val())).text()}
-			console.log(data);
+			var data = {"usersearch":$("#usersearch").val(), "userSearchType":$("option").eq(Number($("#umjycontent").val())).text()}			
 			$.ajax({
-				url:"userselectData", data:data, datatype:"json", type:"post"
+				url:"userselectData", 
+				data:data, 
+				datatype:"json", 
+				type:"post"
 				}).done(function(result){			
 				data = result.list;
 				init(result.list);

@@ -14,8 +14,6 @@
     crossorigin="anonymous"></script>
     <script type="text/javascript">
     
-
-    
     var data = []; // 데이터 담을 배열 변수 선언
     
     $(document).ready(function(){
@@ -111,11 +109,6 @@
 					html += '</tr>'; 
 					$("tbody").append(html);
 				}
-				
-				
-// 				$(".writebtn").click(function(){
-// 					location.replace("Write"); 
-// 				});	
 
 //----------------------------------------------- 작성버튼 클릭시 부분전환-------------------------------------------------------------
 			     $(".writebtn").off().on("click",function(){
@@ -127,11 +120,7 @@
 		                 var url = "/phoenix/" + hash.substr(1, hash.length)
 		                 $("section").load(url);
 		              }
-				
-			
-
 //------------------------------------------------------------------------------------------------------------------------------
-
 
 				 if(data.length < 1){
 			           	var tag = "<tr class='list-text2'>"; 
@@ -140,10 +129,7 @@
 			           	$("tbody").append(tag);
 			    } 
 		}
-		
-		initData();
-		
-	
+		initData();	
 		
 		$("#contact_selecttype").on("change", function(){ //주제선택
 			
@@ -173,12 +159,9 @@
 
 </script>
 
-
 </head>
 
-
-<body>
-    
+<body>    
                <div class="qpsymain2">
                 <div class="top">
                     <p class="qpsytable_name">CONTACT</p>

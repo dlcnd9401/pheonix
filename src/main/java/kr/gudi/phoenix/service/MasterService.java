@@ -26,7 +26,7 @@ public class MasterService implements MasterServiceInterface {
 	public HashMap<String, Integer> setClockupData(HashMap<String, Object> param) {
 		 HashMap<String, Integer> map = new HashMap<String, Integer>();
 	    //HashMap<String, Integer> map = new HashMap<String, Integer>();
-	    map.put("status", mdi.setClockupData(param));
+	    map.put("status", mdi.setClockupData(param));	    
 	    return map;
 	}
 	
@@ -36,7 +36,7 @@ public class MasterService implements MasterServiceInterface {
 	      map = new HashMap<String, Object>();
 	      
 	      HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-	      System.out.println("param value : " + param.get("sname"));
+	      System.out.println("param value : " + param);
 
 	      for(int i = 0; i < file.length; i++){
 	         String name = file[i].getOriginalFilename();
@@ -71,6 +71,7 @@ public class MasterService implements MasterServiceInterface {
 	               map.put("name", param.get("name"));
 	               map.put("mKind", param.get("mKind"));
 	               map.put("mshape", param.get("mshape"));
+	               map.put("code", param.get("scode"));
 	               map.put("code", param.get("code"));
 	               map.put("price", param.get("price"));
 	               map.put("introduce", param.get("introduce"));

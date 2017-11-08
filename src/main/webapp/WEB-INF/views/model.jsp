@@ -24,8 +24,7 @@
 			hash = "#mainsec"; // hash에 값이 없을때 초기값 설정
 		}
 
-		// 문의하기를 클릭했을때 hash 화면전환--------------------------------
-		
+		// 문의하기를 클릭했을때 hash 화면전환--------------------------------		
 		$("#questionbtn").off().on("click", function(){
 		hash= "#MasterPage1";  //이거 2개 가져다쓰면 화면전환 가능!!
   		htmlLoad();			//이거 2개 가져다쓰면 화면전환 가능!!
@@ -40,7 +39,6 @@
   		var url = "/phoenix/" + hash.substr(1, hash.length)
   		$("section").load(url);
   		}
-
 		//----------------------------------------------------------
 
 	    $('.collection').off().on("mouseover",function(){
@@ -128,19 +126,20 @@
 	             if(UserId == "" || UserPw == ""){
 	                 alert("아이디 또는 비밀번호가 입력되지 않았습니다!!");
 	                 return false;
-	             }
-	               
+	             }	             
 	             $.ajax({
 	                type:"post", 
 	                url:"LoginData",
-	                data:{"UserId": UserId, "UserPw": UserPw},
+	                data:{"UserId": UserId, "UserPw": UserPw},	                
 	                datatype:"json"  
 	             }).done(function(data){
-	            	var result = data;					
-	            	 if(result.data != null){  
-	            		 ui = UserId;
-	            		 alert(ui + "님 환영합니다.");
-	 	                 
+	            	var result = data;
+	            	
+            		 ui = UserId;
+            		 
+	            	 if(result.data != null){  	            		 	            		 
+	            		 //ui = session.getAttribute("user");		            		
+	            		 alert(ui + "님 환영합니다.");	 	                 
 	 	                $("#idspan").append(ui + "님");
 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');

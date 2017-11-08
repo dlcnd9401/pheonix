@@ -68,12 +68,7 @@
 	    	}	
 	    	
 	    	
-			function initData(){ // 디비에서 데이터 가져오기 위한 함수				
-// 				var hash = location.hash; // a 태그의 이벤트로 발생한 hash 값을 가져온다.
-// 				if(hash != ""){ // hash 값이 있을 경우 page 변수의 값으로 사용한다.
-// 					page = hash.substr(1, hash.length);
-// 					pageGroup = Math.ceil(page / pageView);
-// 				}				
+			function initData(){ // 디비에서 데이터 가져오기 위한 함수		
 				var end = (viewRow * page); // 10 * 2 = 20 
 				var start = (end - viewRow); // 20 - 10 = 10
 		
@@ -89,8 +84,7 @@
 				});				
 			}
 			
-			function init(){
-				
+			function init(){				
 				$("tbody").empty();
 				for(var i = 0; i < data1.length; i++){
 					html = "<tr> <td class='cmjytitle1 cmjychecked'><input type='checkbox'></td>";
@@ -99,7 +93,6 @@
 					html += "<td class='cmjytitle1 cmjysname'>" + data1[i].sname + "</td>";
 					html += "<td class='cmjytitle1 cmjyname' name='code'>" + data1[i].code + "</td>";
 					html += "<td class='cmjytitle1 cmjyemail' name='stock' id='stock'>" + data1[i].Stock + "</td></tr>";	
-					//html += "<td class='cmjytitle1'> <button class='cmjyupdatebtn' type='submit'>등록</button> </td></tr>";
 					$("tbody").append(html);
 				}
 				if(data1.length < 1){
@@ -113,9 +106,6 @@
 			initData();
 			stocklistselect();
 			stockupdate();
-
-		
-		
 		
 		/* 체크박스중복체크 / 클릭시 인풋박스 생김 */
 		function distintcheck() {
@@ -143,16 +133,18 @@
 			$(".cmjystockupdatebtn").off().on("click", function(){
 				if(confirm("등록하시겠습니까?")){
 	    	    	var stock = $("#s1").val();	 
-	    	    	var no = $("#s1").closest("tr").find("td").eq(1).text();	    	    	
+	    	    	var no = $("#s1").closest("tr").find("td").eq(1).text();
+	    	    	
         	    	$.ajax({url:"stockupdate", 
         	    		data:{"no": no, "stock":stock}, 
-        	    		dataType : "json"}).done(function(data){
-        	    		if(data.status == 0){
-    	    	    		alert("실패하셨습니다.");
-    	    	    	}else {
-    	    	    		alert("등록하셨습니다.");	    	    		
-    	    	    		/* location.href = "clockmanage"; */
-    	    	    	}
+        	    		dataType : "json"
+        	    		}).done(function(data){
+	        	    		if(data.status == 0){
+	    	    	    		alert("실패하셨습니다.");
+	    	    	    	}else {
+	    	    	    		alert("등록하셨습니다.");	    	    		
+	    	    	    		location.href = "clockmanage";
+	    	    	    	}
         	    	});
 	    	    	
 	        	}else {
@@ -175,8 +167,7 @@
 					type:"post"
 					}).done(function(result){
 					jsonData = JSON.parse(result);
-					data1 = jsonData.data;
-					
+					data1 = jsonData.data;					
 					init();	
 					initData()
 				});			

@@ -37,8 +37,9 @@ $(document).ready(function(){
 	function clockupdatebtn(){
 	$("form").on("submit", function( event ) {				 
 		         event.preventDefault();
-		         var form = document.forms[0];
-		         var formData = new FormData(form);		         
+		         var form = document.forms[1];
+		         var formData = new FormData(form);		 
+		         console.log(formData);
 		         $.ajax({
 		        	 type:"post",		         
 		       	  	 url:"clockupData", 
@@ -58,9 +59,6 @@ $(document).ready(function(){
 		            	 alert("상품이 등록되었습니다.");
 		            	 /* location.href = "clockmanage"; */
 		             }
-		          }).fail(function(result){
-		        	  alert("상품이 안등록되었습니다.");
-		        	  /* location.href = "clockmanage"; */
 		          });
 			});	
 	}

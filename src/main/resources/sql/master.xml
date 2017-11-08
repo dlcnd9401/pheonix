@@ -86,8 +86,8 @@
 	
 	<!-- 상품등록 -->
 	<insert id="clockinsert" parameterType="hashmap">
-		insert into Product(sname, name, mKind, mshape, code, price, introduce, img)
-			values (#{sname}, #{name}, #{mKind}, #{mshape}, #{code}, #{price}, #{introduce}, #{path})
+		insert into Product(sname, name, mKind, mshape, scode, code, price, introduce, img)
+			values (#{sname}, #{name}, #{mKind}, #{mshape}, #{scode}, #{code}, #{price}, #{introduce}, #{path})
 	</insert>
 	
 	
