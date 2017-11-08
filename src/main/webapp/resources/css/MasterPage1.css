@@ -1,4 +1,4 @@
-/**** Ã«Â§Å½Ã¬ÂÂ´ Ã¬â€šÂ¬Ã¬Å¡Â©Ã­â€¢ËœÃ«Å â€ ÃªÂ²Æ’Ã«â€œÂ¤ ****/
+/**** ÃƒÂ«Ã‚Â§Ã…Â½ÃƒÂ¬Ã‚ÂÃ‚Â´ ÃƒÂ¬Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¬Ã…Â¡Ã‚Â©ÃƒÂ­Ã¢â‚¬Â¢Ã‹Å“ÃƒÂ«Ã…Â Ã¢â‚¬Â ÃƒÂªÃ‚Â²Ã†â€™ÃƒÂ«Ã¢â‚¬Å“Ã‚Â¤ ****/
 .disnone {
     display: none;
 }
@@ -12,10 +12,10 @@
     height: 800px;
 }
 .qpsytable_name {
-    font-size: 55px;
+    font-size: 58px;
     margin-left: 750px;
     font-weight: bold;
-    line-height: 150px;
+    line-height: 140px;
     
 }
 .qpsyselect {
@@ -23,14 +23,14 @@
 }
 .qpsyselect select {
     width: 100px;
-    height: 23px;
+    height: 25px;
 }
 .qpsysub_news {
-    margin: 25px 350px;
+    margin: 23px 350px;
     width: 1400px;
     border-bottom: 1px solid #999;
     color: #666;
-    font-size: 17px;
+    font-size: 15px;
     table-layout: fixed;
 }
 .qpsysub_news,
@@ -60,9 +60,9 @@
     border-bottom: solid 1px #b2b2b2;
     background-color: #f1f1f4;
     color: #333;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 23px;
     vertical-align :top;
 }
 
@@ -106,7 +106,7 @@
     border: 1px solid #ccc;
     color: #000000;
     background-color: #b2b2b2;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 
@@ -128,7 +128,7 @@
     border: 1px solid #ccc;
     color: #000000;
     background-color: #b2b2b2;
-    font-size: 12px;
+    font-size: 13px;
     margin-left: 30px; 
     cursor: pointer;
 } 

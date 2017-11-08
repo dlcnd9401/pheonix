@@ -38,8 +38,7 @@ $(document).ready(function(){
 	$("form").on("submit", function( event ) {				 
 		         event.preventDefault();
 		         var form = document.forms[1];
-		         var formData = new FormData(form);		 
-		         console.log(formData);
+		         var formData = new FormData(form);	
 		         $.ajax({
 		        	 type:"post",		         
 		       	  	 url:"clockupData", 
