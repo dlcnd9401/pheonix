@@ -106,7 +106,7 @@
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qno + '</a></td>';
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].UserId + '</a></td>'; 
 					html += '<td><a href="Detail?Qno=' + data[i].Qno + '">' + data[i].Qtitle + '</td>';
-					html += '<td><a href="Detail?class="title">'; 
+					/* html += '<td><a href="Detail?class="title">';  */
 					html += '</td>';
 					html += '</tr>'; 
 					$("tbody").append(html);
