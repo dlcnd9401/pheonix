@@ -85,7 +85,7 @@ $(document).ready(function(){
 <section>
         <div class="msg">
        	<h2>이용해주셔서 감사합니다.</h2>
-        <a href="model" target ="_blank"><div class="popbtn1">
+        <a href="model"><div class="popbtn1">
             <span class="popspan">Home</span> 
             </div></a>
 
