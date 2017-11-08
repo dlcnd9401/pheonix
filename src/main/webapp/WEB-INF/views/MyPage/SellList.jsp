@@ -71,9 +71,8 @@
 			var paging = totCnt2 / viewRow;	
 			// 전체의 행의 수에서 보여줄 행을 나누면 페이지의 갯수를 알 수 있다.
 			$(".Sellpagebtns").empty(); // div 태그 속에 a 태그를 초기화 한다.
-			$(".Sellpagebtns").append("안녕하세요");
 			for(var j = 0; j < paging; j++){
-				$(".Sellpagebtns").append("<a href='#sellList" + (j + 1) + "'>" + (j + 1) + "</a>");
+				$(".Sellpagebtns").append("<a href='#sell" + (j + 1) + "'>" + (j + 1) + "</a>");
 			}
 			$(".Sellpagebtns a").off().on("click", function(){ // 페이지 전환 이벤트를 작성 한다.
 				// a 태그 중에 몇번째 페이지인지 알면 리스트 화면를 다시 보여 줄 수 있다. page 변수 활용 할것!
