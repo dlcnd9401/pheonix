@@ -68,8 +68,7 @@
 				$(".qpsyQbtn1").off().on("click", function(){
 					if(confirm("등록하시겠습니까?")){
 		    	    	var cnt = 0;
-		    	    	var Reply = $("#syinputbox").val();	 
-		    	    	console.log(Reply);
+		    	    	var Reply = $("#syinputbox").val();	
 		        	    	$.ajax({url:"setAnswerData", 
 		        	    		type:"post",
 		        	    		data:{"Qno": Qno, "Reply": Reply}, 
