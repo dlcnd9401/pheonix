@@ -46,6 +46,14 @@ public class ModelController {
 	@RequestMapping(value = "/PopUp")
 	public ModelAndView popup(ModelAndView mav, HttpSession session){
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
+		/*if(user == null){
+			mav.setViewName("redirect:/alert");
+			return mav;
+		}else{
+			mav.addObject("UserId",user.get("data").get("UserId"));
+			mav.setViewName("Model/popup");
+			return mav;	
+		}*/
 		return mav;
 	}
 

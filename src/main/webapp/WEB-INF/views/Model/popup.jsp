@@ -14,37 +14,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>PoPup</title>
     <script type="text/javascript">
-$(document).ready(function(){
-//     	var hash = location.hash;
-//     	function htmlLoad(){
-//     		var url = "/phoenix/model/" + hash.substr(1, hash.length);
-//    		 	$("section").load(url);
-//     	}
-//     	$(".popbtn1").off().on("click",function(){
-//     		hash = "model";
-    		
-//     	});
-//     	$(".popbtn2").off().on("click",function(){
-//     		hash = "#Cart";
-    		
-//     	});
-//     	$(".popbtn3").off().on("click",function(){
-//     		hash = "#SellList";
-    		
-//     	});
+<%--     <% String UserId = request.getAttribute("UserId").toString();%> --%>
+    $(document).ready(function(){
+	<%-- var UserId = "<%=UserId%>";  
+/* 	var tag = "<span style = 'font-size:13px; color:white;'>" + UserId + "님" + "</span>";
+	if(UserId == null){
 		
-    });
+	}else {
+		$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+    	$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+    	$('#sjlogoutbtn').addClass('m_col_disb');
+    	$('#sjlabel').addClass('m_col_disb');
+    	$('#sjlabel').append(tag);
+	}		
+    }); */ --%>
     </script>
 </head>
 <body>
 <div class = "main">
     <header>
             <div class ="m_bt">
-            <div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>
-            <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>
-            <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+            <div class= "m_btbox m_col_disn m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>
+            <div class= "m_btbox m_col_disb" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>
+            <div class= "m_btbox m_Logging m_col_disn" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
             <!-- <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><button type="button" class="sgbtn">회원가입</button></div> -->
-            <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>
+            <div class= "m_btbox m_Logging m_col_disn" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>
             </div>
     <div class = "box50">
         <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >

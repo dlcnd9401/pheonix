@@ -29,7 +29,9 @@ $(document).ready(function(){
 			clockupdatebtn();
 			
         }else{           
-              alert("모든 정보를 입력하세요.");           
+              alert("모든 정보를 입력하세요.");
+         	  location.href = "model";
+
          }
      });
 	

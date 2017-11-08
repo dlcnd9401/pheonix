@@ -65,24 +65,16 @@
 		   
 		// 마이페이지를 클릭했을때 예외처리
 		$("#mypagego").off().on("click", function(){			 
-			if(ui == "admin"){  
-				alert("접근 권한이 없습니다.");
-			}else if(ui == ""){
-				alert("접근 권한이 없습니다."); 
-			}else{
 				hash= "#MyPageMaster";
 		  		htmlLoad();
-			}
+			
 		});
 		 
 		// 마스터페이지를 클릭했을때 예외처리
 		$("#mspagego").off().on("click", function(){
-			if(ui == "admin"){
 				hash = "#mastermove";
 				htmlLoad();
-			}else{
-				alert("접근 권한이 없습니다."); 
-			}
+		
 		});
 		 
 	        
