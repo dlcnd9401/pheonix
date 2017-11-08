@@ -6,19 +6,18 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-  <title>Vacheron-Constantin</title>
-  <link rel="stylesheet" href="resources/css/Model.css">
-   <link rel = "stylesheet" href = "resources/css/layout.css">
-    <link rel = "stylesheet" href = "resources/css/ModelList.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Vacheron-Constantin</title>
+	<link rel="stylesheet" href="resources/css/Model.css">
+	<link rel = "stylesheet" href = "resources/css/layout.css">
+	<link rel = "stylesheet" href = "resources/css/ModelList.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	     <link rel = "stylesheet" href = "/phoenix/resources/css/total.css">
-
-    
 	<script type = "text/javascript">
+	
 	var ui = "";
 	var UserAuth = "";
+	
 	$(document).ready(function(){
 		var hash = location.hash; // url에서 hash값 가져오기.
 		if(hash == ""){
@@ -26,25 +25,24 @@
 		}
 
 		// 문의하기를 클릭했을때 hash 화면전환--------------------------------
-		 $("#questionbtn").off().on("click", function(){
-		 hash= "#MasterPage1";  //이거 2개 가져다쓰면 화면전환 가능!!
-  		 htmlLoad();			//이거 2개 가져다쓰면 화면전환 가능!!
-  		 });
-
 		
+		$("#questionbtn").off().on("click", function(){
+		hash= "#MasterPage1";  //이거 2개 가져다쓰면 화면전환 가능!!
+  		htmlLoad();			//이거 2개 가져다쓰면 화면전환 가능!!
+  		});
+
 		$(".writebtn").off().on("click",function(){
 			hash = "#Write";
 			htmlLoad();
 		});
-  		 function htmlLoad(){
-  		 var url = "/phoenix/" + hash.substr(1, hash.length)
-  		 $("section").load(url);
-  		 }
+		
+  		function htmlLoad(){
+  		var url = "/phoenix/" + hash.substr(1, hash.length)
+  		$("section").load(url);
+  		}
 
-		 //------------------------------------------------------
-		 
+		//----------------------------------------------------------
 
-		   
 	    $('.collection').off().on("mouseover",function(){
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");
 	    });
@@ -60,66 +58,67 @@
         });
 
  	    $("#loginbtn").off().on("click", function(){
- 			 login();
+ 			login();
  	        /* $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
  	        $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
  	        $('#sjlogoutbtn').addClass('m_col_disb');
  	        $('#sjlabel').addClass('m_col_disb'); */  
- 	     });
+ 	    });
 		   
-		 // 마이페이지를 클릭했을때 예외처리
-		 $("#mypagego").off().on("click", function(){			 
-			 if(ui == "admin"){  
+		// 마이페이지를 클릭했을때 예외처리
+		$("#mypagego").off().on("click", function(){			 
+			if(ui == "admin"){  
 				alert("접근 권한이 없습니다.");
-			 }else if(ui == ""){
+			}else if(ui == ""){
 				alert("접근 권한이 없습니다."); 
-			 }else{
-				 hash= "#MyPageMaster";
-		  		 htmlLoad();
-			 }
-		 });
+			}else{
+				hash= "#MyPageMaster";
+		  		htmlLoad();
+			}
+		});
 		 
 		// 마스터페이지를 클릭했을때 예외처리
-		 $("#mspagego").off().on("click", function(){
-			 if(ui == "admin"){
+		$("#mspagego").off().on("click", function(){
+			if(ui == "admin"){
 				alert("안녕!");
 				hash = "#mastermove";
 				htmlLoad();
-			 }else{
+			}else{
 				alert("접근 권한이 없습니다."); 
-			 }
-		 });
+			}
+		});
 		 
 	        
-	        // 시작 부분...
-		 function init(){
+	    // 시작 부분...
+		function init(){
 	           
-	           $.post("LoginCheck").done(function(result1){
-	              console.log("init()", result1);
-	              if(result1.status == 1){
-	                 // 로그인 되었을때 사용
-	                	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
- 	        			$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
- 	        			$('#sjlogoutbtn').addClass('m_col_disb');
- 	        			$('#sjlabel').addClass('m_col_disb');
-	                /*  $(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>');
-	                 $(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>'); */
-	              }else{
-	                 // 로그아웃 되었을때 사용
-	                 /* $(".m_bt").html('<div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>'
-	                          + '<div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>'); */
-	               	 	$('#sjlogoutbtn').removeClass('m_col_disb').addClass('m_col_disn');
-	        			$('#sjlabel').removeClass('m_col_disb').addClass('m_col_disn');
-	        			$('#sjSignup').addClass('m_col_disb');
- 	        			$('#sjloginbtn').addClass('m_col_disb');
-	                 
-	              }
-	           });
-	        }
-	
-	        init();
-		 htmlLoad();
-	
+		$.post("LoginCheck").done(function(result1){
+			console.log("init()", result1);
+			if(result1.status == 1){
+				// 로그인 되었을때 사용
+				$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+				$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+				$('#sjlogoutbtn').addClass('m_col_disb');
+				$('#sjlabel').addClass('m_col_disb');
+				/*  $(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>');
+				$(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>'); */
+			}else{
+				// 로그아웃 되었을때 사용
+				/* $(".m_bt").html('<div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>'
+				+ '<div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>'); */
+				$('#sjlogoutbtn').removeClass('m_col_disb').addClass('m_col_disn');
+				$('#sjlabel').removeClass('m_col_disb').addClass('m_col_disn');
+				$('#sjSignup').addClass('m_col_disb');
+				$('#sjloginbtn').addClass('m_col_disb');
+			                 
+			}
+		});
+		
+		}
+			
+		init();
+		htmlLoad();
+			
 	});
 	
 	       function login(){
@@ -141,10 +140,7 @@
 	             }).done(function(data){
 	            	var result = data;
 					console.log(data);
-	            	 if(result.data == null){  
-	            		 alert("실패");
-	            		 location.replace("model"); 
-	            	 }else if(result.data != null){
+	            	 if(result.data != null){  
 	            		 alert(UserId + "님 환영합니다.");
 	 	                 ui = UserId;
 	 	                $("#idspan").append(ui + "님");
@@ -152,9 +148,9 @@
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
 	 	        		$('#sjlabel').addClass('m_col_disb');
-	 	        		
+	            	 }else{
+	            		 alert("로그인 실패");
 	 	   	       	}
-	            
 	            	 console.log(UserId);
 	               
 	             }).fail(function(x){
@@ -174,7 +170,7 @@
             <div class ="m_bt">
              <div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;" id = "idspan"></span></div> 
             <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div> 
-  <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div> 
+             <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div> 
              <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div> 
             </div>
     <div class = "box50">
