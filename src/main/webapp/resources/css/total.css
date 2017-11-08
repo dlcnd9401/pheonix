@@ -23,6 +23,7 @@ body{
 .Selltitle {    
     font-size: 50px;
     font-weight: bold;
+    margin-left: 150px;
 }
 /*사용자페이지 + 장바구니페이지*/
 #Sellshoppingbagpage {
@@ -131,7 +132,7 @@ body{
     width: 1550px;
     height: 1400px; 
 }
-#Cartshoppingbagpage h1 {
+#Cartshoppingbagpage p {
    margin-top: 0px; 
    padding-top: 20px;
    font-size: 50px;
@@ -423,14 +424,19 @@ body{
 .msg {
     background-color: #dee1e2;
     width:570px;
-    height: 210px;
     text-align: center;
-    padding-top:  
+    height: 300px;
+    padding-left: 0px;
+    margin-left: 680px;
+    margin-right: 680px;
+    margin-top: 300px;
+    margin-bottom: 300px;
+     
 }
 .msg h2 {
     letter-spacing: 1px;
     line-height: 4;
-    margin-bottom: 0;
+    margin:0;
 }
 /* 버튼css 및 이벤트 */
 .popbtn1, .popbtn2, .popbtn3 {
@@ -442,17 +448,13 @@ body{
     text-decoration: none;
     display: block;
     font-size: 16px;
-    margin: 0px 20px 10px 20px;
+    margin: 0px 170px 10px 170px;
     cursor: pointer;
-    width: 120px;
+    width: 240px;
     border-radius: 5px;
     font-weight: bold;
-    float: left;
+
   
-}
-.popbtn:hover {
-    border: 1px solid gray;
-    background-color: #777676;
 }
 .popspan {
     font-size: 15px;
@@ -460,10 +462,6 @@ body{
 .popbtn {
 	padding: 0 40px;
 }
-
-
-
-
 a {
     text-decoration: none;
 }
