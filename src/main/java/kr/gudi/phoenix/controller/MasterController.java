@@ -70,7 +70,6 @@ public class MasterController {
 		@RequestMapping("/stockupdate")
 		public void StockUpdate(HttpServletRequest req, HttpServletResponse resp, ModelAndView mav) {
 			HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-			System.out.println("controller param: "+ param);
 			HttpUtil.sendResponceToJson(resp, msi.stockupdate(param));
 		}
 		
@@ -84,8 +83,7 @@ public class MasterController {
 	@RequestMapping("/userselectData")
 	public void usermanage2(HttpServletResponse response, HttpServletRequest req) {
 		HashMap<String, Object> ud = HttpUtil.getParameterMap(req);
-		ud = msi.userlistselect(ud);		
-		System.out.println(ud);
+		ud = msi.userlistselect(ud);
 		HttpUtil.sendResponceToJson(response, ud);
 	}
 //	유저리스트 페이징
@@ -93,8 +91,7 @@ public class MasterController {
 	public ModelAndView usermanage3(ModelAndView mav, HttpServletRequest req) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("start", Integer.parseInt(req.getParameter("start")));
-		param.put("viewRow", Integer.parseInt(req.getParameter("viewRow")));
-		System.out.println(param);
+		param.put("viewRow", Integer.parseInt(req.getParameter("viewRow")));		
 		// 디비에서 받아 온 hashmap 데이터를 json으로 변경하여 model 값으로 넣어 준다.
 	      JSONObject jsonObject = new JSONObject();
 	      jsonObject = JSONObject.fromObject(JSONSerializer.toJSON(msi.userlistpaging(param)));
@@ -111,14 +108,7 @@ public class MasterController {
 	}	
 //	디비에 상품내용 등록
 	@RequestMapping(value="/clockupData", method=RequestMethod.POST)
-	   public ModelAndView clockupdate1(ModelAndView mav, HttpServletRequest req, @RequestParam("cdjyfilename") MultipartFile[] file){ 
-	     /* HashMap<String, Object> param = new HashMap<String, Object>();	  
-	      param = HttpUtil.getParameterMap(req);
-	      param = msi.setClockupData(param);	 
-	      System.out.println(param);
-	      return HttpUtil.makeHashToJsonModelAndView(param);*/
-	      
-	      
+	   public ModelAndView clockupdate1(ModelAndView mav, HttpServletRequest req, @RequestParam("cdjyfilename") MultipartFile[] file){ 	  
 	      HashMap<String, Integer> map = new HashMap<String, Integer>();
 			map = msi.fileOutput(file, req);
 			mav.addObject("data", map);

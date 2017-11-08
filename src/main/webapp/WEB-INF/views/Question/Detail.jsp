@@ -22,6 +22,7 @@
     display:block;
     }
     </style>
+
     <script type="text/javascript">
         var  Qno = <%=Qno%>;
         var UserAuth = <%=UserAuth%>;

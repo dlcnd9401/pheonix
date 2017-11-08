@@ -48,13 +48,7 @@ public class ModelController {
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
 		return mav;
 	}
-	/*
-	@RequestMapping("/modellist")
-	public ModelAndView modellist(ModelAndView mav){
-		mav.setViewName("Model/ModelList");
-		return mav;
-	}*/
-	
+
 	/*1023*/
 @RequestMapping(value = "/modeldetail", method = RequestMethod.GET)
 	public ModelAndView modeldetail(ModelAndView mav,HttpServletRequest req, HttpServletResponse resp, HttpSession session){
@@ -69,22 +63,11 @@ public class ModelController {
 		map = msi.modeldetail(map);
 		mav.addObject("detail", map.get("modeldetail"));
 		mav.addObject("UserId", user.get("data").get("UserId"));
-		mav.addObject("UserPost", user.get("data").get("UserPost"));
-		System.out.println(user.get("data").get("UserId"));
-		System.out.println(user.get("data").get("UserPost"));
+		mav.addObject("UserPost", user.get("data").get("UserPost"));		
 		mav.setViewName("Model/Modeldetail");
 		return mav;
+	}	
 	}
-	
-	}
-
-
-/*	@RequestMapping("/modeldata")
-	public ModelAndView modeldata(ModelAndView mav,HttpServletRequest req, HttpSession session){
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map = msi.getData();
-		return HttpUtil.makeHashToJsonModelAndView(map);
-	}*/
 
 
 
@@ -102,33 +85,14 @@ public class ModelController {
 		mav.addObject("data", map.get("modellist"));
 		if(user != null) {
 			mav.addObject("UserId", user.get("data").get("UserId"));
-			mav.setViewName("Model/ModelList");
-			System.out.println(session.getAttribute("user"));
+			mav.setViewName("Model/ModelList");			
 			return mav;
 		}else{
 			mav.setViewName("Model/ModelList");
-			System.out.println(session.getAttribute("user"));
 			return mav;
 			}
 		}
 	}
-	
-	
-	
-//	@RequestMapping("/model")
-//	public ModelAndView model(ModelAndView mav,HttpServletRequest req, HttpSession session){
-//		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
-//		map = new HashMap <String,Object>();
-//		map.put("path", req.getParameter("path"));
-//		map.put("sname", req.getParameter("sname"));
-//		map.put("top", req.getParameter("top"));
-//		map.put("scode", req.getParameter("scode"));
-//		map = msi.model(map);
-//		mav.addObject("model", map.get("model"));
-//		mav.setViewName("model");
-//		System.out.println(session.getAttribute("user"));
-//		return mav;
-//	}
 	
 	@RequestMapping("/Modelbuy")
 	public ModelAndView modelbuy(ModelAndView mav,HttpServletRequest req, HttpSession session){
@@ -136,8 +100,7 @@ public class ModelController {
 		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		param = HttpUtil.getParameterMap(req);
 		param= msi.modelbuy(param);
-		mav.setViewName("Model/popup");
-		System.out.println(session.getAttribute("user"));
+		mav.setViewName("Model/popup");		
 		return mav;
 	}  
 
@@ -147,49 +110,7 @@ public class ModelController {
 		param = HttpUtil.getParameterMap(req);
 		param= msi.modelcart(param);
 		mav.setViewName("Model/popup");
-		System.out.println(session.getAttribute("user"));
 		return  mav;
 	}
-
-	
-/*	@RequestMapping("/modeldata") //List 보여주기 
-	public ModelAndView masterPageData(ModelAndView mav){
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map = msi.getData();
-		map = tsi.getData();
-		return HttpUtil.makeHashToJsonModelAndView(map);
-	}*/
-	
-/*	@RequestMapping("/model")
-	public ModelAndView masterPage1(ModelAndView mav){
-		mav.setViewName("model");
-		return mav;
-	}
-	
-	@RequestMapping("/modellist")
-	public ModelAndView modellist(ModelAndView mav){
-		mav.setViewName("Model/ModelList");
-		return mav;
-	}
-	
-	public ModelAndView modeldata(ModelAndView mav){
-		HashMap<String,Object> map = new HashMap<String,Object>();
-		map = msi.getdata();
-		return HttpUtil.makeHashToJsonModelAndView(map);
-	}
-	*/
-	
-	/*		map = new HashMap <String,Object>();
-	map.put("Code", req.getParameter("Code"));
-	map.put("path", req.getParameter("path"));
-	map.put("Sname", req.getParameter("Sname"));
-	map.put("auth", req.getParameter("auth"));
-	map.put("UserId", req.getParameter("UserId"));
-	map.put("Price", req.getParameter("Price"));
-	map.put("Name",req.getParameter("Name"));
-	map = msi.modelcart(map);
-	mav.addObject("modelcart", map.get("modelcart"));
-	mav.setViewName("ModelCart");
-	return mav;*/
 	
 }

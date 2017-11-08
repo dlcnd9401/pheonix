@@ -92,8 +92,7 @@
 	    // 시작 부분...
 		function init(){
 	           
-		$.post("LoginCheck").done(function(result1){
-			console.log("init()", result1);
+		$.post("LoginCheck").done(function(result1){			
 			if(result1.status == 1){
 				// 로그인 되었을때 사용
 				$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
@@ -121,11 +120,10 @@
 			
 	});
 	
+	/* 로그인 */
 	       function login(){
 	           var UserId = $("#id").val();
-	           var UserPw = $("#pw").val();
-	           
-	           console.log(UserId);
+	           var UserPw = $("#pw").val();	          
 	             
 	             if(UserId == "" || UserPw == ""){
 	                 alert("아이디 또는 비밀번호가 입력되지 않았습니다!!");
@@ -138,11 +136,11 @@
 	                data:{"UserId": UserId, "UserPw": UserPw},
 	                datatype:"json"  
 	             }).done(function(data){
-	            	var result = data;
-					console.log(data);
+	            	var result = data;					
 	            	 if(result.data != null){  
-	            		 alert(UserId + "님 환영합니다.");
-	 	                 ui = UserId;
+	            		 ui = UserId;
+	            		 alert(ui + "님 환영합니다.");
+	 	                 
 	 	                $("#idspan").append(ui + "님");
 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
@@ -150,12 +148,9 @@
 	 	        		$('#sjlabel').addClass('m_col_disb');
 	            	 }else{
 	            		 alert("로그인 실패");
-	 	   	       	}
-	            	 console.log(UserId);
-	               
+	 	   	       	}   
 	             }).fail(function(x){
-	                alert("오류 다시로그인하세요."); 
-	                console.log(d.LoginData);
+	                alert("오류 다시로그인하세요."); 	                
 	             });
 
 	       } 

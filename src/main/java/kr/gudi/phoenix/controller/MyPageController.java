@@ -138,15 +138,12 @@ public class MyPageController {
 		HashMap<String, Object> form = HttpUtil.getParameterMap(req);
 		boolean check = true;
 		if(("").equals(form.get("UserPw1"))){
-			System.out.println("첫번째칸 비밀번호를 입력해주세요");
 			check = false;
 		}
 		
 		if(("").equals(form.get("UserPw2"))){
-			System.out.println("비밀번호 재확인을 입력해주세요.");
 			check = false;
 		}
-		System.out.println(check);
 		if(form.get("UserPw2").equals(form.get("UserPw1"))){
 			if(check){
 				form.put("UserPw", form.get("UserPw1"));
@@ -154,9 +151,7 @@ public class MyPageController {
 				form.put("UserPw", null);
 			}
 			
-			System.out.println(form);
 			form = msi.userUpdate(form);
-			System.out.println(form.get("status2"));
 			if(Integer.parseInt(form.get("status2").toString()) == 1){
 				mav.setViewName("redirect:/model");
 			}else{

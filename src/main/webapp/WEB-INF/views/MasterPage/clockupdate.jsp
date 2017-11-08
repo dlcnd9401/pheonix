@@ -35,12 +35,10 @@ $(document).ready(function(){
 	
 	/* 제품등록버튼눌렀을시 */
 	function clockupdatebtn(){
-	$("form").on("submit", function( event ) {
-				 console.log("------------------");
+	$("form").on("submit", function( event ) {				 
 		         event.preventDefault();
 		         var form = document.forms[0];
-		         var formData = new FormData(form);
-		         console.log(form, formData)
+		         var formData = new FormData(form);		         
 		         $.ajax({
 		        	 type:"post",		         
 		       	  	 url:"clockupData", 
@@ -55,46 +53,17 @@ $(document).ready(function(){
 		             //data = JSON.parse(result);
 		             if($(".cdjyuptext1") == null ) {
 		            	 alert("상품이 등록에 실패하였습니다.");
-		            	 location.href = "clockupdate";
+		            	 /* location.href = "clockupdate"; */
 		             } else {		            	 
 		            	 alert("상품이 등록되었습니다.");
-		            	 location.href = "clockmanage";
+		            	 /* location.href = "clockmanage"; */
 		             }
 		          }).fail(function(result){
-		        	  alert("상품이 등록되었습니다.");
-		        	  location.href = "clockmanage";
+		        	  alert("상품이 안등록되었습니다.");
+		        	  /* location.href = "clockmanage"; */
 		          });
 			});	
 	}
-	
-	/* 이미지저장경로 */
-	function fn_insertBoard(){
-        var comSubmit = new ComSubmit("frm");
-        comSubmit.setUrl("<c:url value='/sample/insertBoard.do' />");
-        comSubmit.submit();
-    }
-
-	// 이미지 파일 여부 판단
-	function checkImageType(fileName){
-	    var pattern = /jpg|gif|png|jpeg/i;
-	    return fileName.match(pattern);
-	}
-		/* 사진이미지추가시 input에 파일명 보여주기*/
-		var uploadFile = $('.cdjyupjul1 .cdjyimgfile');
-		uploadFile.on('change', function(){
-			if(window.FileReader){
-				var filename = $(this)[0].files[0].name;
-			} else {
-				var filename = $(this).val().split('/').pop().split('\\').pop();
-			}
-			$(this).siblings('.cdjyuptext1').val(filename);
-		});
-		
-		// 이미지 파일 여부 판단
-		function checkImageType(fileName){
-		    var pattern = /jpg|gif|png|jpeg/i;
-		    return fileName.match(pattern);
-		}
 });
     </script>
 </head>
@@ -119,6 +88,7 @@ $(document).ready(function(){
               <div class="cdjyupjul1"> <p class="cdjyuptext">시리즈이름</p></div>
               <div class="cdjyupjul1"> <p class="cdjyuptext">시계이름</p></div>
               <div class="cdjyupjul1"> <p class="cdjyuptext">모양</p></div>
+              <div class="cdjyupjul1"> <p class="cdjyuptext">Scode</p></div>
               <div class="cdjyupjul1"> <p class="cdjyuptext">제품번호</p></div>
               <div class="cdjyupjul1"> <p class="cdjyuptext">가격</p></div>              
               <div class="cdjyupjul2"> <p class="cdjyuptext">설명</p></div>
@@ -142,6 +112,9 @@ $(document).ready(function(){
            </div>
            <div class="cdjyupjul1">               
                <input type="text" placeholder="시계모양(mshape)을 입력해주세요" class="cdjyuptext1" name="mshape" id="cdjyclockmshape">
+           </div>
+           <div class="cdjyupjul1">               
+               <input type="number" min="1" max="10" placeholder="scode를 입력해주세요" class="cdjyuptext1" name="scode" id="cdjyclockscode">
            </div>
            <div class="cdjyupjul1">               
                <input type="text" placeholder="제품번호(code)를 입력해주세요" class="cdjyuptext1" name="code" id="cdjyclockcode">

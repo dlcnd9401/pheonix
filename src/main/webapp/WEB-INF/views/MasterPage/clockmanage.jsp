@@ -143,8 +143,7 @@
 			$(".cmjystockupdatebtn").off().on("click", function(){
 				if(confirm("등록하시겠습니까?")){
 	    	    	var stock = $("#s1").val();	 
-	    	    	var no = $("#s1").closest("tr").find("td").eq(1).text();
-	    	    	console.log(stock);
+	    	    	var no = $("#s1").closest("tr").find("td").eq(1).text();	    	    	
         	    	$.ajax({url:"stockupdate", 
         	    		data:{"no": no, "stock":stock}, 
         	    		dataType : "json"}).done(function(data){
@@ -152,7 +151,7 @@
     	    	    		alert("실패하셨습니다.");
     	    	    	}else {
     	    	    		alert("등록하셨습니다.");	    	    		
-    	    	    		location.href = "clockmanage";
+    	    	    		/* location.href = "clockmanage"; */
     	    	    	}
         	    	});
 	    	    	

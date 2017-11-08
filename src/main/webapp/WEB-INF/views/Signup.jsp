@@ -71,8 +71,7 @@
            url : "checkid",
            data:{"UserId" : id},
            datatype: "json"
-        }).done(function(result){
-           console.log(result.checkid);
+        }).done(function(result){           
            if(result.checkid == null){
                $("#checkid").text("완료");
                alert("사용가능한 아이디입니다.");

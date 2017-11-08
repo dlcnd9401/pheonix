@@ -32,31 +32,24 @@ public class SignupController {
    // 회원가입
    @RequestMapping(value="/SignupData", method = RequestMethod.POST)
    public ModelAndView signupData(ModelAndView mav, HttpServletRequest req){ 
-      HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-      System.out.println(param);
-      param = tsi.setSignupData(param);
-      System.out.println(param);
-     
+      HashMap<String, Object> param = HttpUtil.getParameterMap(req);      
+      param = tsi.setSignupData(param);    
       return HttpUtil.makeHashToJsonModelAndView(param);
    }
    
    // 회원가입 아이디 중복체크
    @RequestMapping(value="/checkid", method = RequestMethod.POST)
    public void checkid(HttpServletRequest req, HttpServletResponse resp){
-      HashMap<String, Object> checkid = HttpUtil.getParameterMap(req);
-      System.out.println(checkid);
+      HashMap<String, Object> checkid = HttpUtil.getParameterMap(req);      
       HashMap<String, Object> checkiddata = (HashMap<String, Object>) tsi.checkid(checkid);
       HttpUtil.sendResponceToJson(resp, checkiddata);
    }
    // 로그인
    @RequestMapping(value = "/LoginData", method = RequestMethod.POST)
    public void loginData(HttpServletRequest req, HttpServletResponse resp, HttpSession session){
-	   HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-	   System.out.println("controller : " + param);
-	   HashMap<String, Object> result = tsi.getLoginData(param);
-	   System.out.println(result);
-	   session.setAttribute("user", result);
-	   System.out.println(session.getAttribute("user"));
+	   HashMap<String, Object> param = HttpUtil.getParameterMap(req);	   
+	   HashMap<String, Object> result = tsi.getLoginData(param);	   
+	   session.setAttribute("user", result);	   
 	   HttpUtil.sendResponceToJson(resp, result);
    }
    

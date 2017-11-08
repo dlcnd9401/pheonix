@@ -23,12 +23,7 @@ public class QuestionController {
 
    @RequestMapping("/MasterPage1") //List 보여주기 
    public ModelAndView masterPage1(ModelAndView mav, HttpSession session){                                            
-      HashMap<String, HashMap<String, Object>> UserId = (HashMap<String, HashMap<String, Object>>) session.getAttribute("UserId");
-       /*  if(UserId == null){
-            mav.setViewName("redirect:/Signup");
-         }else {
-            mav.setViewName("model");
-         } 로그인을 안했으면  로그인 하라는 페이지로 이동(singup맞나??) / 로그인을 했으면 메인페이지로 보내줌 */ 
+      HashMap<String, HashMap<String, Object>> UserId = (HashMap<String, HashMap<String, Object>>) session.getAttribute("UserId");     
       mav.setViewName("/Question/MasterPage1");
       return mav;
    }
@@ -39,12 +34,8 @@ public class QuestionController {
    public void masterPage1Search(HttpServletResponse response, HttpServletRequest req) {
         HashMap<String, Object> ud = HttpUtil.getParameterMap(req);
          ud = tsi.getSearchData(ud); 
-         System.out.println(ud);
          HttpUtil.sendResponceToJson(response, ud);
       }
-   
-   
-   
    
    @RequestMapping("/Detail") //게시판안에 있는 글 상세보기 
    public ModelAndView detail(ModelAndView mav, HttpSession session){
@@ -53,15 +44,11 @@ public class QuestionController {
 		  mav.setViewName("redirect:/alert");
 		  return mav;
 	  }else{
-		  mav.addObject("UserAuth", user.get("data").get("UserAuth"));
-		  System.out.println(user.get("data").get("UserAuth"));
+		  mav.addObject("UserAuth", user.get("data").get("UserAuth"));		  
 	      mav.setViewName("/Question/Detail"); //경로설정 확인
 	      return mav;
 	  }
-   }
-   
-   
-   
+   }   
    
 //---------------------------------------답변기능----------------------------------------------------------------
    
@@ -81,13 +68,10 @@ public class QuestionController {
    
    @RequestMapping("/Write") //글작성하기
    public ModelAndView write(ModelAndView mav, HttpSession session ){
-
 	   mav.setViewName("/Question/Write");
       return mav;
    }
-   
-   
-   
+      
    @Autowired
    QuestionServiceInterface tsi;
 
@@ -106,19 +90,11 @@ public class QuestionController {
 	   HashMap<String, Object> param = new HashMap<String, Object>(); // 요청하는 데이터면 담는 그릇은 parameter 
       param.put("Qno", req.getParameter("Qno"));
       /*param.put("UserAuth", user.get("data").get("UserAuth"));*/
-      param.put("UserId", user.get("data").get("UserId"));
-      System.out.println("UserId : " +  user.get("data").get("UserId"));
+      param.put("UserId", user.get("data").get("UserId"));      
       HashMap<String, Object> map = tsi.getDetailData(param);
       return HttpUtil.makeHashToJsonModelAndView(map);
    }
-   
-   
-   
-   
-   
-   
-   
-   
+      
    @RequestMapping("/WriteData") //글 작성하기
    public ModelAndView writeData(ModelAndView mav, HttpServletRequest req,HttpSession session){ 
       HashMap<String, Object> param = new HashMap<String, Object>();
