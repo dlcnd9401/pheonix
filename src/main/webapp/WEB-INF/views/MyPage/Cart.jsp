@@ -61,7 +61,7 @@
             		    tag += "</td>";
             	
             		    tag += "</tr>";
-            		$("tbody").prepend(tag);
+            		$("tbody").append(tag);
             		  
                 }
                
@@ -69,7 +69,7 @@
                 	var tag = "<tr class='Cartlist-text2'>"; 
         		    tag += "<td>찜하신 상품이 없습니다.</td>";
         		    tag += "</tr>";
-                	$("tbody").prepend(tag);
+                	$("tbody").append(tag);
                 }
     	  }
     	 

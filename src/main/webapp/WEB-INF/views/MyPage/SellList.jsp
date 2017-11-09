@@ -56,14 +56,14 @@
 	        		    tag += "</td>";
 
 	        		    tag += "</tr>";
-	        		$("tbody").prepend(tag);
+	        		$("tbody").append(tag);
 	        		
 	            } 
 	            if(data2.length < 1){
 	            	var tag = "<tr>"; 
 	    		    tag += "<td>구매하신 상품이 없습니다.</td>";
 	    		    tag += "</tr>";
-	            	$("tbody").prepend(tag);
+	            	$("tbody").append(tag);
 	            }
 		  }
 		 
