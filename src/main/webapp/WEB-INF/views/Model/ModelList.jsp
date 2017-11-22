@@ -109,11 +109,6 @@ List<HashMap<String, Object>>map = (List<HashMap<String, Object>>) request.getAt
                 </div>
                 
             </div>
-            <a href="#">
-            <div class="collbtn">
-                자세히 보기
-            </div>
-        </a>
         </div>
         
  

@@ -84,7 +84,7 @@ public class ModelController {
 //		System.out.println(req.getParameter("scode"));
 		map = new HashMap<String,Object>();
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
-//		mav.addObject("UserId", "admin");
+		mav.addObject("UserId", "admin");
 		System.out.println(session.getAttribute("UserId"));
 		if(user == null){ 
 			mav.setViewName("redirect:/alert");

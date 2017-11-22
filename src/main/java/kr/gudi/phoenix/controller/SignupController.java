@@ -44,14 +44,25 @@ public class SignupController {
       HashMap<String, Object> checkiddata = (HashMap<String, Object>) tsi.checkid(checkid);
       HttpUtil.sendResponceToJson(resp, checkiddata);
    }
-   // 로그인
+//    로그인
    @RequestMapping(value = "/LoginData", method = RequestMethod.POST)
    public void loginData(HttpServletRequest req, HttpServletResponse resp, HttpSession session){
 	   HashMap<String, Object> param = HttpUtil.getParameterMap(req);	   
 	   HashMap<String, Object> result = tsi.getLoginData(param);	   
 	   session.setAttribute("user", result);	   
 	   HttpUtil.sendResponceToJson(resp, result);
+//	   mav.addObject(result);
    }
+   
+// 로그인
+//   @RequestMapping(value = "/LoginData", method = RequestMethod.POST)
+//   public ModelAndView loginData(ModelAndView mav, HttpServletRequest req , HttpSession session){
+//      HashMap<String, Object> param = HttpUtil.getParameterMap(req);      
+//      HashMap<String, Object> result = tsi.getLoginData(param);      
+//      session.setAttribute("user", result);      
+//      mav.addObject(result);
+//      return HttpUtil.makeHashToJsonModelAndView(result);
+//   }
    
    
    // 로그아웃

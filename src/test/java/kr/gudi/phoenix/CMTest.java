@@ -62,7 +62,6 @@ public class CMTest {
 	
 	public HashMap<String,Object> map;
 	public HashMap<String,Object> param;
-	private String red = ""; 
 	ModelAndView mav;
 	HttpSession session = new HttpSession() {
 		
@@ -603,36 +602,23 @@ public class CMTest {
 	
 	private List<HashMap<String,Object>> List = new ArrayList<HashMap<String,Object>>();
 	private String URI = "/modellist";
-	@org.junit.Before
-	   public void init(){ // MockMVC 에게 WebContext 정보 받아 오기 
-	      mock = MockMvcBuilders.webAppContextSetup(wac).build();
-	   }
-	
-//	@Test
-	public void test1modeldao() {
-	System.out.println(mav);
-	List = (List<HashMap<String,Object>>) mdi.model();	
-	System.out.println("dao map : " + List);
-	assertEquals(new ArrayList<HashMap<String,Object>>(mdi.model()), List);
-	
-	}
 
-	//	@Test
-	public void test2modelSer() {
-	 map = msi.model();	
-	System.out.println("ser map : " + map);
-	assertEquals(new HashMap<String,Object>(msi.model()), map);
-	}
+//
 
-//	@Test
+	@Test
 	public void test3modelController() {
 	ModelAndView mav = mc.model(new ModelAndView());	
 	HashMap<String,Object> map = (HashMap<String,Object>)mav.getModel();
 	System.out.println("mav : " + mav.getModel());
 	System.out.println("map : " + map);
 	assertEquals(map,mav.getModel());
+	List<HashMap<String,Object>> List = (List<HashMap<String,Object>>)map.get("model");
+	System.out.println(List.get(2).get("sname"));
+	assertEquals("1972", List.get(0).get("sname"));
+	
 //	assertEquals(tc.md(mav),mav);
 	}
+	
 //	@Test
 	public void test5modellistdao(){
 //		HashMap<String,Object> user = new HashMap<String,Object>();
@@ -650,38 +636,64 @@ public class CMTest {
 	}
 	private String scode = "1";	
 	
+	@org.junit.Before
+	public void init(){
+		mock = MockMvcBuilders.webAppContextSetup(wac).build();
+//		session.setAttribute("user", "test"); 
+//		session.setAttribute("user2", "ATest");
+//		System.out.println("user session " + session.getAttribute("user"));
+//		mav = new ModelAndView();	
+//		HashMap<String, HashMap<String, Object>> user = new HashMap<String,HashMap<String,Object>>();
+//		user.put("UserId", app);
+	}
+//		System.out.println("user" + session.getAttribute("user"));
+//		
+//	
+//	}
+	
+	
+////	@Test
+//	public void modellist(){
+//		HashMap<String,Object> param = new HashMap<String,Object>();
+//		param.put("scode", 1);
+//		System.out.println(mdi.modellist(param));
+//	ModelAndView mav = (ModelAndView)mc.modellist(new ModelAndView(),req,session);
+//	List<HashMap<String,Object>> map = (List<HashMap<String,Object>>)mdi.modellist(param);
+//	System.out.println("mav : " + map);
+//	assertEquals("칼리버-1003", map.get(0).get("mKind"));
+//	}
+//	
+	
+	
+	
 	 @Test
-	   public void BoardController() throws Exception {
-	      
-	      mock.perform(get(URI)          // get방식 : get("주소"), post방식 : post("주소") 
-	             .param("scode", scode)) // paramater값 설정 : .param("key", "value")
+	   public void ModelList() throws Exception {
+	      mock.perform(get(URI)          // get방식 : get("주소"), post방식 : post("주소") // paramater값 설정 : .param("key", "value")
+	    		 .param("scode", "1")
+	    		 .param("user", "admin")
+	    		  )
 	      .andDo(new ResultHandler() {
 			@Override
 			public void handle(MvcResult arg0) throws Exception {
+				
 //	    		ModelAndView mav = (ModelAndView)mc.modellist(new ModelAndView(),req,session);
 //	    		HashMap<String,Object> map = (HashMap<String,Object>)mav.getModel();
 //	    		System.out.println(map);
-				 ModelAndView mav = arg0.getModelAndView();
-		            Map<String, Object> map = mav.getModel();
-		            System.out.println(map);
-		            
-		            String message = map.get("message").toString();
-		            System.out.println(message);
-		            JsonParser parser = new JsonParser();
-		            JsonElement element = parser.parse(message);
-
-		            JsonObject jobject = element.getAsJsonObject(); 
-		            JsonArray list = jobject.get("list").getAsJsonArray();
-		            System.out.println(list);
-		            assertEquals(size, list.size());
-		            
-		            JsonObject totCnt = jobject.get("totCntall").getAsJsonObject();
-		            assertEquals(tot, Integer.parseInt(totCnt.get("tot").toString()));
+	    	        ModelAndView mav = arg0.getModelAndView();
+	    	        HashMap<String, Object> map = (HashMap<String, Object>)mav.getModel();
+	    	        System.out.println(map);
+	    	        System.out.println("1 + " + map.get("data"));
+	    	        
+	    	        assertEquals(map, mav.getModel());
+	    	        List<HashMap<String,Object>> List = (ArrayList<HashMap<String,Object>>)map.get("data");
+	    	        System.out.println("List " + List);
+	    	        System.out.println(List.get(0).get("code"));
+	    	        assertEquals("000G-9775", List.get(0).get("code"));
 				}
 
 	      });
-//	      .andExpect(status().isOk())// 상태값은 OK가 나와야 합니다.
-//	      .andExpect(model().attributeExists("message"));// "message"이라는 attribute가 존재해야 합니다.
-	      
+////	      .andExpect(status().isOk())// 상태값은 OK가 나와야 합니다.
+////	      .andExpect(model().attributeExists("message"));// "message"이라는 attribute가 존재해야 합니다.
+//	      
 	   }
 	}
