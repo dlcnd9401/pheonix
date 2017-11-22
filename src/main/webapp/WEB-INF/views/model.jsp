@@ -16,8 +16,7 @@
 	<script type = "text/javascript">
 	
 	var ui = "";
-	var UserAuth = "";
-	var UserId = "";
+
 	
 	
 	$(document).ready(function(){
@@ -42,7 +41,7 @@
   		var url = "/phoenix/" + hash.substr(1, hash.length)
   		$("section").load(url);
   		$("#idspan").append(UserId + "님");
-  		idcheck();
+ 
 		
   		}
 		//----------------------------------------------------------
@@ -148,6 +147,7 @@
 	            	 if(result.data != null){  	            		 	            		 
 	            		 //ui = session.getAttribute("user");		            		
 	            		 alert(ui + "님 환영합니다.");
+	            		 $("#idspan").append(ui + "님");
 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
@@ -172,7 +172,7 @@
 	          		 data:{"UserId" : UserId}
 	          	 }).done(function(data){
 	          		 console.log(data);
-	          		$("#idspan").append(UserId + "님");
+	          		
 	          	 }).fail(function(x){
 	          		console.log("data 실패"); 
 	          	 });
