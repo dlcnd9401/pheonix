@@ -48,7 +48,7 @@ public class MasterService implements MasterServiceInterface {
 	            /*path = "E:/Git/phoenix2/src/main/webapp/" + path2 + name;*/ 	
 	            /*path = "C:/Users/GD/git/phoenix/src/main/webapp/" + path2 + name;*/
 	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
-	            System.out.println("name " + name + " path " + path);	 
+//	            System.out.println("name " + name + " path " + path);	 
 	            File f = new File(path);
 	            
 	            if(f.exists() == false){

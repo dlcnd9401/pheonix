@@ -31,6 +31,15 @@ public class ModelController {
 		mav.addObject("model", map.get("model"));
 		return mav;
 	}
+	@RequestMapping("/idcheck")
+	public ModelAndView userId(HttpSession session,HttpServletRequest req){
+		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
+		HashMap<String,Object>param = new HashMap<String,Object>();
+		param.put("userId", user);
+		System.out.println(param);
+		return HttpUtil.makeHashToJsonModelAndView(param);
+	}
+	
 	
 	@RequestMapping("/mainsec")
 	public ModelAndView modeltest(ModelAndView mav){

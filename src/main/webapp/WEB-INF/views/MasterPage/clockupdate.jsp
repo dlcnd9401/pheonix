@@ -30,7 +30,7 @@ $(document).ready(function(){
 			
         }else{           
               alert("모든 정보를 입력하세요.");
-         	  location.href = "model";
+//          	  location.href = "model";
 
          }
      });
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		            	 /* location.href = "clockmanage"; */
 		             }
 		          }).fail(function(result){
-		        	  alert("상품이 등록되었습니다.");
+// 		        	  alert("상품이 등록되었습니다.");
 		          });
 			});	
 	}

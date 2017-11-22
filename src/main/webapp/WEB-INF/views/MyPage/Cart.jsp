@@ -26,11 +26,11 @@
             		    
             		    tag += "<td width='150'>";
             		    if(data[i].path != ''){
-            		    	tag += "<img class='img' src='" + data[i].path + "'";
+            		    	tag += "<img class='img' src='" + data[i].path + "'>";
             		    }else {
             		    	tag += "　";
             		    }
-            		    tag += "</td>";
+            		    tag += "</td>";  
             		    tag += "<td width='300'>";
             		    if(data[i].Sname != ''){
             		    	tag += data[i].Sname;

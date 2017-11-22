@@ -17,8 +17,11 @@
 	
 	var ui = "";
 	var UserAuth = "";
+	var UserId = "";
+	
 	
 	$(document).ready(function(){
+		var data = [];
 		var hash = location.hash; // url에서 hash값 가져오기.
 		if(hash == ""){
 			hash = "#mainsec"; // hash에 값이 없을때 초기값 설정
@@ -38,25 +41,22 @@
   		function htmlLoad(){
   		var url = "/phoenix/" + hash.substr(1, hash.length)
   		$("section").load(url);
+  		$("#idspan").append(UserId + "님");
+  		idcheck();
+		
   		}
 		//----------------------------------------------------------
 
 	    $('.collection').off().on("mouseover",function(){
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");	    		
-// 	    	 $('.collection').off().on("mouseleave",function(){
-// 	  	    	setTimeout(function(){ $("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn"); }, 1000);
-// 	  	    });
+
 	    });
 		
 			$('#m_submenu').off().on("mouseleave",function(){
 	 	    		$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")  
 	 	    });
 		
-//  	    $('#m_submenu').off().on("mouseover",function(){
-//   			$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");
 
- 	    	
-//  	    });
 		
  	    
 		
@@ -72,10 +72,6 @@
 
  	    $("#loginbtn").off().on("click", function(){
  			login();
- 	        /* $('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
- 	        $('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
- 	        $('#sjlogoutbtn').addClass('m_col_disb');
- 	        $('#sjlabel').addClass('m_col_disb'); */  
  	    });
 		   
 		// 마이페이지를 클릭했을때 예외처리
@@ -92,7 +88,10 @@
 		
 		});
 		 
-	        
+
+		
+		
+		
 	    // 시작 부분...
 		function init(){
 	           
@@ -103,30 +102,33 @@
 				$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 				$('#sjlogoutbtn').addClass('m_col_disb');
 				$('#sjlabel').addClass('m_col_disb');
-				/*  $(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div>');
-				$(".m_bt").html('<div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;"></span></div>'); */
 			}else{
-				
-				// 로그아웃 되었을때 사용
-				/* $(".m_bt").html('<div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>'
-				+ '<div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div>'); */
 				$('#sjlogoutbtn').removeClass('m_col_disb').addClass('m_col_disn');
 				$('#sjlabel').removeClass('m_col_disb').addClass('m_col_disn');
 				$('#sjSignup').addClass('m_col_disb');
-				$('#sjloginbtn').addClass('m_col_disb');
-			                 
+				$('#sjloginbtn').addClass('m_col_disb');              
 			}
 		});
 		
 		}
-			
+		
+// 		function checked(){
+// 			for(var i = 0; i <  data.length; i++){
+// 				console.log(data[i].UserId);
+// 			}
+	
+// 		}	    
 		init();
 		htmlLoad();
-			
 	});
-	
+		
+			
+			
+		
 	/* 로그인 */
 	       function login(){
+	    	   
+		
 	           var UserId = $("#id").val();
 	           var UserPw = $("#pw").val();	          
 	             
@@ -141,30 +143,40 @@
 	                datatype:"json"  
 	             }).done(function(data){
 	            	var result = data;
-	            	
             		 ui = UserId;
             		 
 	            	 if(result.data != null){  	            		 	            		 
 	            		 //ui = session.getAttribute("user");		            		
-	            		 alert(ui + "님 환영합니다.");	 	                 
-	 	                $("#idspan").append(ui + "님");
+	            		 alert(ui + "님 환영합니다.");
 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
 	 	        		$('#sjlabel').addClass('m_col_disb');
 	            	 }else{
 	            		 alert("로그인 실패");
-
-	 	   	       	   
-
 	            		 location.replace("Logout"); 
 	 	   	       	}
 
 	             }).fail(function(x){
 	                alert("오류 다시로그인하세요."); 	                
 	             });
-
+			
+	            
 	       } 
+	
+	        function idcheck(){
+	        	var UserId = "";
+	          	 $.ajax({
+	          		 type:"post",
+	          		 url:"idcheck",
+	          		 data:{"UserId" : UserId}
+	          	 }).done(function(data){
+	          		 console.log(data);
+	          		$("#idspan").append(UserId + "님");
+	          	 }).fail(function(x){
+	          		console.log("data 실패"); 
+	          	 });
+	           }   
 
 
 
@@ -182,7 +194,7 @@
     <div class = "box50">
         <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
         <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></a></div>
-        <a href =""><div class ="collection">컬렉션</div></a>
+        <div class =""><a href ="" class ="collection">컬렉션</a></div>
         <div class = "questionbtn" id ="questionbtn"><a href ="#">문의하기</a></div>
         <div><a href ="#" id="mypagego"> 마이페이지</a></div>
         <div><a href ="#" id="mspagego"> 관리자 페이지</a></div>

@@ -32,8 +32,32 @@
         	$('#sjlogoutbtn').addClass('m_col_disb');
         	$('#sjlabel').addClass('m_col_disb');
         	$('#sjlabel').append(tag);
-		}	  
+		}
+		
+		$("input:checkbox").off().on("click", function(){
+		 	if($(".addr .chkaddr").prop('checked')){ 
+		 		$(".addr .addrtxt-2").attr("disabled",true);
+		   		$(".addr .addrtxt-1").removeAttr("disabled");
+			}else{
+				$(".addr .addrtxt-1").attr("disabled",true);
+		   		$(".addr .addrtxt-2").removeAttr("disabled");
+	      		}  
+		   });
+// 		$("input:checkbox:checked").prop("false","click",function(){
+// 			alert("1234");
+			
+// 		 		$(".addr .addrtxt-2").attr("disabled",true);
+// 	      		$(".addr .addrtxt-1").removeAttr("disabled");
+	
+		 	
+// 		   });
+		
 	}); 
+ 	
+ 	function chckfalse(){
+ 		$(".addr .addrtxt-2").attr("disabled",true);
+   		$(".addr .addrtxt-1").removeAttr("disabled");	
+ 	}
 	</script>
 
 </head>
@@ -117,11 +141,11 @@
                 <!--  주소입력  -->
                 <div class ="addr">
                     <div class="chcb">
-                    <input type="checkbox" checked>
-                        </div>
+                    <input class="chkaddr" type="checkbox" checked>
+                    </div>
                     <div class="addrtxt">
-                    <input  class="addrtxt-1" type="text" id = "UserPost" name = "UserPost" placeholder="주소지(기본)" value = "<%=UserPost%>"><br>
-                    <input class="addrtxt-2" type="text" placeholder="체크박스 해제시 주소지 직접입력"><br>
+                    <input class="addrtxt-1" type="text" id = "UserPost" name = "UserPost" placeholder="주소지(기본)" value = "<%=UserPost%>"><br>
+                    <input class="addrtxt-2" type="text" id = "UserPost2" placeholder="체크박스 해제시 주소지 직접입력" disabled ><br>
                     <input class="addrtxt-3" type="text" placeholder="세부사항">
                     <div class="money"><span name = "Price" id ="Price"><%= map.get(i).get("price")%></span></div>
                     </div>
