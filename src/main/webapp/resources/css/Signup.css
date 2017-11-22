@@ -74,15 +74,19 @@ header{
     text-align: center;
 }
 
+.back1 h2 {
+	margin-top: 35px;
+}
+
 .back1 {
 	line-height: 70px;
     width: calc(1730px);
-    height: 120px;
+    height: 100px;
     float: left;
 }/* 회원가입 글씨  */
 
 .id {
-    width: 1100px;
+    width: 600px;
     height: 70px;
     float: left;
 } /* 아이디창 */
@@ -90,7 +94,7 @@ header{
 
 
 .btn1 {
-    width: 630px;
+    width: 280px;
     height: 70px;
     float: left;
 }/*  중복확인 */
@@ -99,7 +103,7 @@ header{
 
 
 .pwd {
-    width: 1730px;
+    width: 600px;
     height: 70px;
     float: left;
 } /* 비밀번호 */
@@ -120,31 +124,27 @@ header{
 
 
 .name {
-    width: 1100px;
+    width: 600px;
     height: 70px;
     float: left;
 }
 
-.gnd {
-    width: 630px;
-    height: 70px;
-    float: left;
-}/* 성별선택 */
+
 
 .email {
-    width: 1730px;
+    width: 600px;
     height: 70px;
     float: left;
 }
 
 .hp {
-    width: 1730px;
+    width: 600px;
     height: 70px;
     float: left;
 }
 
 .home {
-    width: 1730px;
+    width: 600px;
     height: 70px;
     float: left;
 }
@@ -156,10 +156,21 @@ header{
     margin-left: 10px;
 } /* 가입하기 취소 큰 틀 */
 
+.sjpom {
+	margin-left: 680px;
+	float: left;
+}
 
 
-
-
+.sjbtnP {
+	border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #464646;
+    color: white;
+    font-weight: bold;
+    margin-left: -570px;
+}
 
 
 

@@ -16,7 +16,8 @@
 	<script type = "text/javascript">
 	
 	var ui = "";
-
+	var UserAuth = "";
+	var UserId = "";
 	
 	
 	$(document).ready(function(){
@@ -41,7 +42,7 @@
   		var url = "/phoenix/" + hash.substr(1, hash.length)
   		$("section").load(url);
   		$("#idspan").append(UserId + "님");
- 
+  		idcheck();
 		
   		}
 		//----------------------------------------------------------
@@ -65,9 +66,6 @@
 	    	},10000);
 	    });
 	    
-	    $(".sgbtn").click(function(){
-            location.replace("Signup"); 
-        });
 
  	    $("#loginbtn").off().on("click", function(){
  			login();
@@ -86,10 +84,13 @@
 				htmlLoad();
 		
 		});
+		
+		// 회원가입을 클릭했을때 예외처리
+		$("#sjSignup").off().on("click", function(){
+			hash= "#Signup";
+	  		htmlLoad();
+	  	});
 		 
-
-		
-		
 		
 	    // 시작 부분...
 		function init(){
@@ -147,7 +148,6 @@
 	            	 if(result.data != null){  	            		 	            		 
 	            		 //ui = session.getAttribute("user");		            		
 	            		 alert(ui + "님 환영합니다.");
-	            		 $("#idspan").append(ui + "님");
 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
@@ -172,11 +172,11 @@
 	          		 data:{"UserId" : UserId}
 	          	 }).done(function(data){
 	          		 console.log(data);
-	          		
+	          		$("#idspan").append(UserId + "님");
 	          	 }).fail(function(x){
 	          		console.log("data 실패"); 
 	          	 });
-	           }   
+	           }
 
 
 
@@ -189,7 +189,7 @@
              <div class= "m_btbox m_col_disn" id="sjlabel"><span style = "font-size:13px; color:white;" id = "idspan"></span></div> 
             <div class= "m_btbox m_col_disn" id="sjlogoutbtn"><a href="/phoenix/Logout">로그아웃</a></div> 
              <div class= "m_btbox m_Logging m_col_disb" id="sjloginbtn"><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></div> 
-             <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="/phoenix/Signup" class="sgbtn">회원가입</a></div> 
+             <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="#" class="sgbtn">회원가입</a></div> 
             </div>
     <div class = "box50">
         <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
