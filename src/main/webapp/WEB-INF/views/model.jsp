@@ -32,8 +32,7 @@
   		});
 
 		$(".writebtn").off().on("click",function(){
-			hash = "#Write";
-			htmlLoad();
+			qchecked();
 		});
 		
   		function htmlLoad(){
@@ -165,7 +164,20 @@
 				
 			}
 			
-		
+			function qchecked(){
+				var idchecked = $("#idspan").text();
+				console.log(idchecked);
+				if(idchecked == ""){
+					alert("Login 후 이용하세요."); 
+				}else{
+					hash= "#Write";  //이거 2개 가져다쓰면 화면전환 가능!!
+			  		var url = "/phoenix/" + hash.substr(1, hash.length)
+			  		$("section").load(url);	
+				}
+				
+			}
+			
+			
 	/* 로그인 */
 	       function login(){
 	    	   

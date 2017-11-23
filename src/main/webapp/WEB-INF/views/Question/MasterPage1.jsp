@@ -109,8 +109,9 @@
 
 //----------------------------------------------- 작성버튼 클릭시 부분전환-------------------------------------------------------------
 			     $(".writebtn").off().on("click",function(){
-		               hash = "#Write";
-		               htmlLoad();
+			    	 qchecked();  
+// 			    	 hash = "#Write";
+// 		               htmlLoad();
 		            });
 		            
 		            function htmlLoad(){
@@ -154,6 +155,9 @@
     	
 });
 
+    
+    
+    
 </script>
 
 </head>
