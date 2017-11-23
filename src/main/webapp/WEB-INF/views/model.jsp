@@ -51,12 +51,21 @@
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");	    		
 
 	    });
-		
+			
 			$('#m_submenu').off().on("mouseleave",function(){
 	 	    		$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")  
 	 	    });
-		
-
+			
+			$('#questionbtn').off().on("mouseover",function(){
+				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
+			});
+			
+			$('#mypagego').off().on("mouseover",function(){
+				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
+			});
+			$('#mspagego').off().on("mouseover",function(){
+				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
+			});
 		
  	    
 		
