@@ -119,11 +119,18 @@
 						if($(this).prop("checked")){ // 현재 선택한 체크박스의 값이 true인지 확인
 							$("input:checkbox").prop("checked",false);  // 전체 체크박스의 값을 false로 변경
 							$(this).prop("checked",true); // 현재 선택한 체크박스의 값만 true로 변경	
+							//	상위에 디비 리스트	html += "<td class='cmjytitle1 cmjyemail' name='stock' id='stock'>" + data1[i].Stock + "</td></tr>";	
+							for(var i = 0; i < $("#stock input").length; i++){
+								var txt = $("#stock input").eq(i).val();
+								$("#stock input").eq(i).closest("#stock").html(txt);
+							}
+							
 							tds.eq(5).html("<input name='stock' type='number' min='0' id='s1'max= '100' value='" + text + "'>"); 
 						}else {  							
 							text = tds.eq(5).find("input").val();
 							tds.eq(5).text(text);
 							$("input:checkbox").prop("checked",false);
+							
 						}    
 				});					
 		}
@@ -144,7 +151,7 @@
 	    	    	    	}else {
 	    	    	    		alert("등록하셨습니다.");	    
 	    	    	    		$("input:checkbox").prop("checked",false);
-	    	    	    		
+	    	    	    		location.href = "model";
 	    	    	    	}
         	    	});
 	    	    	

@@ -372,8 +372,7 @@ body,html {
 }
 
 /* 하단 페이지이동 */
-.umjypagebtns a {
-	width: 20px;
+.umjypagebtns a {	
 	text-align: center;
     display: inline-block;
     font-weight: bold;

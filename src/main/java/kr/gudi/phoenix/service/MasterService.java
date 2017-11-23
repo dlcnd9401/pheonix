@@ -23,16 +23,20 @@ public class MasterService implements MasterServiceInterface {
 	public HashMap<String, Object> map;
 		
 	@Override
-	public HashMap<String, Integer> setClockupData(HashMap<String, Object> param) {
-		 HashMap<String, Integer> map = new HashMap<String, Integer>();	   
-	    map.put("status", mdi.setClockupData(param));	    
+	public HashMap<String, Object> setClockupData(HashMap<String, Object> param) {
+		 HashMap<String, Object> map = new HashMap<String, Object>();	   
+		 System.out.println(param);
+	    map.put("status", mdi.setClockupData(param));	 
+	    System.out.println("map " + map);
 	    return map;
 	}
+
 	
 	@Override
-	   public HashMap<String, Integer> fileOutput(MultipartFile[] file, HttpServletRequest req) {
-	      HashMap<String, Integer> map2 = new HashMap<String, Integer>();
+	   public HashMap<String, Object> fileOutput(MultipartFile[] file, HttpServletRequest req) {
+	      HashMap<String, Object> map2 = new HashMap<String, Object>();
 	      map = new HashMap<String, Object>();
+
 	      
 	      HashMap<String, Object> param = HttpUtil.getParameterMap(req);	      
 
@@ -51,7 +55,7 @@ public class MasterService implements MasterServiceInterface {
 //	            System.out.println("name " + name + " path " + path);	 
 	            File f = new File(path);
 	            
-	            if(f.exists() == false){
+	            if(f.exists()){
 	               f = new File(path);
 	               OutputStream out = new FileOutputStream(f);	            
 	               out.write(bytes);
@@ -70,6 +74,8 @@ public class MasterService implements MasterServiceInterface {
 	               map.put("price", param.get("price"));
 	               map.put("introduce", param.get("introduce"));	               
 	               map2 = setClockupData(map);
+	               System.out.println("map " + map);
+	               System.out.println("map2 " + map2);
 	            }
 	         } catch (IOException e) {
 	            e.printStackTrace();

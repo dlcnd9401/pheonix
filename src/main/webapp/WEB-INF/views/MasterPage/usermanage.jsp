@@ -84,7 +84,7 @@ var data = []; // 데이터 담을 배열 변수 선언
 				data = result.data; // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
 				totCnt = result.totCnt.tot;
 				init(result.data);				
-				//createPaging(); // 화면에 표현하기 위하여 함수 호출				
+				createPaging(); // 화면에 표현하기 위하여 함수 호출				
 			});			
 		}
 		
