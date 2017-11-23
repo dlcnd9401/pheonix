@@ -123,7 +123,8 @@
 				$('#sjlogoutbtn').addClass('m_col_disb');
 				$('#sjlabel').addClass('m_col_disb');
 				$("#idspan").append(userid123);  
-				Username = userid123;  
+				Username = userid123; 
+				
 			}else{
 				$('#sjlogoutbtn').removeClass('m_col_disb').addClass('m_col_disn');
 				$('#sjlabel').removeClass('m_col_disb').addClass('m_col_disn');
@@ -133,7 +134,6 @@
 		});
 		
 		}
-		
 		init();
 		htmlLoad();
 	});
@@ -145,6 +145,7 @@
 					hash= "#mastermove";  //이거 2개 가져다쓰면 화면전환 가능!!
 			  		var url = "/phoenix/" + hash.substr(1, hash.length)
 			  		$("section").load(url);	
+			  		
 				}else{
 					alert("관리자 Login 후 이용하세요.");
 				}
@@ -188,10 +189,11 @@
 	            	 if(result.data != null){  	            		 	            		 
 	            		 //ui = session.getAttribute("user");		            		
 	            		 alert(ui + "님 환영합니다.");
-	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
-	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
-	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
-	 	        		$('#sjlabel').addClass('m_col_disb');
+// 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
+// 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
+// 	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
+// 	 	        		$('#sjlabel').addClass('m_col_disb');
+						location.href ="model";
 	            	 }else{
 	            		 alert("로그인 실패");
 	            		 location.replace("Logout"); 
