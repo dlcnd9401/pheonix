@@ -16,9 +16,7 @@
 	<script type = "text/javascript">
 	
 	var ui = "";
-	var UserAuth = "";
-	var UserId = "";
-	
+	var Username = "";
 	
 	$(document).ready(function(){
 		var data = [];
@@ -26,9 +24,9 @@
 		if(hash == ""){
 			hash = "#mainsec"; // hash에 값이 없을때 초기값 설정
 		}
-
 		// 문의하기를 클릭했을때 hash 화면전환--------------------------------		
 		$("#questionbtn").off().on("click", function(){
+		
 		hash= "#MasterPage1";  //이거 2개 가져다쓰면 화면전환 가능!!
   		htmlLoad();			//이거 2개 가져다쓰면 화면전환 가능!!
   		});
@@ -42,10 +40,8 @@
   		var url = "/phoenix/" + hash.substr(1, hash.length)
   		$("section").load(url);
   		
-//   		idcheck();
-		
   		}
-		//----------------------------------------------------------
+		
 
 	    $('.collection').off().on("mouseover",function(){
 	    	$("#m_submenu").removeClass("m_col_disn").addClass("m_col_disb");	    		
@@ -56,9 +52,9 @@
 	 	    		$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")  
 	 	    });
 			
-			$('#questionbtn').off().on("mouseover",function(){
-				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
-			});
+// 			$('#questionbtn').off().on("mouseover",function(){
+// 				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
+// 			});
 			
 			$('.modelhome').off().on("mouseover",function(){
 				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
@@ -71,9 +67,7 @@
 				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
 			});
 		
- 	    
-		
-	    $('#m_exit').click(function(){
+	    $('#m_exit').click(function(){    
 	    	$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn").animate({
 	    		opcatiy :'0.4'
 	    	},10000);
@@ -86,15 +80,18 @@
 		   
 		// 마이페이지를 클릭했을때 예외처리
 		$("#mypagego").off().on("click", function(){			 
-				hash= "#MyPageMaster";
-		  		htmlLoad();
+// 				hash= "#MyPageMaster";
+// 		  		htmlLoad();
+			mychecked();
 			
 		});
 		 
 		// 마스터페이지를 클릭했을때 예외처리
 		$("#mspagego").off().on("click", function(){
-				hash = "#mastermove";
-				htmlLoad();
+// 			hash = "#mastermove";
+// 				htmlLoad();
+			checked();
+// 			htmlLoad();
 		
 		});
 		
@@ -108,13 +105,25 @@
 	    // 시작 부분...
 		function init(){
 	           
-		$.post("LoginCheck").done(function(result1){			
+		$.post("LoginCheck").done(function(result1){
 			if(result1.status == 1){
-				// 로그인 되었을때 사용
+				var usercheck = [];
+				
+				usercheck = result1.user;
+				console.log(usercheck);
+				var userdata = [];
+				userdata = usercheck.data;
+				console.log(userdata);
+				userid123 = "";
+				userid123 = userdata.UserId;
+				console.log(userid123);
+				
 				$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 				$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 				$('#sjlogoutbtn').addClass('m_col_disb');
 				$('#sjlabel').addClass('m_col_disb');
+				$("#idspan").append(userid123);  
+				Username = userid123;  
 			}else{
 				$('#sjlogoutbtn').removeClass('m_col_disb').addClass('m_col_disn');
 				$('#sjlabel').removeClass('m_col_disb').addClass('m_col_disn');
@@ -125,17 +134,35 @@
 		
 		}
 		
-// 		function checked(){
-// 			for(var i = 0; i <  data.length; i++){
-// 				console.log(data[i].UserId);
-// 			}
-	
-// 		}	    
 		init();
 		htmlLoad();
 	});
 		
+			function checked(){
+				var idchecked = $("#idspan").text();
+				console.log(idchecked);
+				if(idchecked == "admin"){
+					hash= "#mastermove";  //이거 2개 가져다쓰면 화면전환 가능!!
+			  		var url = "/phoenix/" + hash.substr(1, hash.length)
+			  		$("section").load(url);	
+				}else{
+					alert("관리자 Login 후 이용하세요.");
+				}
+				   
+			}
 			
+			function mychecked(){
+				var idchecked = $("#idspan").text();
+				console.log(idchecked);
+				if(idchecked == ""){
+					alert("Login 후 이용하세요."); 
+				}else{
+					hash= "#MyPageMaster";  //이거 2개 가져다쓰면 화면전환 가능!!
+			  		var url = "/phoenix/" + hash.substr(1, hash.length)
+			  		$("section").load(url);	
+				}
+				
+			}
 			
 		
 	/* 로그인 */
@@ -161,7 +188,6 @@
 	            	 if(result.data != null){  	            		 	            		 
 	            		 //ui = session.getAttribute("user");		            		
 	            		 alert(ui + "님 환영합니다.");
-	            		 $("#idspan").append(ui + "님");
 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjlogoutbtn').addClass('m_col_disb');

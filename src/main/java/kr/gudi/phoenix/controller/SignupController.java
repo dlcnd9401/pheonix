@@ -81,6 +81,7 @@ public class SignupController {
          map.put("status", 0);
       }else{
          map.put("status", 1);
+         map.put("user", user);
       }
       HttpUtil.sendResponceToJson(resp, map);
    }
