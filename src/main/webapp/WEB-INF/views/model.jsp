@@ -41,8 +41,8 @@
   		function htmlLoad(){
   		var url = "/phoenix/" + hash.substr(1, hash.length)
   		$("section").load(url);
-  		$("#idspan").append(UserId + "님");
-  		idcheck();
+  		
+//   		idcheck();
 		
   		}
 		//----------------------------------------------------------
@@ -57,6 +57,10 @@
 	 	    });
 			
 			$('#questionbtn').off().on("mouseover",function(){
+				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
+			});
+			
+			$('.modelhome').off().on("mouseover",function(){
 				$("#m_submenu").removeClass("m_col_disb").addClass("m_col_disn")
 			});
 			
@@ -157,6 +161,7 @@
 	            	 if(result.data != null){  	            		 	            		 
 	            		 //ui = session.getAttribute("user");		            		
 	            		 alert(ui + "님 환영합니다.");
+	            		 $("#idspan").append(ui + "님");
 	 	             	$('#sjloginbtn').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjSignup').removeClass('m_col_disb').addClass('m_col_disn');
 	 	        		$('#sjlogoutbtn').addClass('m_col_disb');
@@ -173,19 +178,19 @@
 	            
 	       } 
 	
-	        function idcheck(){
-	        	var UserId = "";
-	          	 $.ajax({
-	          		 type:"post",
-	          		 url:"idcheck",
-	          		 data:{"UserId" : UserId}
-	          	 }).done(function(data){
-	          		 console.log(data);
-	          		$("#idspan").append(UserId + "님");
-	          	 }).fail(function(x){
-	          		console.log("data 실패"); 
-	          	 });
-	           }
+// 	        function idcheck(){
+// 	        	var UserId = "";
+// 	          	 $.ajax({
+// 	          		 type:"post",
+// 	          		 url:"idcheck",
+// 	          		 data:{"UserId" : UserId}
+// 	          	 }).done(function(data){
+// 	          		 console.log(data);
+// 	          		$("#idspan").append(UserId + "님");
+// 	          	 }).fail(function(x){
+// 	          		console.log("data 실패"); 
+// 	          	 });
+// 	           }
 
 
 
@@ -201,7 +206,7 @@
              <div class= "m_btbox m_Logging m_col_disb" id ="sjSignup"><a href="#" class="sgbtn">회원가입</a></div> 
             </div>
     <div class = "box50">
-        <div class = "m_mar"><a href = "model" style = "margin: 0 100px 0 0;" >
+        <div class = "m_mar"><a href = "model" class="modelhome" style = "margin: 0 100px 0 0;" >
         <img src = "resources/img/main/vacheron-constantin-logo.png.resource.1427891127632.png"></a></div>
         <div class =""><a href ="" class ="collection">컬렉션</a></div>
         <div class = "questionbtn" id ="questionbtn"><a href ="#">문의하기</a></div>
