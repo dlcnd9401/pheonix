@@ -14,12 +14,16 @@
     <script type="text/javascript">
     
     $(document).ready(function(){
+    	$("#UserEmail").attr("pattern", "[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*");
     	
     	// 회원가입 + 예외처리
     	var idText = "";
         var finId ="";
+        
+        var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
     	
     	$("#btnP0").on("click", function(){
+    		
     		id = $("#userId").val();
     		pw = $("#UserPw").val();
     		name = $("#UserName").val();
@@ -27,28 +31,28 @@
     		tel = $("#UserTel").val();
     		post = $("#UserPost").val();
     		
-    		if(id != "" && pw != "" && name != "" && email != "" && tel != "" && post != "" && $("#checkid").text()=="완료" && finId==idText){
-                $.ajax({
-                   type:"post",
-                   url:"SignupData",
-                   data: {"UserId" : id , "UserPw" : pw, "UserName" : name, "UserEmail" : email, "UserTel" : tel, "UserPost" : post}
-                }).done(function(result){
-                  alert("회원가입이 완료되었습니다. 로그인하세요.");
-                  location.href = "model";
-                });
-            }else{
-               if($("#userId").val()==null){               
-                  alert("모든 텍스트를 입력하세요.");
-               }else if(finId != idText){
-                  alert("id를 다시 확인하세요.");
-                  $("#userId").val(idText);
-               }else{
-                  alert("모든정보를 입력하세요.");
-               }
-             }
-         });
+    		 if(id != "" && pw != "" && name != "" && email != "" && tel != "" && post != "" && $("#checkid").text()=="완료" && finId==idText){
+                 $.ajax({
+                    type:"post",
+                    url:"SignupData",
+                    data: {"UserId" : id , "UserPw" : pw, "UserName" : name, "UserEmail" : email, "UserTel" : tel, "UserPost" : post}
+                 }).done(function(result){
+                  if(regex.test(email) == false){
+                	  alert("잘못된 이메일 형식입니다.");
+                      return false;
+                  }else{
+                   alert("회원가입이 완료되었습니다. 로그인하세요.");
+                   location.href = "model";
+                  }
+                 });
+             }else{
+                   alert("모든정보를 입력하세요.");
+              }
+          });
    
       
+    	
+    	
 	$("#btnP1").off().on("click", function(){
 		location.replace("model");
 	});
@@ -64,6 +68,9 @@
 
 });
     
+    
+//--------------------------아이디 중복확인---------------------------------------
+
     function btnOverlap(){
         var id = $("#userId").val();
         
@@ -88,7 +95,7 @@
             }
         });
      }
-    
+//--------------------------------------------------------------------------    
     
 	</script>
 
