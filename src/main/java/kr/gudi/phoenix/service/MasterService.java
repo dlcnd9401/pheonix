@@ -54,6 +54,7 @@ public class MasterService implements MasterServiceInterface {
 	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
 //	            System.out.println("name " + name + " path " + path);	 
 	            File f = new File(path);
+	            System.out.println("F" + f);
 	            System.out.println(param);
 	            if(f.exists()){
 		               f = new File(path);
