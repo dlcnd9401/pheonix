@@ -74,15 +74,19 @@ public class MyPageController {
 		try {
 			int start = 0;
 			int viewRow = 10;
+			String UserId = "admin";
 			if(req.getParameter("start") != null){
 				start = Integer.parseInt(req.getParameter("start"));
 			}
 			if(req.getParameter("viewRow") != null){
 				viewRow = Integer.parseInt(req.getParameter("viewRow"));
 			}
+			if(req.getParameter("UserId") != null){
+				param.put("UserId", user.get("data").get("UserId"));
+			}
 			param.put("start", start);
 			param.put("viewRow", viewRow);
-			param.put("UserId", user.get("data").get("UserId"));
+			param.put("UserId", UserId);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -96,15 +100,19 @@ public class MyPageController {
 		try {	
 			int start = 0;
 			int viewRow = 10;
+			String UserId = "admin";
 			if(req.getParameter("start") != null){
 				start = Integer.parseInt(req.getParameter("start"));
 			}
 			if(req.getParameter("viewRow") != null){
 				viewRow = Integer.parseInt(req.getParameter("viewRow"));
 			}
+			if(req.getParameter("UserId") != null){
+				param.put("UserId", user.get("data").get("UserId"));
+			}
 			param.put("start", start);
 			param.put("viewRow", viewRow);
-			param.put("UserId", user.get("data").get("UserId"));
+			param.put("UserId", UserId);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
