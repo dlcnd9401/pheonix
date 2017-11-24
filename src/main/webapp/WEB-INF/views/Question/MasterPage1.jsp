@@ -87,6 +87,7 @@
 					data:{"start":start, "viewRow":viewRow} // 파라메터로 사용할 변수 값 객체 넣기
 			}).done(function(result){ // 비동기식 데이터 가져오기
 				data = result.data; // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
+				console.log(data);
 				totCnt = result.totCnt.tot;
 				init(result.data);
 				createPaging(); // 페이지 링크 표현하기 
@@ -109,9 +110,8 @@
 
 //----------------------------------------------- 작성버튼 클릭시 부분전환-------------------------------------------------------------
 			     $(".writebtn").off().on("click",function(){
-			    	 qchecked();  
-// 			    	 hash = "#Write";
-// 		               htmlLoad();
+		               hash = "#Write";
+		               htmlLoad();
 		            });
 		            
 		            function htmlLoad(){
@@ -155,9 +155,6 @@
     	
 });
 
-    
-    
-    
 </script>
 
 </head>

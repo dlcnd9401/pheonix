@@ -5,7 +5,7 @@
 <mapper namespace="question">
 
    <select id="qestionListData" resultType="hashmap"> <!-- 리스트조회 -->
-      select * from Question
+      select * from Question limit #{start}, #{viewRow};
    </select>
    
 
@@ -30,7 +30,6 @@
    
    
    <!-- 관리자 답변기능  -->
-   
    <update id="questionAnswerData" parameterType="hashmap">
       update Question set Reply = #{Reply} where Qno = #{Qno}
    </update>
@@ -50,7 +49,7 @@
 
    
       <select id="select" parameterType="hashmap" resultType="hashmap"> <!-- Paging 쿼리문 -->
-      select * from Question limit #{start}, #{viewRow}     <!-- limit 한번에 보여지는 게시판    -->
+      select * from Question order by Qno desc limit #{start}, #{viewRow}     <!-- limit 한번에 보여지는 게시판    -->
    </select>
    
    

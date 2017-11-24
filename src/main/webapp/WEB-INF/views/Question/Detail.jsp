@@ -14,15 +14,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-    .disnone {
-    display: none;
-    }
-    .disblock {
-    display:block;
-    }
-    </style>
-
     <script type="text/javascript">
         var  Qno = <%=Qno%>;
         var UserAuth = <%=UserAuth%>;
@@ -33,30 +24,39 @@
 					var data = resultJSON.data;					
 					$(".qpsydatailMiddel span").eq(0).text(data.UserId);
 					$(".qpsydetailMiddel1").text(data.QContents); 
-					$(".qpsydetailMiddel2").text(data.Reply)
+					$(".qpsydetailMiddel2").text(data.Reply);
 				});
 			}
-			
 			init();
 		
 			// 관리자는 활성화버튼이보임
 			if(UserAuth == 2){
 				$(".ansbtn").hide();
-			}else{
-				$(".ansbtn").show();
-			}
-			
-			// 관리자는 작성버튼이보임
-			if(UserAuth == 2){
 				$(".qpsyQbtn1").hide();
 			}else{
+				$(".ansbtn").eq(1).hide();
+				$(".ansbtn").eq(0).show();
 				$(".qpsyQbtn1").show();
 			}
 			
-			// 활성화눌렀을때
-			$(".ansbtn").off().on("click", function(){
-				$('#syinputbox').removeClass('disnone').addClass('disblock');
-			});
+/* 		 	// 비활성화
+			$(".nonansbtn").off().on("click", function(){
+				$("#syinputbox").prop("disabled",false);	
+			}); */
+	
+		 	// 활성화눌렀을때
+ 			$("#sybutn1").click(function(){ 
+ 				$("#sybutn1").hide();
+ 				$("#sybutn2").show();
+ 				$("#syinputbox").removeAttr("readonly");
+ 			}); 
+		 	
+ 			$("#sybutn2").click(function(){
+ 				$("#sybutn2").hide();
+ 				$("#sybutn1").show();
+ 				$("#syinputbox").attr("readonly", "readonly");
+ 			});
+
 			
 			// 취소버튼 눌렀을때 model로 돌아가기
 			$(".qpsyQbtn2").off().on("click", function(){
@@ -64,18 +64,18 @@
 			});
 			
 			// 답변달기
-			function ajax() {
-				$(".qpsyQbtn1").off().on("click", function(){
-					if(confirm("등록하시겠습니까?")){
+			$(".qpsyQbtn1").off().on("click", function(){ //답변버튼을누르면
+				if($("#syinputbox").attr("readonly") == "readonly"){ 
+					//만약 인풋박스가 readonly면 
+					if(confirm("등록하시겠습니까?")){ //등록버튼이 활성화 
 		    	    	var cnt = 0;
-		    	    	var Reply = $("#syinputbox").val();	
-		        	    	$.ajax({url:"setAnswerData", 
+		    	    	var Reply = $("#syinputbox").val();	//인풋박스안에 값을 넣을수있게 
+		        	    	$.ajax({url:"setAnswerData",  //답변등록하면  부분전환 
 		        	    		type:"post",
 		        	    		data:{"Qno": Qno, "Reply": Reply}, 
 		        	    		dataType : "json"
 		        	    		}).done(function(data){
-		        	    		if(data.status == 0){
-		        	    			
+		        	    		if(data.status == 0){			
 		        	    			cnt++;
 		        	    			alert(cnt);
 		        	    		}  
@@ -89,8 +89,8 @@
 		        	}else {
 		        		alert("취소하셨습니다.");
 		      	  	}
-		    	});
-			}ajax();
+				}
+	    	});
 			
 		});
     </script>
@@ -110,10 +110,11 @@
 		<div class="qpsydatailTop2">
 			<span>관리자 답변</span>
 			<button type="button" class="ansbtn" id="sybutn1">활성화</button>
+			<button type="button" class="ansbtn" id="sybutn2">비활성화</button>
 		</div>  
 		<div class="qpsydetailMiddel2">
 			<div class ="qp_textbox">
-				<textarea id="syinputbox" name="Reply" class="form-control col-xs-12 disnone" rows="14" cols="80" style="margin:0;width: 830px; height: 280px;resize:none;" ></textarea>
+				<textarea id="syinputbox" name="Reply" class="form-control col-xs-12" rows="14" cols="80" style="margin:0;width: 830px; height: 280px;resize:none;" readonly="readonly" ></textarea>
 			</div>            
 		</div>
 		<div class ="boxheight">
