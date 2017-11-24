@@ -165,7 +165,7 @@
                     <p class="qpsytable_name">CONTACT</p>
                 </div>
                 <div class="qpsyselect">
-                    <form name="contact" method="post">
+                    <form name="contact" method="post" onsubmit="return false;">
                     <select  id="contact_selecttype" name="contact_select">
                        <option value="0">제목</option>
                        <option value="1">작성자</option>

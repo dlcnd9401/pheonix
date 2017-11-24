@@ -10,17 +10,17 @@
    
 
 
-    <select id="questionSearchData" parameterType="hashmap" resultType="hashmap"> <!-- 리스트검색 -->
-      select Qno,Qtitle, QContents, UserId from Question
-      where 1= 1
+<select id="questionSearchData" parameterType="hashmap" resultType="hashmap"> <!-- 리스트검색 -->
+      select Qno,Qtitle, QContents, UserId from Question 
+      where 1 = 1
      <if test="contact_select == '제목'">  <!-- 제목으로 검색 -->
-          AND Qtitle like '%${textsearch}%'
+          AND Qtitle like '%${textsearch}%' ORDER BY Qno desc
           <!--  컬럼명                         텍스트입력                           디비에 있는 ㄴㅐ용과 콤보박스에 선택한 주제를 일치시킴 --> 
       </if>      
         <if test="contact_select == '작성자'">   <!-- 유저 아이디로 검색 -->
-          AND  UserId like '%${textsearch}%'
+          AND  UserId like '%${textsearch}%' ORDER BY Qno desc
       </if>
-   </select> 
+</select>
       
       
    
@@ -31,7 +31,7 @@
    
    <!-- 관리자 답변기능  -->
    <update id="questionAnswerData" parameterType="hashmap">
-      update Question set Reply = #{Reply} where Qno = #{Qno}
+      update Question set Reply = #{Reply} where Qno = #{Qno} 
    </update>
    
    

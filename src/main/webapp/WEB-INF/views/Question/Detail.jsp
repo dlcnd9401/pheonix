@@ -29,7 +29,7 @@
 			}
 			init();
 		
-			// 관리자는 활성화버튼이보임
+			// 관리자만 활성화와 비활성화 버튼이 보임 
 			if(UserAuth == 2){
 				$(".ansbtn").hide();
 				$(".qpsyQbtn1").hide();
@@ -39,29 +39,28 @@
 				$(".qpsyQbtn1").show();
 			}
 			
-/* 		 	// 비활성화
-			$(".nonansbtn").off().on("click", function(){
-				$("#syinputbox").prop("disabled",false);	
-			}); */
 	
-		 	// 활성화눌렀을때
+			
+		 	// 활성화를 누르면 비활성화 생성
  			$("#sybutn1").click(function(){ 
  				$("#sybutn1").hide();
  				$("#sybutn2").show();
  				$("#syinputbox").removeAttr("readonly");
  			}); 
 		 	
+		 	 //비활성화를 누르면 활성화 생성 
  			$("#sybutn2").click(function(){
  				$("#sybutn2").hide();
  				$("#sybutn1").show();
  				$("#syinputbox").attr("readonly", "readonly");
- 			});
+ 			}); 
 
 			
 			// 취소버튼 눌렀을때 model로 돌아가기
 			$(".qpsyQbtn2").off().on("click", function(){
 				location.replace("model");
 			});
+			
 			
 			// 답변달기
 			$(".qpsyQbtn1").off().on("click", function(){ //답변버튼을누르면
@@ -84,11 +83,13 @@
 		    	    		alert("실패하셨습니다.");
 		    	    	}else {
 		    	    		alert("등록하셨습니다.");	    	    		
-		    	    		location.href = "Detail?Qno="+Qno;
+// 		    	    		location.href = "Detail?Qno="+Qno; --> 고정시켜서 해제 시켜야됨
 		    	    	}
 		        	}else {
 		        		alert("취소하셨습니다.");
 		      	  	}
+					
+
 				}
 	    	});
 			
