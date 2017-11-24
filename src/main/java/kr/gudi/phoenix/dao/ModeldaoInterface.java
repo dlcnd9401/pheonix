@@ -10,4 +10,5 @@ public interface ModeldaoInterface {
 	public List<HashMap<String, Object>> modeldetail(HashMap<String, Object> param);
 	public int modelbuy(HashMap<String, Object> param);
 	public int modelcart(HashMap<String, Object> param);
+	public int modelupdate(HashMap<String, Object> param);
 }

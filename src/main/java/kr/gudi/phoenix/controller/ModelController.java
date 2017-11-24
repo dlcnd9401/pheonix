@@ -52,17 +52,9 @@ public class ModelController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/PopUp")
+	@RequestMapping(value = "/PopUp", method = RequestMethod.GET)
 	public ModelAndView popup(ModelAndView mav, HttpSession session){
 		HashMap<String, HashMap<String, Object>> user = (HashMap<String, HashMap<String, Object>>) session.getAttribute("user");
-		/*if(user == null){
-			mav.setViewName("redirect:/alert");
-			return mav;
-		}else{
-			mav.addObject("UserId",user.get("data").get("UserId"));
-			mav.setViewName("Model/popup");
-			return mav;	
-		}*/
 		return mav;
 	}
 
@@ -120,7 +112,10 @@ public class ModelController {
 		HashMap<String,Object> param = new HashMap<String,Object>();
 		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		param = HttpUtil.getParameterMap(req);
-		param= msi.modelbuy(param);
+		param = msi.modelbuy(param);
+		param.put("Code", req.getParameter("Code"));
+		System.out.println("CT code :" + param.get("Code"));
+		mav.addObject(msi.modelupdate(param));
 		mav.setViewName("Model/popup");		
 		return mav;
 	}  
@@ -130,6 +125,8 @@ public class ModelController {
 		HashMap<String,Object> param = new HashMap<String,Object>();
 		param = HttpUtil.getParameterMap(req);
 		param= msi.modelcart(param);
+		param.put("Code", req.getParameter("Code"));
+		param = msi.modelupdate(param);
 		mav.setViewName("Model/popup");
 		return  mav;
 	}

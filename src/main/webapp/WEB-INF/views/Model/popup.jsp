@@ -15,7 +15,7 @@
 <title>PoPup</title>
     <script type="text/javascript">
 <%--     <% String UserId = request.getAttribute("UserId").toString();%> --%>
-    $(document).ready(function(){
+//     $(document).ready(function(){
 	<%-- var UserId = "<%=UserId%>";  
 /* 	var tag = "<span style = 'font-size:13px; color:white;'>" + UserId + "님" + "</span>";
 	if(UserId == null){

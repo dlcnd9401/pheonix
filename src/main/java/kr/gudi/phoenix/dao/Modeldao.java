@@ -37,5 +37,9 @@ public class Modeldao implements ModeldaoInterface {
 	public int modelcart(HashMap<String, Object> param) {
 		return session.insert("sql.modelcart",param);
 	}
+	public int modelupdate(HashMap<String,Object>param){
+		
+		return session.update("sql.modelupdate",param);
+	}
 		
 }

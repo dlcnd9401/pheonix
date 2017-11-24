@@ -123,7 +123,7 @@
                 <img class="clock" name="path" id ="path" src ="<%= map.get(i).get("img")%>" onclick="document.getElementById('modal01').style.display='block'" style="width:100%;cursor:zoom-in">
                 </div>
                 <div class="select">
-            <form action = "ModelCart" method ="post">
+            <form action = "ModelCart" method ="get">
             <input style =display:none; type = "text" name = "UserId" id ="UserId" value ="<%=UserId%>"><br>  
 			<input style =display:none; type = "text" name = "Code" id ="Code" value ="<%= map.get(i).get("code")%>"><br>
 			<input style =display:none; type = "text" name = "Name" id ="Name" value ="<%= map.get(i).get("name")%>"><br>
@@ -186,7 +186,7 @@
                    <!--  <input type ="submit" value = "">   -->        
                 </form>
                     </div>    
-            <form action = "Modelbuy" method ="post">
+            <form action = "Modelbuy" method ="get">
             <input style =display:none; type = "text" name = "UserId" id ="UserId" value ="<%=UserId%>"><br>  
 			<input style =display:none; type = "text" name = "Code" id ="Code" value ="<%= map.get(i).get("code")%>"><br>
 			<input style =display:none; type = "text" name = "Name" id ="Name" value ="<%= map.get(i).get("name")%>"><br>
