@@ -54,7 +54,7 @@ public class MasterService implements MasterServiceInterface {
 	            path = req.getSession().getServletContext().getRealPath("/") + path2 +  name;	            
 //	            System.out.println("name " + name + " path " + path);	 
 	            File f = new File(path);
-	            
+	            System.out.println(param);
 	            if(f.exists()){
 		               f = new File(path);
 		               OutputStream out = new FileOutputStream(f);	            
@@ -71,7 +71,8 @@ public class MasterService implements MasterServiceInterface {
 		               map.put("code", param.get("code"));
 		               map.put("price", param.get("price"));
 		               map.put("introduce", param.get("introduce"));
-		               map2 = setClockupData(map);		               
+		               map2 = setClockupData(map);	
+		               System.out.println(param);
 		            }
 		            System.out.println("map " + map);
 		            System.out.println("map2 " + map2);

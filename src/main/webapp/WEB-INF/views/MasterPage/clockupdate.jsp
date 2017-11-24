@@ -120,7 +120,7 @@ $(document).ready(function(){
                <input type="text" placeholder="시계모양(mshape)을 입력해주세요" class="cdjyuptext1" name="mshape" id="cdjyclockmshape">
            </div>
            <div class="cdjyupjul1">               
-               <input type="text" placeholder="Scode를 입력해주세요" class="cdjyuptext1" name="scode" id="cdjyclockscode">
+               <input type="number" placeholder="Scode를 입력해주세요" class="cdjyuptext1" name="scode" id="cdjyclockscode">
            </div>
            <div class="cdjyupjul1">               
                <input type="text" placeholder="제품번호(code)를 입력해주세요" class="cdjyuptext1" name="code" id="cdjyclockcode">
