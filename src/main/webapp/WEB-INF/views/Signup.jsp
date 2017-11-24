@@ -31,24 +31,25 @@
     		tel = $("#UserTel").val();
     		post = $("#UserPost").val();
     		
-    		 if(id != "" && pw != "" && name != "" && email != "" && tel != "" && post != "" && $("#checkid").text()=="완료" && finId==idText){
-                 $.ajax({
+    		 if(id == "" && pw == "" && name == "" && email == "" && tel == "" && post == "" && $("#checkid").text()!="완료" && finId!=idText){
+                 alert("값을 모두 입력해주세요.");
+                 return false;
+    		 }else if(regex.test(email) == false){
+    			 alert("잘못된 이메일 형식입니다.");
+    	         return false;
+    		 }
+    			 
+    			 $.ajax({
                     type:"post",
                     url:"SignupData",
                     data: {"UserId" : id , "UserPw" : pw, "UserName" : name, "UserEmail" : email, "UserTel" : tel, "UserPost" : post}
                  }).done(function(result){
-                  if(regex.test(email) == false){
-                	  alert("잘못된 이메일 형식입니다.");
-                      return false;
-                  }else{
                    alert("회원가입이 완료되었습니다. 로그인하세요.");
                    location.href = "model";
-                  }
-                 });
-             }else{
-                   alert("모든정보를 입력하세요.");
-              }
-          });
+                   
+                  });
+
+    });
    
       
     	
