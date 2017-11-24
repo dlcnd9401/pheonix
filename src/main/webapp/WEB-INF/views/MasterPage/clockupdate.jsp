@@ -21,11 +21,12 @@ $(document).ready(function(){
 		cdjyclockname = $("#cdjyclockname").val();
 		cdjyclockmKind = $("#cdjyclockmKind").val();
 		cdjyclockmshape = $("#cdjyclockmshape").val();
+		cdjyclockscode = $("#cdjyclockscode").val();
 		cdjyclockcode = $("#cdjyclockcode").val();
 		cdjyclockprice = $("#cdjyclockprice").val();
 		cdjyclockintroduce = $("#cdjyclockintroduce").val();
 		
-		if(cdjyclockmshape != "" && cdjyclockname != "" && cdjyclockmKind != "" && cdjyclockmshape != "" && cdjyclockcode != "" && cdjyclockprice != "" && cdjyclockintroduce != "" ){
+		if(cdjyclockmshape != "" && cdjyclockname != "" && cdjyclockmKind != "" && cdjyclockmshape != "" && cdjyclockcode != "" && cdjyclockscode != "" && cdjyclockprice != "" && cdjyclockintroduce != "" ){
 			clockupdatebtn();
 			
         }else{           
@@ -36,45 +37,32 @@ $(document).ready(function(){
 	/* 제품등록버튼눌렀을시 */
 	function clockupdatebtn(){
 	$("form").on("submit", function( event ) {			
-		         event.preventDefault();
-		         var form = document.forms[0];
-		         var data = new FormData(form);
-		         data.append("cdjyfilename", $('#cdjyfilename')[0].files[0]);		         
-		         
-		         $.ajax({
-		        	 type:"post",		         
-		       	  	 url:"clockupData", 
-			       	 enctype: 'multipart/form-data',			         
-			         contentType: false,
-			         processData: false,
-			         cache: false,
-			         data: data		       	  	 
-		          }).done(function(result){		             
-		        	  console.log("SUCCESS : ", data);
-		                 var result = JSON.parse(data);
-		                 if(result.status == 0){
-		                	 alert("오류가 발생했습니다.");
-		                 }
-		                 location.href = "model";
-		          }).fail(function(result){
-		        	  alert("what?"); 
-		          });
-		        	 
-		         
-			});	
-	}
-	
-	/* 이미지저장경로 */
-	function fn_insertBoard(){
-        var comSubmit = new ComSubmit("frm");
-        comSubmit.setUrl("<c:url value='/sample/insertBoard.do' />");
-        comSubmit.submit();
-    }
+        event.preventDefault();
 
-	// 이미지 파일 여부 판단
-	function checkImageType(fileName){
-	    var pattern = /jpg|gif|png|jpeg/i;
-	    return fileName.match(pattern);
+			var data = new FormData(document.getElementById("inputData"));
+
+	         $.ajax({
+	        	 type:"post",		         
+	       	  	 url:"clockupData", 
+		       	 enctype: 'multipart/form-data',			         
+		         contentType: false,
+		         processData: false,
+		         cache: false,
+		         data: data,		
+	             timeout: 600000
+	          }).done(function(data){		             
+	        	  console.log("SUCCESS : ", data);
+	                 var result = JSON.parse(data);
+	                 if(result.status == 0){
+	                	 alert("오류가 발생했습니다.");
+	                 }else {
+	                	 alert("등록되었습니다.");
+	                 }
+	                 location.href = "model";
+	          }).fail(function(result){
+	        	  alert("what?"); 
+	          });    
+		});	
 	}
 		/* 사진이미지추가시 input에 파일명 보여주기*/
 		var uploadFile = $('.cdjyupjul1 .cdjyimgfile');
@@ -85,22 +73,12 @@ $(document).ready(function(){
 				var filename = $(this).val().split('/').pop().split('\\').pop();
 			}
 			$(this).siblings('.cdjyuptext1').val(filename);
-		});
-		
-		// 이미지 파일 여부 판단
-		function checkImageType(fileName){
-		    var pattern = /jpg|gif|png|jpeg/i;
-		    return fileName.match(pattern);
-		}
+		});		
 });
     </script>
 </head>
 <body>
 	<div class = "main">
-
-    
-    
-    
     
     <section id="cdjytle">
       <!-- 제목 -->
@@ -116,12 +94,13 @@ $(document).ready(function(){
               <div class="cdjyupjul1"> <p class="cdjyuptext">시리즈이름</p></div>
               <div class="cdjyupjul1"> <p class="cdjyuptext">시계이름</p></div>
               <div class="cdjyupjul1"> <p class="cdjyuptext">모양</p></div>
-              <div class="cdjyupjul1"> <p class="cdjyuptext">제품번호</p></div>
+              <div class="cdjyupjul1"> <p class="cdjyuptext">Scode</p></div>
+              <div class="cdjyupjul1"> <p class="cdjyuptext">제품번호</p></div>              
               <div class="cdjyupjul1"> <p class="cdjyuptext">가격</p></div>              
               <div class="cdjyupjul2"> <p class="cdjyuptext">설명</p></div>
               <div class="cdjyupjul1"> <p class="cdjyuptext">시계이미지</p></div>
           </div>
-          <form id="inputData" method="post">
+          <form id="inputData" method="post" enctype="multipart/form-data">
           <!-- input부분 -->
           <div class="cdjyinput">
              <!--판매점-->
@@ -139,6 +118,9 @@ $(document).ready(function(){
            </div>
            <div class="cdjyupjul1">               
                <input type="text" placeholder="시계모양(mshape)을 입력해주세요" class="cdjyuptext1" name="mshape" id="cdjyclockmshape">
+           </div>
+           <div class="cdjyupjul1">               
+               <input type="text" placeholder="Scode를 입력해주세요" class="cdjyuptext1" name="scode" id="cdjyclockscode">
            </div>
            <div class="cdjyupjul1">               
                <input type="text" placeholder="제품번호(code)를 입력해주세요" class="cdjyuptext1" name="code" id="cdjyclockcode">
